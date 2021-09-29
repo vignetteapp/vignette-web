@@ -1,0 +1,28 @@
+/* ignore the errors, vscode is stupid */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.gradient-secondary{
+  @apply  bg-gradient-to-r from-iris-70 to-fuschia-90
+}
+
+.hero {
+  background-image: url('public/images/background.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+*{
+  scrollbar-color: pink;
+  
+}
+
+.footer {
+  width: 100%;
+  left:0;
+  right:0;
+}
