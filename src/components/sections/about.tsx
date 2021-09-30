@@ -1,7 +1,6 @@
 import { Layout, PrimaryText } from '@/components'
-import { NextPage } from 'next'
 
-const About: NextPage = () => (
+const About: React.FC = () => (
   <Layout id="about" className="flex flex-col hero p-12">
     <PrimaryText className="text-5xl font-semibold font-spartan tracking-tighter">
       About

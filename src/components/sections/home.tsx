@@ -1,8 +1,8 @@
 import { Layout, Button, BottomBar, PrimaryText } from '@/components'
 import { Icon } from '@iconify/react'
-import { NextPage } from 'next'
+import Link from 'next/link'
 
-const Home: NextPage = () => (
+const Home: React.FC = () => (
   <Layout id="home" className="flex flex-col hero">
     <div className="text-center m-auto pt-10">
       <PrimaryText className="logo">Vignette</PrimaryText>
@@ -14,7 +14,9 @@ const Home: NextPage = () => (
         <p className="text-subtle font-medium tracking-tight">
           Free and Open Source
         </p>
-        <Button>Download</Button>
+        <Button>
+          <Link href="/downloads">Download</Link>
+        </Button>
       </div>
     </div>
 
