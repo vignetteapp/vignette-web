@@ -30,7 +30,6 @@ body {
 }
 
 /* Miscellaneous */
-
 .hero {
   @apply bg-hero-pattern bg-center bg-no-repeat bg-cover;
 }
