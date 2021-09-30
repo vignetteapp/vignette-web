@@ -13,6 +13,7 @@ const SEO: React.FC<{ title: string; desc: string; path: string }> = ({
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`https://vignetteapp.org${path}`} />
       <meta property="og:image" content="/images/banner.jpg" />
+      <meta name="twitter:card" content="summary_large_image" />
     </head>
   )
 }
