@@ -1,9 +1,9 @@
 import React from 'react'
 
 const BottomBar: React.FC = () => (
-  <svg viewBox="0 0 1400 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 1400 10" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g filter="url(#filter0_d)">
-      <rect width="1440" height="13" fill="url(#paint0_linear)" />
+      <rect width="1440" height="10" fill="url(#paint0_linear)" />
     </g>
     <defs>
       <filter
