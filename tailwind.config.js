@@ -23,6 +23,7 @@ module.exports = {
         },
         deepFuscia: '#BE58CB',
         pinkRed: '#F10E5A',
+        cornflowerBlue: '#6A99DD',
         primary: '#323232',
         secondary: '#444444',
         subtle: '#777777',

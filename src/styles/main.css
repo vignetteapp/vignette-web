@@ -16,9 +16,20 @@ body {
   @apply font-inter text-primary;
 }
 
-.gradient-secondary{
+/* Gradient */
+.gradient-primary {
+  @apply bg-gradient-to-br from-deepFuscia to-pinkRed;
+}
+
+.gradient-secondary {
   @apply bg-gradient-to-br from-iris-70 to-fuschia-90;
 }
+
+.gradient-tertiary {
+  @apply bg-gradient-to-bl from-cornflowerBlue to-pinkRed;
+}
+
+/* Miscellaneous */
 
 .hero {
   @apply bg-hero-pattern bg-center bg-no-repeat bg-cover;
