@@ -23,3 +23,7 @@ body {
 .hero {
   @apply bg-hero-pattern bg-center bg-no-repeat bg-cover;
 }
+
+.logo {
+  @apply font-bold tracking-tightest text-8xl;
+}

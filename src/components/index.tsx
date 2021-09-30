@@ -1,6 +1,6 @@
 import Layout from './layout'
 import Button from './button'
 import BottomBar from './bottomBar'
-import Logo from './logo'
+import PrimaryText from './primaryText'
 
-export { Layout, Button, BottomBar, Logo }
+export { Layout, Button, BottomBar, PrimaryText }
