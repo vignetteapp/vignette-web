@@ -7,6 +7,7 @@ const Layout: React.FC<
   <section
     {...rest}
     className={`relative min-h-screen w-full overflow-x-hidden ${className}`}
+    data-sidebar
   >
     {children}
   </section>
