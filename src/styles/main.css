@@ -6,7 +6,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Spartan:wght@400;500;600;700&display=swap');
 
-/* Scrollbar */
+/* Scrollbar: Chromium */
 ::-webkit-scrollbar {
   @apply w-1;
 }
@@ -17,6 +17,12 @@
 
 ::-webkit-scrollbar-thumb {
   @apply bg-gradient-to-br from-iris-70 to-fuschia-90 drop-shadow-lg;
+}
+
+/* Scrollbar: Firefox */
+* {
+  scrollbar-color: #6A99DD #E5E7EB;
+  scrollbar-width: thin;
 }
 
 /* Globals */
