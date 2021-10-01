@@ -26,11 +26,6 @@ class MyDocument extends Document {
             rel="preload"
             as="style"
           />
-          <script
-            defer
-            data-domain="vignetteapp.org"
-            src="https://plausible.io/js/plausible.js"
-          />
         </Head>
         <body>
           <Main />
