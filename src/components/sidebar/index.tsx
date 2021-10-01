@@ -47,7 +47,7 @@ const Sidebar: React.FC = () => {
         ))}
       </div>
 
-      <div className="flex flex-col items-end">
+      <div className="flex flex-col items-end pb-4">
         {Object.keys(list).map((key, i) => (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <Link
