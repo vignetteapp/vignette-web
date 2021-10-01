@@ -3,17 +3,17 @@ import Image from 'next/image'
 const About: React.FC = () => (
   <Layout
     id="about"
-    className="flex flex-col hero pr-48 pl-12 py-12"
+    className="flex flex-col hero md:pr-48 md:pl-12 py-12 p-6"
     data-sidebar
   >
-    <PrimaryText className="md:text-6xl text-4xl font-semibold font-spartan tracking-wider p-3">
+    <PrimaryText className="md:text-6xl text-4xl font-semibold font-spartan tracking-normal p-3">
       About
     </PrimaryText>
 
-    <div className=" flex flex-row tracking-wide">
-      <div className="font-normal flex flex-col justify-between max-w-2xl p-4">
+    <div className=" flex flex-row flex-wrap tracking-wide">
+      <div className="font-normal flex flex-col justify-between  md:max-w-2xl p-4">
         <div className="font-inter">
-          <p className="md:text-2xl text-xl spaced-line ">
+          <p className="text-2xl spaced-line ">
             <p className="gradient-secondary font-semibold text-transparent bg-clip-text inline-block">
               Vignette
             </p>
@@ -25,10 +25,11 @@ const About: React.FC = () => (
             path.
           </p>
 
-          <PrimaryText className="font-bold gradient-tertiary md:text-3xl text-xl mt-8 mb-3 font-inter">
+          <p className="font-bold gradient-tertiary bg-clip-text text-transparent text-3xl mt-8 mb-4 font-inter">
             Made for you, by you.
-          </PrimaryText>
-          <p className="md:text-2xl text-xl font-regular mr-20  font-inter leading-loose spaced-line">
+          </p>
+
+          <p className="text-2xl font-regular md:mr-20  font-inter leading-loose spaced-line">
             And that was our <p className="font-semibold inline">mission</p>: to
             build a product to make these independent content creators become
             their own VTubers{` `}
@@ -51,7 +52,7 @@ const About: React.FC = () => (
 
         <p className="text-subtle text-md">* Applies to individuals only</p>
       </div>
-      <div className="ml-auto">
+      <div className="ml-auto pt-10 md:pt-0">
         <Image
           src="/images/demo.png"
           alt="Vignette UI image"
