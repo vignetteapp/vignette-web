@@ -5,9 +5,9 @@ import Link from 'next/link'
 const Home: React.FC = () => (
   <Layout id="home" className="flex flex-col hero z-30" data-sidebar>
     <div className="text-center m-auto pt-10">
-      <PrimaryText className="logo">Vignette</PrimaryText>
+      <PrimaryText className="logo p-3">Vignette</PrimaryText>
 
-      <p className="text-3xl font-semibold pt-4">
+      <p className="md:text-3xl font-semibold pt-4">
         Make your streams more virtual.
       </p>
       <div className="mt-12">
@@ -20,9 +20,9 @@ const Home: React.FC = () => (
       </div>
     </div>
 
-    <div className="bottom-0 mx-auto flex flex-col align-center items-center mb-2">
+    <div className="bottom-0 mx-auto flex flex-col align-center items-center mb-4">
       <p className="text-subtle text-lg tracking-tight">Learn more</p>
-      <Icon icon="akar-icons:chevron-down" className="text-subtle" />
+      <Icon icon="akar-icons:chevron-down" className="text-subtle " />
     </div>
 
     <BottomBar />

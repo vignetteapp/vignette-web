@@ -4,11 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Spartan:wght@400;500;600;700&display=swap');
-
 /* Scrollbar: Chromium */
 ::-webkit-scrollbar {
-  @apply w-1;
+  @apply w-2;
 }
 
 ::-webkit-scrollbar-track {
@@ -43,7 +41,7 @@ body {
 }
 
 .gradient-secondary {
-  @apply bg-gradient-to-br from-iris-70 to-fuschia-90;
+  @apply bg-gradient-to-br from-iris-70 via-iris-80 to-fuschia-90;
 }
 
 .gradient-tertiary {
@@ -56,10 +54,14 @@ body {
 }
 
 .logo {
-  @apply font-bold tracking-tightest text-8xl;
+  @apply font-bold tracking-tightest md:text-8xl sm:text-7xl text-6xl !important;
 }
 
 /* Sidebar link color */
 #sidebar-links a svg path {
   fill: url(#secondaryGradient);
+}
+
+.spaced-line{
+  line-height: 1.625 !important;
 }
