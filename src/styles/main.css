@@ -6,7 +6,7 @@
 
 /* Scrollbar: Chromium */
 ::-webkit-scrollbar {
-  @apply w-1;
+  @apply w-2;
 }
 
 ::-webkit-scrollbar-track {
@@ -60,4 +60,8 @@ body {
 /* Sidebar link color */
 #sidebar-links a svg path {
   fill: url(#secondaryGradient);
+}
+
+.spaced-line{
+  line-height: 1.625 !important;
 }
