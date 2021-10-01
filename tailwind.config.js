@@ -1,10 +1,22 @@
 module.exports = {
   mode: 'jit',
-  purge: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/styles/**/*.css',
-  ],
+  purge: {
+    content: [
+      './src/pages/**/*.{js,ts,jsx,tsx}',
+      './src/components/**/*.{js,ts,jsx,tsx}',
+      './src/styles/**/*.css',
+    ],
+    options: {
+      safelist: {
+        greedy: [
+          /text-primary/,
+          /text-subtle/,
+          /border-primary/,
+          /border-subtle/,
+        ],
+      },
+    },
+  },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {

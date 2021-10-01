@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react'
 import Link from 'next/link'
 
 const Home: React.FC = () => (
-  <Layout id="home" className="flex flex-col hero">
+  <Layout id="home" className="flex flex-col hero z-30" data-sidebar>
     <div className="text-center m-auto pt-10">
       <PrimaryText className="logo">Vignette</PrimaryText>
 
