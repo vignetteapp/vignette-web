@@ -30,7 +30,12 @@ const Sidebar: React.FC = () => {
 
       <div id="sidebar-links" className="filter drop-shadow">
         {Object.keys(LINKS).map((key, i, arr) => (
-          <a href={LINKS[key]} key={i}>
+          <a
+            href={LINKS[key]}
+            target="_blank"
+            rel="noopener noreferrer"
+            key={i}
+          >
             <Icon
               icon={key}
               height="36"
