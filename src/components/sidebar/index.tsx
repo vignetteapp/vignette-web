@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import Logo from '../icons/logo'
 import Link from './link'
 import { Icon } from '@iconify/react'
@@ -10,6 +11,7 @@ const LINKS: Record<string, string> = {
 }
 
 const Sidebar: React.FC = () => {
+  const router = useRouter()
   const [list, setList] = useState<Record<number, string>>({})
   const [active, setActive] = useState(0)
 
@@ -56,9 +58,7 @@ const Sidebar: React.FC = () => {
             active={i === active}
             onClick={() => {
               setActive(i)
-              window.scrollTo({
-                top: key as unknown as number,
-              })
+              router.push(`#` + list[key as unknown as number])
             }}
           />
         ))}
