@@ -64,6 +64,7 @@ body {
 
 .spaced-line{
   line-height: 1.625 !important;
+<<<<<<< HEAD
 }
 
 
@@ -71,4 +72,6 @@ body {
     --tw-shadow: 0 -15px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   
+=======
+>>>>>>> fd7ac4e1610617ebe2f4353a97e84d3f9c3f492b
 }
