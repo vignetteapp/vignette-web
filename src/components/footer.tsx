@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Footer: React.FC = () => {
   return (
-    <div className="bg-primary text-white p-6 md:p-12 flex flex-row flex-wrap z-30 relative">
+    <div className="bg-primary top-shadow text-white p-6 md:p-12 flex flex-row flex-wrap z-30 relative filter drop-shadow-footer">
       <Image
         src="/images/logo-white.svg"
         width="339"
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-col">
-        <p className="mt-auto my-1">
+        <p className="mt-auto my-1 pt-8">
           {` `}©{new Date().getFullYear()} The Vignette Authors{` `}
         </p>
       </div>

@@ -50,6 +50,11 @@ module.exports = {
       letterSpacing: {
         tightest: '-.1em',
       },
+      extend: {
+        dropShadow: {
+          footer: '0 10px 10px rgba(0, 0, 0, 0.25)',
+        },
+      },
     },
   },
   variants: {

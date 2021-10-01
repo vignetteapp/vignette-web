@@ -27,7 +27,7 @@ const Sidebar: React.FC = () => {
   }, [])
 
   return (
-    <div className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 flex flex-col justify-between items-end">
+    <div className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 md:flex flex-col justify-between items-end hidden">
       <Logo width="45" />
 
       <div id="sidebar-links" className="filter drop-shadow">
