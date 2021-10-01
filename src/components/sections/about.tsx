@@ -25,7 +25,6 @@ const About: React.FC = () => (
             path.
           </p>
 
-
           <p className="font-bold gradient-tertiary bg-clip-text text-transparent text-3xl mt-8 mb-4 font-inter">
             Made for you, by you.
           </p>
