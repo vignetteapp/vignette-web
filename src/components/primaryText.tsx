@@ -5,7 +5,7 @@ const PrimaryText: React.FC<{ children: ReactNode; className: string }> = ({
   className,
 }) => (
   <h1
-    className={`p-3 font-spartan text-transparent bg-clip-text gradient-primary ${className}`}
+    className={`p-3 text-6xl font-spartan text-transparent bg-clip-text gradient-primary ${className}`}
   >
     {children}
   </h1>
