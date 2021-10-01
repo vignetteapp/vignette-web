@@ -6,7 +6,7 @@ const SEO: React.FC<{ title: string; desc: string; path: string }> = ({
   return (
     <head>
       <link rel="icon" type="image/png" href="/images/icon.png" />
-      <title>{title} - Vignette</title>
+      <title>{`${title} - Vignette`}</title>
       <meta name="description" content={desc} />
       <meta property="og:title" content={`${title} - Vignette`} />
       <meta property="og:description" content={desc} />

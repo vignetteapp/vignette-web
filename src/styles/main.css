@@ -54,7 +54,7 @@ body {
 }
 
 .logo {
-  @apply font-bold tracking-tightest md:text-8xl sm:text-7xl text-6xl !important;
+  @apply font-bold tracking-tightest md:text-8xl text-7xl  !important;
 }
 
 /* Sidebar link color */
@@ -64,4 +64,11 @@ body {
 
 .spaced-line{
   line-height: 1.625 !important;
+}
+
+
+.top-shadow{
+    --tw-shadow: 0 -15px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  
 }
