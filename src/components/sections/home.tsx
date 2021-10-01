@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react'
 import { NextPage } from 'next'
 
 const Home: NextPage = () => (
-  <Layout id="home" className="flex flex-col hero z-30">
+  <Layout id="home" className="flex flex-col hero z-30" data-sidebar>
     <div className="text-center m-auto pt-10">
       <PrimaryText className="logo">Vignette</PrimaryText>
 
