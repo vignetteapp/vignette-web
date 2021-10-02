@@ -6,7 +6,7 @@ const About: React.FC = () => (
     className="flex flex-col hero md:pr-48 md:pl-12 py-12 p-6"
     data-sidebar
   >
-    <PrimaryText className="md:text-6xl text-4xl font-semibold font-spartan tracking-normal p-3">
+    <PrimaryText className="md:text-6xl text-4xl font-semibold font-spartan tracking-tight p-3">
       About
     </PrimaryText>
 
@@ -52,7 +52,7 @@ const About: React.FC = () => (
 
         <p className="text-subtle text-md">* Applies to individuals only</p>
       </div>
-      <div className="ml-auto pt-10 md:pt-0">
+      <div className="ml-auto pt-10 md:pt-0 mx-auto md:mr-0">
         <Image
           src="/images/demo.png"
           alt="Vignette UI image"

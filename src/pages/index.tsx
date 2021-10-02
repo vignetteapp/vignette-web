@@ -1,6 +1,6 @@
 import Sidebar from '@/components/sidebar'
 import { Footer, SEO } from '@/components'
-import { Home, About } from '@/components/sections'
+import { Home, About, Features } from '@/components/sections'
 
 const Index: React.FC = () => {
   return (
@@ -10,6 +10,8 @@ const Index: React.FC = () => {
 
       <Home />
       <About />
+
+      <Features />
       <Footer />
     </>
   )
