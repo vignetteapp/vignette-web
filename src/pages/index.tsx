@@ -7,7 +7,6 @@ const Index: React.FC = () => {
     <>
       <SEO title="Home" desc="Make your streams more virtual." path="/" />
       <Sidebar />
-
       <Home />
       <About />
 

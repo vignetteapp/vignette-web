@@ -16,16 +16,14 @@ const Features: React.FC = () => (
           <Image src="/images/hat.png" width="170" height="170" alt="hat" />
         </div>
 
-        <iframe
-          className="video"
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        <video
+          className="rounded-lg shadow-lg"
+          src="/videos/demo.mp4"
+          height="636"
+          width="720"
+          autoPlay
+          loop
+        />
       </div>
       <div className=" max-w-2xl md:ml-20 pt-10">
         <PrimaryText className="text-3xl gradient-tertiary tracking-tight font-bold font-spartan  py-3 w-full ">
