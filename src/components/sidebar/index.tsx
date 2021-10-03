@@ -6,7 +6,7 @@ import { Icon } from '@iconify/react'
 
 const LINKS: Record<string, string> = {
   'akar-icons:twitter-fill': `https://twitter.com/vignette_org/`,
-  'bx:bxl-discord-alt': `https://discord.gg/yuts9qyyut`,
+  'bx:bxl-discord-alt': `https://discord.gg/CXEGVPhGkz`,
   'akar-icons:github-fill': `https://github.com/vignetteapp/vignette`,
 }
 
