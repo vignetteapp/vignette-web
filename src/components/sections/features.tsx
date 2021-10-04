@@ -3,13 +3,13 @@ import Image from 'next/image'
 
 const Features: React.FC = () => (
   <Layout
-    id="Features"
-    className="flex flex-col md:pr-48 md:pl-12 py-12 p-6 "
+    id="features"
+    className="flex flex-col md:pr-48 md:pl-12 p-6"
     data-sidebar
   >
     <div className="flex  flex-row font-inter flex-wrap-reverse ">
       <div
-        className="relative mt-6  mx-auto md:mr-0 md:ml-20 xl:px-4"
+        className="relative mx-auto md:mr-0 md:ml-20 xl:px-4"
         style={{ maxWidth: 570 }}
       >
         <div className="z-30 absolute top-0 right-0 -translate-y-20 pt-2 translate-x-8 md:block hidden">
