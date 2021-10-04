@@ -3,11 +3,11 @@ import { Layout, PrimaryText } from '@/components'
 const Features: React.FC = () => (
   <Layout
     id="features"
-    className="flex flex-col md:pr-48 md:pl-12 p-6"
+    className="flex flex-col md:pr-48 md:pl-12 p-6 mt-12"
     data-sidebar
   >
     <div className="flex flex-col-reverse lg:flex-row font-inter items-center">
-      <div className="relative mt-12 md:mr-0 xl:px-4 lg:w-2/3">
+      <div className="relative mt-12 md:mr-0 xl:px-4 lg:w-2/3 lg:mt-0">
         <video
           className="rounded-lg shadow-md mx-auto"
           src="/videos/demo.mp4"
