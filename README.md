@@ -1,59 +1,22 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/26466516/118417547-e9409d00-b68a-11eb-8162-6afccf9288a9.png" alt="Next.js TypeScript Starter">
+   <img width=200px src="https://avatars.githubusercontent.com/u/69518398?s=200&v=4" >
 </p>
+<br/>
 
-<p align="center">
-  <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&style=for-the-badge&color=5e17eb&labelColor=000000" alt="PRs welcome!" />
+[![Discord](https://img.shields.io/discord/871618277258960896?color=7289DA&label=%20&logo=discord&logoColor=white)](https://discord.gg/rsPNAxwweg)
 
-  <img alt="License" src="https://img.shields.io/github/license/jpedroschmitz/typescript-nextjs-starter?style=for-the-badge&color=5e17eb&labelColor=000000">
+Welcome to the web-facing side of Vignette.
 
-  <a href="https://twitter.com/intent/follow?screen_name=jpedroschmitz">
-    <img src="https://img.shields.io/twitter/follow/jpedroschmitz?style=for-the-badge&color=5e17eb&labelColor=000000" alt="Follow @jpedroschmitz" />
-  </a>
-</p>
+## Prerequisites
+- [NodeJS](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/)
 
-<br>
+## Contributing
+We welcome all contributions. To get started, see the [list of open issues](https://github.com/vignetteapp/vignette-web/issues).
 
-A TypeScript starter for Next.js that includes all you need to build amazing projects 🔥
+## License
+This repository is licensed under the MIT License. See [LICENSE](./LICENSE.md) for the full text.
 
-- 📏 **ESLint** — Pluggable JavaScript linter
-- 💖 **Prettier** - Opinionated Code Formatter
-- 🐶 **Husky** — Use git hooks with ease
-- 📄 **Commitizen** - Conventional commit messages CLI
-- 🚓 **Commitlint** - Lint commit messages
-- 🖌 **Renovate** - Dependency update tool
-- 🚫 **lint-staged** - Run linters against staged git files
-- 👷 **PR Workflow** - Run Type Check & Linters on pull requests
-- 🗂 **Absolute import** - Import folders and files using the `@` prefix
-
-## 🚀 Getting started
-
-The best way to start with this template is using `create-next-app`.
-
-```
-npx create-next-app ts-next -e https://github.com/jpedroschmitz/typescript-nextjs-starter
-```
-
-If you prefer you can clone this repository and run the following commands inside the project folder:
-
-1. `npm install` or `yarn`;
-2. `yarn dev`;
-
-To view the project open `http://localhost:3000`.
-
-## 🤝 Contributing
-
-1. Fork this repository;
-2. Create your branch: `git checkout -b my-new-feature`;
-3. Commit your changes: `git commit -m 'Add some feature'`;
-4. Push to the branch: `git push origin my-new-feature`.
-
-**After your pull request is merged**, you can safely delete your branch.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for more information.
-
----
-
-Made with ♥ by João Pedro Schmitz
+   <a href="https://vercel.com/?utm_source=vignette&utm_campaign=oss" target="_blank" rel="noreferrer noopener" aria-label="Powered by Vercel">
+      <img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" alt="Powered by Vercel" />
+   </a>

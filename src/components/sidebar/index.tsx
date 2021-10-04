@@ -1,25 +1,23 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import Logo from '../icons/logo'
-import Link from './link'
+import Logo from '@/components/icons/logo'
 import { Icon } from '@iconify/react'
+import Link from './link'
 
 const LINKS: Record<string, string> = {
   'akar-icons:twitter-fill': `https://twitter.com/vignette_org/`,
-  'bx:bxl-discord-alt': `https://discord.gg/yuts9qyyut`,
+  'bx:bxl-discord-alt': `https://discord.gg/CXEGVPhGkz`,
   'akar-icons:github-fill': `https://github.com/vignetteapp/vignette`,
 }
 
-const Sidebar: React.FC = () => {
+const Sidebar = () => {
   const router = useRouter()
   const [list, setList] = useState<Record<number, string>>({})
   const [active, setActive] = useState(0)
-
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLDivElement>(
       `section[data-sidebar]`,
     )
-
     const newList: Record<number, string> = {}
     sections.forEach((el) => (newList[el.offsetTop] = el.id.replace(/-/i, ` `)))
 
@@ -41,9 +39,8 @@ const Sidebar: React.FC = () => {
             <Icon
               icon={key}
               height="36"
-              className={`transition-transform duration-300 ease-in-out hover:scale-110 ${
-                i !== arr.length - 1 && `mb-3`
-              }`}
+              className={`transition - transform duration - 300
+  ease -in -out hover: scale - 110 ${i !== arr.length - 1 && `mb-3`} `}
             />
           </a>
         ))}
@@ -66,5 +63,4 @@ const Sidebar: React.FC = () => {
     </div>
   )
 }
-
 export default Sidebar
