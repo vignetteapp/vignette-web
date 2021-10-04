@@ -3,11 +3,11 @@ import Link from 'next/link'
 
 const Footer: React.FC = () => {
   return (
-    <div className="bg-primary top-shadow text-white p-4 md:p-8 px-12 flex flex-row flex-wrap z-30 relative filter drop-shadow-footer">
+    <div className="bg-primary top-shadow text-white p-6 md:p-9 md:px-12  flex flex-row flex-wrap z-30 relative filter drop-shadow-footer">
       <Image
         src="/images/logo-white.svg"
-        width="305"
-        height="75"
+        width="274"
+        height="66"
         alt="Vignette Logo"
       />
 
@@ -40,14 +40,16 @@ const Footer: React.FC = () => {
         </span>
 
         <a
-          className="  px-4 md:px-0"
+          className="md:px-0"
           style={{ color: `#fff` }}
           href="https://vercel.com/?utm_source=vignette&utm_campaign=oss"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="Powered by Vercel"
         >
-          <span className="mr-1 text-sm tracking-tight">Powered by</span>
+          <span className="mr-1 text-sm tracking-tight font-inter">
+            Powered by
+          </span>
           <Image
             src="/images/vercel.svg"
             alt="Powered by Vercel"
