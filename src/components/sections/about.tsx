@@ -29,7 +29,7 @@ const About: React.FC = () => (
             Made for you, by you.
           </p>
 
-          <p className="text-2xl font-regular md:mr-20  font-inter leading-loose spaced-line">
+          <div className="text-2xl font-regular md:mr-20  font-inter leading-loose spaced-line">
             And that was our{` `}
             <span className="font-semibold">mission</span>: to build a product
             to make these independent content creators become their own VTubers
@@ -48,7 +48,7 @@ const About: React.FC = () => (
               {` `}
               <span className="font-semibold">free</span>, no gotchas.*
             </p>
-          </p>
+          </div>
         </div>
 
         <p className="text-subtle text-lg">* Applies to individuals only</p>
