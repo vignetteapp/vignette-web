@@ -16,3 +16,7 @@ We welcome all contributions. To get started, see the [list of open issues](http
 
 ## License
 This repository is licensed under the MIT License. See [LICENSE](./LICENSE.md) for the full text.
+
+   <a href="https://vercel.com/?utm_source=vignette&utm_campaign=oss" target="_blank" rel="noreferrer noopener" aria-label="Powered by Vercel">
+      <img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" alt="Powered by Vercel" />
+   </a>

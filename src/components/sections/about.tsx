@@ -30,22 +30,23 @@ const About: React.FC = () => (
           </p>
 
           <p className="text-2xl font-regular md:mr-20  font-inter leading-loose spaced-line">
-            And that was our <p className="font-semibold inline">mission</p>: to
-            build a product to make these independent content creators become
-            their own VTubers{` `}
-            <p className="font-semibold inline-block">without</p> using any{` `}
-            <p className="font-semibold inline-block">specialized hardware</p>
+            And that was our{` `}
+            <span className="font-semibold">mission</span>: to build a product
+            to make these independent content creators become their own VTubers
+            {` `}
+            <span className="font-semibold ">without</span> using any{` `}
+            <span className="font-semibold">specialized hardware</span>
             {` `}
             and
             {` `}
-            <p className="font-semibold inline-block">relatively low price.</p>
+            <span className="font-semibold">relatively low price.</span>
             <p className="pt-4">
-              We <p className="font-semibold inline">won&apos;t</p>
+              We <span className="font-semibold">won&apos;t</span>
               {` `}
               gather data from you or sell DLCs, or give a half-complete product
               to you. Vignette and it&apos;s entire features will be forever
               {` `}
-              <p className="font-semibold inline">free</p>, no gotchas.*
+              <span className="font-semibold">free</span>, no gotchas.*
             </p>
           </p>
         </div>
