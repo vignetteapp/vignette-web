@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Logo from '@/components/icons/logo'
 import { Icon } from '@iconify/react'
 import Link from './link'
+import navigate from '@/utils/navigate'
 
 const LINKS: Record<string, string> = {
   'akar-icons:twitter-fill': `https://twitter.com/vignette_org/`,
@@ -56,7 +57,7 @@ const Sidebar = () => {
             active={i === active}
             onClick={() => {
               setActive(i)
-              router.push(`#` + list[key as unknown as number])
+              navigate(`#${list[key as unknown as number]}`)
             }}
           />
         ))}

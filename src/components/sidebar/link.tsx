@@ -38,6 +38,7 @@ const Link: React.FC<IProps> = ({
 
       <motion.div
         {...barProps}
+        initial={{ height: `1rem` }}
         animate={{
           height: active ? `2.2rem` : hover ? `1.2rem` : `1rem`,
         }}
