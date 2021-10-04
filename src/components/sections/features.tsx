@@ -22,6 +22,7 @@ const Features: React.FC = () => (
           height="636"
           width="720"
           autoPlay
+          muted
           loop
         />
       </div>
