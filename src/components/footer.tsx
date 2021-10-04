@@ -34,15 +34,20 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-col">
-   
         <p className="mt-auto my-1 pt-8 pb-2 text-center">
           {` `}©{new Date().getFullYear()} The Vignette Authors{` `}
         </p>
-        <a href="https://vercel.com/?utm_source=vignette&utm_campaign=oss" target="_blank" rel="noreferrer noopener" aria-label="Powered by Vercel" >
-                <img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" alt="Powered by Vercel" />
-              </a>
-      
-
+        <a
+          href="https://vercel.com/?utm_source=vignette&utm_campaign=oss"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="Powered by Vercel"
+        >
+          <img
+            src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg"
+            alt="Powered by Vercel"
+          />
+        </a>
       </div>
     </div>
   )
