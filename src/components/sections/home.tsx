@@ -11,8 +11,8 @@ const Home: React.FC = () => {
     >
       <div className="text-center m-auto pt-10">
         <PrimaryText className="logo p-3">Vignette</PrimaryText>
-
         <p className="md:text-3xl text-xl font-semibold pt-4">
+
           Make your streams more virtual.
         </p>
         <div className="mt-12">
