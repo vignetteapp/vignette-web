@@ -3,14 +3,15 @@ import Link from 'next/link'
 
 const Footer: React.FC = () => {
   return (
-    <div className="bg-primary top-shadow text-white p-6 md:p-12 flex flex-row flex-wrap z-30 relative filter drop-shadow-footer">
+    <div className="bg-primary top-shadow text-white p-4 md:p-8 px-12 flex flex-row flex-wrap z-30 relative filter drop-shadow-footer">
       <Image
         src="/images/logo-white.svg"
-        width="339"
-        height="83"
+        width="305"
+        height="75"
         alt="Vignette Logo"
       />
-      <div className="mx-auto md:flex flex-row gap-16 text-lg font-light hidden md:visible">
+
+      <div className="mx-auto md:flex flex-row gap-16  font-light hidden md:visible ">
         <div className="flex flex-col">
           <span className="my-1">
             <Link href="/#about">About</Link>
@@ -33,19 +34,25 @@ const Footer: React.FC = () => {
           </span>
         </div>
       </div>
-      <div className="flex flex-col">
-        <p className="mt-auto my-1 pt-8 pb-2 text-center">
+      <div className="flex flex-col md:text-center my-auto pt-6 md:pt-0 ">
+        <span className="pb-1 text-center tracking-tight text-sm">
           {` `}©{new Date().getFullYear()} The Vignette Authors{` `}
-        </p>
+        </span>
+
         <a
+          className="  px-4 md:px-0"
+          style={{ color: `#fff` }}
           href="https://vercel.com/?utm_source=vignette&utm_campaign=oss"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="Powered by Vercel"
         >
-          <img
-            src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg"
+          <span className="mr-1 text-sm tracking-tight">Powered by</span>
+          <Image
+            src="/images/vercel.svg"
             alt="Powered by Vercel"
+            width="67"
+            height="14"
           />
         </a>
       </div>
