@@ -1,10 +1,12 @@
+import Head from 'next/head'
+
 const SEO: React.FC<{ title: string; desc: string; path: string }> = ({
   title,
   desc,
   path,
 }) => {
   return (
-    <head>
+    <Head>
       <link rel="icon" type="image/png" href="/images/icon.png" />
       <title>{`${title} - Vignette`}</title>
       <meta name="description" content={desc} />
@@ -21,7 +23,7 @@ const SEO: React.FC<{ title: string; desc: string; path: string }> = ({
         href="https://fonts.gstatic.com"
         crossOrigin="true"
       />
-    </head>
+    </Head>
   )
 }
 

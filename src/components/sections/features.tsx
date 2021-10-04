@@ -32,7 +32,7 @@ const Features: React.FC = () => (
         <p className=" text-2xl spaced-line ">
           Computer Hardware and Bandwidth is still a premium, we know that too
           well. That&apos;s why{` `}Vignette
-          <p className="font-semibold inline"> wastes no time</p>, by making the
+          <span className="font-semibold "> wastes no time</span>, by making the
           application as small and performant as possible.
         </p>
         <PrimaryText className="text-3xl gradient-tertiary tracking-tight font-bold font-spartan   py-3 w-full  pt-12">
@@ -40,7 +40,7 @@ const Features: React.FC = () => (
         </PrimaryText>
         <p className=" text-2xl spaced-line ">
           Every part of your face will be captured in{` `}
-          <p className="font-semibold inline">pixel-perfect accuracy</p>,{` `}
+          <span className="font-semibold ">pixel-perfect accuracy</span>,{` `}
           thanks to our ever-adaptible Artificial Intelligence powered by
           Mediapipe and Tensorflow, delivering tracking quality like no other.
         </p>
