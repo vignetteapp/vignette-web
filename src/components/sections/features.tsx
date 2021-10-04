@@ -20,7 +20,7 @@ const Features: React.FC = () => (
       </div>
 
       <div className="lg:w-2/3 lg:ml-16">
-        <PrimaryText className="text-3xl gradient-tertiary tracking-tight font-bold font-spartan  py-3">
+        <PrimaryText className="text-3xl gradient-tertiary tracking-tight font-bold font-spartan py-3">
           Mean and Very lean
         </PrimaryText>
         <p className=" text-2xl spaced-line ">
@@ -29,10 +29,11 @@ const Features: React.FC = () => (
           <span className="font-semibold "> wastes no time</span>, by making the
           application as small and performant as possible.
         </p>
-        <PrimaryText className="text-3xl gradient-tertiary tracking-tight font-bold font-spartan py-3 pt-12">
+
+        <PrimaryText className="text-3xl gradient-tertiary tracking-tight font-bold font-spartan py-3 mt-12">
           Pixel-Perfect Expressions
         </PrimaryText>
-        <p className=" text-2xl spaced-line ">
+        <p className="text-2xl spaced-line">
           Every part of your face will be captured in{` `}
           <span className="font-semibold ">pixel-perfect accuracy</span>,{` `}
           thanks to our ever-adaptible Artificial Intelligence powered by
