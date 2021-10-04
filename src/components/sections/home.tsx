@@ -6,7 +6,7 @@ const Home: React.FC = () => {
   return (
     <Layout
       id="home"
-      className="flex flex-col hero z-30 shadow-lg"
+      className="flex flex-col hero z-30 shadow-lg min-h-screen"
       data-sidebar
     >
       <div className="text-center m-auto pt-10">
