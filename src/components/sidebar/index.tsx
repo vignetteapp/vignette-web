@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import Logo from '@/components/icons/logo'
 import { Icon } from '@iconify/react'
 import Link from './link'
@@ -12,7 +11,6 @@ const LINKS: Record<string, string> = {
 }
 
 const Sidebar = () => {
-  const router = useRouter()
   const [list, setList] = useState<Record<number, string>>({})
   const [active, setActive] = useState(0)
   useEffect(() => {
