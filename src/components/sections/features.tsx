@@ -1,5 +1,4 @@
 import { Layout, PrimaryText } from '@/components'
-import Image from 'next/image'
 
 const Features: React.FC = () => (
   <Layout
@@ -8,11 +7,7 @@ const Features: React.FC = () => (
     data-sidebar
   >
     <div className="flex flex-col-reverse lg:flex-row font-inter items-center">
-      <div className="relative mt-12 md:mr-0 xl:px-4 w-2/3">
-        <div className="z-30 absolute top-0 right-0 -translate-y-20 pt-2 translate-x-12 md:block hidden">
-          <Image src="/images/hat.png" width="140" height="140" alt="hat" />
-        </div>
-
+      <div className="relative mt-12 md:mr-0 xl:px-4 lg:w-2/3">
         <video
           className="rounded-lg shadow-md mx-auto"
           src="/videos/demo.mp4"
@@ -24,7 +19,7 @@ const Features: React.FC = () => (
         />
       </div>
 
-      <div className="w-2/3 lg:ml-20">
+      <div className="lg:w-2/3 lg:ml-16">
         <PrimaryText className="text-3xl gradient-tertiary tracking-tight font-bold font-spartan  py-3">
           Mean and Very lean
         </PrimaryText>

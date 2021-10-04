@@ -10,7 +10,7 @@ const About: React.FC = () => (
       About
     </PrimaryText>
 
-    <div className=" flex flex-col lg:flex-row flex-grow tracking-wide justify-between">
+    <div className=" flex flex-col flex-grow tracking-wide lg:flex-row justify-between">
       <div className="font-normal flex flex-col justify-between lg:w-2/3 md:p-3">
         <div className="font-inter">
           <p className="text-2xl spaced-line ">
