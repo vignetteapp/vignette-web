@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Features: React.FC = () => (
   <Layout
     id="Features"
-    className="flex flex-col hero md:pr-48 md:pl-12 py-12 p-6 "
+    className="flex flex-col md:pr-48 md:pl-12 py-12 p-6 "
     data-sidebar
   >
     <div className="flex  flex-row font-inter flex-wrap-reverse ">
