@@ -39,8 +39,9 @@ const Sidebar = () => {
             <Icon
               icon={key}
               height="36"
-              className={`transition - transform duration - 300
-  ease -in -out hover: scale - 110 ${i !== arr.length - 1 && `mb-3`} `}
+              className={`transition-transform duration-300 ease-in-out hover:scale-110 ${
+                i !== arr.length - 1 && `mb-3`
+              } `}
             />
           </a>
         ))}
