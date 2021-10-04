@@ -19,7 +19,7 @@ const Home: React.FC = () => {
             Free and Open Source
           </p>
           <Button>
-            <Link href="/downloads">Download</Link>
+            <a href="#downloads">Download</a>
           </Button>
         </div>
       </div>
