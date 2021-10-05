@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Logo from '@/components/icons/logo'
 import { Icon } from '@iconify/react'
 import Link from './link'
-import navigate from '@/utils/navigate'
 
 const LINKS: Record<string, string> = {
   'akar-icons:twitter-fill': `https://twitter.com/vignette_org/`,
@@ -21,6 +20,24 @@ const Sidebar = () => {
     sections.forEach((el) => (newList[el.offsetTop] = el.id.replace(/-/i, ` `)))
 
     setList(newList)
+  }, [])
+
+  useEffect(() => {
+    const positions: number[] = []
+    document
+      .querySelectorAll<HTMLDivElement>(`section[data-sidebar]`)
+      .forEach((e) => positions.push(e.offsetTop - window.innerHeight / 2))
+
+    const handler = () => {
+      const scroll = window.scrollY
+      const num = positions.reduce((a, n) => (n <= scroll ? n : a), 0)
+
+      const index = positions.indexOf(num)
+      setActive(index)
+    }
+
+    window.addEventListener(`scroll`, handler, true)
+    return () => window.removeEventListener(`scroll`, handler, true)
   }, [])
 
   return (
@@ -53,10 +70,7 @@ const Sidebar = () => {
             key={i}
             text={list[key as unknown as number]}
             active={i === active}
-            onClick={() => {
-              setActive(i)
-              navigate(`#${list[key as unknown as number]}`)
-            }}
+            link={`#${list[key as unknown as number]}`}
           />
         ))}
       </div>
