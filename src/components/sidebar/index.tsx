@@ -23,6 +23,24 @@ const Sidebar = () => {
     setList(newList)
   }, [])
 
+  useEffect(() => {
+    const positions: number[] = []
+    document
+      .querySelectorAll<HTMLDivElement>(`section[data-sidebar]`)
+      .forEach((e) => positions.push(e.offsetTop - window.innerHeight / 2))
+
+    const handler = () => {
+      const scroll = window.scrollY
+      const num = positions.reduce((a, n) => (n <= scroll ? n : a), 0)
+
+      const index = positions.indexOf(num)
+      setActive(index)
+    }
+
+    window.addEventListener(`scroll`, handler, true)
+    return () => window.removeEventListener(`scroll`, handler, true)
+  }, [])
+
   return (
     <div className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 md:flex flex-col justify-between items-end hidden">
       <Logo width="45" />
@@ -53,10 +71,7 @@ const Sidebar = () => {
             key={i}
             text={list[key as unknown as number]}
             active={i === active}
-            onClick={() => {
-              setActive(i)
-              navigate(`#${list[key as unknown as number]}`)
-            }}
+            onClick={() => navigate(`#${list[key as unknown as number]}`)}
           />
         ))}
       </div>
