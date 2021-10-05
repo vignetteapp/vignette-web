@@ -6,7 +6,7 @@ const Home: React.FC = () => {
   return (
     <Layout
       id="home"
-      className="flex flex-col hero z-30 shadow-lg"
+      className="flex flex-col hero z-30 shadow-lg min-h-screen"
       data-sidebar
     >
       <div className="text-center m-auto pt-10">
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
             Free and Open Source
           </p>
           <Button>
-            <Link href="/downloads">Download</Link>
+            <a href="#downloads">Download</a>
           </Button>
         </div>
       </div>

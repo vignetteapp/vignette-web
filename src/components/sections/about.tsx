@@ -3,15 +3,15 @@ import Image from 'next/image'
 const About: React.FC = () => (
   <Layout
     id="about"
-    className="flex flex-col hero md:pr-48 md:pl-12 py-12 p-6"
+    className="flex flex-col md:pr-48 md:pl-12 py-12 p-6"
     data-sidebar
   >
     <PrimaryText className="md:text-5xl text-4xl font-semibold font-spartan tracking-tight md:p-3 py-3">
       About
     </PrimaryText>
 
-    <div className=" flex flex-row flex-wrap tracking-wide">
-      <div className="font-normal flex flex-col justify-between  md:max-w-2xl md:p-3">
+    <div className=" flex flex-col flex-grow tracking-wide lg:flex-row justify-between">
+      <div className="font-normal flex flex-col justify-between lg:w-2/3 md:p-3">
         <div className="font-inter">
           <p className="text-2xl spaced-line ">
             <span className="gradient-secondary font-semibold text-transparent bg-clip-text">
@@ -51,14 +51,18 @@ const About: React.FC = () => (
           </div>
         </div>
 
-        <p className="text-subtle text-lg">* Applies to individuals only</p>
+        <p className="text-subtle text-lg mt-12 mb-16 lg:mb-0">
+          * Applies to individuals only
+        </p>
       </div>
-      <div className="ml-auto pt-10 md:pt-0 mx-auto md:mr-0">
+
+      <div className="flex justify-center">
         <Image
           src="/images/demo.png"
           alt="Vignette UI image"
-          height="794"
-          width="452"
+          height="792"
+          width="450"
+          className="object-contain"
         />
       </div>
     </div>

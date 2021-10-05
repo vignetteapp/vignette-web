@@ -13,6 +13,7 @@ module.exports = {
           /text-subtle/,
           /border-primary/,
           /border-subtle/,
+          /mb-3/,
         ],
       },
     },

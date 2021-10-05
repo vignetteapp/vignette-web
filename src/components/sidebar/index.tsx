@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import Logo from '@/components/icons/logo'
 import { Icon } from '@iconify/react'
 import Link from './link'
+import navigate from '@/utils/navigate'
 
 const LINKS: Record<string, string> = {
   'akar-icons:twitter-fill': `https://twitter.com/vignette_org/`,
@@ -11,7 +11,6 @@ const LINKS: Record<string, string> = {
 }
 
 const Sidebar = () => {
-  const router = useRouter()
   const [list, setList] = useState<Record<number, string>>({})
   const [active, setActive] = useState(0)
   useEffect(() => {
@@ -39,8 +38,9 @@ const Sidebar = () => {
             <Icon
               icon={key}
               height="36"
-              className={`transition - transform duration - 300
-  ease -in -out hover: scale - 110 ${i !== arr.length - 1 && `mb-3`} `}
+              className={`transition-transform duration-300 ease-in-out hover:scale-110 ${
+                i !== arr.length - 1 && `mb-3`
+              } `}
             />
           </a>
         ))}
@@ -55,7 +55,7 @@ const Sidebar = () => {
             active={i === active}
             onClick={() => {
               setActive(i)
-              router.push(`#` + list[key as unknown as number])
+              navigate(`#${list[key as unknown as number]}`)
             }}
           />
         ))}

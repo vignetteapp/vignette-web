@@ -6,7 +6,7 @@ const Layout: React.FC<
 > = ({ children, className, ...rest }) => (
   <section
     {...rest}
-    className={`relative min-h-screen w-full overflow-x-hidden ${className}`}
+    className={`relative w-full overflow-x-hidden ${className}`}
   >
     {children}
   </section>
