@@ -3,7 +3,10 @@ import Link from 'next/link'
 
 const Footer: React.FC = () => {
   return (
-    <div className="bg-primary top-shadow text-white p-8 md:p-9 md:px-12 mt-8  flex flex-row justify-between flex-wrap z-30 relative filter drop-shadow-footer">
+    <div
+      id="footer"
+      className="bg-primary top-shadow text-white p-8 md:p-9 md:px-12 mt-8  flex flex-row justify-between flex-wrap z-30 relative filter drop-shadow-footer"
+    >
       <Image
         src="/images/logo-white.svg"
         width="274"
