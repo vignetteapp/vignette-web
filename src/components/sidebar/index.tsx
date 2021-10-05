@@ -63,7 +63,7 @@ const Sidebar = () => {
         (e) =>
           Number(
             e.tagName === `A` &&
-              (e?.offsetParent as unknown as HTMLElement)?.offsetTop,
+            (e?.offsetParent as unknown as HTMLElement)?.offsetTop,
           ) +
           e.offsetTop +
           e.scrollHeight / 2,
@@ -74,7 +74,9 @@ const Sidebar = () => {
         const topOffset =
           window.innerHeight - (window.innerHeight + scroll - top)
         const bottomOffset =
-          bottom + (scroll + window.innerHeight - document.body.scrollHeight)
+          bottom +
+          (scroll + window.innerHeight - document.body.scrollHeight) +
+          window.innerHeight / 16
 
         positions.forEach((pos, i) => {
           const clampTop = pos < topOffset
@@ -112,9 +114,8 @@ const Sidebar = () => {
             <Icon
               icon={key}
               height="36"
-              className={`transition-transform duration-300 ease-in-out hover:scale-110 ${
-                i !== arr.length - 1 && `mb-3`
-              } `}
+              className={`transition-transform duration-300 ease-in-out hover:scale-110 ${i !== arr.length - 1 && `mb-3`
+                } `}
             />
           </a>
         ))}
