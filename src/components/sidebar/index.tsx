@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import Logo from '@/components/icons/logo'
 import { Icon } from '@iconify/react'
 import Link from './link'
+import { createRef } from 'react'
+import arrayify from '@/utils/arrayify'
+import hide from '@/utils/hide'
+import show from '@/utils/show'
 
 const LINKS: Record<string, string> = {
   'akar-icons:twitter-fill': `https://twitter.com/vignette_org/`,
@@ -10,6 +14,7 @@ const LINKS: Record<string, string> = {
 }
 
 const Sidebar = () => {
+  // Sidebar link list
   const [list, setList] = useState<Record<number, string>>({})
   const [active, setActive] = useState(0)
   useEffect(() => {
@@ -22,11 +27,11 @@ const Sidebar = () => {
     setList(newList)
   }, [])
 
+  // Highlight link when scroll
   useEffect(() => {
-    const positions: number[] = []
-    document
-      .querySelectorAll<HTMLDivElement>(`section[data-sidebar]`)
-      .forEach((e) => positions.push(e.offsetTop - window.innerHeight / 2))
+    const positions: number[] = [
+      ...document.querySelectorAll<HTMLDivElement>(`section[data-sidebar]`),
+    ].map((e) => e.offsetTop - window.innerHeight / 2)
 
     const handler = () => {
       const scroll = window.scrollY
@@ -40,9 +45,62 @@ const Sidebar = () => {
     return () => window.removeEventListener(`scroll`, handler, true)
   }, [])
 
+  // Hide individual element when not in view
+  const sidebar = createRef<HTMLDivElement>()
+  useEffect(() => {
+    const el = sidebar.current
+    if (el) {
+      const top = document.getElementById(`home`)?.offsetHeight as number
+      const bottom = document.getElementById(`footer`)?.scrollHeight as number
+
+      const childrens = arrayify(el.children)
+        .map((e, i) =>
+          e.tagName === `DIV` && i !== 0 ? arrayify(e.children) : e,
+        )
+        .flat() as HTMLElement[]
+
+      const positions = childrens.map(
+        (e) =>
+          Number(
+            e.tagName === `A` &&
+              (e?.offsetParent as unknown as HTMLElement)?.offsetTop,
+          ) +
+          e.offsetTop +
+          e.scrollHeight / 2,
+      )
+
+      const handler = () => {
+        const scroll = window.scrollY
+        const topOffset =
+          window.innerHeight - (window.innerHeight + scroll - top)
+        const bottomOffset =
+          bottom +
+          (scroll + window.innerHeight - document.body.scrollHeight) +
+          window.innerHeight / 16
+
+        positions.forEach((pos, i) => {
+          const clampTop = pos < topOffset
+          const clampBottom = pos > window.innerHeight - bottomOffset
+
+          const hideElement = clampTop || clampBottom
+          const el = childrens[i]
+          if (hideElement) return hide(el, `30px`)
+          show(el, true)
+        })
+      }
+
+      window.addEventListener(`scroll`, handler, true)
+      return () => window.removeEventListener(`scroll`, handler, true)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [list])
+
   return (
-    <div className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 md:flex flex-col justify-between items-end hidden">
-      <Logo width="45" />
+    <div
+      ref={sidebar}
+      className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 md:flex flex-col justify-between items-end hidden"
+    >
+      <Logo width="45" className="transition duration-300 ease-in-out" />
 
       <div id="sidebar-links" className="filter drop-shadow">
         {Object.keys(LINKS).map((key, i, arr) => (
@@ -51,13 +109,13 @@ const Sidebar = () => {
             target="_blank"
             rel="noopener noreferrer"
             key={i}
+            className="block transition duration-300 ease-in-out"
           >
             <Icon
               icon={key}
               height="36"
-              className={`transition-transform duration-300 ease-in-out hover:scale-110 ${
-                i !== arr.length - 1 && `mb-3`
-              } `}
+              className={`transition-transform duration-300 ease-in-out hover:scale-110 
+              ${i !== arr.length - 1 && `mb-3`} `}
             />
           </a>
         ))}
