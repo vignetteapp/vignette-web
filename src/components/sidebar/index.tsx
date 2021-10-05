@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Logo from '@/components/icons/logo'
 import { Icon } from '@iconify/react'
 import Link from './link'
-import navigate from '@/utils/navigate'
 
 const LINKS: Record<string, string> = {
   'akar-icons:twitter-fill': `https://twitter.com/vignette_org/`,
@@ -71,7 +70,7 @@ const Sidebar = () => {
             key={i}
             text={list[key as unknown as number]}
             active={i === active}
-            onClick={() => navigate(`#${list[key as unknown as number]}`)}
+            link={`#${list[key as unknown as number]}`}
           />
         ))}
       </div>
