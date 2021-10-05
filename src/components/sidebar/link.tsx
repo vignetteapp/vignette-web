@@ -28,7 +28,7 @@ const Link: React.FC<IProps> = ({
       }}
       transition={{ ease: `easeInOut`, duration: 0.3 }}
       href={link}
-      className={`cursor-pointer capitalize flex items-center mt-1 tracking-tight transition-colors duration-500 ease-in-out ${
+      className={`cursor-pointer capitalize flex items-center mt-1 tracking-tight transition duration-300 ease-in-out ${
         active ? `text-primary` : `text-subtle`
       }`}
       onMouseOver={() => setHover(true)}

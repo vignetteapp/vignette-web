@@ -4,6 +4,8 @@ import { Icon } from '@iconify/react'
 import Link from './link'
 import { createRef } from 'react'
 import arrayify from '@/utils/arrayify'
+import hide from '@/utils/hide'
+import show from '@/utils/show'
 
 const LINKS: Record<string, string> = {
   'akar-icons:twitter-fill': `https://twitter.com/vignette_org/`,
@@ -62,10 +64,10 @@ const Sidebar = () => {
           Number(
             e.tagName === `A` &&
               (e?.offsetParent as unknown as HTMLElement)?.offsetTop,
-          ) + e.offsetTop,
+          ) +
+          e.offsetTop +
+          e.scrollHeight / 2,
       )
-
-      console.log(childrens, positions)
 
       const handler = () => {
         const scroll = window.scrollY
@@ -74,11 +76,14 @@ const Sidebar = () => {
         const bottomOffset =
           bottom + (scroll + window.innerHeight - document.body.scrollHeight)
 
-        console.log(topOffset, bottomOffset, bottom)
+        positions.forEach((pos, i) => {
+          const clampTop = pos < topOffset
+          const clampBottom = pos > window.innerHeight - bottomOffset
 
-        positions.forEach((pos) => {
-          if (pos) {
-          }
+          const hideElement = clampTop || clampBottom
+          const el = childrens[i]
+          if (hideElement) return hide(el, `30px`)
+          show(el, true)
         })
       }
 
@@ -93,10 +98,7 @@ const Sidebar = () => {
       ref={sidebar}
       className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 md:flex flex-col justify-between items-end hidden"
     >
-      <Logo
-        width="45"
-        className="transition-transform duration-300 ease-in-out"
-      />
+      <Logo width="45" className="transition duration-300 ease-in-out" />
 
       <div id="sidebar-links" className="filter drop-shadow">
         {Object.keys(LINKS).map((key, i, arr) => (
@@ -105,7 +107,7 @@ const Sidebar = () => {
             target="_blank"
             rel="noopener noreferrer"
             key={i}
-            className="block transition-transform duration-300 ease-in-out"
+            className="block transition duration-300 ease-in-out"
           >
             <Icon
               icon={key}
@@ -126,7 +128,6 @@ const Sidebar = () => {
             text={list[key as unknown as number]}
             active={i === active}
             link={`#${list[key as unknown as number]}`}
-            className="transition-transform duration-300 ease-in-out"
           />
         ))}
       </div>
