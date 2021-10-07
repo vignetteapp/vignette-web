@@ -7,8 +7,11 @@ const Card: React.FC<{
   alt: string
   title: string
   description: string
-}> = ({ img, alt, title, description, icon }) => (
-  <div className="w-full mx-auto max-w-sm rounded-xl bg-white border-gray-100 border shadow-lg px-5 py-4 text-gray-800 ">
+  className?: string
+}> = ({ img, alt, title, description, icon, className }) => (
+  <div
+    className={`w-full max-w-sm rounded-xl bg-white border-gray-100 border shadow-lg px-5 py-4 text-gray-800 ${className}`}
+  >
     <div className="w-full pt-1 text-center -mt-16 mx-auto">
       <div className="block relative">
         <Image
