@@ -10,12 +10,13 @@ const Features: React.FC = () => (
       <div className="relative mt-12 md:mr-0 xl:px-4 lg:w-2/3 lg:mt-0">
         <video
           className="rounded-lg shadow-md mx-auto"
-          src="/videos/demo.mp4"
+          src="/videos/demo.webm"
           height="636"
           width="720"
           autoPlay
           muted
           loop
+          preload="none"
         />
       </div>
 
