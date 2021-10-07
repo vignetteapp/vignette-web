@@ -1,16 +1,15 @@
 import Image from 'next/image'
 
 const Card: React.FC<{
-  circle?: boolean
   img: string
-  icon: boolean
+  icon?: boolean
   alt: string
   title: string
   description: string
   className?: string
 }> = ({ img, alt, title, description, icon, className }) => (
   <div
-    className={`w-full max-w-sm rounded-xl bg-white border-gray-100 border shadow-lg px-5 py-4 text-gray-800 ${className}`}
+    className={`mx-auto w-full max-w-sm rounded-xl bg-white border-gray-100 border shadow-lg px-5 py-4 text-gray-800 ${className}`}
   >
     <div className="w-full pt-1 text-center -mt-16 mx-auto">
       <div className="block relative">
@@ -18,7 +17,7 @@ const Card: React.FC<{
           alt={alt}
           src={img}
           className={
-            `mx-auto object-cover ` + icon ? ` rounded-md` : `rounded-full`
+            `mx-auto object-cover ` + (icon ? `rounded-md` : `rounded-full`)
           }
           height="80"
           width="80"
