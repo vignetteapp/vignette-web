@@ -23,6 +23,13 @@ const SEO: React.FC<{ title: string; desc: string; path: string }> = ({
         href="https://fonts.gstatic.com"
         crossOrigin="true"
       />
+
+      {/* Cloudflare Web Analytics */}
+      <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "5d442ef7fdc747cab81b66d66bbd9c06"}'
+      ></script>
     </Head>
   )
 }
