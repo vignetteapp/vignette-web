@@ -23,6 +23,9 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        '3xl': '1792px',
+      },
       colors: {
         fuschia: {
           100: '#BE58CB',
