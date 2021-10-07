@@ -3,9 +3,9 @@ import Image from 'next/image'
 const Card: React.FC<{
   img: string
   icon?: boolean
-  alt: string
-  title: string
-  description: string
+  alt?: string
+  title?: string
+  description?: string
   className?: string
 }> = ({ img, alt, title, description, icon, className }) => (
   <div
