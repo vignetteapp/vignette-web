@@ -14,7 +14,7 @@ const OurVision: React.FC = () => (
         alt="test"
         img="/images/icons/check.png"
         icon={true}
-        title="We're promoting accessability"
+        title="We're promoting accessibility"
         description="We want to make a solution that not only works on your machine but would allow you to create, whatever hardware combination you have."
       />
       <Card
@@ -28,8 +28,8 @@ const OurVision: React.FC = () => (
         alt="test"
         img="/images/icons/plus.png"
         icon={true}
-        title="We're promoting accessability"
-        description="We want to make a solution that not only works on your machine but would allow you to create, whatever hardware combination you have."
+        title="More than just an app"
+        description="Vignette's goals stretches beyond the app itself. We try to engage and find ways to try help the community even more - that's where you come in too!"
       />
     </div>
   </Layout>
