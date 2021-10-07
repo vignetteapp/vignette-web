@@ -18,9 +18,9 @@ const Home: React.FC = () => {
           <p className="text-subtle font-medium tracking-tight">
             Free and Open Source
           </p>
-          <Button>
-            <a href="#downloads">Download</a>
-          </Button>
+          <a href="#downloads">
+            <Button>Download</Button>
+          </a>
         </div>
       </div>
 
