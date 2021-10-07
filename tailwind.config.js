@@ -14,6 +14,8 @@ module.exports = {
           /border-primary/,
           /border-subtle/,
           /mb-3/,
+          /rounded-md/,
+          /rounded-full/,
         ],
       },
     },
