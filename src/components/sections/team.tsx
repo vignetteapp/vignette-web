@@ -20,7 +20,13 @@ const OurTeam: React.FC = () => (
           rel="noopener noreferrer"
           className="transition-transform duration-300 ease-in-out hover:-translate-y-2"
         >
-          <Card alt="" img={m.avatar} title={m.name} description={m.role} />
+          <Card
+            alt=""
+            img={m.avatar}
+            title={m.name}
+            description={m.role}
+            className="h-full"
+          />
         </a>
       ))}
     </div>
