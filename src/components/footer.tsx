@@ -20,15 +20,15 @@ const Footer: React.FC = () => {
             <Link href="/#about">About</Link>
           </span>
           <span className="my-1">
-            <Link href="/#about">Our vision</Link>
+            <Link href="/#vision">Our vision</Link>
           </span>
           <span className="my-1">
-            <Link href="/#about">Our Team</Link>
+            <Link href="/#team">Our Team</Link>
           </span>
         </div>
         <div className="flex flex-col">
           <span className="my-1">
-            <Link href="/#about">Sponsors</Link>
+            <Link href="/#sponsors">Sponsors</Link>
           </span>
           <span className="my-1">
             <Link href="https://github.com/vignetteapp/vignette/releases">
