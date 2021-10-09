@@ -8,15 +8,16 @@ const Sponsors: React.FC = () => (
     Sponsors
   </PrimaryText>
 
-  <div className="p-10 grid gap-x-8 gap-y-20 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
+  <div className="px-4 py-10 grid gap-x-8 gap-y-20 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
     {Sponsoring.map((m) => (
-    <div>
-      <SponsorCard alt={m.name} img={m.avatar} href={m.url}
-        className="h-full transition-transform duration-300 ease-in-out hover:-translate-y-2" />
-    </div>
+      <div>
+        <SponsorCard alt={m.name} img={m.avatar} href={m.url}
+          className="h-full transition-transform duration-300 ease-in-out hover:-translate-y-2" />
+      </div>
     ))}
   </div>
-  <p className="text-2xl spaced-line">
+
+  <p className="px-4 text-2xl spaced-line">
     Want to be a sponsor?<br />{` `}
     <span className="font-semibold ">Consider visiting our <a href="https://opencollective.com/vignette"><span
           className="gradient-primary font-semibold text-transparent bg-clip-text">Open Collective</span></a> or <a
