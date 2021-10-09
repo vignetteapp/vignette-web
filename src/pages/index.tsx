@@ -4,6 +4,7 @@ import { Home, About, Features } from '@/components/sections'
 import { NextPage } from 'next'
 import OurVision from '@/components/sections/vision'
 import OurTeam from '@/components/sections/team'
+import Sponsors from '@/components/sections/sponsors'
 
 const Index: NextPage = () => {
   const Sidebar = dynamic(() => import(`@/components/sidebar`))
@@ -17,6 +18,7 @@ const Index: NextPage = () => {
       <Features />
       <OurVision />
       <OurTeam />
+      <Sponsors />
 
       <Footer />
     </>
