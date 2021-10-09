@@ -32,8 +32,9 @@
 }
 
 body {
-  @apply font-inter text-primary bg-hero-pattern bg-center bg-contain;
+  @apply font-inter text-primary  bg-center bg-contain;
 }
+
 
 /* Gradient */
 .gradient-primary {
@@ -50,10 +51,10 @@ body {
 
 .animate-gradient {
   background-size: 250% 250%;
-  -webkit-animation: loop 5s ease infinite;
-  -moz-animation: loop 5s ease infinite;
-  -o-animation: loop 5s ease infinite;
-  animation: loop 5s ease infinite;
+  -webkit-animation: loop 4s ease infinite;
+  -moz-animation: loop 4s ease infinite;
+  -o-animation: loop 4s ease infinite;
+  animation: loop 4s ease infinite;
 }
 
 @-webkit-keyframes loop {

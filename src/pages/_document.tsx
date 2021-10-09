@@ -5,14 +5,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <link
-            href="https://rsms.me/inter/inter.css"
-            rel="preload"
-            as="style"
-          />
-          <link rel="preload" href="/images/background.jpg" as="image" />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

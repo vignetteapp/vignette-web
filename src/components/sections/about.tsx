@@ -60,8 +60,8 @@ const About: React.FC = () => (
         <Image
           src="/images/demo.png"
           alt="Vignette UI image"
-          height="792"
-          width="450"
+          height="786"
+          width="442"
           className="object-contain"
         />
       </div>

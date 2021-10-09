@@ -6,8 +6,9 @@ const Card: React.FC<{
   alt?: string
   title?: string
   description?: string
+  href?: string
   className?: string
-}> = ({ img, alt, title, description, icon, className }) => (
+}> = ({ img, alt, title, description, icon, className, href }) => (
   <div
     className={`mx-auto w-full max-w-sm rounded-xl bg-white border-gray-100 border shadow-lg px-5 py-4 text-gray-800 ${className}`}
   >
@@ -25,9 +26,19 @@ const Card: React.FC<{
       </div>
     </div>
     <div className="w-full text-center pt-3">
-      <p className="text-gray-800  font-inter  text-xl font-semibold ">
-        {title}
-      </p>
+      {href ? (
+        <a
+          href={href}
+          className="text-gray-800  font-inter  text-xl font-semibold"
+        >
+          {title}
+        </a>
+      ) : (
+        <p className="text-gray-800  font-inter  text-xl font-semibold">
+          {title}
+        </p>
+      )}
+
       <p className="text-gray-600 pt-2 text-lg tracking-tight">{description}</p>
     </div>
   </div>
