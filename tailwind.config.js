@@ -47,7 +47,7 @@ module.exports = {
         subtle: '#777777',
       },
       backgroundImage: {
-        'hero-pattern': 'url(public/images/background.jpg?webp?resize)',
+        'hero-pattern': 'url(public/images/background.jpg)',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],

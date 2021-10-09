@@ -29,6 +29,8 @@ const Card: React.FC<{
       {href ? (
         <a
           href={href}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-gray-800  font-inter  text-xl font-semibold"
         >
           {title}
