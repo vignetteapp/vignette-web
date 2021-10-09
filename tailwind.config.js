@@ -14,6 +14,8 @@ module.exports = {
           /border-primary/,
           /border-subtle/,
           /mb-3/,
+          /rounded-md/,
+          /rounded-full/,
         ],
       },
     },
@@ -21,6 +23,9 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        '3xl': '1792px',
+      },
       colors: {
         fuschia: {
           100: '#BE58CB',

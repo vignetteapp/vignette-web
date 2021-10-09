@@ -10,7 +10,10 @@ const Home: React.FC = () => {
       data-sidebar
     >
       <div className="text-center m-auto pt-10">
-        <PrimaryText className="logo p-3">Vignette</PrimaryText>
+        <PrimaryText className="animate-gradient logo p-3">
+          Vignette
+        </PrimaryText>
+
         <p className="md:text-3xl text-xl font-semibold pt-4">
           Make your streams more virtual.
         </p>
@@ -18,9 +21,9 @@ const Home: React.FC = () => {
           <p className="text-subtle font-medium tracking-tight">
             Free and Open Source
           </p>
-          <Button>
-            <a href="#downloads">Download</a>
-          </Button>
+          <a href="#downloads">
+            <Button>Download</Button>
+          </a>
         </div>
       </div>
 

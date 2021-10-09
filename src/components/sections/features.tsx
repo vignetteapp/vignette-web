@@ -16,6 +16,7 @@ const Features: React.FC = () => (
           autoPlay
           muted
           loop
+          playsInline
         />
       </div>
 

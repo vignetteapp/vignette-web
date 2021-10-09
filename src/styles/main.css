@@ -19,7 +19,7 @@
 
 /* Scrollbar: Firefox */
 * {
-  scrollbar-color: #6A99DD #E5E7EB;
+  scrollbar-color: #6a99dd #e5e7eb;
   scrollbar-width: thin;
 }
 
@@ -35,6 +35,7 @@ body {
   @apply font-inter text-primary bg-hero-pattern bg-center bg-contain;
 }
 
+
 /* Gradient */
 .gradient-primary {
   @apply bg-gradient-to-br from-deepFuscia to-pinkRed;
@@ -46,6 +47,35 @@ body {
 
 .gradient-tertiary {
   @apply bg-gradient-to-bl from-cornflowerBlue to-pinkRed;
+}
+
+.animate-gradient {
+  background-size: 250% 250%;
+  -webkit-animation: loop 4s ease infinite;
+  -moz-animation: loop 4s ease infinite;
+  -o-animation: loop 4s ease infinite;
+  animation: loop 4s ease infinite;
+}
+
+@-webkit-keyframes loop {
+  0%{background-position:31% 0%}
+  50%{background-position:70% 100%}
+  100%{background-position:31% 0%}
+}
+@-moz-keyframes loop {
+  0%{background-position:31% 0%}
+  50%{background-position:70% 100%}
+  100%{background-position:31% 0%}
+}
+@-o-keyframes loop {
+  0%{background-position:31% 0%}
+  50%{background-position:70% 100%}
+  100%{background-position:31% 0%}
+}
+@keyframes loop {
+  0%{background-position:31% 0%}
+  50%{background-position:70% 100%}
+  100%{background-position:31% 0%}
 }
 
 /* Miscellaneous */
@@ -62,14 +92,16 @@ body {
   fill: url(#secondaryGradient);
 }
 
-.spaced-line{
+.spaced-line {
   line-height: 1.625 !important;
 }
 
-.top-shadow{
-    --tw-shadow: 0 -15px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); 
+.top-shadow {
+  --tw-shadow: 0 -15px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.video{
-  @apply rounded-lg shadow-xl
+.video {
+  @apply rounded-lg shadow-xl;
 }

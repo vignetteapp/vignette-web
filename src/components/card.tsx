@@ -1,16 +1,16 @@
 import Image from 'next/image'
 
 const Card: React.FC<{
-  circle?: boolean
   img: string
-  icon: boolean
-  alt: string
-  title: string
-  description: string
+  icon?: boolean
+  alt?: string
+  title?: string
+  description?: string
+  href?: string
   className?: string
-}> = ({ img, alt, title, description, icon, className }) => (
+}> = ({ img, alt, title, description, icon, className, href }) => (
   <div
-    className={`w-full max-w-sm rounded-xl bg-white border-gray-100 border shadow-lg px-5 py-4 text-gray-800 ${className}`}
+    className={`mx-auto w-full max-w-xs rounded-xl bg-white border-gray-100 border shadow-lg px-5 py-4 text-gray-800 ${className}`}
   >
     <div className="w-full pt-1 text-center -mt-16 mx-auto">
       <div className="block relative">
@@ -18,7 +18,7 @@ const Card: React.FC<{
           alt={alt}
           src={img}
           className={
-            `mx-auto object-cover ` + icon ? ` rounded-md` : `rounded-full`
+            `mx-auto object-cover ` + (icon ? `rounded-md` : `rounded-full`)
           }
           height="80"
           width="80"
@@ -26,9 +26,21 @@ const Card: React.FC<{
       </div>
     </div>
     <div className="w-full text-center pt-3">
-      <p className="text-gray-800  font-inter  text-xl font-semibold ">
-        {title}
-      </p>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-800  font-inter  text-xl font-semibold"
+        >
+          {title}
+        </a>
+      ) : (
+        <p className="text-gray-800  font-inter  text-xl font-semibold">
+          {title}
+        </p>
+      )}
+
       <p className="text-gray-600 pt-2 text-lg tracking-tight">{description}</p>
     </div>
   </div>
