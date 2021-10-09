@@ -3,7 +3,7 @@ import { Layout, PrimaryText, Card } from '@/components'
 const OurVision: React.FC = () => (
   <Layout
     id="vision"
-    className="flex flex-col hero md:pr-48 md:pl-12 py-12 p-6"
+    className="flex flex-col md:pr-48 md:pl-12 py-12 p-6"
     data-sidebar
   >
     <PrimaryText className="md:text-5xl text-4xl font-semibold font-spartan tracking-tight md:p-3 py-3">
