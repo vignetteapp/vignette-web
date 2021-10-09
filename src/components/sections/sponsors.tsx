@@ -1,5 +1,6 @@
 import { Layout, PrimaryText, Card } from '@/components'
 import Sponsoring from '@/public/sponsoring.json'
+import Card2 from '../card-2'
 
 const Sponsors: React.FC = () => (
   <Layout
@@ -14,7 +15,7 @@ const Sponsors: React.FC = () => (
     <div className="pt-20 p-10 grid gap-x-8 gap-y-20 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
       {Sponsoring.map((m) => (
         <div key={m.id}>
-          <Card
+          <Card2
             alt=""
             img={m.avatar}
             title={m.name}
@@ -25,6 +26,10 @@ const Sponsors: React.FC = () => (
         </div>
       ))}
     </div>
+    <p className="text-2xl spaced-line">
+          Want to be a sponsor?<br />{` `}
+          <span className="font-semibold ">Consider visiting our <a href="https://opencollective.com/vignette"><span className="gradient-primary font-semibold text-transparent bg-clip-text">Open Collective</span></a> or <a href="https://github.com/vignetteapp/"><span className="gradient-primary font-semibold text-transparent bg-clip-text"> GitHub </span></a> page</span>.{` `}
+    </p>
   </Layout>
 )
 
