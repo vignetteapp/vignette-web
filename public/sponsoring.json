@@ -1,9 +1,12 @@
 [
   {
-    "name": "ah yes",
-    "avatar": "https://avatars.githubusercontent.com/u/46694241",
-    "id": 46694241,
-    "role": "yes",
-    "url": "https://github.com/adryzz"
+    "avatar": "https://fosshost.org/img/fosshost-logo.png",
+    "name": "fosshost",
+    "url": "https://fosshost.org"
+  },
+  {
+    "avatar": "/images/vercel-logotype-dark.png",
+    "name": "vercel",
+    "url": "https://vercel.app"
   }
 ]
