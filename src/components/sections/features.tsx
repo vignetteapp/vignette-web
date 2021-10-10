@@ -1,4 +1,5 @@
 import { Layout, PrimaryText } from '@/components'
+import LazyLoad from 'react-lazyload'
 
 const Features: React.FC = () => (
   <Layout
@@ -8,16 +9,18 @@ const Features: React.FC = () => (
   >
     <div className="flex flex-col-reverse lg:flex-row font-inter items-center">
       <div className="relative mt-12 md:mr-0 xl:px-4 lg:w-2/3 lg:mt-0">
-        <video
-          className="rounded-lg shadow-md mx-auto"
-          src="/videos/demo.mp4"
-          height="636"
-          width="720"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <LazyLoad height="636" once>
+          <video
+            className="rounded-lg shadow-md mx-auto"
+            src="/videos/demo.mp4"
+            height="636"
+            width="720"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        </LazyLoad>
       </div>
 
       <div className="lg:w-2/3 lg:ml-16">
