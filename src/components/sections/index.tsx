@@ -6,4 +6,3 @@ import Team from './team'
 import Sponsors from './sponsors'
 import Download from './download'
 export { Home, About, Features, Vision, Team, Sponsors, Download }
-
