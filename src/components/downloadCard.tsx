@@ -8,13 +8,8 @@ const DownloadCard: React.FC<{
   description?: string
   href?: string
   className?: string
-}> = ({ img, alt, title, description, icon, className, href }) => (
+}> = ({ title, description, className, href }) => (
   <div className="text-center">
-    <div className="w-full pt-1 text-center -mt-16 mx-auto">
-      <div className="block relative">
-        <Image alt={alt} src={img} className={ `mx-auto` } height="150" width="150" />
-      </div>
-    </div>
     <div className={`outline-none rounded-md gradient-secondary animate-gradient m-2 text-white text-2xl font-medium
       px-10 py-5 shadow-md ${className}`}>
       <a href={href}>

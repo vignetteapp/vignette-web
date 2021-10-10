@@ -13,14 +13,46 @@ const Sponsors: React.FC = () => (
     <PrimaryText className="md:text-5xl text-4xl font-semibold font-spartan tracking-tight md:p-3 py-3">
       Download
     </PrimaryText>
+
+    
     
     <div className="text-center m-auto pt-10"> 
+    <div className="w-full pt-1 text-center mx-auto grid lg:grid-cols-3">
+    <div>
+    <Image
+          src="/images/icon-windows.png"
+          className={
+            `mx-auto object-cover `
+          }
+          height="150"
+          width="150"
+    />
+    </div>
+    <div>
+    <Image
+          src="/images/icon-linux.png"
+          className={
+            `mx-auto object-cover `
+          }
+          height="150"
+          width="150"
+    />
+    </div>
+    <div>
+    <Image
+          src="/images/icon-steam.png"
+          className={
+            `mx-auto object-cover `
+          }
+          height="150"
+          width="150"
+    />
+    </div>
+    </div>
     <div className="pt-20 p-10 grid gap-x-8 gap-y-20 lg:grid-cols-4 text-center align-center">
       {Downloads.map((m) => (
         <div key={m.id}>
           <DownloadCard
-            alt=""
-            img={m.avatar}
             title={m.name}
             href={m.url}
             description={m.role}
