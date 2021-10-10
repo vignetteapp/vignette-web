@@ -1,7 +1,6 @@
 import Image from 'next/image'
 
 const DownloadCard: React.FC<{
-  img: string
   icon?: boolean
   alt?: string
   title?: string
