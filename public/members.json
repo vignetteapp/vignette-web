@@ -1,17 +1,24 @@
 [
   {
-    "name": "adryzz",
-    "avatar": "https://avatars.githubusercontent.com/u/46694241",
-    "id": 46694241,
-    "role": "Main Developer - AI and Computer Vision",
-    "url": "https://github.com/adryzz"
-  },
-  {
     "name": "Ayane Satomi",
     "avatar": "https://avatars.githubusercontent.com/u/14976516",
     "id": 14976516,
     "role": "Project Lead & Main Developer",
     "url": "https://github.com/sr229"
+  },
+  {
+    "name": "Nitrous",
+    "avatar": "https://avatars.githubusercontent.com/u/20495991",
+    "id": 20495991,
+    "role": "Lead Developer - Core & UI",
+    "url": "https://github.com/LeNitrous"
+  },
+  {
+    "name": "adryzz",
+    "avatar": "https://avatars.githubusercontent.com/u/46694241",
+    "id": 46694241,
+    "role": "Main Developer - AI and Computer Vision",
+    "url": "https://github.com/adryzz"
   },
   {
     "name": "Johnny",
@@ -33,13 +40,6 @@
     "id": 16361449,
     "role": "Main Developer - Audio & Web",
     "url": "https://github.com/martmists-gh"
-  },
-  {
-    "name": "Nitrous",
-    "avatar": "https://avatars.githubusercontent.com/u/20495991",
-    "id": 20495991,
-    "role": "Main Developer - Core & UI",
-    "url": "https://github.com/LeNitrous"
   },
   {
     "name": "Speykious",
@@ -80,7 +80,7 @@
     "name": "JcdeA",
     "avatar": "https://avatars.githubusercontent.com/u/31413538",
     "id": 31413538,
-    "role": "Web Developer",
+    "role": "Web Developer & Infra",
     "url": "https://github.com/JcdeA"
   },
   {
