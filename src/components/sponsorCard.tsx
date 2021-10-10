@@ -15,8 +15,8 @@ const SponsorCard: React.FC<{
         <Image
           alt={alt}
           src={img}
-          height="50"
-          width="256"
+          height="100"
+          width="512"
           layout="responsive"
           className="object-contain"
         />
