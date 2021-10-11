@@ -28,7 +28,7 @@ const Features: React.FC = () => (
           Mean and Very lean
         </PrimaryText>
         <p className=" text-2xl spaced-line ">
-          Computer Hardware and Bandwidth is still a premium, we know that too
+          Computer hardware and bandwidth is still a premium, we know that too
           well. That&apos;s why{` `}Vignette
           <span className="font-semibold "> wastes no time</span>, by making the
           application as small and performant as possible.
