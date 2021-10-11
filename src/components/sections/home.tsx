@@ -21,7 +21,7 @@ const Home: React.FC = () => {
           <p className="text-subtle font-medium tracking-tight">
             Free and Open Source
           </p>
-          <a href="#downloads">
+          <a href="#download">
             <Button>Download</Button>
           </a>
         </div>
