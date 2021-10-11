@@ -18,7 +18,7 @@ const About: React.FC = () => (
               Vignette
             </span>
             {` `}
-            has one vision; we want to make those who want to start a VTuber
+            had one vision; we want to make those who want to start a VTuber
             career a more{` `}
             <span className="font-semibold ">accessible</span>
             {` `}
@@ -30,7 +30,11 @@ const About: React.FC = () => (
           </p>
 
           <div className="text-2xl font-regular md:mr-20  font-inter leading-loose spaced-line">
+<<<<<<< HEAD
             And that is our{` `}
+=======
+            And that was our{` `}
+>>>>>>> 165a077 (style(card): add shadow effect on hover)
             <span className="font-semibold">mission</span>: to build a product
             to make these independent content creators become their own VTubers
             {` `}

@@ -1,10 +1,16 @@
 import { ReactNode } from 'react'
 
 // button
-const Button: React.FC<{ children: ReactNode }> = ({ children }) => (
+const Button: React.FC<{
+  children?: ReactNode
+  className?: string
+  disableGradient?: boolean
+}> = ({ children, className, disableGradient }) => (
   <button
     type="button"
-    className="outline-none rounded-md gradient-secondary animate-gradient m-2 text-white text-2xl font-medium px-16 py-3 shadow-md "
+    className={`outline-none rounded-md m-2 text-white text-2xl font-medium px-16 py-3 shadow-md ${
+      !disableGradient && `gradient-secondary animate-gradient`
+    } ${className}`}
   >
     {children}
   </button>

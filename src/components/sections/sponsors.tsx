@@ -12,14 +12,14 @@ const Sponsors: React.FC = () => (
       Sponsors
     </PrimaryText>
 
-    <div className="px-4 py-10 grid gap-x-8 gap-y-20 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
+    <div className="px-4 py-10 grid gap-x-8 gap-y-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
       {Sponsoring.map((m, i) => (
         <div key={i}>
           <SponsorCard
             alt={m.name}
             img={m.avatar}
             href={m.url}
-            className="h-full transition-transform duration-300 ease-in-out hover:-translate-y-2"
+            className="h-full hover:-translate-y-2"
           />
         </div>
       ))}

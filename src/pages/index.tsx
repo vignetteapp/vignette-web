@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import { Footer, SEO } from '@/components'
-import { Home, About, Features } from '@/components/sections'
+import { Home, About, Features, Download } from '@/components/sections'
 import { NextPage } from 'next'
 import OurVision from '@/components/sections/vision'
 import OurTeam from '@/components/sections/team'
@@ -19,6 +19,7 @@ const Index: NextPage = () => {
       <OurVision />
       <OurTeam />
       <Sponsors />
+      <Download />
 
       <Footer />
     </>
