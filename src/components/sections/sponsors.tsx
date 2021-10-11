@@ -1,5 +1,5 @@
 import { Layout, PrimaryText } from '@/components'
-import Sponsoring from '@/public/sponsoring.json'
+import Sponsoring from '@/public/sponsors.json'
 import SponsorCard from '../sponsorCard'
 
 const Sponsors: React.FC = () => (
@@ -17,7 +17,8 @@ const Sponsors: React.FC = () => (
         <div key={i}>
           <SponsorCard
             alt={m.name}
-            img={m.avatar}
+            img={m.logo}
+            imgFallback={m.fallbackLogo}
             href={m.url}
             className="h-full hover:-translate-y-2"
           />

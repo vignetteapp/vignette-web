@@ -1,20 +1,21 @@
-import Image from 'next/image'
+import ImageWithFallback from './imageWithFallback'
 
 const Card: React.FC<{
   img: string
+  imgFallback?: string
   icon?: boolean
   alt?: string
   title?: string
   description?: string
   href?: string
   className?: string
-}> = ({ img, alt, title, description, icon, className, href }) => (
+}> = ({ img, alt, title, description, icon, className, href, imgFallback }) => (
   <div
     className={`mx-auto w-full max-w-xs rounded-xl bg-white border-gray-100 border px-5 py-4 text-gray-800 shadow-lg hover:shadow-xl transition duration-300 ease-in-out ${className}`}
   >
     <div className="w-full pt-1 text-center -mt-16 mx-auto">
       <div className="block relative">
-        <Image
+        <ImageWithFallback
           alt={alt}
           src={img}
           className={
@@ -22,6 +23,7 @@ const Card: React.FC<{
           }
           height="80"
           width="80"
+          fallbackSrc={imgFallback}
         />
       </div>
     </div>
