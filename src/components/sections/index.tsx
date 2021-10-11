@@ -4,4 +4,5 @@ import Features from './features'
 import Vision from './vision'
 import Team from './team'
 import Sponsors from './sponsors'
-export { Home, About, Features, Vision, Team, Sponsors }
+import Download from './download'
+export { Home, About, Features, Vision, Team, Sponsors, Download }

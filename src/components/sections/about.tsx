@@ -18,7 +18,7 @@ const About: React.FC = () => (
               Vignette
             </span>
             {` `}
-            has one vision; we want to make those who want to start a VTuber
+            had one vision; we want to make those who want to start a VTuber
             career a more{` `}
             <span className="font-semibold ">accessible</span>
             {` `}

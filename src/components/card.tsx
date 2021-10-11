@@ -10,7 +10,7 @@ const Card: React.FC<{
   className?: string
 }> = ({ img, alt, title, description, icon, className, href }) => (
   <div
-    className={`mx-auto w-full max-w-xs rounded-xl bg-white border-gray-100 border shadow-lg px-5 py-4 text-gray-800 ${className}`}
+    className={`mx-auto w-full max-w-xs rounded-xl bg-white border-gray-100 border px-5 py-4 text-gray-800 shadow-lg hover:shadow-xl transition duration-300 ease-in-out ${className}`}
   >
     <div className="w-full pt-1 text-center -mt-16 mx-auto">
       <div className="block relative">

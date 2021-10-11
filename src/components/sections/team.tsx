@@ -11,7 +11,7 @@ const OurTeam: React.FC = () => (
       Our team
     </PrimaryText>
 
-    <div className="pt-20 p-10 grid gap-x-8 gap-y-20 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
+    <div className="pt-20 p-10 grid gap-x-8 gap-y-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
       {Members.map((m) => (
         <div key={m.id}>
           <Card
@@ -20,7 +20,7 @@ const OurTeam: React.FC = () => (
             title={m.name}
             href={m.url}
             description={m.role}
-            className="h-full transition-transform duration-300 ease-in-out hover:-translate-y-2"
+            className="h-full hover:-translate-y-2"
           />
         </div>
       ))}
