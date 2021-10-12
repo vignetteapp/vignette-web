@@ -39,30 +39,28 @@ const Index: NextPage<IProps> = ({ team, sponsors, videoPlaceholder }) => {
 export const getStaticProps = async () => {
   const team = await Promise.all(
     Members.map(async (m: Member) => {
-      const { blurhash } = await getPlaiceholder(m.avatar)
+      const { css } = await getPlaiceholder(m.avatar)
 
-      m.blurHash = blurhash
+      m.cssProps = css
       return m
     }),
   )
 
-  const sponsors = await Promise.all(
-    SponsorsList.map(async (s: Sponsor) => {
-      const { blurhash } = await getPlaiceholder(s.logo)
+  // const sponsors = await Promise.all(
+  //   SponsorsList.map(async (s: Sponsor) => {
+  //     const { css } = await getPlaiceholder(s.logo)
 
-      s.blurHash = blurhash
-      return s
-    }),
-  )
+  //     s.cssProps = css
+  //     return s
+  //   }),
+  // )
 
-  const { blurhash: videoPlaceholder } = await getPlaiceholder(
-    `/images/video.webp`,
-  )
+  const { css: videoPlaceholder } = await getPlaiceholder(`/images/video.webp`)
 
   return {
     props: {
       team,
-      sponsors,
+      sponsors: SponsorsList,
       videoPlaceholder,
     },
   }

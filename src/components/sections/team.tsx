@@ -5,7 +5,7 @@ export interface Member {
   id: number
   role: string
   url: string
-  blurHash?: any
+  cssProps?: any
 }
 
 const OurTeam: React.FC<{ list: Member[] }> = ({ list }) => (
@@ -28,7 +28,7 @@ const OurTeam: React.FC<{ list: Member[] }> = ({ list }) => (
             href={m.url}
             description={m.role}
             className="h-full hover:-translate-y-2"
-            blurHash={m.blurHash}
+            cssProps={m.cssProps}
           />
         </div>
       ))}

@@ -9,7 +9,7 @@ const Card: React.FC<{
   description?: string
   href?: string
   className?: string
-  blurHash?: any
+  cssProps?: any
 }> = ({
   img,
   alt,
@@ -19,7 +19,7 @@ const Card: React.FC<{
   className,
   href,
   imgFallback,
-  blurHash,
+  cssProps,
 }) => (
   <div
     className={`mx-auto w-full max-w-xs rounded-xl bg-white border-gray-100 border px-5 py-4 text-gray-800 shadow-lg hover:shadow-xl transition duration-300 ease-in-out ${className}`}
@@ -32,10 +32,11 @@ const Card: React.FC<{
           className={`mx-auto object-cover ${
             icon ? `rounded-md` : `rounded-full`
           }`}
+          placeholderClassName="mx-auto scale-50 blur-md rounded-full"
           height="80"
           width="80"
           fallbackSrc={imgFallback}
-          blurHash={blurHash}
+          cssProps={cssProps}
         />
       </div>
     </div>

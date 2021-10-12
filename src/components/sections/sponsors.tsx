@@ -4,7 +4,7 @@ export interface Sponsor {
   logo: string
   name: string
   url: string
-  blurHash?: any
+  cssProps?: any
   fallbackLogo?: string
 }
 
@@ -27,7 +27,7 @@ const Sponsors: React.FC<{ list: Sponsor[] }> = ({ list }) => (
             imgFallback={m.fallbackLogo}
             href={m.url}
             className="h-full hover:-translate-y-2"
-            blurHash={m.blurHash}
+            cssProps={m.cssProps}
           />
         </div>
       ))}

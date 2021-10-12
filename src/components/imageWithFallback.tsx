@@ -1,20 +1,21 @@
 import { useState } from 'react'
 import Image, { ImageProps } from 'next/image'
-import { BlurhashCanvas } from 'react-blurhash'
 
 interface IProps extends ImageProps {
   fallbackSrc?: string
-  blurHash?: any
+  cssProps?: any
   wrapperClassName?: string
+  placeholderClassName?: string
 }
 
 const ImageWithFallback: React.FC<IProps> = (props) => {
   const {
     src,
     fallbackSrc,
-    blurHash,
+    cssProps,
     className,
     wrapperClassName = ``,
+    placeholderClassName = ``,
     ...rest
   } = props
   const [imgSrc, setImgSrc] = useState(src)
@@ -22,14 +23,14 @@ const ImageWithFallback: React.FC<IProps> = (props) => {
 
   return (
     <div className={`relative overflow-hidden block ${wrapperClassName}`}>
-      {loading && blurHash && (
-        <BlurhashCanvas
-          {...blurHash}
+      {loading && cssProps && (
+        <div
           style={{
+            ...cssProps,
             width: rest.width + (!Number.isNaN(rest.width) ? `px` : ``),
             height: rest.height + (!Number.isNaN(rest.height) ? `px` : ``),
           }}
-          className={`absolute top-0 left-0 right-0 bottom-0 scale-90 rounded-full blur-md ${className}`}
+          className={`absolute top-0 left-0 right-0 bottom-0 scale-80 blur-xl ${placeholderClassName}`}
         />
       )}
 

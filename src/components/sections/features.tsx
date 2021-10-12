@@ -22,7 +22,7 @@ const Features: React.FC<{ videoPlaceholder: any }> = ({
                 <ImageWithFallback
                   src="/images/video.webp"
                   fallbackSrc="/images/video.png"
-                  blurHash={videoPlaceholder}
+                  cssProps={videoPlaceholder}
                   height="815"
                   width="720"
                   className="rounded-lg shadow-md"

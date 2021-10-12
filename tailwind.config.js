@@ -57,10 +57,12 @@ module.exports = {
       letterSpacing: {
         tightest: '-.1em',
       },
-      extend: {
-        dropShadow: {
-          footer: '0 10px 10px rgba(0, 0, 0, 0.25)',
-        },
+      dropShadow: {
+        footer: '0 10px 10px rgba(0, 0, 0, 0.25)',
+      },
+      scale: {
+        60: 0.6,
+        80: 0.8,
       },
     },
   },

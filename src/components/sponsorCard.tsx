@@ -7,8 +7,8 @@ const SponsorCard: React.FC<{
   alt?: string
   href?: string
   className?: string
-  blurHash?: any
-}> = ({ img, alt, className, href, imgFallback, blurHash }) => (
+  cssProps?: any
+}> = ({ img, alt, className, href, imgFallback, cssProps }) => (
   <div
     className={`mx-auto w-full max-w-xs rounded-xl bg-white border-gray-100 border px-5 py-4 text-gray-800 shadow-lg hover:shadow-xl transition duration-300 ease-in-out ${className}`}
   >
@@ -22,7 +22,7 @@ const SponsorCard: React.FC<{
           width="315"
           layout="responsive"
           className="object-contain"
-          blurHash={blurHash}
+          cssProps={cssProps}
         />
       </a>
     </div>
