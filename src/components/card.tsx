@@ -9,7 +9,18 @@ const Card: React.FC<{
   description?: string
   href?: string
   className?: string
-}> = ({ img, alt, title, description, icon, className, href, imgFallback }) => (
+  blurHash?: any
+}> = ({
+  img,
+  alt,
+  title,
+  description,
+  icon,
+  className,
+  href,
+  imgFallback,
+  blurHash,
+}) => (
   <div
     className={`mx-auto w-full max-w-xs rounded-xl bg-white border-gray-100 border px-5 py-4 text-gray-800 shadow-lg hover:shadow-xl transition duration-300 ease-in-out ${className}`}
   >
@@ -18,12 +29,13 @@ const Card: React.FC<{
         <ImageWithFallback
           alt={alt}
           src={img}
-          className={
-            `mx-auto object-cover ` + (icon ? `rounded-md` : `rounded-full`)
-          }
+          className={`mx-auto object-cover ${
+            icon ? `rounded-md` : `rounded-full`
+          }`}
           height="80"
           width="80"
           fallbackSrc={imgFallback}
+          blurHash={blurHash}
         />
       </div>
     </div>

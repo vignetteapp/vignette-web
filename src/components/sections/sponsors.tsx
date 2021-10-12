@@ -1,8 +1,14 @@
 import { Layout, PrimaryText } from '@/components'
-import Sponsoring from '@/public/sponsors.json'
 import SponsorCard from '../sponsorCard'
+export interface Sponsor {
+  logo: string
+  name: string
+  url: string
+  blurHash?: any
+  fallbackLogo?: string
+}
 
-const Sponsors: React.FC = () => (
+const Sponsors: React.FC<{ list: Sponsor[] }> = ({ list }) => (
   <Layout
     id="sponsors"
     className="flex flex-col md:pr-48 md:pl-12 py-12 p-6"
@@ -13,7 +19,7 @@ const Sponsors: React.FC = () => (
     </PrimaryText>
 
     <div className="px-4 py-10 grid gap-x-8 gap-y-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
-      {Sponsoring.map((m, i) => (
+      {list.map((m, i) => (
         <div key={i}>
           <SponsorCard
             alt={m.name}
@@ -21,6 +27,7 @@ const Sponsors: React.FC = () => (
             imgFallback={m.fallbackLogo}
             href={m.url}
             className="h-full hover:-translate-y-2"
+            blurHash={m.blurHash}
           />
         </div>
       ))}
