@@ -49,10 +49,6 @@ body {
   @apply bg-gradient-to-bl from-cornflowerBlue to-pinkRed;
 }
 
-.button-gray {
-  @apply bg-secondary;
-}
-
 .animate-gradient {
   background-size: 250% 250%;
   -webkit-animation: loop 4s ease infinite;

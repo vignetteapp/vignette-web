@@ -1,0 +1,18 @@
+[
+  {
+    "logo": "https://fosshost.org/img/fosshost-logo.png",
+    "name": "Fosshost",
+    "url": "https://fosshost.org"
+  },
+  {
+    "logo": "/images/vercel-dark.svg",
+    "name": "Vercel",
+    "url": "https://vercel.com/?utm_source=vignette&utm_campaign=oss"
+  },
+  {
+    "logo": "/images/browserstack.webp",
+    "fallbackLogo": "/images/browserstack.png",
+    "name": "BrowserStack",
+    "url": "https://browserstack.com"
+  }
+]

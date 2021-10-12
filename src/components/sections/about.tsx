@@ -1,5 +1,6 @@
 import { Layout, PrimaryText } from '@/components'
-import Image from 'next/image'
+import ImageWithFallback from '../imageWithFallback'
+
 const About: React.FC = () => (
   <Layout
     id="about"
@@ -57,13 +58,21 @@ const About: React.FC = () => (
       </div>
 
       <div className="flex justify-center">
-        <Image
+        <ImageWithFallback
+          src="/images/demo.webp"
+          alt="Vignette UI image"
+          height="786"
+          width="442"
+          className="object-contain"
+          fallbackSrc="/images/demo.png"
+        />
+        {/* <Image
           src="/images/demo.png"
           alt="Vignette UI image"
           height="786"
           width="442"
           className="object-contain"
-        />
+        /> */}
       </div>
     </div>
   </Layout>
