@@ -66,7 +66,7 @@ const Sidebar = () => {
               (e?.offsetParent as unknown as HTMLElement)?.offsetTop,
           ) +
           e.offsetTop +
-          window.innerHeight / 4,
+          50,
       )
 
       const handler = () => {
