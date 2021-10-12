@@ -19,6 +19,7 @@ const Features: React.FC = () => (
             muted
             loop
             playsInline
+            preload="metadata"
           />
         </LazyLoad>
       </div>

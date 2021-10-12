@@ -14,6 +14,7 @@ const ImageWithFallback: React.FC<IProps> = (props) => {
     <Image
       {...rest}
       src={imgSrc}
+      decoding="async"
       onError={() => {
         if (fallbackSrc) setImgSrc(fallbackSrc)
       }}
