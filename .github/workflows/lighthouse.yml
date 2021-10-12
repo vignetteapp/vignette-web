@@ -16,7 +16,8 @@ jobs:
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v8
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           urls: |
             ${{ steps.vercel.outputs.url }}
           temporaryPublicStorage: true
+        env:
+          LHCI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
