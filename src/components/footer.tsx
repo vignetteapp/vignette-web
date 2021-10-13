@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 const Footer: React.FC = () => {
   return (
@@ -17,29 +16,36 @@ const Footer: React.FC = () => {
       <div className="mx-auto md:flex flex-row gap-16  font-light hidden md:visible ">
         <div className="flex flex-col">
           <span className="my-1">
-            <Link href="/#about">About</Link>
+            <a href="#about">About</a>
           </span>
+
           <span className="my-1">
-            <Link href="/#vision">Our vision</Link>
+            <a href="#vision">Our vision</a>
           </span>
+
           <span className="my-1">
-            <Link href="/#team">Our Team</Link>
+            <a href="#team">Our Team</a>
           </span>
         </div>
+
         <div className="flex flex-col">
           <span className="my-1">
-            <Link href="/#sponsors">Sponsors</Link>
+            <a href="#sponsors">Sponsors</a>
           </span>
           <span className="my-1">
-            <Link href="https://github.com/vignetteapp/vignette/releases">
+            <a
+              href="https://github.com/vignetteapp/vignette/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Download
-            </Link>
+            </a>
           </span>
         </div>
       </div>
-      <div className="flex flex-col md:text-center my-auto pt-6 md:pt-0 ">
+      <div className="flex flex-col xs:text-right my-auto pt-6 md:pt-0 ">
         <span className="pb-1 text-center tracking-tight text-sm">
-          {` `}©{new Date().getFullYear()} The Vignette Authors{` `}
+          ©{new Date().getFullYear()} The Vignette Authors
         </span>
 
         <a
