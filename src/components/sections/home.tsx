@@ -1,13 +1,16 @@
 import { Layout, Button, BottomBar, PrimaryText } from '@/components'
 import { Icon } from '@iconify/react'
 import Link from 'next/link'
+import { forwardRef } from 'react'
 
-const Home: React.FC = () => {
+// eslint-disable-next-line react/display-name
+const Home = forwardRef((_, ref: any) => {
   return (
     <Layout
       id="home"
       className="flex flex-col hero z-30 shadow-lg min-h-screen"
       data-sidebar
+      ref={ref}
     >
       <div className="text-center m-auto pt-10">
         <PrimaryText className="animate-gradient logo p-3">
@@ -37,6 +40,6 @@ const Home: React.FC = () => {
       <BottomBar />
     </Layout>
   )
-}
+})
 
 export default Home
