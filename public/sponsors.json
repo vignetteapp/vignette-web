@@ -14,5 +14,11 @@
     "fallbackLogo": "/images/browserstack.png",
     "name": "BrowserStack",
     "url": "https://browserstack.com"
+  },
+  {
+    "logo": "/images/open-source-collective-logo.webp",
+    "fallbackLogo": "/images/open-source-collective-logo.png",
+    "name": "Open Source Collective",
+    "url": "https://www.oscollective.org/"
   }
 ]
