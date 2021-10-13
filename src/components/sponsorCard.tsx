@@ -7,8 +7,7 @@ const SponsorCard: React.FC<{
   alt?: string
   href?: string
   className?: string
-  cssProps?: any
-}> = ({ img, alt, className, href, imgFallback, cssProps }) => (
+}> = ({ img, alt, className, href, imgFallback }) => (
   <div
     className={`mx-auto w-full max-w-xs rounded-xl bg-white border-gray-100 border px-5 py-4 text-gray-800 shadow-lg hover:shadow-xl transition duration-300 ease-in-out ${className}`}
   >
@@ -22,7 +21,6 @@ const SponsorCard: React.FC<{
           width="315"
           layout="responsive"
           className="object-contain"
-          cssProps={cssProps}
         />
       </a>
     </div>
