@@ -4,6 +4,8 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     name: Measure Performance
+    permissions:
+      issues: write
 
     steps:
       - uses: actions/checkout@v2
@@ -30,8 +32,6 @@ jobs:
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
-        permissions:
-          issues: write
         with:
           body: |
            Check out the Lighthouse CI results:
