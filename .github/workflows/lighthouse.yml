@@ -1,8 +1,9 @@
 name: Lighthouse CI
 on: pull_request
 jobs:
-  build:
+  lighthouse:
     runs-on: ubuntu-latest
+    name: Measure Performance
 
     steps:
       - uses: actions/checkout@v2
@@ -15,9 +16,29 @@ jobs:
       
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v8
+        id: lighthouse
         with:
           urls: |
             ${{ steps.vercel.outputs.url }}
           temporaryPublicStorage: true
         env:
           LHCI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Parse Lighthouse output
+        run: |
+          outputUrl=$( ${{ steps.lighthouse.links }} | jq '.${{ steps.vercel.outputs.URL }}' )
+          echo "OUTPUT=$outputUrl" >> "$GITHUB_ENV"
+
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        permissions:
+          issues: write
+        with:
+          body: |
+           Check out the Lighthouse CI results:
+            - $OUTPUT
+            -
+            - Created using [create-or-update-comment][1]
+
+            [1]: https://github.com/peter-evans/create-or-update-comment
+          
+
