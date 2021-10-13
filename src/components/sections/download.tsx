@@ -4,14 +4,14 @@ import { Icon } from '@iconify/react'
 const Download: React.FC = () => (
   <Layout
     id="download"
-    className="flex flex-col md:pr-48 md:pl-12 py-12 p-6"
+    className="flex flex-col md:pr-48 md:pl-12 py-12 p-6 mb-12"
     data-sidebar
   >
     <PrimaryText className="md:text-5xl text-4xl font-semibold font-spartan tracking-tight md:p-3 py-3">
       Download
     </PrimaryText>
 
-    <div className="text-center m-auto pt-10 transition-transfrom duration-300 ease-in-out hover:-translate-y-3">
+    <div className="text-center m-auto pt-8 transition-transfrom duration-300 ease-in-out hover:-translate-y-3">
       <a
         href="https://github.com/vignetteapp/vignette/releases"
         target="_blank"
