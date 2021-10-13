@@ -42,9 +42,8 @@ const Sponsors: React.FC = () => (
             Open Collective
           </span>
         </a>
-        {` `}
-        or{` `}
-        <a href="https://github.com/vignetteapp/">
+        {` `}or{` `}
+        <a href="https://github.com/sponsors/vignetteapp">
           <span className="gradient-primary font-semibold text-transparent bg-clip-text">
             {` `}
             GitHub{` `}
