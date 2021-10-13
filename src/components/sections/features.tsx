@@ -1,11 +1,8 @@
 import { Layout, PrimaryText } from '@/components'
 import { useState } from 'react'
-import LazyLoad from 'react-lazyload'
-import ImageWithFallback from '../imageWithFallback'
+import { LazyLoadComponent } from 'react-lazy-load-image-component'
 
-const Features: React.FC<{ videoPlaceholder: any }> = ({
-  videoPlaceholder,
-}) => {
+const Features: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false)
 
   return (
@@ -16,35 +13,22 @@ const Features: React.FC<{ videoPlaceholder: any }> = ({
     >
       <div className="flex flex-col-reverse lg:flex-row font-inter items-center">
         <div className="relative mt-12 md:mr-0 xl:px-4 lg:w-2/3 lg:mt-0">
-          <div className="relative">
-            {!videoLoaded && (
-              <div className="flex justify-center absolute w-full top-0 left-0 bottom-0 right-0">
-                <ImageWithFallback
-                  src="/images/video.webp"
-                  fallbackSrc="/images/video.png"
-                  cssProps={videoPlaceholder}
-                  height="815"
-                  width="720"
-                  className="rounded-lg shadow-md"
-                />
-              </div>
-            )}
-
-            <LazyLoad height="636" once>
-              <video
-                className="rounded-lg shadow-md mx-auto"
-                src="/videos/demo.mp4"
-                height="636"
-                width="720"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                onLoadedData={() => setVideoLoaded(true)}
-              />
-            </LazyLoad>
-          </div>
+          <LazyLoadComponent>
+            <video
+              className={`rounded-lg shadow-md mx-auto transition-opacity duration-300 ease-in-out ${
+                videoLoaded ? `opacity-1` : `opacity-0`
+              }`}
+              src="/videos/demo.mp4"
+              height="636"
+              width="720"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onLoadedData={() => setVideoLoaded(true)}
+            />
+          </LazyLoadComponent>
         </div>
 
         <div className="lg:w-2/3 lg:ml-16">

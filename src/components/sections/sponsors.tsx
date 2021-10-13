@@ -1,14 +1,14 @@
 import { Layout, PrimaryText } from '@/components'
 import SponsorCard from '../sponsorCard'
+import SponsorsList from '@/public/sponsors.json'
 export interface Sponsor {
   logo: string
   name: string
   url: string
-  cssProps?: any
   fallbackLogo?: string
 }
 
-const Sponsors: React.FC<{ list: Sponsor[] }> = ({ list }) => (
+const Sponsors: React.FC = () => (
   <Layout
     id="sponsors"
     className="flex flex-col md:pr-48 md:pl-12 py-12 p-6"
@@ -19,17 +19,15 @@ const Sponsors: React.FC<{ list: Sponsor[] }> = ({ list }) => (
     </PrimaryText>
 
     <div className="px-4 py-10 grid gap-x-8 gap-y-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
-      {list.map((m, i) => (
-        <div key={i}>
-          <SponsorCard
-            alt={m.name}
-            img={m.logo}
-            imgFallback={m.fallbackLogo}
-            href={m.url}
-            className="h-full hover:-translate-y-2"
-            cssProps={m.cssProps}
-          />
-        </div>
+      {SponsorsList.map((m, i) => (
+        <SponsorCard
+          alt={m.name}
+          img={m.logo}
+          imgFallback={m.fallbackLogo}
+          href={m.url}
+          className="h-full hover:-translate-y-2"
+          key={i}
+        />
       ))}
     </div>
 
@@ -44,9 +42,8 @@ const Sponsors: React.FC<{ list: Sponsor[] }> = ({ list }) => (
             Open Collective
           </span>
         </a>
-        {` `}
-        or{` `}
-        <a href="https://github.com/vignetteapp/">
+        {` `}or{` `}
+        <a href="https://github.com/sponsors/vignetteapp">
           <span className="gradient-primary font-semibold text-transparent bg-clip-text">
             {` `}
             GitHub{` `}

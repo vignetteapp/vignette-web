@@ -9,13 +9,11 @@ module.exports = {
     options: {
       safelist: {
         greedy: [
-          /text-primary/,
-          /text-subtle/,
-          /border-primary/,
-          /border-subtle/,
+          /text-(primary|subtle)/,
+          /border-(primary|subtle)/,
           /mb-3/,
-          /rounded-md/,
-          /rounded-full/,
+          /rounded-(md|full)/,
+          /opacity-(0|1)/,
         ],
       },
     },
@@ -24,6 +22,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        xs: '532px',
         '3xl': '1792px',
       },
       colors: {
@@ -48,7 +47,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-pattern':
-          'url(public/images/background.webp), url(public/images/background.jpg)',
+          'url(/images/background.webp), url(/images/background.jpg)',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],

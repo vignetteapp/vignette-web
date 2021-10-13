@@ -1,4 +1,5 @@
 import { Layout, PrimaryText, Card } from '@/components'
+import Members from '@/public/members.json'
 export interface Member {
   name: string
   avatar: string
@@ -8,7 +9,7 @@ export interface Member {
   cssProps?: any
 }
 
-const OurTeam: React.FC<{ list: Member[] }> = ({ list }) => (
+const OurTeam: React.FC = () => (
   <Layout
     id="team"
     className="flex flex-col md:pr-48 md:pl-12 py-12 p-6"
@@ -19,7 +20,7 @@ const OurTeam: React.FC<{ list: Member[] }> = ({ list }) => (
     </PrimaryText>
 
     <div className="pt-20 p-10 grid gap-x-8 gap-y-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
-      {list.map((m) => (
+      {Members.map((m) => (
         <div key={m.id}>
           <Card
             alt=""
@@ -28,7 +29,6 @@ const OurTeam: React.FC<{ list: Member[] }> = ({ list }) => (
             href={m.url}
             description={m.role}
             className="h-full hover:-translate-y-2"
-            cssProps={m.cssProps}
           />
         </div>
       ))}

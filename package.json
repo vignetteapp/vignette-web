@@ -21,21 +21,18 @@
   "dependencies": {
     "@fontsource/spartan": "4.5.0",
     "@iconify/react": "3.0.1",
-    "@plaiceholder/next": "2.1.0",
     "framer-motion": "4.1.17",
-    "jimp": "0.16.1",
     "next": "11.1.2",
-    "plaiceholder": "2.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-lazyload": "3.2.0",
-    "sharp": "0.29.1",
+    "react-lazy-load-image-component": "^1.5.1",
     "tailwindcss": "2.2.15"
   },
   "devDependencies": {
     "@types/node": "14.17.15",
     "@types/react": "17.0.21",
     "@types/react-dom": "17.0.9",
+    "@types/react-lazy-load-image-component": "^1.5.2",
     "@types/react-lazyload": "3.1.1",
     "@typescript-eslint/eslint-plugin": "4.31.1",
     "@typescript-eslint/parser": "4.31.1",

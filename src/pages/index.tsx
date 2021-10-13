@@ -3,67 +3,52 @@ import { Footer, SEO } from '@/components'
 import { Home, About, Features, Download } from '@/components/sections'
 import { NextPage } from 'next'
 import OurVision from '@/components/sections/vision'
-import OurTeam, { Member } from '@/components/sections/team'
-import Sponsors, { Sponsor } from '@/components/sections/sponsors'
-import { getPlaiceholder } from 'plaiceholder'
+import OurTeam from '@/components/sections/team'
+import Sponsors from '@/components/sections/sponsors'
+import { useEffect, useRef } from 'react'
+import wait from '@/utils/wait'
 
-import Members from '@/public/members.json'
-import SponsorsList from '@/public/sponsors.json'
-
-interface IProps {
-  team: Member[]
-  sponsors: Sponsor[]
-  videoPlaceholder: any
-}
-
-const Index: NextPage<IProps> = ({ team, sponsors, videoPlaceholder }) => {
+const Index: NextPage = () => {
   const Sidebar = dynamic(() => import(`@/components/sidebar`))
+
+  const homeRef = useRef<HTMLDivElement>(null)
+  const aboutRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const homeBoundary = homeRef.current?.offsetHeight as number
+
+    const handler = async ({ deltaY }: WheelEvent) => {
+      const scrollY = window.scrollY
+
+      await wait(100)
+
+      // Scroll down
+      if (deltaY > 0 && scrollY < homeBoundary) window.scrollTo(0, homeBoundary)
+      // Scroll up
+      else if (deltaY < 0 && scrollY <= homeBoundary) window.scrollTo(0, 0)
+    }
+
+    window.addEventListener(`wheel`, handler, { passive: true })
+    // @ts-expect-error Type
+    return () => window.removeEventListener(`wheel`, handler, { passive: true })
+  }, [])
+
   return (
     <>
       <SEO title="Home" desc="Make your streams more virtual." path="/" />
       <Sidebar />
 
-      <Home />
-      <About />
-      <Features videoPlaceholder={videoPlaceholder} />
+      <Home ref={homeRef} />
+      <About ref={aboutRef} />
+      <Features />
       <OurVision />
-      <OurTeam list={team} />
-      <Sponsors list={sponsors} />
+      <OurTeam />
+      <Sponsors />
       <Download />
 
       <Footer />
     </>
   )
-}
-
-export const getStaticProps = async () => {
-  const team = await Promise.all(
-    Members.map(async (m: Member) => {
-      const { css } = await getPlaiceholder(m.avatar)
-
-      m.cssProps = css
-      return m
-    }),
-  )
-
-  // const sponsors = await Promise.all(
-  //   SponsorsList.map(async (s: Sponsor) => {
-  //     const { css } = await getPlaiceholder(s.logo)
-
-  //     s.cssProps = css
-  //     return s
-  //   }),
-  // )
-
-  const { css: videoPlaceholder } = await getPlaiceholder(`/images/video.webp`)
-
-  return {
-    props: {
-      team,
-      sponsors: SponsorsList,
-      videoPlaceholder,
-    },
-  }
 }
 
 export default Index

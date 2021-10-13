@@ -1,15 +1,19 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
+import { DetailedHTMLProps, forwardRef, HTMLAttributes } from 'react'
+
+type IProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 
 // simple container that defines the layout of the whole website.
-const Layout: React.FC<
-  DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
-> = ({ children, className, ...rest }) => (
-  <section
-    {...rest}
-    className={`relative w-full overflow-x-hidden ${className}`}
-  >
-    {children}
-  </section>
+// eslint-disable-next-line react/display-name
+const Layout = forwardRef(
+  ({ children, className, ...rest }: IProps, ref: any) => (
+    <section
+      {...rest}
+      className={`relative w-full overflow-x-hidden ${className}`}
+      ref={ref}
+    >
+      {children}
+    </section>
+  ),
 )
 
 export default Layout
