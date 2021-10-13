@@ -3,6 +3,8 @@ import { useState } from 'react'
 import LazyLoad from 'react-lazyload'
 
 const Features: React.FC = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false)
+
   return (
     <Layout
       id="features"
@@ -13,7 +15,9 @@ const Features: React.FC = () => {
         <div className="relative mt-12 md:mr-0 xl:px-4 lg:w-2/3 lg:mt-0">
           <LazyLoad height="636" once>
             <video
-              className="rounded-lg shadow-md mx-auto"
+              className={`rounded-lg shadow-md mx-auto transition-opacity duration-300 ease-in-out ${
+                !videoLoaded ? `opacity-0` : `opacity-1`
+              }`}
               src="/videos/demo.mp4"
               height="636"
               width="720"
@@ -22,6 +26,7 @@ const Features: React.FC = () => {
               loop
               playsInline
               preload="metadata"
+              onLoadedData={() => setVideoLoaded(true)}
             />
           </LazyLoad>
         </div>

@@ -9,13 +9,11 @@ module.exports = {
     options: {
       safelist: {
         greedy: [
-          /text-primary/,
-          /text-subtle/,
-          /border-primary/,
-          /border-subtle/,
+          /text-(primary|subtle)/,
+          /border-(primary|subtle)/,
           /mb-3/,
-          /rounded-md/,
-          /rounded-full/,
+          /rounded-(md|full)/,
+          /opacity-(0|1)/,
         ],
       },
     },
