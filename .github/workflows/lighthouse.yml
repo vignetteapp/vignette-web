@@ -27,7 +27,7 @@ jobs:
           LHCI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Parse Lighthouse output
         run: |
-          outputUrl=$(echo "${{ steps.lighthouse.outputs.links }}"| jq ".${{ steps.vercel.outputs.URL }}/")
+          outputUrl=$(echo '${{ steps.lighthouse.outputs.links }}'| jq ".[${{ steps.vercel.outputs.URL }}/]")
           echo "OUTPUT=$outputUrl" >> "$GITHUB_ENV"
 
       - name: Create comment
