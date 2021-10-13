@@ -29,18 +29,13 @@ jobs:
       - name: Parse Lighthouse output
         id: parse
         run: |
-          echo "::set-output name=url::$(echo '${{ steps.lighthouse.outputs.links }}'| jq '.["${{ steps.vercel.outputs.URL }}/"]')"
+          echo "::set-output name=url::$(echo '${{ steps.lighthouse.outputs.links }}'| jq -r '.["${{ steps.vercel.outputs.URL }}/"]')"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-           Check out the Lighthouse CI results:
-            - ${{ steps.parse.outputs.URL }}
-            -
-            - Created using [create-or-update-comment][1]
-
-            [1]: https://github.com/peter-evans/create-or-update-comment
-          
+            Check out the Lighthouse CI results:
+            ${{ steps.parse.outputs.url }}
 
