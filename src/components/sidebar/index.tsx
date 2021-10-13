@@ -64,9 +64,7 @@ const Sidebar = () => {
           Number(
             e.tagName === `A` &&
               (e?.offsetParent as unknown as HTMLElement)?.offsetTop,
-          ) +
-          e.offsetTop +
-          50,
+          ) + e.offsetTop,
       )
 
       const handler = () => {
@@ -80,7 +78,7 @@ const Sidebar = () => {
 
         positions.forEach((pos, i) => {
           const clampTop = pos < topOffset
-          const clampBottom = pos > window.innerHeight - bottomOffset
+          const clampBottom = pos + 50 > window.innerHeight - bottomOffset
 
           const hideElement = clampTop || clampBottom
           const el = childrens[i]
