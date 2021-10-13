@@ -33,7 +33,7 @@ jobs:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
-          issue-number: $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          issue-number: ${{ github.event.pull_request.number }}
           body: |
            Check out the Lighthouse CI results:
             - $OUTPUT
