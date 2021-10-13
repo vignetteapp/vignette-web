@@ -18,15 +18,7 @@ const SEO: React.FC<{ title: string; desc: string; path: string }> = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="theme-color" content="#BE58CB" />
 
-      <link rel="preload" as="image" href="/image/background.webp" />
-      <link rel="preload" as="image" href="/image/background.jpg" />
-
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin="true"
-      />
+      <link rel="preload" as="image" href="/images/background.webp" />
 
       {/* Cloudflare Web Analytics */}
       <script
