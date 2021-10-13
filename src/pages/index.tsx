@@ -28,8 +28,9 @@ const Index: NextPage = () => {
       else if (deltaY < 0 && scrollY <= homeBoundary) window.scrollTo(0, 0)
     }
 
-    window.addEventListener(`wheel`, handler, true)
-    return () => window.removeEventListener(`wheel`, handler, true)
+    window.addEventListener(`wheel`, handler, { passive: true })
+    // @ts-expect-error Type
+    return () => window.removeEventListener(`wheel`, handler, { passive: true })
   }, [])
 
   return (

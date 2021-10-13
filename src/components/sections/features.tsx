@@ -1,6 +1,10 @@
 import { Layout, PrimaryText } from '@/components'
+import { useState } from 'react'
+import { LazyLoadComponent } from 'react-lazy-load-image-component'
 
 const Features: React.FC = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false)
+
   return (
     <Layout
       id="features"
@@ -9,17 +13,22 @@ const Features: React.FC = () => {
     >
       <div className="flex flex-col-reverse lg:flex-row font-inter items-center">
         <div className="relative mt-12 md:mr-0 xl:px-4 lg:w-2/3 lg:mt-0">
-          <video
-            className="rounded-lg shadow-md mx-auto"
-            src="/videos/demo.mp4"
-            height="636"
-            width="720"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-          />
+          <LazyLoadComponent>
+            <video
+              className={`rounded-lg shadow-md mx-auto transition-opacity duration-300 ease-in-out opacity-${
+                videoLoaded ? `1` : `0`
+              }`}
+              src="/videos/demo.mp4"
+              height="636"
+              width="720"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onLoadedData={() => setVideoLoaded(true)}
+            />
+          </LazyLoadComponent>
         </div>
 
         <div className="lg:w-2/3 lg:ml-16">
