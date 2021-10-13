@@ -29,8 +29,7 @@ jobs:
       - name: Parse Lighthouse output
         id: parse
         run: |
-          outputUrl=$(echo '${{ steps.lighthouse.outputs.links }}'| jq '.["${{ steps.vercel.outputs.URL }}/"]')
-          echo '::set-output name=url::$outputUrl'
+          echo "::set-output name=url::$(echo '${{ steps.lighthouse.outputs.links }}'| jq '.["${{ steps.vercel.outputs.URL }}/"]')"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
