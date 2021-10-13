@@ -47,7 +47,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-pattern':
-          'url(public/images/background.webp), url(public/images/background.jpg)',
+          'url(/images/background.webp), url(/images/background.jpg)',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
