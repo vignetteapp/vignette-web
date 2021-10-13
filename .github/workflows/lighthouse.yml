@@ -25,10 +25,12 @@ jobs:
           temporaryPublicStorage: true
         env:
           LHCI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Parse Lighthouse output
+        id: parse
         run: |
           outputUrl=$(echo '${{ steps.lighthouse.outputs.links }}'| jq '.["${{ steps.vercel.outputs.URL }}/"]')
-          echo "OUTPUT=$outputUrl" >> "$GITHUB_ENV"
+          echo '::set-output name=url::$outputUrl'
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
@@ -36,7 +38,7 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
            Check out the Lighthouse CI results:
-            - $OUTPUT
+            - ${{ steps.parse.outputs.URL }}
             -
             - Created using [create-or-update-comment][1]
 
