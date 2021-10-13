@@ -30,7 +30,7 @@ const Index: NextPage = () => {
 
     window.addEventListener(`wheel`, handler, true)
     return () => window.removeEventListener(`wheel`, handler, true)
-  })
+  }, [])
 
   return (
     <>
