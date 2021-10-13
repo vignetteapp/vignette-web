@@ -15,8 +15,8 @@ const Features: React.FC = () => {
         <div className="relative mt-12 md:mr-0 xl:px-4 lg:w-2/3 lg:mt-0">
           <LazyLoadComponent>
             <video
-              className={`rounded-lg shadow-md mx-auto transition-opacity duration-300 ease-in-out opacity-${
-                videoLoaded ? `1` : `0`
+              className={`rounded-lg shadow-md mx-auto transition-opacity duration-300 ease-in-out ${
+                videoLoaded ? `opacity-1` : `opacity-0`
               }`}
               src="/videos/demo.mp4"
               height="636"
