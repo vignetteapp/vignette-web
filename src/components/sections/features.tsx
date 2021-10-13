@@ -18,7 +18,7 @@ const Features: React.FC = () => {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
           />
         </div>
 
