@@ -13,7 +13,7 @@ const ImageWithFallback: React.FC<IProps> = (props) => {
   return (
     <Image
       {...rest}
-      className={`${className} transition-opacity duration-200 ease-in-out ${
+      className={`${className} transition-opacity ease-in-out ${
         loading ? `opacity-0` : `opacity-1`
       }`}
       src={imgSrc}
