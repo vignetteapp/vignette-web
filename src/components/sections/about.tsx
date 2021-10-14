@@ -1,14 +1,12 @@
 import { Layout, PrimaryText } from '@/components'
-import { forwardRef } from 'react'
 import ImageWithFallback from '../imageWithFallback'
 
 // eslint-disable-next-line react/display-name
-const About = forwardRef((_, ref: any) => (
+const About = () => (
   <Layout
     id="about"
     className="flex flex-col md:pr-48 md:pl-12 py-12 p-6"
     data-sidebar
-    ref={ref}
   >
     <PrimaryText className="md:text-5xl text-4xl font-semibold font-spartan tracking-tight md:p-3 py-3">
       About
@@ -79,6 +77,6 @@ const About = forwardRef((_, ref: any) => (
       </div>
     </div>
   </Layout>
-))
+)
 
 export default About

@@ -5,41 +5,17 @@ import { NextPage } from 'next'
 import OurVision from '@/components/sections/vision'
 import OurTeam from '@/components/sections/team'
 import Sponsors from '@/components/sections/sponsors'
-import { useEffect, useRef } from 'react'
-import wait from '@/utils/wait'
 
 const Index: NextPage = () => {
   const Sidebar = dynamic(() => import(`@/components/sidebar`))
-
-  const homeRef = useRef<HTMLDivElement>(null)
-  const aboutRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const homeBoundary = homeRef.current?.offsetHeight as number
-
-    const handler = async ({ deltaY }: WheelEvent) => {
-      const scrollY = window.scrollY
-
-      await wait(100)
-
-      // Scroll down
-      if (deltaY > 0 && scrollY < homeBoundary) window.scrollTo(0, homeBoundary)
-      // Scroll up
-      else if (deltaY < 0 && scrollY <= homeBoundary) window.scrollTo(0, 0)
-    }
-
-    window.addEventListener(`wheel`, handler, { passive: true })
-    // @ts-expect-error Type
-    return () => window.removeEventListener(`wheel`, handler, { passive: true })
-  }, [])
 
   return (
     <>
       <SEO title="Home" desc="Make your streams more virtual." path="/" />
       <Sidebar />
 
-      <Home ref={homeRef} />
-      <About ref={aboutRef} />
+      <Home />
+      <About />
       <Features />
       <OurVision />
       <OurTeam />
