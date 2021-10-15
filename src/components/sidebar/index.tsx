@@ -14,6 +14,9 @@ const LINKS: Record<string, string> = {
 }
 
 const Sidebar = () => {
+  // Placeholder for dynamically loaded mobile sidebar
+  //const MobileSidebar = <></>
+
   // Sidebar link list
   const [list, setList] = useState<Record<number, string>>({})
   const [active, setActive] = useState(0)
@@ -94,43 +97,49 @@ const Sidebar = () => {
   }, [list])
 
   return (
-    <div
-      ref={sidebar}
-      className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 md:flex flex-col justify-between items-end hidden"
-    >
-      <Logo width="45" className="transition duration-300 ease-in-out" />
+    <>
+      <div
+        ref={sidebar}
+        className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 lg:flex flex-col justify-between items-end hidden"
+      >
+        <Logo width="45" className="transition duration-300 ease-in-out" />
 
-      <div id="sidebar-links" className="filter drop-shadow">
-        {Object.keys(LINKS).map((key, i, arr) => (
-          <a
-            href={LINKS[key]}
-            target="_blank"
-            rel="noopener noreferrer"
-            key={i}
-            className="block transition duration-300 ease-in-out"
-          >
-            <Icon
-              icon={key}
-              height="36"
-              className={`transition-transform duration-300 ease-in-out hover:scale-110 
+        <div id="sidebar-links" className="filter drop-shadow">
+          {Object.keys(LINKS).map((key, i, arr) => (
+            <a
+              href={LINKS[key]}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={i}
+              className="block transition duration-300 ease-in-out"
+            >
+              <Icon
+                icon={key}
+                height="36"
+                className={`transition-transform duration-300 ease-in-out hover:scale-110 
               ${i !== arr.length - 1 && `mb-3`} `}
-            />
-          </a>
-        ))}
-      </div>
+              />
+            </a>
+          ))}
+        </div>
 
-      <div className="flex flex-col items-end pb-4">
-        {Object.keys(list).map((key, i) => (
-          // eslint-disable-next-line jsx-a11y/anchor-is-valid
-          <Link
-            key={i}
-            text={list[key as unknown as number]}
-            active={i === active}
-            link={`#${list[key as unknown as number]}`}
-          />
-        ))}
+        <div className="flex flex-col items-end pb-4">
+          {Object.keys(list).map((key, i) => (
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
+            <Link
+              key={i}
+              text={list[key as unknown as number]}
+              active={i === active}
+              link={`#${list[key as unknown as number]}`}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+      <div className="lg:hidden block"></div>
+    </>
   )
 }
+
+// TODO: Add mobile sidebar
+// const MobileSidebar = () => <></>
 export default Sidebar
