@@ -17,6 +17,12 @@ const SEO: React.FC<{ title: string; desc: string; path: string }> = ({
       <meta property="og:image" content="/images/banner.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="theme-color" content="#BE58CB" />
+      <link
+        rel="preload"
+        as="font"
+        type="font/woff2"
+        href="/fonts/spartan-latin-variable-wghtOnly-normal.woff2"
+      />
 
       <link rel="preload" as="image" href="/images/background.webp" />
 

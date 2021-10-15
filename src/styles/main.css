@@ -105,3 +105,13 @@ body {
 .video {
   @apply rounded-lg shadow-xl;
 }
+
+.font-spartan {
+  font-family: "Spartan", "serif";
+}
+
+@supports (font-variation-settings: normal) {
+  .font-spartan {
+    font-family: "SpartanVariable", "serif";
+  }
+}
