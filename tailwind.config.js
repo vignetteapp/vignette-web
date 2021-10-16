@@ -53,7 +53,6 @@ module.exports = {
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
-        spartan: ['Spartan', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-.1em',

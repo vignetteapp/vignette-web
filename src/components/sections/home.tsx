@@ -29,9 +29,12 @@ const Home = () => {
       </div>
 
       <Link href="#about" passHref>
-        <a className="bottom-0 mx-auto flex flex-col align-center items-center mb-3 p-2">
+        <a className="bottom-0 mx-auto flex flex-col align-center items-center p-4">
           <p className="text-subtle text-lg tracking-tight">Learn more</p>
-          <Icon icon="akar-icons:chevron-down" className="text-subtle " />
+          <Icon
+            icon="akar-icons:chevron-down"
+            className="text-subtle h-4 w-4"
+          />
         </a>
       </Link>
 
