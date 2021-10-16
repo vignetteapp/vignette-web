@@ -28,6 +28,10 @@
 
 }
 
+html.dark{
+  background-color: #323232 !important;
+}
+
 /* Globals */
 * {
   margin: 0;
