@@ -11,13 +11,13 @@ const Download: React.FC = () => (
       Download
     </PrimaryText>
 
-    <div className="text-center m-auto pt-8 transition-transfrom duration-300 ease-in-out hover:-translate-y-3">
+    <div className="text-center m-auto pt-8 transition-transfrom duration-300 ease-in-out hover:-translate-y-3 ">
       <a
         href="https://github.com/vignetteapp/vignette/releases"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Button className="bg-secondary py-4" disableGradient>
+        <Button className="bg-secondary py-4 " disableGradient>
           Get it from{` `}
           <Icon
             className="inline-block ml-1"
@@ -29,7 +29,7 @@ const Download: React.FC = () => (
       </a>
     </div>
 
-    <p className="text-center mx-auto text-subtle mt-4">
+    <p className="text-center mx-auto text-subtle dark:text-subtle-dark mt-4">
       Other platforms soon&trade;
     </p>
   </Layout>

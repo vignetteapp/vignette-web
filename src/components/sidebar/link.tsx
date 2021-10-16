@@ -28,9 +28,13 @@ const Link: React.FC<IProps> = ({
       }}
       transition={{ ease: `easeInOut`, duration: 0.3 }}
       href={link}
-      className={`cursor-pointer capitalize flex items-center mt-1 tracking-tight transition duration-300 ease-in-out ${
-        active ? `text-primary` : `text-subtle`
-      }`}
+      className={`cursor-pointer capitalize flex items-center mt-1 tracking-tight transition
+       duration-300 ease-in-out ${
+         active
+           ? `text-primary dark:text-secondary-dark`
+           : `text-subtle dark:text-subtle-dark
+      `
+       }`}
       onMouseOver={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -43,9 +47,12 @@ const Link: React.FC<IProps> = ({
           height: active ? `2.2rem` : hover ? `1.2rem` : `1rem`,
         }}
         transition={{ ease: `easeInOut`, duration: 0.3 }}
-        className={`ml-4 border-2 rounded-full transition-colors duration-500 ease-in-out ${
-          active ? `border-primary` : `border-subtle`
-        }`}
+        className={`ml-4 border-2 rounded-full transition-colors duration-500 ease-in-out
+         ${
+           active
+             ? `border-primary dark:border-primary-dark`
+             : `border-subtle dark:border-subtle-dark`
+         }`}
       />
     </motion.a>
   )

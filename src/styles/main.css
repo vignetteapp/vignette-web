@@ -6,7 +6,7 @@
 
 /* Scrollbar: Chromium */
 ::-webkit-scrollbar {
-  @apply w-2;
+  @apply w-2 bg-primary;
 }
 
 ::-webkit-scrollbar-track {
@@ -22,6 +22,11 @@
   scrollbar-color: #6a99dd #e5e7eb;
   scrollbar-width: thin;
 }
+*.dark {
+  scrollbar-color: #BE58CB #323232;
+  scrollbar-width: thin;
+
+}
 
 /* Globals */
 * {
@@ -32,13 +37,10 @@
 }
 
 
-[data-theme='dark'] {
-  @apply bg-hero-pattern;
 
-}
 
 body {
-  @apply font-inter text-primary bg-hero-pattern bg-center bg-contain;
+  @apply font-inter text-primary dark:bg-hero-pattern-dark bg-hero-pattern bg-center bg-contain;
 }
 
 
@@ -86,8 +88,9 @@ body {
 
 /* Miscellaneous */
 .hero {
-  @apply bg-hero-pattern bg-center bg-no-repeat bg-cover;
+  @apply bg-hero-pattern dark:bg-hero-pattern-dark bg-center bg-cover;
 }
+
 
 .logo {
   @apply font-bold tracking-tightest md:text-8xl text-7xl  !important;
