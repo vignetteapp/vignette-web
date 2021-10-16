@@ -31,6 +31,12 @@
   scroll-behavior: smooth;
 }
 
+
+[data-theme='dark'] {
+  @apply bg-hero-pattern;
+
+}
+
 body {
   @apply font-inter text-primary bg-hero-pattern bg-center bg-contain;
 }

@@ -18,7 +18,7 @@ module.exports = {
       },
     },
   },
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       screens: {
@@ -48,6 +48,8 @@ module.exports = {
       backgroundImage: {
         'hero-pattern':
           'url(/images/background.webp), url(/images/background.jpg)',
+        'hero-patterm-dark':
+          'url(/images/background-dark.webp), url(/images/background-dark.jpg)',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
