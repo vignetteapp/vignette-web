@@ -14,7 +14,7 @@ const About = () => (
 
     <div className=" flex flex-col flex-grow tracking-wide lg:flex-row justify-between">
       <div className="font-normal flex flex-col justify-between lg:w-2/3 md:p-3">
-        <div className="font-inter">
+        <div className="font-inter dark:text-white">
           <p className="text-2xl spaced-line ">
             <span className="gradient-secondary font-semibold text-transparent bg-clip-text">
               Vignette

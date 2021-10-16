@@ -15,11 +15,11 @@ const Home = () => {
           Vignette
         </PrimaryText>
 
-        <p className="md:text-3xl text-xl font-semibold pt-4">
+        <p className="md:text-3xl text-xl font-semibold pt-4 dark:text-gray-200">
           Make your streams more virtual.
         </p>
         <div className="mt-12">
-          <p className="text-subtle font-medium tracking-tight">
+          <p className="text-subtle dark:text-subtle-dark font-medium tracking-tight">
             Free and Open Source
           </p>
           <a href="#download">
@@ -29,11 +29,13 @@ const Home = () => {
       </div>
 
       <Link href="#about" passHref>
-        <a className="bottom-0 mx-auto flex flex-col align-center items-center p-4">
-          <p className="text-subtle text-lg tracking-tight">Learn more</p>
+        <a className="bottom-0 mx-auto flex flex-col align-center items-center p-4 pb-6">
+          <p className="text-subtle dark:text-subtle-dark text-lg tracking-tight">
+            Learn more
+          </p>
           <Icon
             icon="akar-icons:chevron-down"
-            className="text-subtle h-4 w-4"
+            className="text-subtle dark:text-subtle-dark h-4 w-4"
           />
         </a>
       </Link>

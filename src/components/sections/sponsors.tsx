@@ -1,6 +1,7 @@
 import { Layout, PrimaryText } from '@/components'
 import SponsorCard from '../sponsorCard'
 import SponsorsList from '@/public/sponsors.json'
+
 export interface Sponsor {
   logo: string
   name: string
@@ -31,7 +32,7 @@ const Sponsors: React.FC = () => (
       ))}
     </div>
 
-    <p className="px-4 text-2xl spaced-line">
+    <p className="px-4 text-2xl spaced-line dark:text-primary-dark">
       Want to be a sponsor?
       <br />
       {` `}

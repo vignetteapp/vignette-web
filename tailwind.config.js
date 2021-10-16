@@ -18,7 +18,7 @@ module.exports = {
       },
     },
   },
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       screens: {
@@ -41,13 +41,15 @@ module.exports = {
         deepFuscia: '#BE58CB',
         pinkRed: '#F10E5A',
         cornflowerBlue: '#6A99DD',
-        primary: '#323232',
-        secondary: '#444444',
-        subtle: '#777777',
+        primary: { DEFAULT: '#323232', dark: '#F8F8F8' },
+        secondary: { DEFAULT: '#444444', dark: '#DADADA' },
+        subtle: { DEFAULT: '#777777', dark: '#BBBBBB' },
       },
       backgroundImage: {
         'hero-pattern':
           'url(/images/background.webp), url(/images/background.jpg)',
+        'hero-pattern-dark':
+          'url(/images/background-dark.webp), url(/images/background-dark.jpg)',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
