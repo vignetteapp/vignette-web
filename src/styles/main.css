@@ -170,9 +170,6 @@ body {
     opacity: 1;
   }
 
-  span {
-    display: block !important;
-  }
   ul li {
     width: 95% !important;
     max-width: 300px;
