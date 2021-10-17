@@ -64,7 +64,7 @@ const Sidebar = () => {
         (e) =>
           Number(
             e.tagName === `A` &&
-            (e?.offsetParent as unknown as HTMLElement)?.offsetTop,
+              (e?.offsetParent as unknown as HTMLElement)?.offsetTop,
           ) + e.offsetTop,
       )
 

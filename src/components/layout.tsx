@@ -1,5 +1,4 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react'
-import { Icon } from '@iconify/react'
 
 // simple container that defines the layout of the whole website.
 // eslint-disable-next-line react/display-name
