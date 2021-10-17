@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '@/components/icons/logo'
 import { Icon } from '@iconify/react'
 import Link from './link'
@@ -6,6 +6,7 @@ import { createRef } from 'react'
 import arrayify from '@/utils/arrayify'
 import hide from '@/utils/hide'
 import show from '@/utils/show'
+import { useMediaQuery } from 'react-responsive'
 
 const LINKS: Record<string, string> = {
   'akar-icons:twitter-fill': `https://twitter.com/vignette_org/`,
@@ -13,7 +14,7 @@ const LINKS: Record<string, string> = {
   'akar-icons:github-fill': `https://github.com/vignetteapp/vignette`,
 }
 
-const Sidebar = () => {
+const Desktop = () => {
   // Placeholder for dynamically loaded mobile sidebar
   // Sidebar link list
   const [list, setList] = useState<Record<number, string>>({})
@@ -141,4 +142,55 @@ const Sidebar = () => {
   )
 }
 
-export { Sidebar }
+const Mobile = () => {
+  const [opened, setOpened] = useState(false)
+
+  const toggleNav = () => {
+    if (opened) {
+      setOpened(false)
+    } else {
+      setOpened(true)
+    }
+  }
+
+  return (
+    <>
+      <nav className=" fixed lg:hidden w-screen z-50">
+        <button
+          className="justify-between sticky z-50 ml-auto float-right m-4 p-2 outline-none rounded-full z-80
+    opacity-80 bg-primary-dark border border-secondary-dark dark: bg-secondary dark: border-primary dark: text-white"
+          onClick={() => {
+            toggleNav()
+          }}
+        >
+          <Icon
+            icon="icon-park-outline:hamburger-button"
+            width="1.7rem"
+            height="1.7rem"
+          />
+        </button>
+        <ul
+          className={`text-black transition duration-500 z-40 top-0 flex flex-col fixed dark:text-white ${
+            opened ? `open` : ``
+          }`}
+        >
+          <li className="">{opened ? `open` : `closed`} </li>
+          <li className="">hi</li>
+          <li>hi</li>
+          <li>hi</li>
+          <li>hi</li>
+        </ul>
+      </nav>
+
+      <span className={`nav-expand z-30 ${opened ? `open` : ``}`} />
+    </>
+  )
+}
+
+const Sidebar = () => {
+  const isMobile = useMediaQuery({ maxWidth: `768px` })
+
+  return isMobile ? <Mobile /> : <Desktop />
+}
+
+export default Sidebar
