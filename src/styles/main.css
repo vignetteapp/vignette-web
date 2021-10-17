@@ -40,13 +40,9 @@ html.dark{
   scroll-behavior: smooth;
 }
 
-
-
-
 body {
   @apply font-inter text-primary dark:bg-hero-pattern-dark bg-hero-pattern bg-center bg-contain;
 }
-
 
 /* Gradient */
 .gradient-primary {
