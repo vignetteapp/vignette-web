@@ -20,6 +20,8 @@ const SEO: React.FC<{ title: string; desc: string; path: string }> = ({
 
       <link rel="preload" as="image" href="/images/background.webp" />
 
+      <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+
       {/* Cloudflare Web Analytics */}
       <script
         defer
