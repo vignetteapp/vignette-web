@@ -41,7 +41,11 @@ html.dark{
 }
 
 body {
-  @apply font-inter text-primary dark:bg-hero-pattern-dark bg-hero-pattern bg-center bg-contain;
+  @apply font-inter text-primary dark:bg-hero-pattern-dark bg-hero-pattern bg-center bg-contain overflow-hidden;
+}
+
+#_main {
+  @apply overflow-y-auto h-screen;
 }
 
 /* Gradient */
@@ -126,7 +130,7 @@ body {
 }
 
 
-@media (max-width: 760px) {
+@media (max-width: 767px) {
   span.nav-expand {
     width: 0px;
     height: 0px;
@@ -137,11 +141,6 @@ body {
     border-radius: 0 0 0 100%;
     transition: cubic-bezier(.77,0,.18,1) width 0.5s, cubic-bezier(.77,0,.18,1) height 0.5s;
   }
-  ul.open {
-    left: 0;
-    transition: ease left 0.5s;
-  }
-  
   
   span.nav-expand.open {
     width: 150vh;
@@ -152,7 +151,7 @@ body {
     position: fixed;
     top: -80px;
    /*left: 100%;*/
-    left: 50%;
+    left: 0;
     display: flex;
     z-index: 501;
     height: 100vh;
@@ -161,8 +160,16 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: ease-in 0.5s;
+    transition: transform ease-in 0.5s, opacity ease-in 0.3s;
+    transform: translateX(100%);
+    opacity: 0;
   }
+
+  ul.open {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
   span {
     display: block !important;
   }

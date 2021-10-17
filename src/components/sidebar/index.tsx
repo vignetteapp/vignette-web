@@ -42,8 +42,10 @@ const Sidebar = () => {
       setActive(index)
     }
 
-    window.addEventListener(`scroll`, handler, true)
-    return () => window.removeEventListener(`scroll`, handler, true)
+    const main = document.getElementById(`_main`) as HTMLDivElement
+
+    main.addEventListener(`scroll`, handler, true)
+    return () => main.removeEventListener(`scroll`, handler, true)
   }, [])
 
   // Hide individual element when not in view
@@ -68,13 +70,15 @@ const Sidebar = () => {
           ) + e.offsetTop,
       )
 
+      const main = document.getElementById(`_main`) as HTMLDivElement
+
       const handler = () => {
-        const scroll = window.scrollY
+        const scroll = main.scrollTop
         const topOffset =
           window.innerHeight - (window.innerHeight + scroll - top)
         const bottomOffset =
           bottom +
-          (scroll + window.innerHeight - document.body.scrollHeight) +
+          (scroll + window.innerHeight - main.scrollHeight) +
           window.innerHeight / 16
 
         positions.forEach((pos, i) => {
@@ -88,8 +92,8 @@ const Sidebar = () => {
         })
       }
 
-      window.addEventListener(`scroll`, handler, true)
-      return () => window.removeEventListener(`scroll`, handler, true)
+      main.addEventListener(`scroll`, handler, true)
+      return () => main.removeEventListener(`scroll`, handler, true)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list, sidebar])
@@ -98,7 +102,7 @@ const Sidebar = () => {
     <>
       <div
         ref={sidebar}
-        className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 md:flex flex-col justify-between items-end hidden"
+        className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 flex flex-col justify-between items-end"
       >
         <Logo width="45" className="transition duration-300 ease-in-out" />
 
