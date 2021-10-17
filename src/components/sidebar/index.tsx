@@ -15,8 +15,6 @@ const LINKS: Record<string, string> = {
 
 const Sidebar = () => {
   // Placeholder for dynamically loaded mobile sidebar
-  //const MobileSidebar = <></>
-
   // Sidebar link list
   const [list, setList] = useState<Record<number, string>>({})
   const [active, setActive] = useState(0)
@@ -94,13 +92,13 @@ const Sidebar = () => {
       return () => window.removeEventListener(`scroll`, handler, true)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [list])
+  }, [list, sidebar])
 
   return (
     <>
       <div
         ref={sidebar}
-        className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 lg:flex flex-col justify-between items-end hidden"
+        className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 md:flex flex-col justify-between items-end hidden"
       >
         <Logo width="45" className="transition duration-300 ease-in-out" />
 
@@ -135,11 +133,51 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
-      <div className="lg:hidden block"></div>
     </>
   )
 }
 
-// TODO: Add mobile sidebar
-// const MobileSidebar = () => <></>
-export default Sidebar
+const MobileButton = () => {
+  const [opened, setOpened] = useState(false)
+
+  const toggleNav = () => {
+    if (opened) {
+      setOpened(false)
+    } else {
+      setOpened(true)
+    }
+    console.log(opened)
+  }
+  return (
+    <>
+      <nav className=" fixed lg:hidden w-screen  z-40">
+        <button
+          className="justify-between sticky z-50 ml-auto float-right m-4 p-2 outline-none rounded-full z-80
+           opacity-80 bg-primary-dark border border-secondary-dark dark:bg-secondary dark:border-primary dark:text-white"
+          onClick={() => {
+            toggleNav()
+          }}
+        >
+          <Icon
+            icon="icon-park-outline:hamburger-button"
+            width="1.7rem"
+            height="1.7rem"
+          />
+        </button>
+      </nav>
+      <ul
+        className={`text-black transition cduration-500 z-50 top-0 flex flex-col  fixed
+         dark:text-white ${opened ? `left-0` : ``}`}
+      >
+        <li className="">The FitnessGram Pacer </li>
+        <li className="">hi</li>
+        <li>hi</li>
+        <li>hi</li>
+        <li>hi</li>
+      </ul>
+
+      <span className={`nav-expand z-30 ${opened ? `open` : ``}`} />
+    </>
+  )
+}
+export { Sidebar, MobileButton }

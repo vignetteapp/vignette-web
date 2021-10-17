@@ -5,7 +5,7 @@ const OurVision: React.FC = () => (
     <PrimaryText className="md:text-5xl text-4xl font-semibold font-spartan tracking-tight md:p-3 py-3">
       Our vision
     </PrimaryText>
-    <div className="pt-20 p-10 grid gap-x-8 gap-y-24 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="pt-20 p-4 lg:p-10 grid gap-x-8 gap-y-24 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <Card
         alt="Check Icon"
         img="/images/icons/check.webp"

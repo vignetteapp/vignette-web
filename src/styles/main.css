@@ -128,3 +128,29 @@ body {
     font-family: "SpartanVariable", "serif";
   }
 }
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0px;
+  height: 100%;
+}
+
+span.nav-expand {
+  width: 0px;
+  height: 0px;
+  background-color: pink;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  border-radius: 0 0 0 100%;
+  transition: cubic-bezier(.77,0,.18,1) width 0.5s, cubic-bezier(.77,0,.18,1) height 0.5s;
+}
+
+
+
+span.nav-expand.open {
+  width: 150vh;
+  height: 150vh;
+}

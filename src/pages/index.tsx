@@ -5,9 +5,22 @@ import { NextPage } from 'next'
 import OurVision from '@/components/sections/vision'
 import OurTeam from '@/components/sections/team'
 import Sponsors from '@/components/sections/sponsors'
+import { ComponentType } from 'react'
 
 const Index: NextPage = () => {
-  const Sidebar = dynamic(() => import(`@/components/sidebar`))
+  // const Sidebar: ComponentType =
+  //   typeof window !== `undefined` && window.innerWidth > 300
+  //     ? dynamic(() => import(`@/components/sidebar`).then((mod) => mod.Sidebar))
+  //     : dynamic(() =>
+  //         import(`@/components/sidebar`).then((mod) => mod.MobileButton),
+  //       )
+
+  const Sidebar: ComponentType =
+    typeof window !== `undefined` && window.innerWidth > 760
+      ? dynamic(() => import(`@/components/sidebar`).then((mod) => mod.Sidebar))
+      : dynamic(() =>
+          import(`@/components/sidebar`).then((mod) => mod.MobileButton),
+        )
 
   return (
     <>
