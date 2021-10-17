@@ -64,7 +64,7 @@ const Sidebar = () => {
         (e) =>
           Number(
             e.tagName === `A` &&
-              (e?.offsetParent as unknown as HTMLElement)?.offsetTop,
+            (e?.offsetParent as unknown as HTMLElement)?.offsetTop,
           ) + e.offsetTop,
       )
 
@@ -137,47 +137,4 @@ const Sidebar = () => {
   )
 }
 
-const MobileButton = () => {
-  const [opened, setOpened] = useState(false)
-
-  const toggleNav = () => {
-    if (opened) {
-      setOpened(false)
-    } else {
-      setOpened(true)
-    }
-    console.log(opened)
-  }
-  return (
-    <>
-      <nav className=" fixed lg:hidden w-screen  z-40">
-        <button
-          className="justify-between sticky z-50 ml-auto float-right m-4 p-2 outline-none rounded-full z-80
-           opacity-80 bg-primary-dark border border-secondary-dark dark:bg-secondary dark:border-primary dark:text-white"
-          onClick={() => {
-            toggleNav()
-          }}
-        >
-          <Icon
-            icon="icon-park-outline:hamburger-button"
-            width="1.7rem"
-            height="1.7rem"
-          />
-        </button>
-      </nav>
-      <ul
-        className={`text-black transition cduration-500 z-50 top-0 flex flex-col  fixed
-         dark:text-white ${opened ? `left-0` : ``}`}
-      >
-        <li className="">The FitnessGram Pacer </li>
-        <li className="">hi</li>
-        <li>hi</li>
-        <li>hi</li>
-        <li>hi</li>
-      </ul>
-
-      <span className={`nav-expand z-30 ${opened ? `open` : ``}`} />
-    </>
-  )
-}
-export { Sidebar, MobileButton }
+export { Sidebar }

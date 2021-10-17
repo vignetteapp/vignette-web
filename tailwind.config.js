@@ -52,7 +52,7 @@ module.exports = {
           'url(/images/background-dark.webp), url(/images/background-dark.jpg)',
       },
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        inter: ['Inter', 'serif'],
       },
       letterSpacing: {
         tightest: '-.1em',
