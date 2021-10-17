@@ -45,6 +45,7 @@ jobs:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Check out the Lighthouse CI results:
+            Check out the Lighthouse CI result:
             ${{ steps.parse.outputs.url }}
+          edit-mode: replace
 
