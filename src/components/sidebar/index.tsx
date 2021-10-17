@@ -34,15 +34,15 @@ const Sidebar = () => {
       ...document.querySelectorAll<HTMLDivElement>(`section[data-sidebar]`),
     ].map((e) => e.offsetTop - window.innerHeight / 2)
 
+    const main = document.getElementById(`_main`) as HTMLDivElement
+
     const handler = () => {
-      const scroll = window.scrollY
+      const scroll = main.scrollTop
       const num = positions.reduce((a, n) => (n <= scroll ? n : a), 0)
 
       const index = positions.indexOf(num)
       setActive(index)
     }
-
-    const main = document.getElementById(`_main`) as HTMLDivElement
 
     main.addEventListener(`scroll`, handler, true)
     return () => main.removeEventListener(`scroll`, handler, true)
