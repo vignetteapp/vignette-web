@@ -134,12 +134,12 @@ body {
   span.nav-expand {
     width: 0px;
     height: 0px;
-    background-color: pink;
     position: fixed;
     top: 0px;
     right: 0px;
     border-radius: 0 0 0 100%;
     transition: cubic-bezier(.77,0,.18,1) width 0.5s, cubic-bezier(.77,0,.18,1) height 0.5s;
+    @apply bg-white dark:bg-primary;
   }
   
   span.nav-expand.open {
@@ -160,8 +160,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: transform ease-in 0.5s, opacity ease-in 0.3s;
-    transform: translateX(100%);
+    @apply transition duration-500 ease-out;
+    transform: translateX(100%) ;
     opacity: 0;
   }
 
@@ -171,18 +171,11 @@ body {
   }
 
   ul li {
-    width: 95% !important;
-    max-width: 300px;
-    height: auto;
-    border-bottom: 2px solid white;
-    @apply text-4xl;
+    @apply text-3xl p-2 text-center capitalize;
   }
- 
-  ul li [aria-current] {
-    color: var(--fosshost-black);
-    border-bottom: none;
-    height: initial;
-    margin-top: 0px;
+
+  ul li.active{
+    @apply text-4xl font-semibold p-2 text-center capitalize;
   }
- 
+
 }

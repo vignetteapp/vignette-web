@@ -5,7 +5,7 @@
     "url": "https://fosshost.org"
   },
   {
-    "logo": "/images/vercel-logotype-dark.webp",
+    "logo": "/images/vercel-dark.svg",
     "name": "Vercel",
     "url": "https://vercel.com/?utm_source=vignette&utm_campaign=oss",
     "darkLogo": "/images/vercel-light.png"

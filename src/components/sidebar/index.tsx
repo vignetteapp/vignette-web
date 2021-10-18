@@ -14,11 +14,11 @@ const LINKS: Record<string, string> = {
   'akar-icons:github-fill': `https://github.com/vignetteapp/vignette`,
 }
 
-const Desktop = () => {
-  // Placeholder for dynamically loaded mobile sidebar
+const Sidebar = () => {
   // Sidebar link list
   const [list, setList] = useState<Record<number, string>>({})
   const [active, setActive] = useState(0)
+
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLDivElement>(
       `section[data-sidebar]`,
@@ -96,53 +96,11 @@ const Desktop = () => {
       main.addEventListener(`scroll`, handler, true)
       return () => main.removeEventListener(`scroll`, handler, true)
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list, sidebar])
+  const isMobile = useMediaQuery({ maxWidth: `768px` })
 
-  return (
-    <>
-      <div
-        ref={sidebar}
-        className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 flex flex-col justify-between items-end"
-      >
-        <Logo width="45" className="transition duration-300 ease-in-out" />
-
-        <div id="sidebar-links" className="filter drop-shadow">
-          {Object.keys(LINKS).map((key, i, arr) => (
-            <a
-              href={LINKS[key]}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={i}
-              className="block transition duration-300 ease-in-out"
-            >
-              <Icon
-                icon={key}
-                height="36"
-                className={`transition-transform duration-300 ease-in-out hover:scale-110 
-              ${i !== arr.length - 1 && `mb-3`} `}
-              />
-            </a>
-          ))}
-        </div>
-
-        <div className="flex flex-col items-end pb-4">
-          {Object.keys(list).map((key, i) => (
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
-            <Link
-              key={i}
-              text={list[key as unknown as number]}
-              active={i === active}
-              link={`#${list[key as unknown as number]}`}
-            />
-          ))}
-        </div>
-      </div>
-    </>
-  )
-}
-
-const Mobile = () => {
   const [opened, setOpened] = useState(false)
 
   const toggleNav = () => {
@@ -153,12 +111,12 @@ const Mobile = () => {
     }
   }
 
-  return (
+  return isMobile ? (
     <>
       <nav className=" fixed lg:hidden w-screen z-50">
         <button
-          className="justify-between sticky z-50 ml-auto float-right m-4 p-2 outline-none rounded-full z-80
-    opacity-80 bg-primary-dark border border-secondary-dark dark: bg-secondary dark: border-primary dark: text-white"
+          className="justify-between sticky z-50 ml-auto float-right m-4 p-2 outline-none rounded-full 
+opacity-80 bg-primary-dark border  dark:bg-secondary dark:border-primary dark:text-white"
           onClick={() => {
             toggleNav()
           }}
@@ -174,23 +132,64 @@ const Mobile = () => {
             opened ? `open` : ``
           }`}
         >
-          <li className="">{opened ? `open` : `closed`} </li>
-          <li className="">hi</li>
-          <li>hi</li>
-          <li>hi</li>
-          <li>hi</li>
+          {Object.keys(list).map((key, i) => (
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
+            <a
+              key={key}
+              href={`#${list[key as unknown as number]}`}
+              onClick={() => {
+                setOpened(false)
+              }}
+            >
+              <li className={active == i ? `active` : ``}>
+                {list[key as unknown as number]}
+              </li>
+            </a>
+          ))}
         </ul>
       </nav>
 
       <span className={`nav-expand z-30 ${opened ? `open` : ``}`} />
     </>
+  ) : (
+    <div
+      ref={sidebar}
+      className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 flex flex-col justify-between items-end"
+    >
+      <Logo width="45" className="transition duration-300 ease-in-out" />
+
+      <div id="sidebar-links" className="filter drop-shadow">
+        {Object.keys(LINKS).map((key, i, arr) => (
+          <a
+            href={LINKS[key]}
+            target="_blank"
+            rel="noopener noreferrer"
+            key={i}
+            className="block transition duration-300 ease-in-out"
+          >
+            <Icon
+              icon={key}
+              height="36"
+              className={`transition-transform duration-300 ease-in-out hover:scale-110 
+              ${i !== arr.length - 1 && `mb-3`} `}
+            />
+          </a>
+        ))}
+      </div>
+
+      <div className="flex flex-col items-end pb-4">
+        {Object.keys(list).map((key, i) => (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <Link
+            key={i}
+            text={list[key as unknown as number]}
+            active={i === active}
+            link={`#${list[key as unknown as number]}`}
+          />
+        ))}
+      </div>
+    </div>
   )
-}
-
-const Sidebar = () => {
-  const isMobile = useMediaQuery({ maxWidth: `768px` })
-
-  return isMobile ? <Mobile /> : <Desktop />
 }
 
 export default Sidebar
