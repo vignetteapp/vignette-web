@@ -29,7 +29,11 @@ const Features: React.FC = () => {
           />
         </div>
 
-        <div className="lg:w-2/3 lg:ml-16 dark:text-primary-dark">
+        <div
+          className="lg:w-2/3 lg:ml-16 dark:text-primary-dark
+        
+        "
+        >
           <PrimaryText className="text-3xl gradient-tertiary tracking-tight font-bold font-spartan py-3">
             Mean and Very lean
           </PrimaryText>

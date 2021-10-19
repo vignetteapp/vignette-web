@@ -17,7 +17,7 @@ const Download: React.FC = () => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Button className="bg-secondary py-4 " disableGradient>
+        <Button className="bg-secondary " disableGradient>
           Get it from{` `}
           <Icon
             className="inline-block ml-1"

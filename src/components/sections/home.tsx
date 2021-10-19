@@ -15,7 +15,7 @@ const Home = () => {
           Vignette
         </PrimaryText>
 
-        <p className="md:text-3xl text-xl font-semibold pt-4 dark:text-gray-200">
+        <p className="md:text-3xl text-xl font-semibold pt-4 p-1 dark:text-gray-200">
           Make your streams more virtual.
         </p>
         <div className="mt-12">
