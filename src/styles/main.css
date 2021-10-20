@@ -41,7 +41,7 @@ html.dark{
 }
 
 body {
-  @apply font-inter text-primary bg-center bg-contain overflow-hidden;
+  @apply text-primary bg-center bg-contain overflow-hidden;
 }
 
 
@@ -98,7 +98,7 @@ body {
 
 
 .logo {
-  @apply font-bold tracking-tightest md:text-8xl text-7xl  !important;
+  @apply font-bold tracking-tightest md:text-8xl xxs:text-7xl text-6xl !important;
 }
 
 /* Sidebar link color */
@@ -129,6 +129,17 @@ body {
     font-family: "SpartanVariable", "sans-serif";
   }
 }
+
+.font-inter {
+  font-family: "Inter", "sans-serif";
+}
+
+@supports (font-variation-settings: normal) {
+  .font-inter {
+    font-family: "Inter var", "sans-serif";
+  }
+}
+
 
 
 @media (max-width: 768px) {

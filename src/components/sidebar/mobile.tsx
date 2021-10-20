@@ -56,7 +56,10 @@ opacity-80 bg-primary-dark border  dark:bg-secondary dark:border-primary dark:te
             height="1.7rem"
           />
         </button>
-        <div className={`mobile ${opened ? `open` : ``} `}>
+        <div
+          className={`mobile flex flex-col justify-between ${opened ? `open` : ``
+            } `}
+        >
           <ul
             className={`text-black pt-32 transition duration-500 z-40 mx-auto flex flex-col dark:text-white  
           `}
@@ -74,7 +77,7 @@ opacity-80 bg-primary-dark border  dark:bg-secondary dark:border-primary dark:te
               </li>
             ))}
           </ul>
-          <svg>
+          <svg height="0">
             <linearGradient
               id="secondaryGradient"
               x1="-30"
@@ -89,7 +92,8 @@ opacity-80 bg-primary-dark border  dark:bg-secondary dark:border-primary dark:te
           </svg>
           <div
             id="sidebar-links"
-            className="flex gap-4 items-baseline justify-center flex-row mx-auto text-center"
+            className={`flex gap-4 pb-20 items-baseline justify-center flex-row mx-auto text-center transition-opacity duration-700 
+             ${opened ? `opacity-1` : `opacity-0`}`}
           >
             {Object.keys(LINKS).map((key, i) => (
               <a

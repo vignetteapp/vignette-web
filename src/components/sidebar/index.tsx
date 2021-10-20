@@ -3,8 +3,9 @@ import dynamic from 'next/dynamic'
 
 const LINKS: Record<string, string> = {
   'akar-icons:twitter-fill': `https://twitter.com/vignette_org/`,
+  'akar-icons:discord-fill': `https://discord.gg/CXEGVPhGkz`,
   'akar-icons:github-fill': `https://github.com/vignetteapp/vignette`,
-  'bx:bxl-discord-alt': `https://discord.gg/CXEGVPhGkz`,
+  'simple-icons:opencollective': `https://opencollective.com/vignette`,
 }
 
 const Sidebar = () => {
