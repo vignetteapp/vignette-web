@@ -22,7 +22,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        xxs: `281px`,
+        xxs: '281px',
         xs: '532px',
         '3xl': '1792px',
       },
@@ -72,7 +72,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: { backgroundImage: ['dark'] },
   },
   plugins: [],
 }

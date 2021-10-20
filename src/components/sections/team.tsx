@@ -12,14 +12,14 @@ export interface Member {
 const OurTeam: React.FC = () => (
   <Layout
     id="team"
-    className="flex flex-col md:pr-48 md:pl-12 py-12 xxs:p-6 px-2"
+    className="flex flex-col md:pr-48 md:pl-12 py-12  p-6"
     data-sidebar
   >
     <PrimaryText className="md:text-5xl text-4xl font-semibold font-spartan tracking-tight md:p-3 py-3">
       Our team
     </PrimaryText>
 
-    <div className="pt-20 xxs:p-10 p-4 grid gap-x-8 gap-y-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
+    <div className="lg:pt-20 xxs:pt-12 p-4 grid gap-x-8 gap-y-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
       {Members.map((m) => (
         <div key={m.id} className="">
           <Card

@@ -76,6 +76,15 @@ opacity-80 bg-primary-dark border  dark:bg-secondary dark:border-primary dark:te
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="https://blog.vignetteapp.org"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Blog
+              </a>
+            </li>
           </ul>
           <svg height="0">
             <linearGradient
@@ -92,7 +101,7 @@ opacity-80 bg-primary-dark border  dark:bg-secondary dark:border-primary dark:te
           </svg>
           <div
             id="sidebar-links"
-            className={`flex gap-4 pb-20 items-baseline justify-center flex-row mx-auto text-center transition-opacity duration-700 
+            className={`flex gap-4 mb-28 items-baseline justify-center flex-row mx-auto text-center transition-opacity duration-700 
              ${opened ? `opacity-1` : `opacity-0`}`}
           >
             {Object.keys(LINKS).map((key, i) => (
@@ -103,7 +112,7 @@ opacity-80 bg-primary-dark border  dark:bg-secondary dark:border-primary dark:te
                 rel="noopener noreferrer"
                 className="text-center"
               >
-                <Icon icon={key} height="36" width="36" />
+                <Icon icon={key} height="26" width="26" />
               </a>
             ))}
           </div>

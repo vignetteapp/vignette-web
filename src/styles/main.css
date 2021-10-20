@@ -98,7 +98,7 @@ body {
 
 
 .logo {
-  @apply font-bold tracking-tightest md:text-8xl xxs:text-7xl text-6xl !important;
+  @apply font-bold tracking-tightest lg:text-8xl md:text-7xl text-6xl !important;
 }
 
 /* Sidebar link color */

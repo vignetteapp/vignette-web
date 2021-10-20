@@ -9,7 +9,7 @@ const LINKS: Record<string, string> = {
 }
 
 const Sidebar = () => {
-  const isMobile = useMediaQuery({ maxWidth: `767px` })
+  const isMobile = useMediaQuery({ maxWidth: `768px` })
   const DynamicSidebar = isMobile
     ? dynamic(() => import(`src/components/sidebar/mobile`))
     : dynamic(() => import(`src/components/sidebar/desktop`))
