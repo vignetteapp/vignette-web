@@ -57,8 +57,9 @@ opacity-80 bg-primary-dark border  dark:bg-secondary dark:border-primary dark:te
           />
         </button>
         <div
-          className={`mobile flex flex-col justify-between ${opened ? `open` : ``
-            } `}
+          className={`mobile flex flex-col justify-between ${
+            opened ? `open` : ``
+          } `}
         >
           <ul
             className={`text-black pt-32 transition duration-500 z-40 mx-auto flex flex-col dark:text-white  
