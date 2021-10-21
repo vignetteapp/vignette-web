@@ -1,11 +1,11 @@
 import { Layout, PrimaryText, Card } from '@/components'
 
 const OurVision: React.FC = () => (
-  <Layout id="vision" className="flex flex-col md:pr-48 md:pl-12 py-12 p-6">
-    <PrimaryText className="md:text-5xl text-4xl font-semibold font-spartan tracking-tight md:p-3 py-3">
+  <Layout id="vision" className="flex flex-col md:pr-48 md:pl-12 pt-12 p-6">
+    <PrimaryText className="md:text-5xl text-4xl font-semibold font-spartan tracking-tight md:p-3 py-4">
       Our vision
     </PrimaryText>
-    <div className="pt-20 p-10 grid gap-x-8 gap-y-24 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="pt-20 lg:p-12 grid gap-x-4 gap-y-24 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
       <Card
         alt="Check Icon"
         img="/images/icons/check.webp"

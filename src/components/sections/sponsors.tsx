@@ -19,7 +19,7 @@ const Sponsors: React.FC = () => (
       Sponsors
     </PrimaryText>
 
-    <div className="px-4 py-10 grid gap-x-8 gap-y-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
+    <div className="px-4 py-8 grid gap-4 md:gap-x-8 gap-y-8 lg:gap-y-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
       {SponsorsList.map((m, i) => (
         <SponsorCard
           alt={m.name}

@@ -40,13 +40,14 @@ html.dark{
   scroll-behavior: smooth;
 }
 
-
-
-
 body {
-  @apply font-inter text-primary dark:bg-hero-pattern-dark bg-hero-pattern bg-center bg-contain;
+  @apply text-primary bg-center bg-contain overflow-hidden;
 }
 
+
+#_main {
+  @apply overflow-y-auto h-screen  dark:bg-hero-pattern-dark bg-hero-pattern;
+}
 
 /* Gradient */
 .gradient-primary {
@@ -97,7 +98,7 @@ body {
 
 
 .logo {
-  @apply font-bold tracking-tightest md:text-8xl text-7xl  !important;
+  @apply font-bold tracking-tightest lg:text-8xl md:text-7xl text-6xl !important;
 }
 
 /* Sidebar link color */
@@ -120,11 +121,80 @@ body {
 }
 
 .font-spartan {
-  font-family: "Spartan", "serif";
+  font-family: "Spartan", "sans-serif";
 }
 
 @supports (font-variation-settings: normal) {
   .font-spartan {
-    font-family: "SpartanVariable", "serif";
+    font-family: "SpartanVariable", "sans-serif";
   }
+}
+
+.font-inter {
+  font-family: "Inter", "sans-serif";
+}
+
+@supports (font-variation-settings: normal) {
+  .font-inter {
+    font-family: "Inter var", "sans-serif";
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  span.nav-expand {
+    width: 0px;
+    height: 0px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    border-radius: 0 0 0 100%;
+    transition: cubic-bezier(.77,0,.18,1) width 0.5s, cubic-bezier(.77,0,.18,1) height 0.5s;
+    @apply bg-white dark:bg-primary;
+  }
+  
+  span.nav-expand.open {
+    width: 150vh;
+    height: 150vh;
+  }
+  
+  ul {
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  div.mobile{
+  
+    position: fixed;
+  
+
+    height: 100vh;
+    width: 100vw;
+    padding: 0px;
+
+    @apply transition duration-500 ease-out;
+    transform: translateX(100%) ;
+    opacity: 0;
+
+  }
+
+  div.mobile.open {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+
+  ul li {
+    @apply text-2xl p-2 text-center capitalize text-subtle  font-medium;
+  }
+
+  ul li.active{
+    @apply text-4xl font-medium p-2 text-center capitalize text-primary;
+  }
+
 }

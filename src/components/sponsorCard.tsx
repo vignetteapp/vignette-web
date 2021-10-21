@@ -22,7 +22,7 @@ const SponsorCard: React.FC<{
             height="150"
             width="315"
             layout="responsive"
-            className="object-contain "
+            className="object-contain"
           />
         </div>
       </div>

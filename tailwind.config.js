@@ -22,6 +22,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        xxs: '281px',
         xs: '532px',
         '3xl': '1792px',
       },
@@ -51,9 +52,6 @@ module.exports = {
         'hero-pattern-dark':
           'url(/images/background-dark.webp), url(/images/background-dark.jpg)',
       },
-      fontFamily: {
-        inter: ['Inter', 'sans-serif'],
-      },
       letterSpacing: {
         tightest: '-.1em',
       },
@@ -64,10 +62,17 @@ module.exports = {
         60: 0.6,
         80: 0.8,
       },
+      zIndex: {
+        60: 60,
+        70: 70,
+        80: 80,
+        90: 90,
+        100: 100,
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: { backgroundImage: ['dark'] },
   },
   plugins: [],
 }

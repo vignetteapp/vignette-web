@@ -54,7 +54,7 @@ const About = () => (
         </div>
 
         <p className="text-subtle text-lg mt-12 mb-16 lg:mb-0">
-          * Applies to individuals only
+          * Yes really, no gotchas!
         </p>
       </div>
 
