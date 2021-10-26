@@ -121,22 +121,22 @@ body {
 }
 
 .font-spartan {
-  font-family: "Spartan", "sans-serif";
+  font-family: "Spartan", sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
   .font-spartan {
-    font-family: "SpartanVariable", "sans-serif";
+    font-family: "SpartanVariable", sans-serif;
   }
 }
 
 .font-inter {
-  font-family: "Inter", "sans-serif";
+  font-family: "Inter", sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
   .font-inter {
-    font-family: "Inter var", "sans-serif";
+    font-family: "Inter var", sans-serif;
   }
 }
 

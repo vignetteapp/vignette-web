@@ -41,15 +41,18 @@ const Footer: React.FC = () => {
               Download
             </a>
           </span>
+          <span className="my-1">
+            <a href="https://blog.vignetteapp.org/" target="_blank" rel="noopener">Blog</a>
+          </span>
         </div>
       </div>
-      <div className="flex flex-col xs:text-right my-auto pt-6 md:pt-0 ">
-        <span className="pb-1 text-center tracking-tight text-sm">
+      <div className="flex flex-col xs:text-right my-auto pt-6 md:pt-0 items-right">
+        <span className="pb-1 tracking-tight text-sm">
           ©{new Date().getFullYear()} The Vignette Authors
         </span>
 
         <a
-          className="md:px-0"
+          className="md:px-0 pt-1"
           style={{ color: `#fff` }}
           href="https://vercel.com/?utm_source=vignette&utm_campaign=oss"
           target="_blank"
@@ -66,6 +69,7 @@ const Footer: React.FC = () => {
             height="14"
           />
         </a>
+      <p className="text-subtle-dark text-xs py-1">JetBrains and the JetBrains logo are registered trademarks of JetBrains s.r.o.</p>
       </div>
     </div>
   )
