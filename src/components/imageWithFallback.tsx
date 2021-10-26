@@ -3,7 +3,7 @@ import Image, { ImageProps } from 'next/image'
 
 interface IProps extends ImageProps {
   fallbackSrc?: string
-  alt: string
+  alt: string | undefined
 }
 
 const ImageWithFallback: React.FC<IProps> = (props) => {

@@ -42,7 +42,13 @@ const Footer: React.FC = () => {
             </a>
           </span>
           <span className="my-1">
-            <a href="https://blog.vignetteapp.org/" target="_blank" rel="noopener">Blog</a>
+            <a
+              href="https://blog.vignetteapp.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Blog
+            </a>
           </span>
         </div>
       </div>
@@ -69,7 +75,10 @@ const Footer: React.FC = () => {
             height="14"
           />
         </a>
-      <p className="text-subtle-dark text-xs py-1">JetBrains and the JetBrains logo are registered trademarks of JetBrains s.r.o.</p>
+        <p className="text-subtle-dark text-xs py-1">
+          JetBrains and the JetBrains logo are registered trademarks of
+          JetBrains s.r.o.
+        </p>
       </div>
     </div>
   )
