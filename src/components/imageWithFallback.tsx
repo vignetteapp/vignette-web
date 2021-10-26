@@ -3,10 +3,11 @@ import Image, { ImageProps } from 'next/image'
 
 interface IProps extends ImageProps {
   fallbackSrc?: string
+  alt: string | undefined
 }
 
 const ImageWithFallback: React.FC<IProps> = (props) => {
-  const { src, fallbackSrc, className, ...rest } = props
+  const { src, fallbackSrc, className, alt, ...rest } = props
   const [imgSrc, setImgSrc] = useState(src)
   const [loading, setLoading] = useState(true)
 
@@ -17,7 +18,7 @@ const ImageWithFallback: React.FC<IProps> = (props) => {
         loading ? `opacity-0` : `opacity-1`
       }`}
       src={imgSrc}
-      alt=""
+      alt={alt}
       decoding="async"
       onError={() => {
         if (fallbackSrc) setImgSrc(fallbackSrc)

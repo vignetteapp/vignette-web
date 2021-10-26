@@ -8,7 +8,7 @@ const Features: React.FC = () => {
   return (
     <Layout
       id="features"
-      className="flex flex-col md:pr-48 md:pl-12 p-6 mt-12"
+      className="flex flex-col md:pr-48 md:pl-8 p-6 mt-12"
       data-sidebar
     >
       <div className="flex flex-col-reverse lg:flex-row font-inter items-center">
@@ -18,8 +18,8 @@ const Features: React.FC = () => {
             ${videoLoaded ? `opacity-1 shadow-md` : `opacity-0`}`}
             ref={vidRef}
             src={vidSrc as string}
-            height="636"
-            width="720"
+            height="720"
+            width="636"
             autoPlay
             muted
             loop
