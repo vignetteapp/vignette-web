@@ -2,12 +2,11 @@ import ImageWithFallback from './imageWithFallback'
 
 const SponsorCard: React.FC<{
   img: string
-  imgFallback?: string
   icon?: boolean
   alt?: string
   href?: string
   className?: string
-}> = ({ img, alt, className, href, imgFallback }) => {
+}> = ({ img, alt, className, href }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
       <div
@@ -18,7 +17,6 @@ const SponsorCard: React.FC<{
           <ImageWithFallback
             alt={alt}
             src={img}
-            fallbackSrc={imgFallback}
             height="150"
             width="315"
             layout="responsive"

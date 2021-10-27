@@ -12,7 +12,7 @@ const useLazyLoad = (src: string) => {
           setVideoSrc(src)
         }
       },
-      { threshold: 0.25 },
+      { threshold: 1 },
     )
     if (videoRef.current && !videoSrc) {
       observer.observe(videoRef.current)
