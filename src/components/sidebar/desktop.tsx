@@ -96,7 +96,7 @@ const Desktop = () => {
   return (
     <div
       ref={sidebar}
-      className="fixed h-screen top-0 right-0 z-20 pr-12 py-12 flex flex-col justify-between items-end"
+      className="fixed h-screen top-0 right-0 mr-12 py-12 flex flex-col justify-between items-end"
     >
       <Logo width="45" className="transition duration-300 ease-in-out" />
 

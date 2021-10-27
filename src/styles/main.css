@@ -152,6 +152,7 @@ body {
     border-radius: 0 0 0 100%;
     transition: cubic-bezier(.77,0,.18,1) width 0.5s, cubic-bezier(.77,0,.18,1) height 0.5s;
     @apply bg-white dark:bg-primary;
+    
   }
   
   span.nav-expand.open {

@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
       </div>
       <div className="flex flex-col xs:text-right my-auto pt-6 md:pt-0 items-right">
         <span className="pb-1 tracking-tight text-sm">
-          ©{new Date().getFullYear()} The Vignette Authors
+          © {new Date().getFullYear()} The Vignette Authors
         </span>
 
         <a

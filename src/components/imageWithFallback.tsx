@@ -17,8 +17,7 @@ const ImageWithFallback: React.FC<IProps> = (props) => {
        ${loading ? `opacity-0` : `opacity-1`}`}
       src={src}
       alt={alt}
-      decoding="async"
-      onLoadingComplete={() => setLoading(false)}
+      onLoad={() => setLoading(false)}
     />
   )
 }
