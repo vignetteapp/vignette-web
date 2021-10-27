@@ -10,20 +10,17 @@
     "url": "https://vercel.com/?utm_source=vignette&utm_campaign=oss"
   },
   {
-    "logo": "/images/browserstack.webp",
-    "fallbackLogo": "/images/browserstack.png",
+    "logo": "/images/browserstack.png",
     "name": "BrowserStack",
     "url": "https://browserstack.com"
   },
   {
-    "logo": "/images/open-source-collective-logo.webp",
-    "fallbackLogo": "/images/open-source-collective-logo.png",
+    "logo": "/images/open-source-collective-logo.png",
     "name": "Open Source Collective",
     "url": "https://www.oscollective.org/"
   },
   {
     "logo": "/images/jetbrains.svg",
-    "fallbackLogo": "/images/jetbrains.svg",
     "name": "Jetbrains",
     "url": "https://www.jetbrains.com/"
   }

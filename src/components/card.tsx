@@ -9,7 +9,7 @@ const Card: React.FC<{
   description?: string
   href?: string
   className?: string
-}> = ({ img, alt, title, description, icon, className, href, imgFallback }) => (
+}> = ({ img, alt, title, description, icon, className, href }) => (
   <div
     className={`mx-auto w-full max-w-xs rounded-xl bg-white border-gray-100 border dark:border-primary xxs:px-5 px-4 py-4 text-secondary dark:bg-secondary shadow-lg hover:shadow-xl transition duration-300 ease-in-out ${className}`}
   >
@@ -22,7 +22,6 @@ const Card: React.FC<{
           ${icon ? `rounded-md` : `rounded-full`}`}
           height="80"
           width="80"
-          fallbackSrc={imgFallback}
         />
       </div>
     </div>

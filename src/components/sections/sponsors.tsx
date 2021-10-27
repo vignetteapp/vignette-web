@@ -6,7 +6,6 @@ export interface Sponsor {
   logo: string
   name: string
   url: string
-  fallbackLogo?: string
 }
 
 const Sponsors: React.FC = () => (
@@ -24,7 +23,6 @@ const Sponsors: React.FC = () => (
         <SponsorCard
           alt={m.name}
           img={m.logo}
-          imgFallback={m.fallbackLogo}
           href={m.url}
           className="h-full hover:-translate-y-2"
           key={i}

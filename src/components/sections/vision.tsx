@@ -8,8 +8,7 @@ const OurVision: React.FC = () => (
     <div className="pt-20 lg:p-12 grid gap-x-4 gap-y-24 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
       <Card
         alt="Check Icon"
-        img="/images/icons/check.webp"
-        imgFallback="/images/icons/check.png"
+        img="/images/icons/check.png"
         icon={true}
         title="We're promoting accessibility"
         description="We want to make a solution that not only works on your machine but would allow you to create, whatever hardware combination you have."
@@ -17,8 +16,7 @@ const OurVision: React.FC = () => (
 
       <Card
         alt="Voice Icon"
-        img="/images/icons/voice.webp"
-        imgFallback="/images/icons/voice.png"
+        img="/images/icons/voice.png"
         icon={true}
         title="We want the community to have a voice"
         description="Everyone in our community has a voice, and no one will feel left out."
@@ -26,8 +24,7 @@ const OurVision: React.FC = () => (
 
       <Card
         alt="Plus Icon"
-        img="/images/icons/plus.webp"
-        imgFallback="/images/icons/plus.png"
+        img="/images/icons/plus.png"
         icon={true}
         title="More than just an app"
         description="Vignette's goals stretches beyond the app itself. We try to engage and find ways to try help the community even more - that's where you come in too!"

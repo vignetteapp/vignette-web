@@ -60,12 +60,11 @@ const About = () => (
 
       <div className="flex justify-center">
         <ImageWithFallback
-          src="/images/demo.webp"
+          src="/images/demo.png"
           alt="Vignette UI image"
           height="786"
           width="442"
           className="object-contain"
-          fallbackSrc="/images/demo.png"
         />
         {/* <Image
           src="/images/demo.png"
