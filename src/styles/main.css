@@ -14,7 +14,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-br from-iris-70 to-fuschia-90 drop-shadow-lg;
+  @apply bg-gradient-to-b from-fuschia-90 to-iris-100 drop-shadow-lg;
 }
 
 /* Scrollbar: Firefox */
