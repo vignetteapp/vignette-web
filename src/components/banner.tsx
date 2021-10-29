@@ -18,7 +18,7 @@ const Banner = () => {
             <p className="ml-3 font-medium text-white truncate">
               <span className="md:hidden">Welcome to our Debut!</span>
               <span className="hidden md:inline">
-                Welcome to our Debut! We're so happy to have you.
+                Welcome to our Debut! We&apos;re so happy to have you.
               </span>
             </p>
           </div>

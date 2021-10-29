@@ -6,7 +6,6 @@ import OurTeam from '@/components/sections/team'
 import Sponsors from '@/components/sections/sponsors'
 import Sidebar from '@/components/sidebar'
 
-
 const Index: NextPage = () => {
   return (
     <main id="_main">
