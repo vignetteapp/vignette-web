@@ -2,14 +2,17 @@ import { Layout, Button, BottomBar, PrimaryText } from '@/components'
 import { Icon } from '@iconify/react'
 import Link from 'next/link'
 
+import Banner from '@/components/banner'
+
 // eslint-disable-next-line react/display-name
 const Home = () => {
   return (
     <Layout
       id="home"
-      className="flex flex-col hero z-20 shadow-lg min-h-screen"
+      className="flex flex-col hero shadow-lg min-h-screen "
       data-sidebar
     >
+      <Banner />
       <div className="text-center m-auto pt-10">
         <PrimaryText className="animate-gradient logo p-3">
           Vignette
