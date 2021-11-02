@@ -11,7 +11,11 @@ const Index: NextPage = () => {
   const [opened, setOpened] = useState(true)
   return (
     <main id="_main">
-      <SEO title="Home" desc="Make your streams more virtual." path="/" />
+      <SEO
+        title="Home"
+        desc="The open source virtual streamers' toolkit. Make your streams more virtual."
+        path="/"
+      />
 
       <Sidebar bannerOpen={opened} />
 
