@@ -7,7 +7,7 @@ const Layout: React.FC<
 > = ({ children, className, ...rest }) => (
   <section
     {...rest}
-    className={`relative w-full overflow-x-hidden font-inter ${className}`}
+    className={`relative w-full overflow-x-hidden font-inter  ${className}`}
   >
     {children}
   </section>

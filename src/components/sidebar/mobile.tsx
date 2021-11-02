@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Icon } from '@iconify/react'
 import { LINKS } from '@/components/sidebar'
+import { FcMenu } from 'react-icons/fc'
 
 const Mobile = () => {
   const [opened, setOpened] = useState(false)
@@ -50,14 +50,10 @@ opacity-80 bg-primary-dark border  dark:bg-secondary dark:border-primary dark:te
             toggleNav()
           }}
         >
-          <Icon
-            icon="icon-park-outline:hamburger-button"
-            width="1.7rem"
-            height="1.7rem"
-          />
+          <FcMenu size="28" />
         </button>
         <div
-          className={`mobile flex flex-col justify-between ${
+          className={`mobile transform flex flex-col justify-between ${
             opened ? `open` : ``
           } `}
         >
@@ -108,12 +104,12 @@ opacity-80 bg-primary-dark border  dark:bg-secondary dark:border-primary dark:te
             {Object.keys(LINKS).map((key, i) => (
               <a
                 key={i}
-                href={LINKS[key]}
+                href={key}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-center"
               >
-                <Icon icon={key} height="26" width="26" />
+                {LINKS[key]}
               </a>
             ))}
           </div>

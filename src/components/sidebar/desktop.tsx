@@ -1,13 +1,14 @@
 import React, { useEffect, useState, createRef } from 'react'
 import Logo from '@/components/icons/logo'
-import { Icon } from '@iconify/react'
 import Link from './link'
 import arrayify from '@/utils/arrayify'
 import hide from '@/utils/hide'
 import show from '@/utils/show'
 import { LINKS } from '@/components/sidebar'
 
-const Desktop = () => {
+const Desktop: React.FC<{
+  bannerOpen: boolean
+}> = ({ bannerOpen }) => {
   // Sidebar link list
   const [list, setList] = useState<Record<number, string>>({})
   const [active, setActive] = useState(0)
@@ -98,23 +99,23 @@ const Desktop = () => {
       ref={sidebar}
       className="fixed h-screen top-0 z-20 right-0 mr-12 py-12 flex flex-col justify-between items-end"
     >
-      <Logo width="45" className="transition duration-300 ease-in-out" />
+      <Logo
+        width="45"
+        className={`transition duration-300 ease-in-out  ${
+          bannerOpen ? `pt-10` : ``
+        }`}
+      />
 
       <div id="sidebar-links" className="filter drop-shadow">
-        {Object.keys(LINKS).map((key, i, arr) => (
+        {Object.keys(LINKS).map((key, i) => (
           <a
-            href={LINKS[key]}
+            href={key}
             target="_blank"
             rel="noopener noreferrer"
             key={i}
             className="block transition duration-300 ease-in-out"
           >
-            <Icon
-              icon={key}
-              height="36"
-              className={`transition-transform duration-300 ease-in-out hover:scale-110 
-              ${i !== arr.length - 1 && `mb-3`} `}
-            />
+            {LINKS[key]}
           </a>
         ))}
       </div>

@@ -11,15 +11,18 @@ const OurVision: React.FC = () => (
         img="/images/icons/check.png"
         icon={true}
         title="We're promoting accessibility"
-        description="We want to make a solution that not only works on your machine but would allow you to create, whatever hardware combination you have."
+        description="
+        We want to create a solution that not only works on a powerful machine,
+         but would allow you to create, 
+         whatever hardware combination you have."
       />
 
       <Card
         alt="Voice Icon"
         img="/images/icons/voice.png"
         icon={true}
-        title="We want the community to have a voice"
-        description="Everyone in our community has a voice, and no one will feel left out."
+        title="The community has a voice"
+        description="Everyone in our community has a voice, and no one will feel left out. Vignette wouldn't have been possible without the help of the communtiy, afterall."
       />
 
       <Card

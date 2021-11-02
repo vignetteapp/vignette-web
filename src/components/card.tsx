@@ -11,9 +11,9 @@ const Card: React.FC<{
   className?: string
 }> = ({ img, alt, title, description, icon, className, href }) => (
   <div
-    className={`mx-auto w-full h-62 max-w-xs rounded-xl bg-white border-gray-100 border dark:border-primary xxs:px-5 px-4 py-4 text-secondary dark:bg-secondary shadow-lg hover:shadow-xl transition duration-300 ease-in-out ${className}`}
+    className={`mx-auto w-full h-62 max-w-[340px] rounded-xl bg-white border-gray-100 border dark:border-primary xxs:px-5 p-4 pb-3  text-secondary dark:bg-secondary shadow-lg hover:shadow-xl transition duration-300 ease-in-out ${className}`}
   >
-    <div className="w-full pt-1 text-center -mt-16 mx-auto ">
+    <div className="w-full  text-center -mt-16 mx-auto ">
       <div className="block relative">
         <ImageWithFallback
           alt={alt}
@@ -25,23 +25,23 @@ const Card: React.FC<{
         />
       </div>
     </div>
-    <div className="w-full text-center pt-3 ">
+    <div className="w-full text-center pt-2 pb-1">
       {href ? (
         <a
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary dark:text-primary-dark  font-inter  text-xl font-semibold"
+          className="text-primary capitalize dark:text-primary-dark  font-inter text-xl font-semibold"
         >
           {title}
         </a>
       ) : (
-        <p className="text-primary dark:text-primary-dark  font-inter  text-xl font-semibold">
+        <p className="text-primary capitalize dark:text-primary-dark  font-inter  text-xl font-semibold">
           {title}
         </p>
       )}
 
-      <p className="text-secondary dark:text-secondary-dark  pt-2 text-lg tracking-tight">
+      <p className="text-secondary dark:text-secondary-dark pt-3 pb-2 px-1 text-lg tracking-tight">
         {description}
       </p>
     </div>
