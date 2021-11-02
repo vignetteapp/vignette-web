@@ -32,7 +32,7 @@ const Banner: React.FC<{
           </div>
           <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
             <a
-              href="https://blog.vignetteapp.org"
+              href="https://blog.vignetteapp.org/debut-released"
               className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md transition ease-in shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50"
             >
               Read the blog post
