@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <div
       className={` from-iris-100 to-fuschia-90 bg-gradient-to-r w-full z-80 absolute top-0 transition duration-200 ${
-        opened ? `opacity-100` : ` opacity-0`
+        opened ? `opacity-100` : ` opacity-0 z-40`
       }`}
     >
       <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
