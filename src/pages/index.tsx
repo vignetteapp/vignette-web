@@ -5,8 +5,10 @@ import OurVision from '@/components/sections/vision'
 import OurTeam from '@/components/sections/team'
 import Sponsors from '@/components/sections/sponsors'
 import Sidebar from '@/components/sidebar'
+import { useState } from 'react'
 
 const Index: NextPage = () => {
+  const [opened, setOpened] = useState(true)
   return (
     <main id="_main">
       <SEO
@@ -15,9 +17,9 @@ const Index: NextPage = () => {
         path="/"
       />
 
-      <Sidebar />
+      <Sidebar bannerOpen={opened} />
 
-      <Home />
+      <Home bannerOpened={opened} setBannerOpened={setOpened} />
       <About />
       <Features />
       <OurVision />

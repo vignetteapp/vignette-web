@@ -1,5 +1,5 @@
 import { Layout, PrimaryText, Button } from '@/components'
-import { Icon } from '@iconify/react'
+import { SiGithub } from 'react-icons/si'
 
 const Download: React.FC = () => (
   <Layout
@@ -19,12 +19,7 @@ const Download: React.FC = () => (
       >
         <Button className="bg-secondary py-4 " disableGradient>
           Get it from{` `}
-          <Icon
-            className="inline-block ml-1"
-            icon="akar-icons:github-fill"
-            color="#fefefe"
-            height="35"
-          />
+          <SiGithub className="inline-block ml-1" color="#fefefe" size="35" />
         </Button>
       </a>
     </div>

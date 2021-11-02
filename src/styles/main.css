@@ -5,197 +5,216 @@
 @tailwind utilities;
 
 /* Scrollbar: Chromium */
+
 ::-webkit-scrollbar {
-  @apply w-2 bg-primary;
+	@apply w-2 bg-primary;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-200;
+	@apply bg-gray-200;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-br from-iris-70 to-fuschia-90 drop-shadow-lg;
+	@apply bg-gradient-to-b from-fuschia-90 to-iris-100 drop-shadow-lg;
 }
+
 
 /* Scrollbar: Firefox */
+
 * {
-  scrollbar-color: #6a99dd #e5e7eb;
-  scrollbar-width: thin;
+	scrollbar-color: #6a99dd #e5e7eb;
+	scrollbar-width: thin;
 }
+
 *.dark {
-  scrollbar-color: #BE58CB #323232;
-  scrollbar-width: thin;
-
+	scrollbar-color: #BE58CB #323232;
+	scrollbar-width: thin;
 }
 
-html.dark{
-  background-color: #323232 !important;
+html.dark {
+	background-color: #323232 !important;
 }
+
 
 /* Globals */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 body {
-  @apply text-primary bg-center bg-contain overflow-hidden;
+	@apply text-primary bg-center bg-contain overflow-hidden;
 }
-
 
 #_main {
-  @apply overflow-y-auto h-screen  dark:bg-hero-pattern-dark bg-hero-pattern;
+	@apply overflow-y-auto h-screen dark:bg-hero-pattern-dark bg-hero-pattern;
 }
 
+
 /* Gradient */
+
 .gradient-primary {
-  @apply bg-gradient-to-br from-deepFuscia to-pinkRed;
+	@apply bg-gradient-to-br from-deepFuscia to-pinkRed;
 }
 
 .gradient-secondary {
-  @apply bg-gradient-to-br from-iris-70 via-iris-80 to-fuschia-90;
+	@apply bg-gradient-to-br from-iris-70 via-iris-80 to-fuschia-90;
 }
 
 .gradient-tertiary {
-  @apply bg-gradient-to-bl from-cornflowerBlue to-pinkRed;
+	@apply bg-gradient-to-bl from-cornflowerBlue to-pinkRed;
 }
 
 .animate-gradient {
-  background-size: 250% 250%;
-  -webkit-animation: loop 4s ease infinite;
-  -moz-animation: loop 4s ease infinite;
-  -o-animation: loop 4s ease infinite;
-  animation: loop 4s ease infinite;
+	background-size: 250% 250%;
+	-webkit-animation: loop 4s ease infinite;
+	-moz-animation: loop 4s ease infinite;
+	-o-animation: loop 4s ease infinite;
+	animation: loop 4s ease infinite;
 }
 
 @-webkit-keyframes loop {
-  0%{background-position:31% 0%}
-  50%{background-position:70% 100%}
-  100%{background-position:31% 0%}
+	0% {
+		background-position: 31% 0%
+	}
+	50% {
+		background-position: 70% 100%
+	}
+	100% {
+		background-position: 31% 0%
+	}
 }
+
 @-moz-keyframes loop {
-  0%{background-position:31% 0%}
-  50%{background-position:70% 100%}
-  100%{background-position:31% 0%}
+	0% {
+		background-position: 31% 0%
+	}
+	50% {
+		background-position: 70% 100%
+	}
+	100% {
+		background-position: 31% 0%
+	}
 }
+
 @-o-keyframes loop {
-  0%{background-position:31% 0%}
-  50%{background-position:70% 100%}
-  100%{background-position:31% 0%}
+	0% {
+		background-position: 31% 0%
+	}
+	50% {
+		background-position: 70% 100%
+	}
+	100% {
+		background-position: 31% 0%
+	}
 }
+
 @keyframes loop {
-  0%{background-position:31% 0%}
-  50%{background-position:70% 100%}
-  100%{background-position:31% 0%}
+	0% {
+		background-position: 31% 0%
+	}
+	50% {
+		background-position: 70% 100%
+	}
+	100% {
+		background-position: 31% 0%
+	}
 }
+
 
 /* Miscellaneous */
-.hero {
-  @apply bg-hero-pattern dark:bg-hero-pattern-dark bg-center bg-cover;
-}
 
+.hero {
+	@apply bg-hero-pattern dark:bg-hero-pattern-dark bg-center bg-cover;
+}
 
 .logo {
-  @apply font-bold tracking-tightest lg:text-8xl md:text-7xl text-6xl !important;
+	@apply font-bold tracking-tightest lg:text-8xl md:text-7xl text-6xl !important;
 }
 
+
 /* Sidebar link color */
+
 #sidebar-links a svg path {
-  fill: url(#secondaryGradient);
+	fill: url(#secondaryGradient);
 }
 
 .spaced-line {
-  line-height: 1.625 !important;
+	line-height: 1.625 !important;
 }
 
 .top-shadow {
-  --tw-shadow: 0 -15px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+	--tw-shadow: 0 -15px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
 .video {
-  @apply rounded-lg shadow-xl;
+	@apply rounded-lg shadow-xl;
 }
+
+/* Font stuff */
 
 .font-spartan {
-  font-family: "Spartan", sans-serif;
+	font-family: "Spartan", sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
-  .font-spartan {
-    font-family: "SpartanVariable", sans-serif;
-  }
+	.font-spartan {
+		font-family: "SpartanVariable", sans-serif;
+	}
 }
 
-@import url('https://rsms.me/inter/inter.css');
-html { font-family: 'Inter', sans-serif; }
-
+.font-inter {
+	font-family: "Inter", sans-serif;
+}
 
 @supports (font-variation-settings: normal) {
-  .font-inter {
-    font-family: "Inter var", sans-serif;
-  }
+	.font-inter {
+		font-family: "Inter var", sans-serif;
+	}
 }
-
-
 
 @media (max-width: 768px) {
-  span.nav-expand {
-    width: 0px;
-    height: 0px;
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    border-radius: 0 0 0 100%;
-    transition: cubic-bezier(.77,0,.18,1) width 0.5s, cubic-bezier(.77,0,.18,1) height 0.5s;
-    @apply bg-white dark:bg-primary;
-    
-  }
-  
-  span.nav-expand.open {
-    width: 150vh;
-    height: 150vh;
-  }
-  
-  ul {
-   
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-  }
-
-  div.mobile{
-  
-    position: fixed;
-  
-
-    height: 100vh;
-    width: 100vw;
-    padding: 0px;
-
-    @apply transition duration-500 ease-out;
-    transform: translateX(100%) ;
-    opacity: 0;
-
-  }
-
-  div.mobile.open {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  
-
-  ul li {
-    @apply text-2xl p-2 text-center capitalize text-subtle  font-medium;
-  }
-
-  ul li.active{
-    @apply text-4xl font-medium p-2 text-center capitalize text-primary;
-  }
-
+	span.nav-expand {
+		width: 0px;
+		height: 0px;
+		position: fixed;
+		top: 0px;
+		right: 0px;
+		border-radius: 0 0 0 100%;
+		transition: cubic-bezier(.77, 0, .18, 1) width 0.5s, cubic-bezier(.77, 0, .18, 1) height 0.5s;
+		@apply bg-white dark:bg-primary;
+	}
+	span.nav-expand.open {
+		width: 150vh;
+		height: 150vh;
+	}
+	ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	div.mobile {
+		position: fixed;
+		height: 100vh;
+		width: 100vw;
+		padding: 0px;
+		@apply transition duration-500 ease-out;
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	div.mobile.open {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	ul li {
+		@apply text-2xl p-2 text-center capitalize text-subtle font-medium;
+	}
+	ul li.active {
+		@apply text-4xl font-medium p-2 text-center capitalize text-primary;
+	}
 }

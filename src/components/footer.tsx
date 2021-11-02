@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import ImageWithFallback from './imageWithFallback'
 
 const Footer: React.FC = () => {
   return (
@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
       id="footer"
       className="bg-primary top-shadow text-white p-8 md:p-9 md:px-12 mt-8  flex flex-row justify-between flex-wrap z-20 relative filter drop-shadow-footer"
     >
-      <Image
+      <ImageWithFallback
         src="/images/logo-white.svg"
         width="274"
         height="66"
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
           <span className="mr-1 text-sm tracking-tight font-inter">
             Powered by
           </span>
-          <Image
+          <ImageWithFallback
             src="/images/vercel.svg"
             alt="Powered by Vercel"
             width="67"
