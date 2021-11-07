@@ -4,19 +4,19 @@ import { BsTwitter, BsGithub } from 'react-icons/bs'
 import { SiDiscord } from 'react-icons/si'
 
 const LINKS: Record<string, JSX.Element> = {
-  'https://twitter.com/vignette_org/': (
+  'https://go.vignetteapp.org/twitter': (
     <BsTwitter
       size="36"
       className="transition-transform duration-300 ease-in-out hover:scale-110 mb-3"
     />
   ),
-  'https://discord.vignetteapp.org': (
+  'https://go.vignetteapp.org/discord': (
     <SiDiscord
       size="36"
       className="transition-transform duration-300 ease-in-out hover:scale-110 mb-3"
     />
   ),
-  'https://github.com/vignetteapp/vignette': (
+  'https://go.vignetteapp.org/github': (
     <BsGithub
       size="36"
       className="transition-transform duration-300 ease-in-out hover:scale-110 mb-3"
