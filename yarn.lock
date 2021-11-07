@@ -104,7 +104,7 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/spartan@^4.5.0":
+"@fontsource/spartan@4.5.0":
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/@fontsource/spartan/-/spartan-4.5.0.tgz#fe4febe6ea336b227203c20bf963d5258c5fd348"
   integrity sha512-KurffdkmBm5E1NUfi6gDU+NZNEXuE9rliENkpNVN+Odh0bVZI+H+TWPGHQVl1kZa5rYDQGQiEMuDqP+NQVhXIg==

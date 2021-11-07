@@ -23,5 +23,11 @@
     "logo": "/images/jetbrains.svg",
     "name": "Jetbrains",
     "url": "https://www.jetbrains.com/"
+  },
+  {
+    "logo": "/images/gitpod.svg",
+    "name": "Gitpod",
+    "url": "https://gitpod.io/"
   }
+
 ]
