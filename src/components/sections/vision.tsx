@@ -22,7 +22,7 @@ const OurVision: React.FC = () => (
         img="/images/icons/voice.png"
         icon={true}
         title="The community has a voice"
-        description="Everyone in our community has a voice, and no one will feel left out. Vignette wouldn't have been possible without the help of the communtiy, afterall."
+        description="Everyone in our community has a voice, and no one will feel left out. Vignette wouldn't have been possible without the help of the community, afterall."
       />
 
       <Card
