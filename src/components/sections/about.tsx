@@ -45,7 +45,7 @@ const About = () => (
             <p className="pt-8">
               We <span className="font-semibold">won&apos;t</span>
               {` `}
-              We won&apos;t gather data from you or sell DLCs. Vignette will be
+               gather data from you or sell DLCs. Vignette will be
               a complete standalone program with no hidden gotchas.
             </p>
           </div>
