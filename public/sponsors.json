@@ -28,6 +28,10 @@
     "logo": "/images/gitpod.svg",
     "name": "Gitpod",
     "url": "https://gitpod.io/"
+  },
+  {
+    "logo": "/images/icons8.svg",
+    "name": "Icons8",
+    "url": "https://icons8.com/"
   }
-
 ]
