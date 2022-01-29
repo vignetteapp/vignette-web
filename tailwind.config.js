@@ -18,6 +18,10 @@ module.exports = {
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      fontspartan: ["'Spartan'"], // fix for infinate recursion
+      fontinter: ["'Inter'"],
+    },
     extend: {
       screens: {
         xxs: '281px',
