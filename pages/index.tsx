@@ -102,13 +102,11 @@ const Home: NextPage = () => {
           {extensions.map((ext, index) => (
             <ExtensionCard key={index} name={ext.name} />
           ))}
-          {` `}
         </Marquee>
-        <Marquee speed={50} delay={5} gradientWidth={0}>
+        <Marquee speed={40} delay={1} gradientWidth={0}>
           {extensions.map((ext, index) => (
             <ExtensionCard key={index} name={ext.name} />
           ))}
-          {` `}
         </Marquee>
       </Container>
       <Container className="mt-32 flex max-w-5xl flex-wrap-reverse gap-8">
