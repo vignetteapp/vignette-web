@@ -1,15 +1,15 @@
-import Container from 'components/Container'
-import Nav from 'components/Nav'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import MenuComp from 'components/MenuComp'
 import Marquee from 'react-fast-marquee'
+
+import { Nav, Container, ExtensionCard, MenuComp } from 'components'
 
 import sparkle from 'public/images/icons/sparkle.png'
 import section1comp from 'public/images/comp/section1.png'
 import puzzle from 'public/images/icons/puzzle.png'
-import ExtensionCard from 'components/ExtensionCard'
+import shipwheel from 'public/images/icons/shipwheel.png'
+import Profile from 'components/Profile'
 
 interface Extension {
   name: string
@@ -60,17 +60,17 @@ const Home: NextPage = () => {
         </div>
         <MenuComp />
       </Container>
-      <Container className="mt-32 max-w-6xl px-4">
-        <div className="flex flex-wrap justify-between gap-8">
+      <Container className="mx-auto mt-32 max-w-6xl px-4">
+        <div className="flex flex-wrap justify-between ">
           <div>
             <div className="flex items-center">
               <Image src={sparkle} width={64} height={64} />
-              <h2 className="ml-2 text-4xl font-bold">
+              <h2 className="ml-2 text-3xl font-bold lg:text-4xl">
                 Productively
                 <br /> Beautiful
               </h2>
             </div>
-            <p className="max-w-lg pt-8 text-xl lg:max-w-sm">
+            <p className="max-w-lg py-8 text-xl lg:max-w-sm">
               Vignette has been designed from the ground up, providing a
               flexible user interface and experience that feels simple, clean,
               and powerful.
@@ -86,7 +86,9 @@ const Home: NextPage = () => {
       <Container className="mt-32 max-w-6xl px-4 text-center">
         <Image src={puzzle} />
 
-        <h2 className="text-4xl font-bold">Your workbench, Your canvas</h2>
+        <h2 className="text-3xl font-bold lg:text-4xl">
+          Your workbench, Your canvas
+        </h2>
         <p className="mx-auto max-w-[34rem] pt-4 pb-12 text-xl">
           From custom model formats to extensions that provides additional
           features, Vignette is a platform for creativity. Make Vignette yours.
@@ -108,6 +110,61 @@ const Home: NextPage = () => {
           ))}
           {` `}
         </Marquee>
+      </Container>
+      <Container className="mt-32 flex max-w-5xl flex-wrap-reverse gap-8">
+        <div className="relative px-60 py-56">
+          <Profile
+            src="https://owo.whats-th.is/67Bgkty.png"
+            size={90}
+            className="absolute top-12 left-0"
+          />
+
+          <Profile
+            src="https://owo.whats-th.is/67Bgkty.png"
+            size={140}
+            className=" absolute top-0 left-28"
+          />
+          <Profile
+            src="https://owo.whats-th.is/67Bgkty.png"
+            size={120}
+            className=" absolute top-12 right-20"
+          />
+          <Profile
+            src="https://owo.whats-th.is/67Bgkty.png"
+            size={160}
+            className="absolute top-36 left-8"
+          />
+          <Profile
+            src="https://owo.whats-th.is/67Bgkty.png"
+            size={240}
+            className=" absolute bottom-4 right-5"
+          />
+        </div>
+
+        <div className="mt-auto mb-8 lg:mx-auto">
+          <div className="flex">
+            <h2 className="mr-8 text-3xl font-bold lg:text-4xl">
+              Honestly
+              <br /> Transparent
+            </h2>
+            <Image src={shipwheel} />
+          </div>
+          <p className="max-w-[22rem] pt-4 pb-16 text-xl">
+            Development of Vignette happens in the open, and every decision we
+            make, the community always has a say. Vignette is an ecosystem and a
+            community, not a product.
+          </p>
+          <Link href="/about">
+            <a className="rounded-full bg-pinkRed px-20 py-3 text-lg font-bold text-white shadow">
+              About Us
+            </a>
+          </Link>
+        </div>
+      </Container>
+      <Container className="mt-32 pb-80">
+        <h2 className="text-center text-3xl font-bold lg:text-4xl">
+          Our Sponsors
+        </h2>
       </Container>
     </>
   )

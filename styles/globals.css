@@ -29,5 +29,5 @@ body{
  @apply  text-[#323232];
 }
 .button{
-	@apply  rounded-full bg-pinkRed p-12 py-3 text-lg font-bold text-white shadow;
+	@apply  rounded-full bg-pinkRed px-12 py-3 text-lg font-bold text-white shadow;
 }

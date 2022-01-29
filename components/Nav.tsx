@@ -17,6 +17,7 @@ const Nav = () => {
                 height={32}
                 layout="fixed"
                 alt="Vignette Logo"
+                priority
               />
             </div>
 
