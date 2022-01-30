@@ -1,5 +1,10 @@
 import Container from './Container'
 import ExtensionCard from './ExtensionCard'
-import MenuComp from './MenuComp'
+import FadeIn from './FadeIn'
+import Footer from './Footer'
+import MenuComp from './sections/MenuComp'
 import Nav from './Nav'
-export { Container, ExtensionCard, MenuComp, Nav }
+import Profile from './Profile'
+import SEO from './SEO'
+
+export { Container, ExtensionCard, MenuComp, Nav, Profile, FadeIn, Footer, SEO }

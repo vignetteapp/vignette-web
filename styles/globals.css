@@ -2,9 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply font-fontinter;
+html {
+  scroll-behavior: smooth;
 }
+
+@font-face {
+  font-family: 'Spartan';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Spartan.woff2') format('woff2');
+  font-named-instance: 'Regular';
+}
+
+@font-face {
+  font-family: 'Inter var';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Inter-roman.var.woff2') format('woff2');
+  font-named-instance: 'Regular';
+}
+
+@font-face {
+  font-family: 'Inter var';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://rsms.me/inter/font-files/Inter-italic.var.woff2') format('woff2');
+  font-named-instance: 'Italic';
+}
+
+body{
+  @apply font-inter;
+}
+
 
 .gradient-primary {
   @apply bg-gradient-to-br from-pinkRed to-deepFuscia;
@@ -18,9 +50,19 @@ body {
   @apply bg-gradient-to-bl from-cornflowerBlue to-pinkRed;
 }
 
-.font-spartan {
-  @apply text-[#323232] text-2xl tracking-[-0.0644em] font-fontspartan;
+
+
+.font-spartan{
+	font-family: 'Spartan',sans-serif;
+	font-size: 60;
+	letter-spacing: -0.0644em;
+  @apply text-[#323232] text-2xl tracking-[-0.0644em] 
 }
-.button {
-  @apply rounded-full bg-pinkRed px-12 py-3 text-lg font-bold text-white shadow;
+.button{
+	@apply  rounded-full bg-pinkRed hover:bg-[#ff2277] transition px-12 py-3 text-lg font-bold text-white shadow;
+	
+}
+
+ul >li{
+@apply my-2;
 }
