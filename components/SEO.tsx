@@ -22,7 +22,7 @@ const SEO: React.FC<{
           crossOrigin="anonymous"
         />
         <link
-          href="/fonts/Spartan.var.woff2"
+          href="/fonts/Spartan.woff2"
           rel="preload"
           as="font"
           type="font/woff2"
