@@ -21,9 +21,16 @@ const SEO: React.FC<{
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        <link
+          href="/fonts/Spartan.var.woff2"
+          rel="preload"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
       </Head>
       <NextSeo
-        title={title || `Vignette`}
+        title={title || `Vignette - The Open Source Vtuber Toolkit.`}
         description={desc || `The Open Source Vtuber Toolkit.`}
         canonical={`https://vignetteapp.org${router.asPath}`}
         openGraph={{
@@ -33,7 +40,7 @@ const SEO: React.FC<{
           article: { publishedTime: date },
 
           description: desc || `The Open Source Vtuber Toolkit.`,
-          site_name: title || `Vignette`,
+          site_name: title || `Vignette - The Open Source Vtuber Toolkit`,
           images: [
             {
               url: image || ``,
