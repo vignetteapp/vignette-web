@@ -10,7 +10,7 @@ const Footer = () => {
       className="mt-16 w-full bg-gray-100 px-8 py-8 text-primary lg:mt-32"
     >
       <div className="mx-auto max-w-3xl">
-        <div className="grid grid-cols-4 text-sm">
+        <div className="grid grid-cols-2 text-sm lg:grid-cols-4">
           <ul className="mb-4 gap-3 text-gray-600">
             <span className="font-semibold">Vignette</span>
             <li>
@@ -29,7 +29,7 @@ const Footer = () => {
               <Link href="/plugins">Plugins</Link>
             </li>
           </ul>
-          <ul className="mb-4 text-gray-600">
+          <ul className="text-gray-600 xs:mb-4">
             <span className="font-semibold">Social</span>
             <li>
               <Link href="https://github.com/vignetteapp">GitHub</Link>

@@ -1,5 +1,6 @@
 import { Container } from 'components'
 import sponsors from 'data/sponsors'
+import Image from 'next/image'
 
 const Sponsors = () => (
   <Container className="mt-28 pt-16 " id="sponsors">
@@ -15,10 +16,10 @@ const Sponsors = () => (
           </div>
         </a>
       ))}
-      <a href="/sponsor">
-        <div className="col-span-1 flex bg-gray-50 py-8 px-8">
-          <div className="flex h-12 items-center font-semibold xl:text-lg">
-            <span className="max-h-12">
+      <a href="/contact">
+        <div className="col-span-1 flex h-full bg-gray-50 px-8">
+          <div className=" flex h-full items-center  font-semibold">
+            <span className="">
               {` `}
               Become a sponsor
               <span className="hidden lg:inline">{` `}today</span>
