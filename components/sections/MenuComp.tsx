@@ -1,9 +1,6 @@
 import menucomp from 'public/images/comp/menucomp.png'
 import Image from 'next/image'
-import useDeviceSize from 'utils/useDeviceSize'
-
 const MenuComp = () => {
-  const [width] = useDeviceSize()
   return (
     <div className="sm:mx-auto sm:max-w-7xl sm:px-6 ">
       <div className="py-8 sm:relative sm:mt-4 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
@@ -43,7 +40,18 @@ const MenuComp = () => {
           </svg>
         </div>
         <div className="relative -mr-40 px-12 pb-8 sm:mx-auto">
-          <div className="inline-flex w-full rounded-[16px] shadow-2xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none">
+          <div className="hidden w-full rounded-[16px] shadow-2xl ring-1 ring-black ring-opacity-5 lg:inline-flex lg:h-full lg:w-auto lg:max-w-none">
+            <Image
+              className=""
+              priority
+              src={menucomp}
+              alt=""
+              layout="fixed"
+              width={1043}
+              height={643}
+            />
+          </div>
+          <div className="inline-flex w-full rounded-[16px] shadow-2xl ring-1 ring-black ring-opacity-5 lg:hidden lg:h-full lg:w-auto lg:max-w-none">
             <Image
               className=""
               priority
@@ -51,7 +59,6 @@ const MenuComp = () => {
               alt=""
               width={1043}
               height={643}
-              layout={width > 1024 ? `fixed` : `intrinsic`}
             />
           </div>
         </div>
