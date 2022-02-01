@@ -53,8 +53,8 @@ const sponsors: Sponsor[] = [
     darkImg: `/images/osc.png`,
     href: `https://oscollective.org`,
     noContrast: true,
-    imgWidth: 256,
-    imgHeight: 65,
+    imgWidth: 384,
+    imgHeight: 69,
   },
   {
     name: `Icons8`,
