@@ -25,7 +25,7 @@ const Nav = () => {
           <Logo />
         </Link>
 
-        <div className="mx-8 hidden gap-8 transition duration-100 md:flex ">
+        <div className="mx-8 hidden gap-8 md:flex ">
           <Link href="/features">Features</Link>
 
           <Link href="/ecosystem">Ecosystem</Link>
@@ -36,7 +36,7 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className="ml-4 hidden items-center gap-4 transition duration-100 sm:flex ">
+      <div className="ml-4 hidden items-center gap-4 sm:flex ">
         <button
           className="outline-none"
           onClick={() => setTheme(resolvedTheme === `dark` ? `light` : `dark`)}
@@ -78,7 +78,7 @@ const Nav = () => {
           >
             <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-neutral-900/80" />
 
-            <div className="dark:highlight-white/5 fixed top-4 right-4 w-full max-w-xs rounded-lg bg-white p-6 text-base font-semibold text-gray-900 shadow-lg transition duration-100 dark:bg-primary dark:text-gray-300">
+            <div className="dark:highlight-white/5 fixed top-4 right-4 w-full max-w-xs rounded-lg bg-white p-6 text-base font-semibold text-gray-900 shadow-lg dark:bg-primary dark:text-gray-300">
               <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-100"
