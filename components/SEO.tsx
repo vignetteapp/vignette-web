@@ -31,18 +31,18 @@ const SEO: React.FC<{
       </Head>
       <NextSeo
         title={
-          title || `Vignette - The open source virtual streamers' toolkit.`
+          title || `Vignette - Streaming Redefined`
         }
-        description={desc || `The open source virtual streamers' toolkit.`}
+        description={desc || `The Open Source Virtual Streamers' Toolkit.`}
         canonical={`https://vignetteapp.org${router.asPath}`}
         openGraph={{
           type: type,
           url: `https://vignetteapp.org${router.asPath}`,
-          title: title || `Jeeho Ahn | Portfolio`,
+          title: title || `Vignette - Streaming Redefined`,
           article: { publishedTime: date },
 
-          description: desc || `The Open Source Vtuber Toolkit.`,
-          site_name: title || `The open source virtual streamers' toolkit`,
+          description: desc || `The Open Source Virtual Streamers' Toolkit.`,
+          site_name: title || `Vignette - Streaming Redefined`,
           images: [
             {
               url: image || `https://encore.vignetteapp.org/images/banner.jpg`,
