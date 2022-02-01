@@ -21,13 +21,6 @@ const SEO: React.FC<{
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <link
-          href="/fonts/Spartan.woff2"
-          rel="preload"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
       </Head>
       <NextSeo
         title={
@@ -45,7 +38,8 @@ const SEO: React.FC<{
           site_name: title || `Vignette - Streaming Redefined`,
           images: [
             {
-              url: image || `https://encore.vignetteapp.org/images/banner.jpg`,
+              url:
+                image || `https://encore.vignetteapp.org/images/banner-new.jpg`,
             },
           ],
         }}

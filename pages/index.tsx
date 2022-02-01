@@ -74,7 +74,7 @@ const Home: NextPage = () => {
           id="customization"
           className="mt-28 max-w-6xl px-4 pt-16 text-center"
         >
-          <Image src={puzzle} alt="" />
+          <Image src={puzzle} quality={90} alt="" />
 
           <h2 className="text-3xl font-bold lg:text-4xl">
             Your workbench, Your canvas
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
                 Honestly
                 <br /> Transparent
               </h2>
-              <Image src={shipwheel} alt="" />
+              <Image quality={90} src={shipwheel} alt="" />
             </div>
             <p className="max-w-[22rem] pb-8 pt-4 text-lg lg:pb-16 lg:text-xl">
               The development of Vignette happens in the open. Every decision we

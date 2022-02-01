@@ -34,7 +34,7 @@ html {
 }
 
 body{
-  @apply font-inter dark:bg-primary;
+  @apply font-inter dark:bg-primary transition duration-100;
 
 }
 
@@ -52,15 +52,8 @@ body{
 }
 
 
-
-.font-spartan{
-	font-family: 'Spartan',sans-serif;
-	font-size: 60;
-	letter-spacing: -0.0644em;
-  @apply text-[#323232] text-2xl tracking-[-0.0644em] 
-}
 .button{
-	@apply  rounded-full bg-pinkRed hover:bg-[#ff2277] transition px-12 py-3 text-lg font-bold text-white shadow;
+	@apply  rounded-full bg-pinkRed hover:bg-[#ff2277]  duration-100 transition px-12 py-3 text-lg font-bold text-white shadow;
 	
 }
 

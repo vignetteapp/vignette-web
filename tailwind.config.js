@@ -6,7 +6,6 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: {
-      spartan: ['Spartan', 'sans-serif'], // fix for infinate recursion
       inter: [
         "'Inter var'",
         'ui-sans-serif',

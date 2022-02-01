@@ -1,6 +1,8 @@
 import Container from './Container'
+import Image from 'next/image'
+import logo from 'public/images/logo-square.png'
 import Link from 'next/link'
-import Logo from './Logo'
+import { LogoSquare } from './Logo'
 
 const Footer = () => {
   return (
@@ -43,7 +45,7 @@ const Footer = () => {
         </div>
         <div className="my-8 border-t  border-gray-300 pt-4">
           <div className="flex items-center">
-            <Logo className="h-4 w-4" />
+            <LogoSquare size={16} />
             <span className="ml-2 text-sm text-gray-500 dark:text-gray-200">
               Copyright © {new Date().getFullYear()} The Vignette authors
             </span>

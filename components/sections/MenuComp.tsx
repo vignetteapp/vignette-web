@@ -5,7 +5,7 @@ const MenuComp = () => {
     <div className="sm:mx-auto sm:max-w-7xl sm:px-6 ">
       <div className="py-8 sm:relative sm:mt-4 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <div className="hidden sm:block">
-          <div className="absolute inset-y-0 left-1/2 w-screen rounded-l-3xl bg-gray-100 dark:bg-[#323232] lg:left-80 lg:right-0 lg:w-full"></div>
+          <div className="absolute inset-y-0 left-1/2 w-screen rounded-l-3xl bg-gray-100 transition duration-100 dark:bg-[#323232] lg:left-80 lg:right-0 lg:w-full"></div>
           <svg
             className="absolute top-8 right-1/2 -mr-3 lg:left-0 lg:m-0"
             width="404"
@@ -27,7 +27,7 @@ const MenuComp = () => {
                   y="0"
                   width="4"
                   height="4"
-                  className="text-gray-200 dark:text-neutral-600"
+                  className="text-gray-200 transition duration-100 dark:text-neutral-600"
                   fill="currentColor"
                 ></rect>
               </pattern>

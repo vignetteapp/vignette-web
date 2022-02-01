@@ -1,12 +1,13 @@
 import { BsSunFill, BsMoonFill } from 'react-icons/bs'
-import { Dialog } from '@headlessui/react'
-
-import Link from 'next/link'
 import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
+
+import { Dialog } from '@headlessui/react'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import Logo from './Logo'
 import { useTheme } from 'next-themes'
+import Image from 'next/image'
+import { Logo } from './Logo'
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -21,16 +22,10 @@ const Nav = () => {
     <div className="mx-auto flex max-w-7xl items-center justify-between py-6 px-4 sm:px-8 lg:px-4 ">
       <div className="flex items-center">
         <Link href="/" passHref>
-          <a className="flex items-center">
-            <Logo className="h-8 w-8" />
-
-            <span className="ml-2 flex font-spartan text-2xl font-bold dark:text-white">
-              Vignette
-            </span>
-          </a>
+          <Logo />
         </Link>
 
-        <div className="mx-8 hidden gap-8  md:flex ">
+        <div className="mx-8 hidden gap-8 transition duration-100 md:flex ">
           <Link href="/features">Features</Link>
 
           <Link href="/ecosystem">Ecosystem</Link>
@@ -41,8 +36,9 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className="ml-4 hidden items-center gap-4 sm:flex ">
+      <div className="ml-4 hidden items-center gap-4 transition duration-100 sm:flex ">
         <button
+          className="outline-none"
           onClick={() => setTheme(resolvedTheme === `dark` ? `light` : `dark`)}
         >
           {mounted &&
@@ -53,12 +49,12 @@ const Nav = () => {
             ))}
         </button>
         <Link href="https://twitter.com/vignette_org" passHref>
-          <a>
+          <a className="outline-none">
             <AiFillGithub size={24} />
           </a>
         </Link>
         <Link href="https://twitter.com/vignette_org" passHref>
-          <a>
+          <a className="outline-none">
             <AiOutlineTwitter size={24} />
           </a>
         </Link>
@@ -82,7 +78,7 @@ const Nav = () => {
           >
             <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-neutral-900/80" />
 
-            <div className="dark:highlight-white/5 fixed top-4 right-4 w-full max-w-xs rounded-lg bg-white p-6 text-base font-semibold text-gray-900 shadow-lg dark:bg-primary dark:text-gray-300">
+            <div className="dark:highlight-white/5 fixed top-4 right-4 w-full max-w-xs rounded-lg bg-white p-6 text-base font-semibold text-gray-900 shadow-lg transition duration-100 dark:bg-primary dark:text-gray-300">
               <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-100"

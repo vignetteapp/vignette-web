@@ -13,7 +13,6 @@ const sponsors: Sponsor[] = [
     img: `/images/fosshost-color.svg`,
     darkImg: `/images/fosshost.svg`,
     href: `https://fosshost.org`,
-    noContrast: true,
     imgWidth: 271,
     imgHeight: 64,
   },
