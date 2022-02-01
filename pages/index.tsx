@@ -30,8 +30,8 @@ const Home: NextPage = () => {
         <div className="z-20 mx-auto grid-cols-1 px-4 pb-8 lg:max-w-7xl lg:grid-cols-2 lg:gap-24  lg:pt-32 lg:pb-64 xl:grid">
           <div className="lg:max-w-3xl">
             <h1 className="gradient-primary bg-clip-text text-6xl font-semibold text-transparent lg:text-8xl">
-              Streaming
-              <br /> Redefined
+              Streaming,
+              <br /> Redefined.
             </h1>
             <p className="my-4 mb-8 max-w-[22rem] text-xl lg:mb-16 lg:max-w-[30rem] lg:text-2xl">
               Bring your inner creativity with Vignette, the open source,
