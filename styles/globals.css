@@ -34,7 +34,8 @@ html {
 }
 
 body{
-  @apply font-inter;
+  @apply font-inter dark:bg-primary;
+
 }
 
 

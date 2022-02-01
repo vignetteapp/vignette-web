@@ -47,7 +47,7 @@ module.exports = {
         deepFuscia: '#BE58CB',
         pinkRed: '#F10E5A',
         cornflowerBlue: '#6A99DD',
-        primary: { DEFAULT: '#323232', dark: '#F8F8F8' },
+        primary: { DEFAULT: '#272727', dark: '#F8F8F8' },
         secondary: { DEFAULT: '#444444', dark: '#DADADA' },
         subtle: { DEFAULT: '#777777', dark: '#BBBBBB' },
       },

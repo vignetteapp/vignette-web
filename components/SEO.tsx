@@ -30,8 +30,10 @@ const SEO: React.FC<{
         />
       </Head>
       <NextSeo
-        title={title || `Vignette - The Open Source Vtuber Toolkit.`}
-        description={desc || `The Open Source Vtuber Toolkit.`}
+        title={
+          title || `Vignette - The open source virtual streamers' toolkit.`
+        }
+        description={desc || `The open source virtual streamers' toolkit.`}
         canonical={`https://vignetteapp.org${router.asPath}`}
         openGraph={{
           type: type,
@@ -40,10 +42,10 @@ const SEO: React.FC<{
           article: { publishedTime: date },
 
           description: desc || `The Open Source Vtuber Toolkit.`,
-          site_name: title || `Vignette - The Open Source Vtuber Toolkit`,
+          site_name: title || `The open source virtual streamers' toolkit`,
           images: [
             {
-              url: image || ``,
+              url: image || `https://encore.vignetteapp.org/images/banner.jpg`,
             },
           ],
         }}

@@ -24,7 +24,7 @@ import Sponsors from 'components/sections/Sponsors'
 const Home: NextPage = () => {
   return (
     <>
-      <SEO title="Vignette" />
+      <SEO />
       <Nav />
       <Container className="overflow-hidden pt-8 lg:relative">
         <div className="z-20 mx-auto grid-cols-1 px-4 pb-8 lg:max-w-7xl lg:grid-cols-2 lg:gap-24  lg:pt-32 lg:pb-64 xl:grid">
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
                   <br /> Beautiful
                 </h2>
               </div>
-              <p className="max-w-lg py-8 text-xl lg:max-w-sm">
+              <p className="max-w-lg py-8 text-lg lg:max-w-sm lg:text-xl">
                 Vignette has been designed from the ground up, providing a
                 flexible user interface and experience that feels simple, clean,
                 and powerful.
@@ -79,7 +79,7 @@ const Home: NextPage = () => {
           <h2 className="text-3xl font-bold lg:text-4xl">
             Your workbench, Your canvas
           </h2>
-          <p className="mx-auto max-w-[34rem] pt-4 pb-12 text-xl">
+          <p className="mx-auto max-w-[34rem] pt-4 pb-8 text-lg lg:pb-12 lg:text-xl">
             From custom model formats to extensions that provides additional
             features, Vignette is a platform for creativity. Make Vignette
             yours.
@@ -106,11 +106,9 @@ const Home: NextPage = () => {
           id="transparency"
           className="mt-28 flex max-w-5xl flex-wrap-reverse gap-8 pt-16 lg:flex-nowrap"
         >
-          <div>
-            <Image src={avatar} width={520} height={460} alt="" />
-          </div>
+          <Image src={avatar} width={520} height={460} alt="" />
 
-          <div className="mx-auto mt-auto mb-8">
+          <div className="mx-auto mt-auto mb-6 lg:mb-8">
             <div className="flex">
               <h2 className="mr-6 text-3xl font-bold lg:text-4xl">
                 Honestly
@@ -118,8 +116,8 @@ const Home: NextPage = () => {
               </h2>
               <Image src={shipwheel} alt="" />
             </div>
-            <p className="max-w-[22rem] pt-4 pb-16 text-xl">
-              Development of Vignette happens in the open, and every decision we
+            <p className="max-w-[22rem] pb-8 pt-4 text-lg lg:pb-16 lg:text-xl">
+              The development of Vignette happens in the open. Every decision we
               make, the community always has a say. Vignette is an ecosystem and
               a community, not a product.
             </p>

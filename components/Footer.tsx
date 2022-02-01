@@ -1,17 +1,16 @@
 import Container from './Container'
 import Link from 'next/link'
-import Image from 'next/image'
-import logo from 'public/images/logo.svg'
+import Logo from './Logo'
 
 const Footer = () => {
   return (
     <Container
       noMargin
-      className="mt-16 w-full bg-gray-100 px-8 py-8 text-primary lg:mt-32"
+      className="mt-16 w-full bg-gray-100 px-8 py-8 text-primary dark:bg-neutral-900  lg:mt-32"
     >
       <div className="mx-auto max-w-3xl">
         <div className="grid grid-cols-2 text-sm lg:grid-cols-4">
-          <ul className="mb-4 gap-3 text-gray-600">
+          <ul className="mb-4 gap-3 text-gray-600 dark:text-gray-300">
             <span className="font-semibold">Vignette</span>
             <li>
               <Link href="/">Home</Link>
@@ -29,7 +28,7 @@ const Footer = () => {
               <Link href="/plugins">Plugins</Link>
             </li>
           </ul>
-          <ul className="text-gray-600 xs:mb-4">
+          <ul className="text-gray-600 dark:text-gray-200 xs:mb-4">
             <span className="font-semibold">Social</span>
             <li>
               <Link href="https://github.com/vignetteapp">GitHub</Link>
@@ -43,10 +42,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className="my-8 border-t  border-gray-300 pt-4">
-          <div className="flex items-center ">
-            <Image src={logo} width={18} height={18} alt="" />
-
-            <span className="ml-2 text-sm text-gray-500">
+          <div className="flex items-center">
+            <Logo className="h-4 w-4" />
+            <span className="ml-2 text-sm text-gray-500 dark:text-gray-200">
               Copyright © {new Date().getFullYear()} The Vignette authors
             </span>
           </div>
