@@ -34,7 +34,7 @@ html {
 }
 
 body{
-  @apply font-inter;
+  @apply font-inter bg-[#272727];
 
 }
 
@@ -45,7 +45,7 @@ body{
 }
 
 [data-theme='dark'] {
-  --background: #323232;
+  --background: #272727;
   --foreground: white;
 }
 
