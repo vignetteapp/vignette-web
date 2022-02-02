@@ -34,8 +34,19 @@ html {
 }
 
 body{
-  @apply font-inter dark:bg-primary;
+  @apply font-inter;
 
+}
+
+:root {
+  /* Your default theme */
+  --background: white;
+  --foreground: rgb(0, 0, 0);
+}
+
+[data-theme='dark'] {
+  --background: #323232;
+  --foreground: white;
 }
 
 
