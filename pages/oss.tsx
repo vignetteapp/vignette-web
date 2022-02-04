@@ -1,13 +1,20 @@
 import type { NextPage, GetStaticProps } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import repoIcon from 'public/images/icons/repo.png'
 
 import { BiGitPullRequest } from 'react-icons/bi'
 import { Nav, Container, SEO, Footer, FadeIn } from 'components'
 
+import { Octokit } from '@octokit/rest'
+
+import { Endpoints } from '@octokit/types'
+type getUserResponse = Endpoints['GET /users/{username}']['response']['data']
+
+import { createClient } from 'redis'
+
 const OpenSource: NextPage<{ data: contributor[] }> = ({ data }) => {
-  console.log(data)
   return (
     <>
       <SEO />
@@ -63,11 +70,36 @@ const OpenSource: NextPage<{ data: contributor[] }> = ({ data }) => {
           <FadeIn className="mt-32 text-center ">
             <Image src={repoIcon} alt="" />
 
-            <h2 className="mt-4 text-3xl font-bold">Meet the Contributors</h2>
-            <p className="mx-auto max-w-xl text-sm sm:text-base">
+            <h2 className="mt-4 text-2xl font-bold lg:text-3xl">
+              Meet the Contributors
+            </h2>
+            <div className="mt-6 grid grid-cols-2 gap-4 px-4 lg:grid-cols-8 lg:p-8">
+              {data.map((user) => (
+                <Link
+                  passHref
+                  key={user.login}
+                  href={`https://github.com/${user.login}`}
+                >
+                  <a>
+                    <div className="rounded-xl border border-gray-200 p-4 shadow dark:border-gray-700">
+                      <Image
+                        width={64}
+                        height={64}
+                        className="rounded-full"
+                        src={user.profile}
+                      />
+                      <p className="pt-2 text-xs">
+                        {user.displayName ? user.displayName : user.login}
+                      </p>
+                    </div>
+                  </a>
+                </Link>
+              ))}
+            </div>
+            <p className="mx-auto mt-8 max-w-xl text-sm text-gray-700 dark:text-gray-300 sm:text-base">
               *This is live data from our GitHub, see yourself here? Tweet about
-              it, <br /> brag it to your friends, or give yourself a pat in the
-              back. You deserve it.
+              it, brag it to your friends, or give yourself a pat in the back.
+              You deserve it.
             </p>
           </FadeIn>
         </div>
@@ -82,18 +114,109 @@ type contributor = {
   login: string
   displayName?: string
   contribs: number
-  social: {
-    twitter?: string
-    blog?: string
-  }
+  profile: string
 }
 
-export const getServerSideProps: GetStaticProps = async () => {
-  const res = await fetch(`https://vignetteapp.org/api/contribs`)
-  const data = await res.json().catch(() => [])
+interface cache {
+  data: contributor[]
+  timestamp: number
+}
+
+const fetchData = async () => {
+  const totalContributors: Record<string, contributor> = {}
+
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+  })
+
+  const repos = await octokit.rest.repos
+    .listForOrg({
+      org: `vignetteapp`,
+      type: `public`,
+    })
+    .then((res) => res.data)
+
+  for (const repo of repos) {
+    const contributors = await octokit.rest.repos
+      .listContributors({
+        owner: `vignetteapp`,
+        repo: repo.name,
+        anon: `false`,
+        per_page: 15,
+      })
+      .then((res) => res.data)
+
+    for (const user of contributors) {
+      if (!user.login?.includes(`dependabot`)) {
+        const userData: getUserResponse = await octokit.rest.users
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          .getByUsername({ username: user.login! })
+          .then((res) => res.data)
+
+        let prevContribs = 0
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        if (totalContributors[user.login!]) {
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          prevContribs = totalContributors[user.login!].contribs
+        }
+
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        totalContributors[user.login!] = {
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          login: user.login!,
+          displayName: userData.name as string,
+          contribs: prevContribs + user.contributions,
+          profile: user.avatar_url as string,
+        }
+      }
+    }
+  }
+
+  const contribArray: contributor[] = []
+
+  Object.keys(totalContributors).forEach((key) => {
+    contribArray.push(totalContributors[key])
+  })
+
+  contribArray.sort((a, b) => b.contribs - a.contribs)
+  contribArray.slice(0, 100)
+
+  const ts = Date.now()
+
+  const dataToSave = {
+    data: contribArray,
+    timestamp: ts,
+  }
+  return dataToSave
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const client = createClient({
+    url: process.env.REDIS_URL,
+    password: process.env.REDIS_PW,
+  })
+
+  await client.connect()
+  let data = await client.get(`contribs`)
+
+  if (data == null) {
+    client.set(`contribs`, JSON.stringify(await fetchData()))
+  } else {
+    const parsed: cache = JSON.parse(data)
+    if (parsed.timestamp < Date.now() - 3600000) {
+      client.set(`contribs`, JSON.stringify(await fetchData()))
+    }
+  }
+  process.env.NODE_ENV == `development` &&
+    client.set(`contribs`, JSON.stringify(await fetchData()))
+
+  data = await client.get(`contribs`)
+
+  const parsed: cache = JSON.parse(data as string)
 
   return {
-    props: { data }, // will be passed to the page component as props
+    props: { data: parsed.data }, // will be passed to the page component as props
+    revalidate: 120,
   }
 }
 
