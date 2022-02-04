@@ -6,14 +6,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@font-face {
-  font-family: 'Spartan';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/Spartan.woff2') format('woff2');
-  font-named-instance: 'Regular';
-}
 
 @font-face {
   font-family: 'Inter var';

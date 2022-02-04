@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <Container
       noMargin
-      className="mt-16 w-full bg-gray-100 px-8 py-8 text-primary dark:bg-neutral-900  lg:mt-32"
+      className="mt-16 w-full bg-gray-100 px-8 py-8 text-primary dark:bg-black  lg:mt-32"
     >
       <div className="mx-auto max-w-3xl">
         <div className="grid grid-cols-2 text-sm lg:grid-cols-4">
