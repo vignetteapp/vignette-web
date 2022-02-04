@@ -18,8 +18,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<contributor[]>,
 ) {
-  // eslint-disable-next-line no-var
-  var totalContributors: Record<string, contributor> = {}
+  const totalContributors: Record<string, contributor> = {}
 
   const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,
@@ -45,15 +44,20 @@ export default async function handler(
     for (const user of contributors) {
       if (!user.login?.includes(`dependabot`)) {
         const userData: getUserResponse = await octokit.rest.users
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           .getByUsername({ username: user.login! })
           .then((res) => res.data)
 
         let prevContribs = 0
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         if (totalContributors[user.login!]) {
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           prevContribs = totalContributors[user.login!].contribs
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         totalContributors[user.login!] = {
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           login: user.login!,
           displayName: userData.name as string,
           contribs: prevContribs + user.contributions,
@@ -66,8 +70,7 @@ export default async function handler(
     }
   }
 
-  // eslint-disable-next-line no-var
-  var contribArray: contributor[] = []
+  const contribArray: contributor[] = []
 
   Object.keys(totalContributors).forEach((key) => {
     contribArray.push(totalContributors[key])

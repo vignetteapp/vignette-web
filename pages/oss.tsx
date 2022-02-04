@@ -88,9 +88,10 @@ type contributor = {
   }
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetStaticProps = async () => {
   const res = await fetch(`https://vignetteapp.org/api/contribs`)
-  const data = await res.json()
+  const data = await res.json().catch(() => [])
+
   return {
     props: { data }, // will be passed to the page component as props
   }
