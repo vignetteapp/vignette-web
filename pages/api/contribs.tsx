@@ -39,23 +39,20 @@ export const fetchData = async () => {
   for (const repo of repos) {
     if (!repo.fork) {
       const url = `${repo.commits_url.split(`{`)[0]}?sha=master&per_page=1`
-      console.log(url)
 
       const pageString = await fetch(url, {
         headers: {
           Accept: `application/vnd.github.v3+json`,
+          authorization: `token ${process.env.GITHUB_TOKEN}`,
         },
       })
-        .then((data) => {
-          console.log(data)
-          return data.headers
-        })
+        .then((data) => data.headers)
         .then(
           (result) =>
             result!
               .get(`link`)
               ?.split(`,`)[1]
-              .match(/.*page=(?<page_num>\d+)/)!.groups!.page_num,
+              .match(/.*page=(?<page_num>\d+)/)?.groups?.page_num,
         )
       totalCommits = totalCommits += parseInt(pageString as string)
 
