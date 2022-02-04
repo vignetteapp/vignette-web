@@ -54,8 +54,9 @@ export const fetchData = async () => {
               ?.split(`,`)[1]
               .match(/.*page=(?<page_num>\d+)/)?.groups?.page_num,
         )
-      totalCommits = totalCommits += parseInt(pageString as string)
-
+      if (pageString) {
+        totalCommits = totalCommits + parseInt(pageString)
+      }
       const contributors = await octokit.rest.repos
         .listContributors({
           owner: `vignetteapp`,
@@ -146,5 +147,5 @@ export default async function handler(
     }
   }
 
-  process.env.NODE_ENV == `development` && setData(client, await fetchData())
+  //process.env.NODE_ENV == `development` && setData(client, await fetchData())
 }
