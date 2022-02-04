@@ -1,4 +1,4 @@
-import type { NextPage, GetStaticProps } from 'next'
+import type { NextPage, GetStaticProps, GetServerSideProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -7,14 +7,12 @@ import repoIcon from 'public/images/icons/repo.png'
 import { BiGitPullRequest } from 'react-icons/bi'
 import { Nav, Container, SEO, Footer, FadeIn } from 'components'
 
-import { Octokit } from '@octokit/rest'
+import { contributor, fetchData } from './api/contribs'
 
-import { Endpoints } from '@octokit/types'
-type getUserResponse = Endpoints['GET /users/{username}']['response']['data']
-
-import { createClient } from 'redis'
-
-const OpenSource: NextPage<{ data: contributor[] }> = ({ data }) => {
+const OpenSource: NextPage<{
+  contributors: contributor[]
+  commits: number
+}> = ({ contributors, commits }) => {
   return (
     <>
       <SEO />
@@ -50,7 +48,7 @@ const OpenSource: NextPage<{ data: contributor[] }> = ({ data }) => {
               </div>
 
               <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">727</div>
+                <div className="mb-1 text-6xl font-bold">{commits}</div>
                 Commits
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
@@ -73,20 +71,21 @@ const OpenSource: NextPage<{ data: contributor[] }> = ({ data }) => {
             <h2 className="mt-4 text-2xl font-bold lg:text-3xl">
               Meet the Contributors
             </h2>
-            <div className="mt-6 grid grid-cols-2 gap-4 px-4 lg:grid-cols-8 lg:p-8">
-              {data.map((user) => (
+            <div className="contributors mt-6 flex flex-wrap justify-center gap-4 px-4  lg:p-8">
+              {contributors.map((user) => (
                 <Link
                   passHref
                   key={user.login}
                   href={`https://github.com/${user.login}`}
                 >
-                  <a>
-                    <div className="rounded-xl border border-gray-200 p-4 shadow dark:border-gray-700">
+                  <a className=" my-2 w-32">
+                    <div className=" mx-auto">
                       <Image
                         width={64}
                         height={64}
                         className="rounded-full"
                         src={user.profile}
+                        alt=""
                       />
                       <p className="pt-2 text-xs">
                         {user.displayName ? user.displayName : user.login}
@@ -110,113 +109,14 @@ const OpenSource: NextPage<{ data: contributor[] }> = ({ data }) => {
   )
 }
 
-type contributor = {
-  login: string
-  displayName?: string
-  contribs: number
-  profile: string
-}
-
-interface cache {
-  data: contributor[]
-  timestamp: number
-}
-
-const fetchData = async () => {
-  const totalContributors: Record<string, contributor> = {}
-
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN,
-  })
-
-  const repos = await octokit.rest.repos
-    .listForOrg({
-      org: `vignetteapp`,
-      type: `public`,
-    })
-    .then((res) => res.data)
-
-  for (const repo of repos) {
-    const contributors = await octokit.rest.repos
-      .listContributors({
-        owner: `vignetteapp`,
-        repo: repo.name,
-        anon: `false`,
-        per_page: 15,
-      })
-      .then((res) => res.data)
-
-    for (const user of contributors) {
-      if (!user.login?.includes(`dependabot`)) {
-        const userData: getUserResponse = await octokit.rest.users
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          .getByUsername({ username: user.login! })
-          .then((res) => res.data)
-
-        let prevContribs = 0
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        if (totalContributors[user.login!]) {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          prevContribs = totalContributors[user.login!].contribs
-        }
-
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        totalContributors[user.login!] = {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          login: user.login!,
-          displayName: userData.name as string,
-          contribs: prevContribs + user.contributions,
-          profile: user.avatar_url as string,
-        }
-      }
-    }
-  }
-
-  const contribArray: contributor[] = []
-
-  Object.keys(totalContributors).forEach((key) => {
-    contribArray.push(totalContributors[key])
-  })
-
-  contribArray.sort((a, b) => b.contribs - a.contribs)
-  contribArray.slice(0, 100)
-
-  const ts = Date.now()
-
-  const dataToSave = {
-    data: contribArray,
-    timestamp: ts,
-  }
-  return dataToSave
-}
-
 export const getStaticProps: GetStaticProps = async () => {
-  const client = createClient({
-    url: process.env.REDIS_URL,
-    password: process.env.REDIS_PW,
-  })
-
-  await client.connect()
-  let data = await client.get(`contribs`)
-
-  if (data == null) {
-    client.set(`contribs`, JSON.stringify(await fetchData()))
-  } else {
-    const parsed: cache = JSON.parse(data)
-    if (parsed.timestamp < Date.now() - 3600000) {
-      client.set(`contribs`, JSON.stringify(await fetchData()))
-    }
-  }
-  process.env.NODE_ENV == `development` &&
-    client.set(`contribs`, JSON.stringify(await fetchData()))
-
-  data = await client.get(`contribs`)
-
-  const parsed: cache = JSON.parse(data as string)
-
+  const data = await fetch(`https://encore.vignetteapp.org/api/contribs`)
+    .then((res) => res.json())
+    .catch(async () => {
+      return (await fetchData()).data
+    })
   return {
-    props: { data: parsed.data }, // will be passed to the page component as props
-    revalidate: 120,
+    props: data, // will be passed to the page component as props
   }
 }
 

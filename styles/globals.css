@@ -63,3 +63,20 @@ body{
 ul >li{
 @apply my-2;
 }
+
+
+/* Dealing with 2 orphan items */
+
+.contributors:last-child:nth-child(8n - 1) {
+  grid-column-end: -2;
+}
+
+.contributors:nth-last-child(2):nth-child(8n + 1) {
+  grid-column-end: 4;
+}
+
+/* Dealing with single orphan */
+
+.contributors:last-child:nth-child(8n - 2) {
+  grid-column-end: 5;
+}
