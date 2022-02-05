@@ -22,7 +22,9 @@ const Nav = () => {
     <div className="mx-auto flex max-w-7xl items-center justify-between py-6 px-4 sm:px-8 lg:px-4 ">
       <div className="flex items-center">
         <Link href="/" passHref>
-          <Logo />
+          <a>
+            <Logo />
+          </a>
         </Link>
 
         <div className="mx-8 hidden gap-8 lg:flex ">
@@ -74,9 +76,9 @@ const Nav = () => {
           <Dialog
             open={isOpen}
             onClose={() => setIsOpen(false)}
-            className="fixed inset-0 z-50 md:hidden"
+            className="fixed inset-0 z-50 lg:hidden"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-neutral-900/80" />
+            <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-neutral-900/80 " />
 
             <div className="dark:highlight-white/5 fixed top-4 right-4 w-full max-w-xs rounded-lg bg-white p-6 text-base font-semibold text-gray-900 shadow-lg dark:bg-primary dark:text-gray-300">
               <button

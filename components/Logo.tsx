@@ -8,10 +8,24 @@ import logosquareDark from 'public/images/logo-square-dark.png'
 const Logo = () => (
   <>
     <div className="flex dark:hidden">
-      <Image src={logo} priority width={141} height={33} layout="fixed" alt="" />
+      <Image
+        src={logo}
+        priority
+        width={141}
+        height={33}
+        layout="fixed"
+        alt=""
+      />
     </div>
     <div className="hidden dark:flex">
-      <Image src={logoDark} priority width={141} height={32} layout="fixed" alt="" />
+      <Image
+        src={logoDark}
+        priority
+        width={141}
+        height={32}
+        layout="fixed"
+        alt=""
+      />
     </div>
   </>
 )
