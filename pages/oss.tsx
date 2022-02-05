@@ -96,7 +96,7 @@ const OpenSource: NextPage<{
               ))}
             </div>
             <p className="mx-auto mt-8 max-w-xl text-sm text-gray-700 dark:text-gray-300 sm:text-base">
-              *This is live data from our GitHub, see yourself here? Tweet about
+              *This is live data from our GitHub. See yourself here? Tweet about
               it, brag it to your friends, or give yourself a pat in the back.
               You deserve it.
             </p>
