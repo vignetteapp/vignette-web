@@ -79,7 +79,7 @@ export const fetchData = async () => {
 
       totalCommits = totalCommits + repository.commits.history.totalCount
       totalPRs = totalPRs + repository.pullRequests.totalCount
-      openIssues = totalPRs + repository.issues.totalCount
+      openIssues = openIssues + repository.issues.totalCount
 
       const contributors = await octokit.rest.repos
         .listContributors({
