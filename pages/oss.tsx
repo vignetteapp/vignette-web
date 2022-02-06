@@ -12,7 +12,9 @@ import { contributor, fetchData } from './api/contribs'
 const OpenSource: NextPage<{
   contributors: contributor[]
   commits: number
-}> = ({ contributors, commits }) => {
+  pullRequests: number
+  openIssues: number
+}> = ({ contributors, commits, pullRequests, openIssues }) => {
   return (
     <>
       <SEO />
@@ -31,7 +33,7 @@ const OpenSource: NextPage<{
           <FadeIn>
             <div className="mx-auto flex flex-wrap gap-8 pb-16 text-center">
               <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">727</div>
+                <div className="mb-1 text-6xl font-bold">{pullRequests}</div>
                 Pull Requests
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
@@ -39,7 +41,7 @@ const OpenSource: NextPage<{
                 />
               </div>
               <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">727</div>
+                <div className="mb-1 text-6xl font-bold">{openIssues}</div>
                 Open Issues
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
@@ -110,7 +112,12 @@ const OpenSource: NextPage<{
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await fetch(`https://encore.vignetteapp.org/api/contribs`)
+  const baseURL =
+    process.env.NODE_ENV == `production`
+      ? `https://encore.vignetteapp.org`
+      : `http://localhost:3000`
+
+  const data = await fetch(`${baseURL}/api/contribs`)
     .then((res) => res.json())
     .catch(async () => {
       return (await fetchData()).data

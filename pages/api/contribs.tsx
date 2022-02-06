@@ -5,6 +5,7 @@ import { Octokit } from '@octokit/rest'
 import { Endpoints } from '@octokit/types'
 type getUserResponse = Endpoints['GET /users/{username}']['response']['data']
 
+import { graphql } from '@octokit/graphql'
 import { createClient } from 'redis'
 
 export type contributor = {
@@ -15,15 +16,27 @@ export type contributor = {
 }
 
 interface cache {
-  data: { contributors: contributor[]; commits: number }
+  data: {
+    contributors: contributor[]
+    commits: number
+    pullRequests: number
+    openIssues: number
+  }
   timestamp: number
 }
 
 export const fetchData = async () => {
+  const graphqlWithAuth = graphql.defaults({
+    headers: {
+      authorization: `token ${process.env.GITHUB_TOKEN}`,
+    },
+  })
+
   console.log(`updating data`)
   const totalContributors: Record<string, contributor> = {}
-  const totalPRs = 0
+  let totalPRs = 0
   let totalCommits = 0
+  let openIssues = 0
 
   const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,
@@ -38,25 +51,36 @@ export const fetchData = async () => {
 
   for (const repo of repos) {
     if (!repo.fork) {
-      const url = `${repo.commits_url.split(`{`)[0]}?sha=master&per_page=1`
-
-      const pageString = await fetch(url, {
-        headers: {
-          Accept: `application/vnd.github.v3+json`,
-          authorization: `token ${process.env.GITHUB_TOKEN}`,
+      const { repository } = await graphqlWithAuth(
+        `
+        query repo($owner: String!, $name: String!) {
+          repository(owner: $owner, name: $name) {
+            pullRequests {
+              totalCount
+            }
+            commits: object(expression: "HEAD") {
+              ... on Commit {
+                history {
+                  totalCount
+                }
+              }
+            }
+            issues: issues(states:OPEN){
+              totalCount
+            }
+          }
+        }
+        `,
+        {
+          owner: `vignetteapp`,
+          name: repo.name,
         },
-      })
-        .then((data) => data.headers)
-        .then(
-          (result) =>
-            result!
-              .get(`link`)
-              ?.split(`,`)[1]
-              .match(/.*page=(?<page_num>\d+)/)?.groups?.page_num,
-        )
-      if (pageString) {
-        totalCommits = totalCommits + parseInt(pageString)
-      }
+      )
+
+      totalCommits = totalCommits + repository.commits.history.totalCount
+      totalPRs = totalPRs + repository.pullRequests.totalCount
+      openIssues = totalPRs + repository.issues.totalCount
+
       const contributors = await octokit.rest.repos
         .listContributors({
           owner: `vignetteapp`,
@@ -71,25 +95,25 @@ export const fetchData = async () => {
           !user.login?.includes(`dependabot`) &&
           !user.login?.includes(`[bot]`)
         ) {
-          const userData: getUserResponse = await octokit.rest.users
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            .getByUsername({ username: user.login! })
-            .then((res) => res.data)
-
           let prevContribs = 0
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
           if (totalContributors[user.login!]) {
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            prevContribs = totalContributors[user.login!].contribs
+            prevContribs = totalContributors[user.login!].contribs!
           }
 
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           totalContributors[user.login!] = {
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            login: user.login!,
-            displayName: userData.name as string,
+            login: user.login as string,
             contribs: prevContribs + user.contributions,
             profile: user.avatar_url as string,
+          }
+          if (!totalContributors[user.login!].displayName) {
+            const userdata: getUserResponse = await octokit.rest.users
+              .getByUsername({
+                username: user.login as string,
+              })
+              .then((res) => res.data)
+
+            totalContributors[user.login!].displayName = userdata.name as string
           }
         }
       }
@@ -105,9 +129,15 @@ export const fetchData = async () => {
   contribArray.sort((a, b) => b.contribs - a.contribs)
   contribArray.slice(0, 100)
 
+  console.log(`done`)
   const ts = Date.now()
   const dataToSave: cache = {
-    data: { contributors: contribArray, commits: totalCommits },
+    data: {
+      contributors: contribArray,
+      commits: totalCommits,
+      pullRequests: totalPRs,
+      openIssues: openIssues,
+    },
     timestamp: ts,
   }
   return dataToSave
