@@ -23,15 +23,20 @@ const Custom404: NextPage = () => {
           </p>
           <br></br>
           <div>
-            <Image src={Blajah} alt="" width="712px" height="466px"></Image>
+            <Image
+              src={Blajah}
+              alt=""
+              width="712px"
+              height="466px"
+              className="rounded-2xl"
+            ></Image>
             <br></br>
             <button
               onClick={() => router.back()}
-              className="m-3 rounded-full bg-pinkRed px-8 py-1 font-semibold text-white "
+              className="m-3 rounded-full bg-pinkRed px-11 py-1 font-semibold text-white "
             >
               Go Back
             </button>
-            <br></br>
             <Link
               passHref={true}
               href="https://www.ikea.com/us/en/p/blahaj-soft-toy-shark-90373590/"
