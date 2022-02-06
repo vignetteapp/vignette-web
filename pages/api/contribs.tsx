@@ -16,12 +16,10 @@ export type contributor = {
 }
 
 export interface cache {
-  data: {
-    contributors: contributor[]
-    commits: number
-    pullRequests: number
-    openIssues: number
-  }
+  contributors: contributor[]
+  commits: number
+  pullRequests: number
+  openIssues: number
   timestamp: number
 }
 
@@ -32,7 +30,6 @@ export const fetchData = async () => {
     },
   })
 
-  console.log(`updating data`)
   const totalContributors: Record<string, contributor> = {}
   let totalPRs = 0
   let totalCommits = 0
@@ -129,15 +126,12 @@ export const fetchData = async () => {
   contribArray.sort((a, b) => b.contribs - a.contribs)
   contribArray.slice(0, 100)
 
-  console.log(`done`)
   const ts = Date.now()
-  const dataToSave: cache = {
-    data: {
-      contributors: contribArray,
-      commits: totalCommits,
-      pullRequests: totalPRs,
-      openIssues: openIssues,
-    },
+  const dataToSave = {
+    contributors: contribArray,
+    commits: totalCommits,
+    pullRequests: totalPRs,
+    openIssues: openIssues,
     timestamp: ts,
   }
   return dataToSave
@@ -145,14 +139,26 @@ export const fetchData = async () => {
 
 const setData = async (
   client: ReturnType<typeof createClient>,
-  data: cache,
+  data: {
+    contributors: contributor[]
+    commits: number
+    pullRequests: number
+    openIssues: number
+    timestamp: number
+  },
 ) => {
   client.set(`contribs`, JSON.stringify(data))
 }
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<cache>,
+  res: NextApiResponse<{
+    contributors: contributor[]
+    commits: number
+    pullRequests: number
+    openIssues: number
+    timestamp: number
+  }>,
 ) {
   const client = createClient({
     url: process.env.REDIS_URL,

@@ -49,6 +49,7 @@ const MenuComp = () => {
               layout="fixed"
               width={1043}
               height={643}
+              quality={90}
             />
           </div>
           <div className=" inline-flex w-full rounded-[17px] shadow-2xl ring-opacity-5 lg:hidden">
@@ -59,6 +60,7 @@ const MenuComp = () => {
               alt=""
               width={1043}
               height={643}
+              quality={90}
             />
           </div>
         </div>

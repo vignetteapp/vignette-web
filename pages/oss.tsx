@@ -7,9 +7,15 @@ import repoIcon from 'public/images/icons/repo.png'
 import { BiGitPullRequest } from 'react-icons/bi'
 import { Nav, Container, SEO, Footer, FadeIn } from 'components'
 
-import { cache, contributor, fetchData } from './api/contribs'
+import { cache, fetchData } from './api/contribs'
 
-const OpenSource: NextPage<cache> = ({ data, timestamp }) => {
+const OpenSource: NextPage<cache> = ({
+  contributors,
+  commits,
+  pullRequests,
+  openIssues,
+  timestamp,
+}) => {
   return (
     <>
       <SEO />
@@ -28,7 +34,7 @@ const OpenSource: NextPage<cache> = ({ data, timestamp }) => {
           <FadeIn>
             <div className="mx-auto flex flex-wrap gap-8 pb-16 text-center">
               <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">{data.commits}</div>
+                <div className="mb-1 text-6xl font-bold">{commits}</div>
                 Commits
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
@@ -36,9 +42,7 @@ const OpenSource: NextPage<cache> = ({ data, timestamp }) => {
                 />
               </div>
               <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">
-                  {data.pullRequests}
-                </div>
+                <div className="mb-1 text-6xl font-bold">{pullRequests}</div>
                 Pull Requests
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
@@ -46,7 +50,7 @@ const OpenSource: NextPage<cache> = ({ data, timestamp }) => {
                 />
               </div>
               <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">{data.openIssues}</div>
+                <div className="mb-1 text-6xl font-bold">{openIssues}</div>
                 Open Issues
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
@@ -70,7 +74,7 @@ const OpenSource: NextPage<cache> = ({ data, timestamp }) => {
               Meet the Contributors
             </h2>
             <div className="contributors mt-6 flex flex-wrap justify-center gap-4 px-4  lg:p-8">
-              {data.contributors.map((user) => (
+              {contributors.map((user) => (
                 <Link
                   passHref
                   key={user.login}
@@ -93,10 +97,16 @@ const OpenSource: NextPage<cache> = ({ data, timestamp }) => {
                 </Link>
               ))}
             </div>
+
             <p className="mx-auto mt-8 max-w-xl text-sm text-gray-700 dark:text-gray-300 sm:text-base">
               *This is live data from our GitHub. See yourself here? Tweet about
               it, brag it to your friends, or give yourself a pat in the back.
               You deserve it.
+            </p>
+            <p className="mt-4 text-xs text-gray-800 dark:text-gray-200  ">
+              last updated at: {new Date(timestamp).toLocaleDateString()}
+              {` `}
+              {new Date(timestamp).toLocaleTimeString()}
             </p>
           </FadeIn>
         </div>
@@ -113,7 +123,7 @@ export const getStaticProps: GetStaticProps = async () => {
       ? `https://encore.vignetteapp.org`
       : `http://localhost:3000`
 
-  const data = await fetch(`${baseURL}/api/contribs`)
+  const data: cache = await fetch(`${baseURL}/api/contribs`)
     .then((res) => res.json())
     .catch(async () => {
       return await fetchData()

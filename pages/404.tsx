@@ -32,7 +32,7 @@ const Custom404: NextPage = () => {
           <div className="mx-auto mt-8 mb-8 flex justify-center">
             <button
               onClick={() => router.back()}
-              className="mx-3 items-center rounded-full bg-pinkRed px-8 py-1 text-lg font-semibold text-white "
+              className="mx-3 w-44 items-center rounded-full bg-pinkRed px-8 py-1 text-lg font-semibold text-white "
             >
               Go Back
             </button>
@@ -40,7 +40,7 @@ const Custom404: NextPage = () => {
               passHref
               href="https://www.ikea.com/us/en/p/blahaj-soft-toy-shark-90373590/"
             >
-              <a className="mx-3 inline-flex items-center rounded-full bg-yellow-500 px-8 py-1  font-semibold text-white ">
+              <a className="mx-3 inline-flex w-44 items-center rounded-full bg-yellow-500 px-8 py-1  font-semibold text-white ">
                 <span className="mx-auto">Get a BLÅHAJ</span>
               </a>
             </Link>
