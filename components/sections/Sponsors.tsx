@@ -10,7 +10,7 @@ const Sponsors = () => (
       {sponsors.map((sp, i) => (
         <a href={sp.href} key={i}>
           <div
-            className={`group col-span-1 flex justify-center bg-gray-50 py-8 px-8 dark:bg-[#323232] dark:hover:bg-neutral-700 dark:hover:grayscale-0`}
+            className={`group col-span-1 flex justify-center bg-gray-50 py-8 px-8 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:hover:grayscale-0`}
           >
             <div
               className={`flex h-8 items-center justify-center lg:h-12 ${
@@ -49,7 +49,7 @@ const Sponsors = () => (
         </a>
       ))}
       <a href="/contact">
-        <div className="col-span-1 flex h-full bg-gray-50 px-4 dark:bg-[#323232] dark:text-gray-300 dark:hover:bg-neutral-700 lg:px-8 ">
+        <div className="col-span-1 flex h-full bg-gray-50 px-4 dark:bg-zinc-900 dark:text-gray-300 dark:hover:bg-zinc-800 lg:px-8 ">
           <div className=" flex h-full items-center  font-semibold">
             <span className="">
               {` `}

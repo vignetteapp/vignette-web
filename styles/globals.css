@@ -6,14 +6,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@font-face {
-  font-family: 'Spartan';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/Spartan.woff2') format('woff2');
-  font-named-instance: 'Regular';
-}
 
 @font-face {
   font-family: 'Inter var';
@@ -34,7 +26,7 @@ html {
 }
 
 body{
-  @apply font-inter dark:bg-[#181a1b];
+  @apply font-inter text-black bg-white dark:text-[#f9f9f9] dark:bg-[#181a1b];
 
 }
 
@@ -70,4 +62,21 @@ body{
 
 ul >li{
 @apply my-2;
+}
+
+
+/* Dealing with 2 orphan items */
+
+.contributors:last-child:nth-child(8n - 1) {
+  grid-column-end: -2;
+}
+
+.contributors:nth-last-child(2):nth-child(8n + 1) {
+  grid-column-end: 4;
+}
+
+/* Dealing with single orphan */
+
+.contributors:last-child:nth-child(8n - 2) {
+  grid-column-end: 5;
 }
