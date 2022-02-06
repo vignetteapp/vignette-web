@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Blajah from 'public/images/blahaj.jpg'
+import Blahaj from 'public/images/blahaj.jpg'
 import { useRouter } from 'next/router'
 
 import { Nav, Container, SEO, Footer } from 'components'
@@ -24,7 +24,7 @@ const Custom404: NextPage = () => {
           <br></br>
           <div>
             <Image
-              src={Blajah}
+              src={Blahaj}
               alt=""
               width="712px"
               height="466px"
