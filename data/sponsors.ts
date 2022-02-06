@@ -35,7 +35,7 @@ const sponsors: Sponsor[] = [
     name: `Vercel`,
     img: `/images/vercel-dark.svg`,
     darkImg: `/images/vercel.svg`,
-    href: `https://vercel.com`,
+    href: `https://vercel.com/?utm_source=vignette&utm_campaign=oss`,
     imgWidth: 199,
     imgHeight: 45,
   },
