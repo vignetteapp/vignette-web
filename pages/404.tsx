@@ -15,11 +15,11 @@ const Custom404: NextPage = () => {
       <Container className="overflow-hidden pt-8 lg:relative">
         <div className="z-20 mx-auto grid-cols-1 text-center xl:grid">
           <div className="pb-4">
-            <h1 className="text-6xl font-semibold lg:text-8xl pb-8">
+            <h1 className="pb-8 text-6xl font-semibold lg:text-8xl">
               You hit a dead end.
             </h1>
             <p className="text-xl lg:text-2xl">
-              Here's a BLÅHAJ to guide you back.
+              Here&lsquo;s a BLÅHAJ to guide you back.
             </p>
           </div>
           <div>
