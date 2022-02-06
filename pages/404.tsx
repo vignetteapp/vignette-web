@@ -14,14 +14,14 @@ const Custom404: NextPage = () => {
       <Nav />
       <Container className="overflow-hidden pt-8 lg:relative">
         <div className="z-20 mx-auto grid-cols-1 text-center xl:grid">
-          <h1 className="text-6xl font-semibold lg:text-8xl">
-            You hit a dead end.
-          </h1>
-          <br></br>
-          <p className="text-xl lg:text-2xl">
-            Here's a BLÅHAJ to guide you back.
-          </p>
-          <br></br>
+          <div className="pb-4">
+            <h1 className="text-6xl font-semibold lg:text-8xl">
+              You hit a dead end.
+            </h1>
+            <p className="text-xl lg:text-2xl">
+              Here's a BLÅHAJ to guide you back.
+            </p>
+          </div>
           <div>
             <Image
               src={Blahaj}
@@ -30,7 +30,8 @@ const Custom404: NextPage = () => {
               height="466px"
               className="rounded-2xl"
             ></Image>
-            <br></br>
+          </div>
+          <div>
             <button
               onClick={() => router.back()}
               className="m-3 w-44 rounded-full bg-pinkRed px-8 py-1 font-semibold text-white "
