@@ -14,7 +14,7 @@ const Custom404: NextPage = () => {
       <Nav />
       <Container className="overflow-hidden pt-8 lg:relative">
         <div className="z-20 mx-auto grid-cols-1 text-center xl:grid">
-          <h1 className="text-6xl font-semibold text-white lg:text-8xl">
+          <h1 className="text-6xl font-semibold lg:text-8xl">
             You hit a dead end.
           </h1>
           <br></br>
