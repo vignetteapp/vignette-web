@@ -7,14 +7,9 @@ import repoIcon from 'public/images/icons/repo.png'
 import { BiGitPullRequest } from 'react-icons/bi'
 import { Nav, Container, SEO, Footer, FadeIn } from 'components'
 
-import { contributor, fetchData } from './api/contribs'
+import { cache, contributor, fetchData } from './api/contribs'
 
-const OpenSource: NextPage<{
-  contributors: contributor[]
-  commits: number
-  pullRequests: number
-  openIssues: number
-}> = ({ contributors, commits, pullRequests, openIssues }) => {
+const OpenSource: NextPage<cache> = ({ data, timestamp }) => {
   return (
     <>
       <SEO />
@@ -33,7 +28,17 @@ const OpenSource: NextPage<{
           <FadeIn>
             <div className="mx-auto flex flex-wrap gap-8 pb-16 text-center">
               <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">{pullRequests}</div>
+                <div className="mb-1 text-6xl font-bold">{data.commits}</div>
+                Commits
+                <BiGitPullRequest
+                  className="mx-auto mt-2 fill-pinkRed"
+                  size={40}
+                />
+              </div>
+              <div className="mx-auto text-xl">
+                <div className="mb-1 text-6xl font-bold">
+                  {data.pullRequests}
+                </div>
                 Pull Requests
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
@@ -41,17 +46,8 @@ const OpenSource: NextPage<{
                 />
               </div>
               <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">{openIssues}</div>
+                <div className="mb-1 text-6xl font-bold">{data.openIssues}</div>
                 Open Issues
-                <BiGitPullRequest
-                  className="mx-auto mt-2 fill-pinkRed"
-                  size={40}
-                />
-              </div>
-
-              <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">{commits}</div>
-                Commits
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
                   size={40}
@@ -74,7 +70,7 @@ const OpenSource: NextPage<{
               Meet the Contributors
             </h2>
             <div className="contributors mt-6 flex flex-wrap justify-center gap-4 px-4  lg:p-8">
-              {contributors.map((user) => (
+              {data.contributors.map((user) => (
                 <Link
                   passHref
                   key={user.login}
@@ -120,10 +116,11 @@ export const getStaticProps: GetStaticProps = async () => {
   const data = await fetch(`${baseURL}/api/contribs`)
     .then((res) => res.json())
     .catch(async () => {
-      return (await fetchData()).data
+      return await fetchData()
     })
   return {
     props: data, // will be passed to the page component as props
+    revalidate: 120,
   }
 }
 

@@ -34,8 +34,8 @@ const Home: NextPage = () => {
               <br /> Redefined.
             </h1>
             <p className="my-4 mb-8 max-w-[22rem] text-xl lg:mb-16 lg:max-w-[30rem] lg:text-2xl">
-              Bring your inner creativity with Vignette, the open source
-              modular streaming toolkit for virtual streaming.
+              Bring your inner creativity with Vignette, the open source modular
+              streaming toolkit for virtual streaming.
             </p>
             <Link href="/download" passHref>
               <a className="button">Get Vignette</a>

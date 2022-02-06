@@ -15,7 +15,7 @@ export type contributor = {
   profile: string
 }
 
-interface cache {
+export interface cache {
   data: {
     contributors: contributor[]
     commits: number
@@ -152,7 +152,7 @@ const setData = async (
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<{ contributors: contributor[] }>,
+  res: NextApiResponse<cache>,
 ) {
   const client = createClient({
     url: process.env.REDIS_URL,
@@ -165,11 +165,11 @@ export default async function handler(
   if (data == null) {
     const newData = await fetchData()
 
-    res.json(newData.data)
+    res.json(newData)
     setData(client, newData)
   } else {
     const parsed: cache = JSON.parse(data)
-    res.json(parsed.data)
+    res.json(parsed)
 
     if (parsed.timestamp < Date.now() - 3600000) {
       const newData = await fetchData()
