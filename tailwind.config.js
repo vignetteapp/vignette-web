@@ -1,25 +1,29 @@
 module.exports = {
-  mode: 'jit',
-  purge: {
-    content: [
-      './src/pages/**/*.{js,ts,jsx,tsx}',
-      './src/components/**/*.{js,ts,jsx,tsx}',
-      './src/styles/**/*.css',
-    ],
-    options: {
-      safelist: {
-        greedy: [
-          /text-(primary|subtle)/,
-          /border-(primary|subtle)/,
-          /mb-3/,
-          /rounded-(md|full)/,
-          /opacity-(0|1)/,
-        ],
-      },
-    },
-  },
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      inter: [
+        "'Inter var'",
+        'ui-sans-serif',
+        'system-ui',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        'Segoe UI',
+        'Roboto',
+        'Helvetica Neue',
+        'Arial',
+        'Noto Sans',
+        'sans-serif',
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        'Segoe UI Symbol',
+        'Noto Color Emoji',
+      ],
+    },
     extend: {
       screens: {
         xxs: '281px',
@@ -42,15 +46,9 @@ module.exports = {
         deepFuscia: '#BE58CB',
         pinkRed: '#F10E5A',
         cornflowerBlue: '#6A99DD',
-        primary: { DEFAULT: '#323232', dark: '#F8F8F8' },
+        primary: { DEFAULT: '#272727', dark: '#F8F8F8' },
         secondary: { DEFAULT: '#444444', dark: '#DADADA' },
         subtle: { DEFAULT: '#777777', dark: '#BBBBBB' },
-      },
-      backgroundImage: {
-        'hero-pattern':
-          'url(/images/background.webp), url(/images/background.jpg)',
-        'hero-pattern-dark':
-          'url(/images/background-dark.webp), url(/images/background-dark.jpg)',
       },
       letterSpacing: {
         tightest: '-.1em',

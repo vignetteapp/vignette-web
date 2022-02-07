@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@font-face {
+  font-family: 'Inter var';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Inter-roman.var.woff2') format('woff2');
+  font-named-instance: 'Regular';
+}
+
+@font-face {
+  font-family: 'Inter var';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://rsms.me/inter/font-files/Inter-italic.var.woff2') format('woff2');
+  font-named-instance: 'Italic';
+}
+
+body{
+  @apply font-inter text-black bg-white dark:text-[#f9f9f9] dark:bg-[#181a1b];
+
+}
+
+:root {
+  /* Your default theme */
+  --background: white;
+  --foreground: rgb(0, 0, 0);
+}
+
+[data-theme='dark'] {
+  --background: #181a1b;
+  --foreground: #f9f9f9;
+}
+
+
+.gradient-primary {
+  @apply bg-gradient-to-br from-pinkRed to-deepFuscia;
+}
+
+.gradient-secondary {
+  @apply bg-gradient-to-br from-iris-70 via-iris-80 to-fuschia-90;
+}
+
+.gradient-tertiary {
+  @apply bg-gradient-to-bl from-cornflowerBlue to-pinkRed;
+}
+
+
+.button{
+	@apply  rounded-full bg-pinkRed hover:bg-[#ff2277]  duration-100 transition px-12 py-3 text-lg font-bold text-white shadow;
+	
+}
+
+ul >li{
+@apply my-2;
+}
+
+
+.animation-flicker{
+  animation: flicker 3s linear infinite;
+}
+
+@keyframes flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+	
+    opacity: .99;
+		
+	}
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+	}
+}
+
