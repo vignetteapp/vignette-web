@@ -177,7 +177,7 @@ export default async function handler(
     const parsed: cache = JSON.parse(data)
     res.json(parsed)
 
-    if (parsed.timestamp < Date.now() - 3600000) {
+    if (Date.now() - parsed.timestamp > 3600000) {
       const newData = await fetchData()
       setData(client, newData)
     }
