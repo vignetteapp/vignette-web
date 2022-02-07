@@ -14,9 +14,9 @@ const Custom404: NextPage = () => {
     <>
       <SEO title="You hit a dead end." />
       <Nav />
-      <Container className=" max-w-7xl pt-8 ">
+      <Container className=" max-w-7xl ">
         <div className="z-20 mx-auto  text-center ">
-          <div className="animation-flicker my-6">
+          <div className="animation-flicker   mt-4">
             <Image src={text404} alt="404" width={207} height={45} />
           </div>
 

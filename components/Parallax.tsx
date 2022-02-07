@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect, ReactNode } from 'react'
+import { useState, useRef, useLayoutEffect, useEffect, ReactNode } from 'react'
 import {
   motion,
   useViewportScroll,
@@ -7,31 +7,47 @@ import {
   useReducedMotion,
 } from 'framer-motion'
 type ParallaxProps = {
-  children: ReactNode
+  children?: ReactNode
   offset?: number
+  className?: string
+  id?: string
+  hero?: boolean
+  fadeIn?: boolean
 }
 
-const Parallax = ({ children, offset = 50 }: ParallaxProps): JSX.Element => {
+const Parallax = ({
+  children,
+  id,
+  hero = false,
+  offset = 30,
+  className,
+  fadeIn,
+}: ParallaxProps): JSX.Element => {
   const prefersReducedMotion = useReducedMotion()
   const [elementTop, setElementTop] = useState(0)
   const [clientHeight, setClientHeight] = useState(0)
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
 
   const { scrollY } = useViewportScroll()
 
   const initial = elementTop - clientHeight
   const final = elementTop + offset
 
-  const yRange = useTransform(scrollY, [initial, final], [offset, -offset])
+  const yRange = useTransform(scrollY, [initial, final], [offset, -offset], {
+    clamp: false,
+  })
   const y = useSpring(yRange, { stiffness: 400, damping: 90 })
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const element = ref.current
     const onResize = () => {
-      setElementTop(
-        element.getBoundingClientRect().top + window.scrollY ||
-          window.pageYOffset,
-      )
+      if (element) {
+        setElementTop(
+          element.getBoundingClientRect().top + window.scrollY ||
+            window.pageYOffset,
+        )
+      }
+
       setClientHeight(window.innerHeight)
     }
     onResize()
@@ -45,10 +61,36 @@ const Parallax = ({ children, offset = 50 }: ParallaxProps): JSX.Element => {
   }
 
   return (
-    <motion.div ref={ref} style={{ y }}>
+    <motion.div
+      id={id}
+      className={className}
+      ref={ref}
+      style={{ y }}
+      transition={fadeIn ? { delay: 0.15, duration: 0.3 } : {}}
+      initial={fadeIn && { opacity: 0 }}
+      whileInView={fadeIn ? { opacity: 1 } : {}}
+      viewport={{ once: true }}
+    >
       {children}
     </motion.div>
   )
 }
 
+const ParallaxContainer: React.FC<{
+  noMargin?: boolean
+  className?: string
+  id?: string
+  children: ReactNode
+  fadeIn: boolean
+}> = ({ className, noMargin, children, id, fadeIn }) => (
+  <Parallax
+    fadeIn={fadeIn}
+    id={id}
+    className={`${!noMargin && `mx-auto px-4 sm:px-8`} ${className}`}
+  >
+    {children}
+  </Parallax>
+)
+
 export default Parallax
+export { ParallaxContainer }

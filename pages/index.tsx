@@ -10,7 +10,6 @@ import {
   MenuComp,
   SEO,
   Footer,
-  FadeIn,
 } from 'components'
 import extensions from 'data/extensions'
 
@@ -44,32 +43,35 @@ const Home: NextPage = () => {
         </div>
         <MenuComp />
       </Container>
-      <Container id="design" className="mx-auto mt-28 max-w-6xl px-4 pt-16">
-        <FadeIn>
-          <div className="flex flex-wrap justify-between ">
-            <div>
-              <div className="flex items-center">
-                <Image src={sparkle} width={64} height={64} alt="" />
-                <h2 className="ml-2 text-3xl font-bold lg:text-4xl">
-                  Productively
-                  <br /> Beautiful
-                </h2>
-              </div>
-              <p className="max-w-lg py-8 text-lg lg:max-w-sm lg:text-xl">
-                Vignette has been designed from the ground up, providing a
-                flexible user interface and experience that feels simple, clean,
-                and powerful.
-                <br />
-                <br /> The best part? It&apos;s{` `}
-                <span className="font-semibold">themeable.</span>
-              </p>
+      <Container
+        fadeIn
+        id="design"
+        className="mx-auto mt-28 max-w-6xl px-4 pt-16"
+      >
+        <div className="flex flex-wrap justify-between ">
+          <Container noMargin>
+            <div className="flex items-center">
+              <Image src={sparkle} width={64} height={64} alt="" />
+              <h2 className="ml-2 text-3xl font-bold lg:text-4xl">
+                Productively
+                <br /> Beautiful
+              </h2>
             </div>
-
+            <p className="max-w-lg py-8 text-lg lg:max-w-sm lg:text-xl">
+              Vignette has been designed from the ground up, providing a
+              flexible user interface and experience that feels simple, clean,
+              and powerful.
+              <br />
+              <br /> The best part? It&apos;s{` `}
+              <span className="font-semibold">themeable.</span>
+            </p>
+          </Container>
+          <Container noMargin offset={10}>
             <Image src={section1comp} alt="" />
-          </div>
-        </FadeIn>
+          </Container>
+        </div>
       </Container>
-      <FadeIn>
+      <Container fadeIn noMargin>
         <Container
           id="customization"
           className="mt-28 max-w-6xl px-4 pt-16 text-center"
@@ -88,7 +90,7 @@ const Home: NextPage = () => {
             <a className="button">Explore Plugins</a>
           </Link>
         </Container>
-        <Container noMargin className=" pt-16">
+        <Container fadeIn noMargin offset={10} className=" pt-16">
           <Marquee speed={50} gradientWidth={0}>
             {extensions.map((ext, index) => (
               <ExtensionCard key={index} name={ext.name} />
@@ -100,38 +102,38 @@ const Home: NextPage = () => {
             ))}
           </Marquee>
         </Container>
-      </FadeIn>
-      <FadeIn>
-        <Container
-          id="transparency"
-          className="mt-28 flex max-w-5xl flex-wrap-reverse gap-8 pt-16 lg:flex-nowrap"
-        >
-          <Image src={avatar} width={520} height={460} alt="" />
+      </Container>
 
-          <div className="mx-auto mt-auto mb-6 lg:mb-8">
-            <div className="flex">
-              <h2 className="mr-6 text-3xl font-bold lg:text-4xl">
-                Honestly
-                <br /> Transparent
-              </h2>
-              <Image quality={95} src={shipwheel} alt="" />
-            </div>
-            <p className="max-w-[22rem] pb-8 pt-4 text-lg lg:pb-16 lg:text-xl">
-              The development of Vignette happens in the open. Every decision we
-              make, the community always has a say. Vignette is an ecosystem and
-              a community, not a product.
-            </p>
-            <Link href="/about">
-              <a className="rounded-full bg-pinkRed px-20 py-3 text-lg font-bold text-white shadow">
-                About Us
-              </a>
-            </Link>
+      <Container
+        fadeIn
+        id="transparency"
+        className="mt-28 flex max-w-5xl flex-wrap-reverse gap-8 pt-16 lg:flex-nowrap"
+      >
+        <Image src={avatar} width={520} height={460} alt="" />
+
+        <div className="mx-auto mt-auto mb-6 lg:mb-8">
+          <div className="flex">
+            <h2 className="mr-6 text-3xl font-bold lg:text-4xl">
+              Honestly
+              <br /> Transparent
+            </h2>
+            <Image quality={95} src={shipwheel} alt="" />
           </div>
-        </Container>
-      </FadeIn>
-      <FadeIn>
+          <p className="max-w-[22rem] pb-8 pt-4 text-lg lg:pb-16 lg:text-xl">
+            The development of Vignette happens in the open. Every decision we
+            make, the community always has a say. Vignette is an ecosystem and a
+            community, not a product.
+          </p>
+          <Link href="/about">
+            <a className="rounded-full bg-pinkRed px-20 py-3 text-lg font-bold text-white shadow">
+              About Us
+            </a>
+          </Link>
+        </div>
+      </Container>
+      <Container fadeIn>
         <Sponsors />
-      </FadeIn>
+      </Container>
 
       <Footer />
     </>
