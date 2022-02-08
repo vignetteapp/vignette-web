@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { Octokit } from '@octokit/rest'
 
 import { Endpoints } from '@octokit/types'
@@ -8,14 +7,14 @@ type getUserResponse = Endpoints['GET /users/{username}']['response']['data']
 import { graphql } from '@octokit/graphql'
 import { createClient } from 'redis'
 
-export type contributor = {
+type contributor = {
   login: string
   displayName?: string
   contribs: number
   profile: string
 }
 
-export interface cache {
+interface cache {
   contributors: contributor[]
   commits: number
   pullRequests: number
@@ -23,7 +22,7 @@ export interface cache {
   timestamp: number
 }
 
-export const fetchData = async () => {
+const fetchData = async () => {
   const graphqlWithAuth = graphql.defaults({
     headers: {
       authorization: `token ${process.env.GITHUB_TOKEN}`,
@@ -150,16 +149,7 @@ const setData = async (
   client.set(`contribs`, JSON.stringify(data))
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<{
-    contributors: contributor[]
-    commits: number
-    pullRequests: number
-    openIssues: number
-    timestamp: number
-  }>,
-) {
+const asdf = async () => {
   const client = createClient({
     url: process.env.REDIS_URL,
     password: process.env.REDIS_PW,
@@ -171,17 +161,14 @@ export default async function handler(
   if (data == null) {
     const newData = await fetchData()
 
-    res.json(newData)
     setData(client, newData)
   } else {
     const parsed: cache = JSON.parse(data)
-    res.json(parsed)
-    console.log("test123")
+
     if (Date.now() - parsed.timestamp > 3600000) {
       const newData = await fetchData()
       setData(client, newData)
     }
   }
-
-  //process.env.NODE_ENV == `development` && setData(client, await fetchData())
 }
+asdf()

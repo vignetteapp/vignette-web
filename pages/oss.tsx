@@ -1,4 +1,4 @@
-import type { NextPage, GetStaticProps, GetServerSideProps } from 'next'
+import type { NextPage, GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -7,7 +7,7 @@ import repoIcon from 'public/images/icons/repo.png'
 import { BiGitPullRequest } from 'react-icons/bi'
 import { Nav, Container, SEO, Footer } from 'components'
 
-import { cache, fetchData } from './api/contribs'
+import { createClient } from 'redis'
 
 const OpenSource: NextPage<cache> = ({
   contributors,
@@ -20,7 +20,7 @@ const OpenSource: NextPage<cache> = ({
     <>
       <SEO />
       <Nav />
-      <Container parallax className="pt-8 lg:pt-16">
+      <Container className="pt-8 lg:pt-16">
         <div className="z-20 mx-auto px-4 pb-8 lg:max-w-7xl ">
           <h1 className="bg-gradient-to-br from-blue-500 to-deepFuscia bg-clip-text text-5xl font-semibold text-transparent sm:text-6xl md:text-9xl">
             Open and <br />
@@ -118,19 +118,34 @@ const OpenSource: NextPage<cache> = ({
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const baseURL = `https://encore.vignetteapp.org`
-  // process.env.NODE_ENV == `production`
-  //   ? `https://encore.vignetteapp.org`
-  //   : `http://localhost:3000`
+type contributor = {
+  login: string
+  displayName?: string
+  contribs: number
+  profile: string
+}
 
-  const data: cache = await fetch(`${baseURL}/api/contribs`)
-    .then((res) => res.json())
-    .catch(async () => {
-      return await fetchData()
-    })
+interface cache {
+  contributors: contributor[]
+  commits: number
+  pullRequests: number
+  openIssues: number
+  timestamp: number
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const client = createClient({
+    url: process.env.REDIS_URL,
+    password: process.env.REDIS_PW,
+  })
+
+  await client.connect()
+  const data = await client.get(`contribs`)
+
+  const parsed: cache = JSON.parse(data!)
+
   return {
-    props: data, // will be passed to the page component as props
+    props: parsed, // will be passed to the page component as props
     revalidate: 10,
   }
 }

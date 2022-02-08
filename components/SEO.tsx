@@ -23,9 +23,7 @@ const SEO: React.FC<{
         />
       </Head>
       <NextSeo
-        title={
-          title || `Vignette - Streaming Redefined`
-        }
+        title={title ? `${title}- Vignette` : `Vignette - Streaming Redefined`}
         description={desc || `The Open Source Virtual Streamers' Toolkit.`}
         canonical={`https://vignetteapp.org${router.asPath}`}
         openGraph={{

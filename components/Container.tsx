@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import Parallax from './Parallax'
+import { motion } from 'framer-motion'
 
 const Container: React.FC<{
   noMargin?: boolean
@@ -28,12 +29,16 @@ const Container: React.FC<{
       {children}
     </Parallax>
   ) : (
-    <div
-      className={`${!noMargin && `mx-auto px-4 sm:px-8`} ${className}`}
+    <motion.div
       id={id}
+      className={`${!noMargin && `mx-auto px-4 sm:px-8`} ${className}`}
+      transition={fadeIn ? { delay: 0.15, duration: 0.3 } : {}}
+      initial={fadeIn && { opacity: 0 }}
+      whileInView={fadeIn ? { opacity: 1 } : {}}
+      viewport={{ once: true }}
     >
       {children}
-    </div>
+    </motion.div>
   )
 }
 export default Container
