@@ -31,7 +31,7 @@ const OpenSource: NextPage<cache> = ({
             community. The numbers you see here are the aggregate statistics of
             all our activity done in the open combined.
           </p>
-          <Container noMargin fadeIn>
+          <Container parallax offset={10} noMargin fadeIn>
             <div className="mx-auto flex flex-wrap gap-8 pb-16 text-center">
               <div className="mx-auto text-xl">
                 <div className="mb-1 text-6xl font-bold">{commits}</div>

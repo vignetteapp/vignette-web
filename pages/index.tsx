@@ -44,6 +44,8 @@ const Home: NextPage = () => {
         <MenuComp />
       </Container>
       <Container
+        parallax
+        offset={10}
         fadeIn
         id="design"
         className="mx-auto mt-28 max-w-6xl px-4 pt-16"
@@ -71,7 +73,7 @@ const Home: NextPage = () => {
           </Container>
         </div>
       </Container>
-      <Container fadeIn noMargin>
+      <Container fadeIn noMargin parallax offset={10}>
         <Container
           id="customization"
           className="mt-28 max-w-6xl px-4 pt-16 text-center"
@@ -90,7 +92,7 @@ const Home: NextPage = () => {
             <a className="button">Explore Plugins</a>
           </Link>
         </Container>
-        <Container noMargin offset={10} className=" pt-16">
+        <Container offset={10} className=" pt-16">
           <Marquee speed={50} gradientWidth={0}>
             {extensions.map((ext, index) => (
               <ExtensionCard key={index} name={ext.name} />
@@ -106,6 +108,8 @@ const Home: NextPage = () => {
 
       <Container
         fadeIn
+        parallax
+        offset={10}
         id="transparency"
         className="mt-28 flex max-w-5xl flex-wrap-reverse gap-8 pt-16 lg:flex-nowrap"
       >
@@ -131,7 +135,7 @@ const Home: NextPage = () => {
           </Link>
         </div>
       </Container>
-      <Container fadeIn>
+      <Container parallax offset={10} fadeIn>
         <Sponsors />
       </Container>
 
