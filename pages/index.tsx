@@ -92,7 +92,7 @@ const Home: NextPage = () => {
             <a className="button">Explore Plugins</a>
           </Link>
         </Container>
-        <Container offset={10} className=" pt-16">
+        <Container noMargin offset={10} className=" pt-16">
           <Marquee speed={50} gradientWidth={0}>
             {extensions.map((ext, index) => (
               <ExtensionCard key={index} name={ext.name} />
