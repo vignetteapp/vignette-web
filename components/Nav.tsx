@@ -50,7 +50,7 @@ const Nav = () => {
               <BsMoonFill size={18} />
             ))}
         </button>
-        <Link href="https://twitter.com/vignette_org" passHref>
+        <Link href="https://github.com/vignetteapp" passHref>
           <a className="outline-none">
             <AiFillGithub size={24} />
           </a>
