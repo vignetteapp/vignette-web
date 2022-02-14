@@ -48,20 +48,19 @@ const Sponsors = () => (
           </div>
         </a>
       ))}
-      <a href="/contact">
-        <div className=" col-span-1 flex h-full bg-gray-50 py-8 px-8 dark:bg-zinc-900 dark:text-gray-300 dark:hover:bg-zinc-800 lg:px-8 ">
-          <div className="flex h-full items-center  font-semibold">
-            <span className="">
-              {` `}
-              Become a partner
-              <span className="hidden lg:inline">{` `}today</span>
-              {` `}
-              <span className="whitespace-nowrap">-&gt;</span>
-            </span>
-          </div>
-        </div>
-      </a>
     </div>
+
+    <a href="/contact">
+      <div className=" flex h-full items-center px-2 font-semibold  sm:px-8">
+        <span className="">
+          {` `}
+          Become a partner
+          <span className="hidden lg:inline">{` `}today</span>
+          {` `}
+          <span className="whitespace-nowrap">-&gt;</span>
+        </span>
+      </div>
+    </a>
   </Container>
 )
 export default Sponsors
