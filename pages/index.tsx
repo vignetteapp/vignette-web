@@ -36,8 +36,8 @@ const Home: NextPage = () => {
               Bring your inner creativity with Vignette, the open source modular
               streaming toolkit for virtual streaming.
             </p>
-            <Link href="/download" passHref>
-              <a className="button">Get Vignette</a>
+            <Link href="https://go.vignetteapp.org/discord" passHref>
+              <a className="button">Join our Discord</a>
             </Link>
           </div>
         </div>
