@@ -63,6 +63,14 @@ const sponsors: Sponsor[] = [
     imgWidth: 80,
     imgHeight: 80,
   },
+  {
+    name: `Live2D`,
+    img: `/images/l2d_light.png`,
+    darkImg: `/images/l2d_dark.png`,
+    href: `https://www.live2d.jp/en/`,
+    imgWidth: 1001,
+    imgHeight: 258,
+  },
 ]
 
 export default sponsors
