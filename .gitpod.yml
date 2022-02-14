@@ -1,10 +1,4 @@
 tasks:
-  - before: >
-      [[ ! -z $GNUGPG  ]] &&
-      cd ~ &&
-      rm -rf .gnupg &&
-      echo $GNUGPG | base64 -d | tar --no-same-owner -xzvf
-      
   - init: yarn 
     command: yarn dev
 vscode:
