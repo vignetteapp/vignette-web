@@ -18,7 +18,7 @@ import section1comp from 'public/images/comp/section1.png'
 import puzzle from 'public/images/icons/puzzle.png'
 import shipwheel from 'public/images/icons/shipwheel.png'
 import avatar from 'public/images/avatar.png'
-import Sponsors from 'components/sections/Sponsors'
+import Partners from 'components/sections/Partners'
 
 const Home: NextPage = () => {
   return (
@@ -136,7 +136,7 @@ const Home: NextPage = () => {
         </div>
       </Container>
       <Container parallax offset={10} fadeIn>
-        <Sponsors />
+        <Partners />
       </Container>
 
       <Footer />

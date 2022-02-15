@@ -1,4 +1,4 @@
-interface Sponsor {
+interface Partner {
   name: string
   img: string
   darkImg?: string
@@ -7,7 +7,7 @@ interface Sponsor {
   noContrast?: boolean
   href: string
 }
-const sponsors: Sponsor[] = [
+const partners: Partner[] = [
   {
     name: `Fosshost`,
     img: `/images/fosshost-color.svg`,
@@ -73,4 +73,4 @@ const sponsors: Sponsor[] = [
   },
 ]
 
-export default sponsors
+export default partners
