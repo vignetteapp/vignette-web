@@ -86,7 +86,7 @@ const MenuComp = () => {
           offset={mobile ? 10 : 50}
           className="relative -mr-40 mt-8 px-12 pb-8 sm:mx-auto lg:mt-14"
         >
-          <div className="hidden w-full rounded-[17px] shadow-2xl ring-opacity-5 lg:inline-flex lg:h-full lg:w-auto lg:max-w-none">
+          <div className="hidden w-full rounded-[2em] shadow-2xl ring-opacity-5 lg:inline-flex lg:h-full lg:w-auto lg:max-w-none">
             <Image
               className=""
               priority
@@ -98,7 +98,7 @@ const MenuComp = () => {
               quality={90}
             />
           </div>
-          <div className=" inline-flex w-full rounded-[17px] shadow-2xl ring-opacity-5 lg:hidden">
+          <div className=" inline-flex w-full rounded-[1em] shadow-2xl ring-opacity-5 lg:hidden">
             <Image
               className=""
               priority

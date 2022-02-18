@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 
 import { Nav, Container, SEO, Footer } from 'components'
 
-const Custom404: NextPage = () => {
+const InDevelopment: NextPage = () => {
   const router = useRouter()
   return (
     <>
@@ -25,10 +25,10 @@ const Custom404: NextPage = () => {
           <div className="my-2 mx-auto inline-flex overflow-clip rounded-xl drop-shadow-lg">
             <Image src={Blahaj} alt="" width="712" height="450" />
           </div>
-          <div className="mx-auto mt-8 mb-8 flex justify-center">
+          <div className="mx-auto mt-8 mb-8 flex flex-wrap justify-center gap-4">
             <button
               onClick={() => router.back()}
-              className="mx-3 w-44 items-center rounded-full bg-pinkRed px-8 py-1 text-lg font-semibold text-white "
+              className="mx-3 w-44 items-center rounded-full bg-pinkRed px-8 py-1 text-sm font-semibold text-white lg:text-lg "
             >
               Go Back
             </button>
@@ -55,4 +55,4 @@ const Custom404: NextPage = () => {
   )
 }
 
-export default Custom404
+export default InDevelopment

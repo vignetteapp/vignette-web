@@ -51,7 +51,8 @@ const Partners = () => (
       ))}
     </div>
     <Container className="max-w-7xl">
-      <Link href="/contact" passHref>
+      {/*Temporarilly use email until contacts page is finished*/}
+      <Link href="mailto:hello@vignetteapp.org" passHref>
         <a className="font-semibold lg:px-8">
           Become a partner today
           <span className="whitepartners.ce-nowrap">-&gt;</span>

@@ -2,13 +2,12 @@ import type { NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Blahaj from 'public/images/blahaj.jpg'
-import text404 from 'public/images/404text.png'
 
 import { useRouter } from 'next/router'
 
 import { Nav, Container, SEO, Footer } from 'components'
 
-const Custom404: NextPage = () => {
+const InDevelopment: NextPage = () => {
   const router = useRouter()
   return (
     <>
@@ -38,7 +37,7 @@ const Custom404: NextPage = () => {
               href="https://www.ikea.com/us/en/p/blahaj-soft-toy-shark-90373590/"
             >
               <a className="mx-3 inline-flex w-44 items-center rounded-full bg-yellow-500 px-8 py-1  font-semibold text-white ">
-                <span className="mx-auto text-sm lg:text-lg">Get a BLÅHAJ</span>
+                <span className="mx-auto">Get a BLÅHAJ</span>
               </a>
             </Link>
           </div>
@@ -56,4 +55,4 @@ const Custom404: NextPage = () => {
   )
 }
 
-export default Custom404
+export default InDevelopment
