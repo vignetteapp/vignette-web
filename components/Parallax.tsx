@@ -6,6 +6,7 @@ import {
   useSpring,
   useReducedMotion,
 } from 'framer-motion'
+import useIsomorphicLayoutEffect from 'hooks/useIsomorphicLayoutEffect'
 type ParallaxProps = {
   children?: ReactNode
   offset?: number
@@ -38,7 +39,7 @@ const Parallax = ({
   })
   const y = useSpring(yRange, { stiffness: 400, damping: 90 })
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const element = ref.current
     const onResize = () => {
       if (element) {
