@@ -1,6 +1,7 @@
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import Script from 'next/script'
 
 const SEO: React.FC<{
   title?: string
@@ -22,6 +23,13 @@ const SEO: React.FC<{
           crossOrigin="anonymous"
         />
       </Head>
+      <Script
+        defer
+        data-domain="vignetteapp.org"
+        src="https://plausible.matterho.st/js/plausible.js"
+        strategy="afterInteractive"
+      ></Script>
+
       <NextSeo
         title={title ? `${title}- Vignette` : `Vignette - Streaming Redefined`}
         description={desc || `The Open Source Virtual Streamers' Toolkit.`}
