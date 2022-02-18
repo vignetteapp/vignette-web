@@ -1,7 +1,7 @@
-import type { NextPage } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
-import Marquee from 'react-fast-marquee';
+import type { NextPage } from 'next'
+import Link from 'next/link'
+import Image from 'next/image'
+import Marquee from 'react-fast-marquee'
 
 import {
   Nav,
@@ -10,15 +10,16 @@ import {
   MenuComp,
   SEO,
   Footer,
-} from 'components';
-import extensions from 'data/extensions';
+} from 'components'
+import extensions from 'data/extensions'
 
-import sparkle from 'public/images/icons/sparkle.png';
-import section1comp from 'public/images/comp/section1.png';
-import puzzle from 'public/images/icons/puzzle.png';
-import shipwheel from 'public/images/icons/shipwheel.png';
-import avatar from 'public/images/avatar.png';
-import Partners from 'components/sections/Partners';
+import sparkle from 'public/images/icons/sparkle.png'
+// import section1comp from 'public/images/comp/section1.png';
+import section1comp from 'public/images/comp/section1-frame.png'
+import puzzle from 'public/images/icons/puzzle.png'
+import shipwheel from 'public/images/icons/shipwheel.png'
+import avatar from 'public/images/avatar.png'
+import Partners from 'components/sections/Partners'
 
 const Home: NextPage = () => {
   return (
@@ -141,7 +142,7 @@ const Home: NextPage = () => {
 
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

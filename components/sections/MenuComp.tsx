@@ -93,8 +93,8 @@ const MenuComp = () => {
               src={menucomp}
               alt=""
               layout="fixed"
-              width={1043}
-              height={643}
+              width={1386}
+              height={686}
               quality={90}
             />
           </div>
@@ -104,8 +104,8 @@ const MenuComp = () => {
               priority
               src={menucomp}
               alt=""
-              width={1043}
-              height={643}
+              width={1386}
+              height={686}
               quality={90}
             />
           </div>
