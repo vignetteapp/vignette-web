@@ -81,10 +81,10 @@ const OpenSource: NextPage<cache> = ({
             </div>
           </Container>
         </div>
-        <Container fadeIn noMargin className="mt-32 text-center ">
+        <Container fadeIn parallax noMargin className="mt-32 text-center ">
           <Image src={repoIcon} alt="" quality={100} width={72} height={72} />
 
-          <h2 className="mt-4 text-2xl font-bold lg:text-3xl">
+          <h2 className="mt-8 text-2xl font-bold lg:text-3xl">
             Meet the Contributors
           </h2>
           <div className=" mx-auto  mt-6 flex max-w-7xl flex-wrap justify-center gap-4 sm:px-4  lg:p-8">
@@ -124,7 +124,7 @@ const OpenSource: NextPage<cache> = ({
             {updatedDate.toLocaleTimeString()}
           </p>
         </Container>
-        <Container>
+        <Container parallax>
           <div className="mt-20 text-center lg:mt-28">
             <div className="inline-flex overflow-hidden rounded-2xl drop-shadow-xl">
               <Image
@@ -146,7 +146,7 @@ const OpenSource: NextPage<cache> = ({
           </div>
           <div className="mx-auto mt-10 flex max-w-7xl flex-wrap justify-center gap-4 ">
             {teamMembers.map((m: Member) => (
-              <div key={m.name} className=" my-2 px-8 text-center">
+              <a href={m.url} key={m.name} className=" mx-8 my-2 text-center">
                 <div className="inline-flex overflow-hidden rounded-full ">
                   <Image
                     alt=""
@@ -158,7 +158,7 @@ const OpenSource: NextPage<cache> = ({
                 </div>
                 <h4 className=" my-1 font-medium capitalize">{m.name}</h4>
                 <p className="max-w-[9em] text-xs">{m.role}</p>
-              </div>
+              </a>
             ))}
           </div>
         </Container>
