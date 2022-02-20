@@ -44,7 +44,7 @@ const OpenSource: NextPage<cache> = ({
             community. The numbers you see here are the aggregate statistics of
             all our activity done in the open combined.
           </p>
-          <Container parallax offset={10} noMargin fadeIn>
+          <Container offset={10} noMargin fadeIn>
             <div className="mx-auto flex flex-wrap gap-8 pb-16 text-center">
               <div className="mx-auto text-xl">
                 <div className="mb-1 text-6xl font-bold">{commits}</div>
@@ -81,7 +81,7 @@ const OpenSource: NextPage<cache> = ({
             </div>
           </Container>
         </div>
-        <Container fadeIn parallax noMargin className="mt-32 text-center ">
+        <Container fadeIn noMargin className="mt-32 text-center ">
           <Image src={repoIcon} alt="" quality={100} width={72} height={72} />
 
           <h2 className="mt-8 text-2xl font-bold lg:text-3xl">
@@ -124,7 +124,7 @@ const OpenSource: NextPage<cache> = ({
             {updatedDate.toLocaleTimeString()}
           </p>
         </Container>
-        <Container parallax>
+        <Container>
           <div className="mt-20 text-center lg:mt-28">
             <div className="inline-flex overflow-hidden rounded-2xl drop-shadow-xl">
               <Image

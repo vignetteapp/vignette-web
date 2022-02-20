@@ -48,7 +48,6 @@ const Home: NextPage = () => {
         <MenuComp />
       </Container>
       <Container
-        parallax
         offset={10}
         fadeIn
         id="design"
@@ -77,7 +76,7 @@ const Home: NextPage = () => {
           </Container>
         </div>
       </Container>
-      <Container fadeIn noMargin parallax offset={10}>
+      <Container fadeIn noMargin offset={10}>
         <Container
           id="customization"
           className="mt-20 max-w-6xl px-4 pt-16 text-center lg:mt-28"
@@ -112,7 +111,6 @@ const Home: NextPage = () => {
 
       <Container
         fadeIn
-        parallax
         offset={10}
         id="transparency"
         className="mt-20 flex max-w-5xl flex-wrap-reverse gap-8 pt-16 lg:mt-28 lg:flex-nowrap"
@@ -139,7 +137,7 @@ const Home: NextPage = () => {
           </Link>
         </div>
       </Container>
-      <Container parallax offset={10} fadeIn>
+      <Container offset={10} fadeIn>
         <Partners />
       </Container>
 
