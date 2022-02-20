@@ -26,7 +26,7 @@ const Home: NextPage = () => {
     <>
       <SEO />
       <Nav />
-      <Container className=" overflow-clip pt-8 lg:relative">
+      <Container className=" overflow-hidden pt-8 lg:relative">
         <div className=" z-20 mx-auto grid-cols-1 px-2 pb-8 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-32 lg:pb-64 xl:grid">
           <div className="lg:max-w-3xl">
             <h1 className="gradient-primary bg-clip-text text-6xl font-bold text-transparent lg:text-8xl">
