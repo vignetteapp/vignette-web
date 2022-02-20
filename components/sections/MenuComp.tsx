@@ -1,7 +1,7 @@
 import menucomp from 'public/images/comp/menucomp.png'
 import Image from 'next/image'
 import { Container, Parallax } from 'components'
-
+import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 // Hook
@@ -38,7 +38,11 @@ const MenuComp = () => {
   const mobile = size.width < 1024
 
   return (
-    <div className="sm:mx-auto sm:max-w-7xl sm:px-6 ">
+    <motion.div
+      transition={{ duration: 0.3 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <div className="py-8 sm:relative sm:mt-4 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:pt-8">
         <div className="hidden sm:block">
           <Parallax
@@ -84,9 +88,9 @@ const MenuComp = () => {
           parallax
           noMargin
           offset={mobile ? 10 : 50}
-          className="relative -mr-40 mt-8 px-12 pb-8 sm:mx-auto lg:mt-14"
+          className="relative z-50 -mr-40 mt-6 px-12 pb-8 sm:mx-auto lg:mt-14"
         >
-          <div className="hidden w-full rounded-[2em] shadow-2xl ring-opacity-5 lg:inline-flex lg:h-full lg:w-auto lg:max-w-none">
+          <div className="hidden w-full rounded-[2em] shadow-xl ring-opacity-5 lg:inline-flex lg:h-full lg:w-auto lg:max-w-none lg:shadow-2xl">
             <Image
               className=""
               priority
@@ -98,7 +102,7 @@ const MenuComp = () => {
               quality={90}
             />
           </div>
-          <div className=" inline-flex w-full rounded-[1em] shadow-2xl ring-opacity-5 lg:hidden">
+          <div className=" inline-flex w-full rounded-[1em] shadow-xl ring-opacity-5 lg:hidden lg:shadow-2xl">
             <Image
               className=""
               priority
@@ -111,7 +115,7 @@ const MenuComp = () => {
           </div>
         </Container>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

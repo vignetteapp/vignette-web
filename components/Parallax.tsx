@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect, useEffect, ReactNode } from 'react'
+import { useState, useRef, useEffect, ReactNode } from 'react'
 import {
   motion,
   useViewportScroll,
@@ -6,7 +6,7 @@ import {
   useSpring,
   useReducedMotion,
 } from 'framer-motion'
-import useIsomorphicLayoutEffect from 'hooks/useIsomorphicLayoutEffect'
+
 type ParallaxProps = {
   children?: ReactNode
   offset?: number
@@ -19,7 +19,6 @@ type ParallaxProps = {
 const Parallax = ({
   children,
   id,
-  hero = false,
   offset = 30,
   className,
   fadeIn,
@@ -39,7 +38,7 @@ const Parallax = ({
   })
   const y = useSpring(yRange, { stiffness: 400, damping: 90 })
 
-  useIsomorphicLayoutEffect(() => {
+  useEffect(() => {
     const element = ref.current
     const onResize = () => {
       if (element) {

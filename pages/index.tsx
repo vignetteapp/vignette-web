@@ -26,10 +26,10 @@ const Home: NextPage = () => {
     <>
       <SEO />
       <Nav />
-      <Container className="overflow-hidden pt-8 lg:relative">
-        <div className="z-20 mx-auto grid-cols-1 px-4 pb-8 lg:max-w-7xl lg:grid-cols-2 lg:gap-24  lg:pt-32 lg:pb-64 xl:grid">
+      <Container className=" overflow-clip pt-8 lg:relative">
+        <div className=" z-20 mx-auto grid-cols-1 px-2 pb-8 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-32 lg:pb-64 xl:grid">
           <div className="lg:max-w-3xl">
-            <h1 className="gradient-primary bg-clip-text text-6xl font-semibold text-transparent lg:text-8xl">
+            <h1 className="gradient-primary bg-clip-text text-6xl font-bold text-transparent lg:text-8xl">
               Streaming,
               <br /> Redefined.
             </h1>
@@ -38,7 +38,10 @@ const Home: NextPage = () => {
               streaming toolkit for virtual streaming.
             </p>
             <Link href="https://go.vignetteapp.org/discord" passHref>
-              <a className="button">Join our Discord for updates</a>
+              <a className="button">
+                Join our Discord{` `}
+                <span className="hidden sm:inline">for updates</span>
+              </a>
             </Link>
           </div>
         </div>
@@ -49,7 +52,7 @@ const Home: NextPage = () => {
         offset={10}
         fadeIn
         id="design"
-        className="mx-auto mt-28 max-w-6xl px-4 pt-16"
+        className="mx-auto mt-20 max-w-6xl px-4 pt-16 lg:mt-28"
       >
         <div className="flex flex-wrap justify-between ">
           <Container noMargin>
@@ -77,9 +80,9 @@ const Home: NextPage = () => {
       <Container fadeIn noMargin parallax offset={10}>
         <Container
           id="customization"
-          className="mt-28 max-w-6xl px-4 pt-16 text-center"
+          className="mt-20 max-w-6xl px-4 pt-16 text-center lg:mt-28"
         >
-          <Image src={puzzle} quality={95} alt="" />
+          <Image src={puzzle} quality={100} alt="" />
 
           <h2 className="text-3xl font-bold lg:text-4xl">
             Your workbench, Your canvas
@@ -112,7 +115,7 @@ const Home: NextPage = () => {
         parallax
         offset={10}
         id="transparency"
-        className="mt-28 flex max-w-5xl flex-wrap-reverse gap-8 pt-16 lg:flex-nowrap"
+        className="mt-20 flex max-w-5xl flex-wrap-reverse gap-8 pt-16 lg:mt-28 lg:flex-nowrap"
       >
         <Image src={avatar} width={520} height={460} alt="" />
 
@@ -122,7 +125,7 @@ const Home: NextPage = () => {
               Honestly
               <br /> Transparent
             </h2>
-            <Image quality={95} src={shipwheel} alt="" />
+            <Image quality={100} src={shipwheel} alt="" />
           </div>
           <p className="max-w-[22rem] pb-8 pt-4 text-lg lg:pb-16 lg:text-xl">
             The development of Vignette happens in the open. Every decision we

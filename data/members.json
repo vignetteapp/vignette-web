@@ -3,15 +3,22 @@
     "name": "Ayane Satomi",
     "avatar": "https://avatars.githubusercontent.com/u/14976516",
     "id": 14976516,
-    "role": "Project Lead & Main Developer",
+    "role": "Project Lead / Main Developer",
     "url": "https://github.com/sr229"
   },
   {
     "name": "Nitrous",
     "avatar": "https://avatars.githubusercontent.com/u/20495991",
     "id": 20495991,
-    "role": "Project Lead & Main Developer - Core & UI",
+    "role": "Project Lead / Main Developer - Core & UI",
     "url": "https://github.com/LeNitrous"
+  },
+  {
+    "name": "Martmists",
+    "avatar": "https://avatars.githubusercontent.com/u/16361449",
+    "id": 16361449,
+    "role": "Project Lead - Audio",
+    "url": "https://github.com/martmists-gh"
   },
   {
     "name": "adryzz",
@@ -19,6 +26,13 @@
     "id": 46694241,
     "role": "Main Developer - AI and Computer Vision",
     "url": "https://github.com/adryzz"
+  },
+  {
+    "name": "Speykious",
+    "avatar": "https://avatars.githubusercontent.com/u/13885008",
+    "id": 13885008,
+    "role": "Main Developer - AI and Computer Vision",
+    "url": "https://github.com/Speykious"
   },
   {
     "name": "Johnny",
@@ -35,24 +49,17 @@
     "url": "https://github.com/LovelyA72"
   },
   {
-    "name": "Martmists",
-    "avatar": "https://avatars.githubusercontent.com/u/16361449",
-    "id": 16361449,
-    "role": "Main Developer - Audio & Web",
-    "url": "https://github.com/martmists-gh"
-  },
-  {
-    "name": "Speykious",
-    "avatar": "https://avatars.githubusercontent.com/u/13885008",
-    "id": 13885008,
-    "role": "Main Developer - AI and Computer Vision",
-    "url": "https://github.com/Speykious"
+    "name": "Jeeho Ahn",
+    "avatar": "https://avatars.githubusercontent.com/u/31413538",
+    "id": 31413538,
+    "role": "Web Developer / Community / Infra",
+    "url": "https://github.com/JcdeA"
   },
   {
     "name": "Edqe_",
     "avatar": "https://avatars.githubusercontent.com/u/34704796",
     "id": 34704796,
-    "role": "Documentation & Web",
+    "role": "Documentation / Web",
     "url": "https://github.com/Edqe14"
   },
   {
@@ -61,13 +68,6 @@
     "id": 59031302,
     "role": "Web Developer",
     "url": "https://github.com/geshii"
-  },
-  {
-    "name": "Jeeho Ahn",
-    "avatar": "https://avatars.githubusercontent.com/u/31413538",
-    "id": 31413538,
-    "role": "Web Developer & Community & Infra",
-    "url": "https://github.com/JcdeA"
   },
   {
     "name": "Transfusion",

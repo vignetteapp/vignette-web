@@ -47,7 +47,7 @@ const Footer = () => {
           <div className="flex items-center">
             <LogoSquare size={16} />
             <span className="ml-2 text-sm text-gray-500 dark:text-gray-200">
-              Copyright © {new Date().getFullYear()} The Vignette authors
+              Copyright © {new Date().getFullYear()} The Vignette authors.
             </span>
           </div>
         </div>

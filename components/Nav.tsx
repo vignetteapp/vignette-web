@@ -19,7 +19,7 @@ const Nav = () => {
   useEffect(() => setMounted(true), [])
 
   return (
-    <div className="z-50 mx-auto flex w-full max-w-7xl items-center justify-between bg-white py-6 px-4 dark:bg-[#181a1b] sm:px-8 lg:px-4 ">
+    <div className="z-40 mx-auto flex w-full max-w-7xl items-center justify-between bg-white py-6 px-4 dark:bg-[#181a1b] sm:px-8 lg:px-4 ">
       <div className="flex items-center">
         <Link href="/" passHref>
           <a>
@@ -27,7 +27,7 @@ const Nav = () => {
           </a>
         </Link>
 
-        <div className="mx-8 hidden gap-8 lg:flex ">
+        <div className="mx-8 hidden gap-8 text-sm lg:flex lg:text-base">
           <Link href="/features">Features</Link>
 
           <Link href="/ecosystem">Ecosystem</Link>

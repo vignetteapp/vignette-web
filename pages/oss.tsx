@@ -8,6 +8,17 @@ import { BiGitPullRequest } from 'react-icons/bi'
 import { Nav, Container, SEO, Footer } from 'components'
 
 import { createClient } from 'redis'
+import donationImage from 'public/images/donations.png'
+import VignettePadding from 'public/images/logo-bg.png'
+import teamMembers from 'data/members.json'
+
+interface Member {
+  name: string
+  avatar: string
+  id: number
+  role: string
+  url: string
+}
 
 const OpenSource: NextPage<cache> = ({
   contributors,
@@ -16,15 +27,17 @@ const OpenSource: NextPage<cache> = ({
   openIssues,
   timestamp,
 }) => {
+  const updatedDate = new Date(timestamp)
+  updatedDate.setSeconds(0)
   return (
     <>
-      <SEO />
+      <SEO title="Open Source" />
       <Nav />
       <Container className="pt-8 lg:pt-16">
         <div className="z-20 mx-auto px-4 pb-8 lg:max-w-7xl ">
-          <h1 className="bg-gradient-to-br from-blue-500 to-deepFuscia bg-clip-text text-5xl font-semibold text-transparent sm:text-6xl md:text-9xl">
+          <h1 className="bg-gradient-to-br from-[#005BEA] to-[#00C6FB] bg-clip-text text-5xl font-bold text-transparent sm:text-6xl md:text-9xl">
             Open and <br />
-            Transparent
+            Transparent.
           </h1>
           <p className="my-4 mb-8 mt-8 text-lg sm:px-4 sm:text-xl lg:mb-20 lg:text-2xl">
             Vignette is made by talented individuals working in the open source
@@ -69,7 +82,7 @@ const OpenSource: NextPage<cache> = ({
           </Container>
         </div>
         <Container fadeIn noMargin className="mt-32 text-center ">
-          <Image src={repoIcon} alt="" />
+          <Image src={repoIcon} alt="" quality={100} width={72} height={72} />
 
           <h2 className="mt-4 text-2xl font-bold lg:text-3xl">
             Meet the Contributors
@@ -82,7 +95,7 @@ const OpenSource: NextPage<cache> = ({
                 href={`https://github.com/${user.login}`}
               >
                 <a className=" w-24 sm:w-32">
-                  <div className=" mx-auto">
+                  <div className="mx-auto">
                     <Image
                       width={64}
                       height={64}
@@ -108,8 +121,46 @@ const OpenSource: NextPage<cache> = ({
           <p className="mt-4 text-xs text-gray-800 dark:text-gray-200  ">
             last updated at:
             {` `}
-            {new Date(timestamp).toLocaleTimeString()}
+            {updatedDate.toLocaleTimeString()}
           </p>
+        </Container>
+        <Container>
+          <div className="mt-20 text-center lg:mt-28">
+            <div className="inline-flex overflow-hidden rounded-2xl drop-shadow-xl">
+              <Image
+                src={VignettePadding}
+                width={64}
+                height={64}
+                quality={100}
+              />
+            </div>
+
+            <h2 className="mt-3 text-2xl font-semibold">
+              Meet the Vignette Team
+            </h2>
+            <p className="mx-auto mt-2 max-w-md">
+              The team that started it all. We provided countless amounts of our
+              knowledge, time and sometimes our own wallets to make this
+              possible.
+            </p>
+          </div>
+          <div className="mx-auto mt-10 flex max-w-7xl flex-wrap justify-center gap-4 ">
+            {teamMembers.map((m: Member) => (
+              <div key={m.name} className=" my-2 px-8 text-center">
+                <div className="inline-flex overflow-hidden rounded-full ">
+                  <Image
+                    alt=""
+                    className=""
+                    src={m.avatar}
+                    width={64}
+                    height={64}
+                  />
+                </div>
+                <h4 className=" my-1 font-medium capitalize">{m.name}</h4>
+                <p className="max-w-[9em] text-xs">{m.role}</p>
+              </div>
+            ))}
+          </div>
         </Container>
       </Container>
 
