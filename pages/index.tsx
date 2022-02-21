@@ -1,7 +1,9 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Marquee from 'react-fast-marquee'
+import { cache, contributor } from './oss'
+import { createClient } from 'redis'
 
 import {
   Nav,
@@ -14,14 +16,13 @@ import {
 import extensions from 'data/extensions'
 
 import sparkle from 'public/images/icons/sparkle.png'
-// import section1comp from 'public/images/comp/section1.png';
-import section1comp from 'public/images/comp/section1-frame.png'
+import section1comp from 'public/images/comp/section1-brain.png'
 import puzzle from 'public/images/icons/puzzle.png'
 import shipwheel from 'public/images/icons/shipwheel.png'
 import avatar from 'public/images/avatar.png'
 import Partners from 'components/sections/Partners'
 
-const Home: NextPage = () => {
+const Home: NextPage<cache> = ({ contributors }) => {
   return (
     <>
       <SEO />
@@ -58,21 +59,24 @@ const Home: NextPage = () => {
             <div className="flex items-center">
               <Image src={sparkle} width={64} height={64} alt="" />
               <h2 className="ml-2 text-3xl font-bold lg:text-4xl">
-                Productively
-                <br /> Beautiful
+                A new way to
+                <br /> stream
               </h2>
             </div>
-            <p className="max-w-lg py-8 text-lg lg:max-w-sm lg:text-xl">
-              Vignette has been designed from the ground up, providing a
-              flexible user interface and experience that feels simple, clean,
-              and powerful.
-              <br />
-              <br /> The best part? It&apos;s{` `}
-              <span className="font-semibold">themeable.</span>
+            <p className="max-w-sm py-8 lg:max-w-sm lg:text-xl">
+              Combining the best of thoughtful design, machine learning, and a
+              open ecosystem, Vignette is a next-generation toolkit for
+              streaming. And all you need is a camera.
             </p>
           </Container>
           <Container noMargin offset={10}>
-            <Image src={section1comp} alt="" />
+            <Image
+              src={section1comp}
+              alt=""
+              width={544}
+              height="270.5"
+              quality={90}
+            />
           </Container>
         </div>
       </Container>
@@ -81,15 +85,14 @@ const Home: NextPage = () => {
           id="customization"
           className="mt-20 max-w-6xl px-4 pt-16 text-center lg:mt-28"
         >
-          <Image src={puzzle} quality={100} alt="" />
+          <Image src={puzzle} quality={95} alt="" width={60} height={60} />
 
-          <h2 className="text-3xl font-bold lg:text-4xl">
-            Your workbench, Your canvas
+          <h2 className="text-2xl font-bold lg:text-3xl">
+            Extensible by default
           </h2>
-          <p className="mx-auto max-w-[34rem] pt-4 pb-8 text-lg lg:pb-12 lg:text-xl">
-            From custom model formats to extensions that provides additional
-            features, Vignette is a platform for creativity. Make Vignette
-            yours.
+          <p className="mx-auto max-w-[34rem] pt-4 pb-8 lg:pb-12 lg:text-xl">
+            Vignette is designed with extensibility in mind. Want something?
+            There&apos;s definitely an extension for it.
           </p>
           <Link href="/plugins" passHref>
             <a className="button">Explore Plugins</a>
@@ -113,23 +116,31 @@ const Home: NextPage = () => {
         fadeIn
         offset={10}
         id="transparency"
-        className="mt-20 flex max-w-5xl flex-wrap-reverse gap-8 pt-16 lg:mt-28 lg:flex-nowrap"
+        className="mt-20 max-w-5xl  gap-8 pt-16 lg:mt-28 "
       >
-        <Image src={avatar} width={520} height={460} alt="" />
-
-        <div className="mx-auto mt-auto mb-6 lg:mb-8">
-          <div className="flex">
-            <h2 className="mr-6 text-3xl font-bold lg:text-4xl">
-              Honestly
-              <br /> Transparent
-            </h2>
-            <Image quality={100} src={shipwheel} alt="" />
-          </div>
-          <p className="max-w-[22rem] pb-8 pt-4 text-lg lg:pb-16 lg:text-xl">
-            The development of Vignette happens in the open. Every decision we
-            make, the community always has a say. Vignette is an ecosystem and a
-            community, not a product.
+        <div className="mx-auto mt-auto mb-6 text-center lg:mb-8">
+          <Image quality={95} src={shipwheel} alt="" width={60} height={60} />
+          <h2 className="text-3xl font-bold lg:text-4xl">
+            Open and
+            <br /> Transparent
+          </h2>
+          <p className="mx-auto max-w-[22rem] pb-8 pt-4 lg:text-lg">
+            Vignette is made with the community in mind. This is why Vignette is
+            licensed and created with openness and transparency in mind.
           </p>
+          <div className="mx-auto mb-8 flex max-w-7xl flex-wrap justify-center gap-8">
+            {contributors.map((c) => (
+              <div key={c.login}>
+                <Image
+                  src={c.profile}
+                  width={80}
+                  height={80}
+                  className="rounded-full"
+                  alt=""
+                />
+              </div>
+            ))}
+          </div>
           <Link href="/about">
             <a className="rounded-full bg-pinkRed px-20 py-3 text-lg font-bold text-white shadow">
               About Us
@@ -144,6 +155,23 @@ const Home: NextPage = () => {
       <Footer />
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const client = createClient({
+    url: process.env.REDIS_URL,
+    password: process.env.REDIS_PW,
+  })
+
+  await client.connect()
+  const data = await client.get(`contribs`)
+
+  const parsed: cache = JSON.parse(data as string)
+
+  return {
+    props: parsed, // will be passed to the page component as props
+    revalidate: 10,
+  }
 }
 
 export default Home

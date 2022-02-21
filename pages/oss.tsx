@@ -169,14 +169,14 @@ const OpenSource: NextPage<cache> = ({
   )
 }
 
-type contributor = {
+export type contributor = {
   login: string
   displayName?: string
   contribs: number
   profile: string
 }
 
-interface cache {
+export interface cache {
   contributors: contributor[]
   commits: number
   pullRequests: number
