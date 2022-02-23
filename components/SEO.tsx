@@ -22,38 +22,68 @@ const SEO: React.FC<{
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        <title>
+          {title ? `${title} - Vignette` : `Vignette - Streaming Redefined`}
+        </title>
+        <meta
+          name="title"
+          content={
+            title ? `${title} - Vignette` : `Vignette - Streaming Redefined`
+          }
+        />
+        <meta
+          name="description"
+          content={desc || `The Open Source Virtual Streamers' Toolkit.`}
+        />
+
+        <meta property="og:type" content={type || `website`} />
+        <meta
+          property="og:url"
+          content={`https://vignetteapp.org${router.asPath}`}
+        />
+        <meta
+          property="og:title"
+          content={
+            title ? `${title} - Vignette` : `Vignette - Streaming Redefined`
+          }
+        />
+        <meta
+          property="og:description"
+          content={desc || `The Open Source Virtual Streamers' Toolkit.`}
+        />
+        <meta
+          property="og:image"
+          content={image || `https://vignetteapp.org/images/banner-new.jpg`}
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={`https://vignetteapp.org${router.asPath}`}
+        />
+        <meta
+          property="twitter:title"
+          content={
+            title ? `${title} - Vignette` : `Vignette - Streaming Redefined`
+          }
+        />
+        <meta
+          property="twitter:description"
+          content={desc || `The Open Source Virtual Streamers' Toolkit.`}
+        />
+        <meta
+          property="twitter:image"
+          content={image || `https://vignetteapp.org/images/banner-new.jpg`}
+        />
+        <meta property="article:published_time" content={date} />
       </Head>
       <Script
         defer
         data-domain="vignetteapp.org"
         src="https://plausible.matterho.st/js/plausible.js"
         strategy="afterInteractive"
-      ></Script>
-
-      <NextSeo
-        title={title ? `${title} - Vignette` : `Vignette - Streaming Redefined`}
-        description={desc || `The Open Source Virtual Streamers' Toolkit.`}
-        canonical={`https://vignetteapp.org${router.asPath}`}
-        openGraph={{
-          type: type,
-          url: `https://vignetteapp.org${router.asPath}`,
-          title: title || `Vignette - Streaming Redefined`,
-          article: { publishedTime: date },
-
-          description: desc || `The Open Source Virtual Streamers' Toolkit.`,
-          site_name: title || `Vignette - Streaming Redefined`,
-          images: [
-            {
-              url:
-                image || `https://encore.vignetteapp.org/images/banner-new.jpg`,
-            },
-          ],
-        }}
-        twitter={{
-          handle: `@vignette_org`,
-          cardType: `summary_large_image`,
-        }}
       />
+      
     </>
   )
 }

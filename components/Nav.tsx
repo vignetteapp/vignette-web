@@ -19,7 +19,7 @@ const Nav = () => {
   useEffect(() => setMounted(true), [])
 
   return (
-    <div className="z-40 mx-auto flex w-full max-w-7xl items-center justify-between bg-white py-6 px-4 dark:bg-[#181a1b] sm:px-8 lg:px-4 ">
+    <div className="mx-auto flex w-full max-w-7xl items-center justify-between bg-white py-6 px-4 dark:bg-[#181a1b] sm:px-8 lg:px-4 ">
       <div className="flex items-center">
         <Link href="/" passHref>
           <a>
@@ -32,7 +32,7 @@ const Nav = () => {
 
           <Link href="/ecosystem">Ecosystem</Link>
 
-          <Link href="/oss">Open Source</Link>
+          <Link href="/about">About</Link>
 
           <Link href="/blog">Blog</Link>
         </div>
@@ -117,8 +117,8 @@ const Nav = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/oss">
-                    <a>Open Source</a>
+                  <Link href="/about">
+                    <a>About</a>
                   </Link>
                 </li>
                 <li>

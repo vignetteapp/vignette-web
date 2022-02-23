@@ -5,13 +5,13 @@ import Link from 'next/link'
 
 const Partners = () => (
   <Container className="mt-28 pt-16" id="partners">
-    <h2 className="text-center text-3xl font-bold lg:text-4xl">Our Partners</h2>
+    <h2 className="text-center text-2xl font-bold lg:text-3xl">Our Partners</h2>
 
     <div className=" mx-auto grid max-w-7xl grid-cols-2 gap-0.5  px-2 py-4 sm:px-6 md:grid-cols-4 lg:py-8 lg:px-8">
       {partners.map((partner, i) => (
         <a href={partner.href} key={i}>
           <div
-            className={`group col-partners.n-1 flex justify-center bg-gray-50 py-8 px-8 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:hover:grayscale-0`}
+            className={`group col-partners.n-1 flex justify-center bg-gray-50 py-8 px-2 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:hover:grayscale-0 sm:px-8`}
           >
             <div
               className={`flex h-8 items-center justify-center lg:h-12 ${
@@ -19,7 +19,7 @@ const Partners = () => (
               }`}
             >
               <Image
-                className="max-h-12"
+                className="max-h-8"
                 quality={90}
                 src={partner.img}
                 alt={partner.name}
@@ -53,7 +53,7 @@ const Partners = () => (
     <Container className="max-w-7xl">
       {/*Temporarilly use email until contacts page is finished*/}
       <Link href="mailto:hello@vignetteapp.org" passHref>
-        <a className="font-semibold lg:px-8">
+        <a className="text-sm font-semibold lg:px-8 xs:text-base">
           Become a partner today
           <span className="whitepartners.ce-nowrap">-&gt;</span>
         </a>

@@ -2,7 +2,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Marquee from 'react-fast-marquee'
-import { cache, contributor } from './oss'
+import { cache, contributor } from './about'
 import { createClient } from 'redis'
 
 import {
@@ -27,14 +27,14 @@ const Home: NextPage<cache> = ({ contributors }) => {
     <>
       <SEO />
       <Nav />
-      <Container className=" overflow-hidden pt-8 lg:relative">
-        <div className=" z-20 mx-auto grid-cols-1 px-2 pb-8 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-32 lg:pb-64 xl:grid">
+      <Container className="z-20 overflow-hidden pt-8 md:overflow-visible lg:relative">
+        <div className="mx-auto grid-cols-1  pb-8 sm:px-2 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-32 lg:pb-72 xl:grid">
           <div className="lg:max-w-3xl">
-            <h1 className="gradient-primary bg-clip-text text-6xl font-bold text-transparent lg:text-8xl">
+            <h1 className="gradient-primary bg-clip-text text-4xl  font-bold text-transparent lg:text-8xl  xxs:text-6xl  ">
               Streaming,
               <br /> Redefined.
             </h1>
-            <p className="my-4 mb-8 max-w-[22rem] text-xl lg:mb-16 lg:max-w-[30rem] lg:text-2xl">
+            <p className="my-4 mb-8 max-w-[22rem]  lg:mb-16 lg:max-w-[30rem] lg:text-2xl xxs:text-xl">
               Bring your inner creativity with Vignette, the open source modular
               streaming toolkit for virtual streaming.
             </p>
@@ -58,12 +58,12 @@ const Home: NextPage<cache> = ({ contributors }) => {
           <Container noMargin>
             <div className="flex items-center">
               <Image src={sparkle} width={64} height={64} alt="" />
-              <h2 className="ml-2 text-3xl font-bold lg:text-4xl">
+              <h2 className="ml-2 text-2xl font-bold xxs:text-3xl">
                 A new way to
                 <br /> stream
               </h2>
             </div>
-            <p className="max-w-sm py-8 lg:max-w-sm lg:text-xl">
+            <p className="max-w-sm py-8 lg:max-w-sm xxs:text-lg">
               Combining the best of thoughtful design, machine learning, and a
               open ecosystem, Vignette is a next-generation toolkit for
               streaming. And all you need is a camera.
@@ -87,10 +87,10 @@ const Home: NextPage<cache> = ({ contributors }) => {
         >
           <Image src={puzzle} quality={95} alt="" width={60} height={60} />
 
-          <h2 className="text-2xl font-bold lg:text-3xl">
+          <h2 className="text-2xl font-bold xxs:text-3xl">
             Extensible by default
           </h2>
-          <p className="mx-auto max-w-[34rem] pt-4 pb-8 lg:pb-12 lg:text-xl">
+          <p className="mx-auto max-w-[34rem] pt-4 pb-8 lg:pb-12 xxs:text-lg">
             Vignette is designed with extensibility in mind. Want something?
             There&apos;s definitely an extension for it.
           </p>
@@ -120,31 +120,31 @@ const Home: NextPage<cache> = ({ contributors }) => {
       >
         <div className="mx-auto mt-auto mb-6 text-center lg:mb-8">
           <Image quality={95} src={shipwheel} alt="" width={60} height={60} />
-          <h2 className="text-3xl font-bold lg:text-4xl">
+          <h2 className="text-3xl font-bold xxs:text-3xl">
             Open and
             <br /> Transparent
           </h2>
-          <p className="mx-auto max-w-[22rem] pb-8 pt-4 lg:text-lg">
+          <p className="mx-auto max-w-[22rem] pb-8 pt-4 xxs:text-lg">
             Vignette is made with the community in mind. This is why Vignette is
             licensed and created with openness and transparency in mind.
           </p>
-          <div className="mx-auto mb-8 flex max-w-7xl flex-wrap justify-center gap-8">
+          <div className="mx-auto mb-8 flex flex-wrap justify-center gap-4 sm:max-w-7xl sm:gap-8">
             {contributors.map((c) => (
-              <div key={c.login}>
+              <div
+                key={c.login}
+                className="relative h-11 w-11  lg:h-16 lg:w-16"
+              >
                 <Image
                   src={c.profile}
-                  width={80}
-                  height={80}
+                  layout="fill"
                   className="rounded-full"
                   alt=""
                 />
               </div>
             ))}
           </div>
-          <Link href="/about">
-            <a className="rounded-full bg-pinkRed px-20 py-3 text-lg font-bold text-white shadow">
-              About Us
-            </a>
+          <Link href="/about" passHref>
+            <a className="button">About</a>
           </Link>
         </div>
       </Container>

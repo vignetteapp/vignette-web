@@ -26,7 +26,7 @@ html {
 }
 
 body{
-  @apply font-inter text-black bg-white dark:text-[#f9f9f9] dark:bg-[#181a1b];
+  @apply font-inter text-black bg-white dark:text-[#f9f9f9] overflow-x-hidden dark:bg-[#181a1b] ;
 
 }
 
@@ -56,7 +56,7 @@ body{
 
 
 .button{
-	@apply  rounded-full bg-pinkRed hover:bg-[#ff2277] px-8 duration-100 transition lg:px-12 py-3 text-base lg:text-lg font-bold text-white shadow;
+	@apply  rounded-full bg-pinkRed hover:bg-[#ff2277] px-8 duration-100 transition lg:px-12 py-2 xxs:py-3 text-sm xxs:text-base lg:text-lg font-bold text-white shadow;
 	
 }
 

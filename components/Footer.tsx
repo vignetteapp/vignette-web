@@ -11,7 +11,7 @@ const Footer = () => {
       className="mt-16 w-full bg-gray-100 px-8 py-8 text-primary dark:bg-black  lg:mt-32"
     >
       <div className="mx-auto max-w-3xl">
-        <div className="grid grid-cols-2 text-sm lg:grid-cols-4">
+        <div className="grid grid-cols-2 text-sm lg:grid-cols-4 xs:text-base">
           <ul className="mb-4 gap-3 text-gray-600 dark:text-gray-300">
             <span className="font-semibold">Vignette</span>
             <li>
@@ -46,7 +46,7 @@ const Footer = () => {
         <div className="my-8 border-t  border-gray-300 pt-4">
           <div className="flex items-center">
             <LogoSquare size={16} />
-            <span className="ml-2 text-sm text-gray-500 dark:text-gray-200">
+            <span className="ml-2 text-xs text-gray-500 dark:text-gray-200 xs:text-sm">
               Copyright © {new Date().getFullYear()} The Vignette authors.
             </span>
           </div>
