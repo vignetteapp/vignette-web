@@ -53,7 +53,7 @@ const Partners = () => (
     <Container className="max-w-7xl">
       {/*Temporarilly use email until contacts page is finished*/}
       <Link href="mailto:hello@vignetteapp.org" passHref>
-        <a className="text-sm font-semibold lg:px-8 xs:text-base">
+        <a className="text-sm font-semibold xs:text-base lg:px-8">
           Become a partner today
           <span className="whitepartners.ce-nowrap">-&gt;</span>
         </a>
