@@ -2,7 +2,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Marquee from 'react-fast-marquee'
-import { cache, contributor } from './about'
+import { cache } from './about'
 import { createClient } from 'redis'
 
 import {
@@ -19,7 +19,6 @@ import sparkle from 'public/images/icons/sparkle.png'
 import section1comp from 'public/images/comp/section1-brain.png'
 import puzzle from 'public/images/icons/puzzle.png'
 import shipwheel from 'public/images/icons/shipwheel.png'
-import avatar from 'public/images/avatar.png'
 import Partners from 'components/sections/Partners'
 
 const Home: NextPage<cache> = ({ contributors }) => {

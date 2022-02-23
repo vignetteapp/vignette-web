@@ -1,4 +1,3 @@
-import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Script from 'next/script'
@@ -83,7 +82,6 @@ const SEO: React.FC<{
         src="https://plausible.matterho.st/js/plausible.js"
         strategy="afterInteractive"
       />
-      
     </>
   )
 }

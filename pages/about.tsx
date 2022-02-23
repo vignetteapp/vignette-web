@@ -128,6 +128,7 @@ const OpenSource: NextPage<cache> = ({
           <div className="mt-20 text-center lg:mt-28">
             <div className="inline-flex overflow-hidden rounded-2xl drop-shadow-xl">
               <Image
+                alt=""
                 src={VignettePadding}
                 width={64}
                 height={64}
@@ -210,7 +211,7 @@ export const getStaticProps: GetStaticProps = async () => {
   await client.connect()
   const data = await client.get(`contribs`)
 
-  const parsed: cache = JSON.parse(data!)
+  const parsed: cache = JSON.parse(data as string)
 
   return {
     props: parsed, // will be passed to the page component as props

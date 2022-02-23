@@ -1,6 +1,4 @@
 import Container from './Container'
-import Image from 'next/image'
-import logo from 'public/images/logo-square.png'
 import Link from 'next/link'
 import { LogoSquare } from './Logo'
 
