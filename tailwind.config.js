@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -5,6 +6,11 @@ module.exports = {
   ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+    screens: {
+      xxs: '350px',
+      xs: '500px',
+      ...defaultTheme.screens,
+    },
     fontFamily: {
       inter: [
         "'Inter var'",
@@ -25,11 +31,6 @@ module.exports = {
       ],
     },
     extend: {
-      screens: {
-        xxs: '281px',
-        xs: '532px',
-        '3xl': '1792px',
-      },
       colors: {
         fuschia: {
           100: '#BE58CB',

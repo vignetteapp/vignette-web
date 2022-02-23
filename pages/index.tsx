@@ -29,11 +29,11 @@ const Home: NextPage<cache> = ({ contributors }) => {
       <Container className="z-20 overflow-hidden pt-8 md:overflow-visible lg:relative">
         <div className="mx-auto grid-cols-1  pb-8 sm:px-2 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-32 lg:pb-72 xl:grid">
           <div className="lg:max-w-3xl">
-            <h1 className="gradient-primary bg-clip-text text-4xl  font-bold text-transparent lg:text-8xl  xxs:text-6xl  ">
+            <h1 className="gradient-primary bg-clip-text text-4xl  font-bold text-transparent xxs:text-6xl lg:text-8xl ">
               Streaming,
               <br /> Redefined.
             </h1>
-            <p className="my-4 mb-8 max-w-[22rem]  lg:mb-16 lg:max-w-[30rem] lg:text-2xl xxs:text-xl">
+            <p className="my-4 mb-8 max-w-[22rem]  xxs:text-xl lg:mb-16 lg:max-w-[30rem] lg:text-2xl">
               Bring your inner creativity with Vignette, the open source modular
               streaming toolkit for virtual streaming.
             </p>
@@ -62,7 +62,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
                 <br /> stream
               </h2>
             </div>
-            <p className="max-w-sm py-8 lg:max-w-sm xxs:text-lg">
+            <p className="max-w-sm py-8 xxs:text-lg lg:max-w-sm">
               Combining the best of thoughtful design, machine learning, and a
               open ecosystem, Vignette is a next-generation toolkit for
               streaming. And all you need is a camera.
@@ -89,7 +89,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
           <h2 className="text-2xl font-bold xxs:text-3xl">
             Extensible by default
           </h2>
-          <p className="mx-auto max-w-[34rem] pt-4 pb-8 lg:pb-12 xxs:text-lg">
+          <p className="mx-auto max-w-[34rem] pt-4 pb-8 xxs:text-lg lg:pb-12">
             Vignette is designed with extensibility in mind. Want something?
             There&apos;s definitely an extension for it.
           </p>

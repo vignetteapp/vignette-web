@@ -31,11 +31,11 @@ const OpenSource: NextPage<cache> = ({
   updatedDate.setSeconds(0)
   return (
     <>
-      <SEO title="Open Source" />
+      <SEO title="About" />
       <Nav />
       <Container className="pt-8 lg:pt-16">
         <div className="z-20 mx-auto px-2 pb-8 lg:max-w-7xl ">
-          <h1 className="lg:text-0xl bg-gradient-to-br from-[#005BEA] to-[#00C6FB] bg-clip-text text-4xl font-bold text-transparent lg:text-8xl xxs:text-5xl">
+          <h1 className="lg:text-0xl bg-gradient-to-br from-[#005BEA] to-[#00C6FB] bg-clip-text text-4xl font-bold text-transparent xxs:text-5xl lg:text-9xl">
             Open and <br />
             Transparent.
           </h1>
