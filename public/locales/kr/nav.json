@@ -1,5 +1,8 @@
 {
+    "home": "홈",
     "features": "기능",
-    "about":"Vignette",
-    "blog": "블로그"
+    "about": "Vignette",
+    "ecosystem": "생태계",
+    "blog": "블로그",
+    "Plugins": "플러그인"
 }
