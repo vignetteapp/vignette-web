@@ -8,8 +8,10 @@ import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 
 import { Logo } from './Logo'
+import { useTranslation } from 'next-i18next'
 
 const Nav = () => {
+  const { t } = useTranslation(`nav`)
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const toggleMenu = () => (isOpen ? setIsOpen(false) : setIsOpen(true))
   const [mounted, setMounted] = useState(false)
@@ -28,13 +30,13 @@ const Nav = () => {
         </Link>
 
         <div className="mx-8 hidden gap-8 text-sm lg:flex lg:text-base">
-          <Link href="/features">Features</Link>
+          <Link href="/features">{t(`features`)}</Link>
 
-          <Link href="/ecosystem">Ecosystem</Link>
+          <Link href="/ecosystem">{t(`ecosystem`)}</Link>
 
-          <Link href="/about">About</Link>
+          <Link href="/about">{t(`about`)}</Link>
 
-          <Link href="/blog">Blog</Link>
+          <Link href="/blog">{t(`blog`)}</Link>
         </div>
       </div>
 
@@ -103,27 +105,27 @@ const Nav = () => {
               <ul className="space-y-6">
                 <li>
                   <Link href="/">
-                    <a>Home</a>
+                    <a>{t(`home`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/features">
-                    <a>Features</a>
+                    <a>{t(`features`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/ecosystem">
-                    <a>Ecosystem</a>
+                    <a>{t(`ecosystem`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/about">
-                    <a>About</a>
+                    <a>{t(`about`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/blog">
-                    <a>Blog</a>
+                    <a>{t(`blog`)}</a>
                   </Link>
                 </li>
               </ul>
