@@ -1,8 +1,14 @@
 import Container from './Container'
 import Link from 'next/link'
 import { LogoSquare } from './Logo'
+import { setCookies } from 'cookies-next'
+import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
 
 const Footer = () => {
+  const { t } = useTranslation(`nav`)
+  const router = useRouter()
+
   return (
     <Container
       noMargin
@@ -13,23 +19,20 @@ const Footer = () => {
           <ul className="mb-4 gap-3 text-gray-600 dark:text-gray-300">
             <span className="font-semibold">Vignette</span>
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/">{t(`home`)}</Link>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/about">{t(`about`)}</Link>
             </li>
             <li>
-              <Link href="/ecosystem">Ecosystem</Link>
+              <Link href="/ecosystem">{t(`ecosystem`)}</Link>
             </li>
             <li>
-              <Link href="/oss">Open Source</Link>
-            </li>
-            <li>
-              <Link href="/plugins">Plugins</Link>
+              <Link href="/plugins">{t(`plugins`)}</Link>
             </li>
           </ul>
           <ul className="text-gray-600 dark:text-gray-200 xs:mb-4">
-            <span className="font-semibold">Social</span>
+            <span className="font-semibold">{t(`social`)}</span>
             <li>
               <Link href="https://github.com/vignetteapp">GitHub</Link>
             </li>
@@ -41,7 +44,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="my-8 border-t  border-gray-300 pt-4">
+        <div className="my-8 flex justify-between border-t  border-gray-300 pt-4">
           <div className="flex items-center">
             <LogoSquare size={16} />
             <span className="ml-2 text-xs text-gray-500 dark:text-gray-200 xs:text-sm">

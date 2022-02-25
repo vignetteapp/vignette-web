@@ -26,6 +26,7 @@ import Partners from 'components/sections/Partners'
 
 const Home: NextPage<cache> = ({ contributors }) => {
   const { t } = useTranslation(`home`)
+
   return (
     <>
       <SEO />
@@ -176,7 +177,11 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       contributors: parsed.contributors,
-      ...(await serverSideTranslations(locale as string, [`home`, `nav`])),
+      ...(await serverSideTranslations(locale as string, [
+        `home`,
+        `nav`,
+        `common`,
+      ])),
     }, // will be passed to the page component as props
     revalidate: 10,
   }

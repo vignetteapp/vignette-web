@@ -9,8 +9,9 @@ import { Nav, Container, SEO, Footer } from 'components'
 
 import { createClient } from 'redis'
 import donationImage from 'public/images/donations.png'
-import VignettePadding from 'public/images/logo-bg.png'
+import VignettePadding from 'public/images/logo-bg.svg'
 import teamMembers from 'data/members.json'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface Member {
   name: string
@@ -112,20 +113,18 @@ const OpenSource: NextPage<cache> = ({
             ))}
           </div>
 
-          <p className="mx-auto mt-10 text-sm leading-snug  text-gray-700 dark:text-gray-300 sm:max-w-xl sm:text-base">
+          <p className="mx-auto mt-8 text-xs leading-snug  text-gray-700 dark:text-gray-300 sm:max-w-md sm:text-sm">
             *This is live data from our GitHub. See yourself here? Tweet about
             it, brag it to your friends, or give yourself a pat in the back. You
             deserve it.
           </p>
 
           <p className="mt-4 text-xs text-gray-800 dark:text-gray-200  ">
-            last updated at:
-            {` `}
-            {updatedDate.toLocaleTimeString()}
+            Updates daily at 7:27 GMT+8
           </p>
         </Container>
         <Container>
-          <div className="mt-20 text-center lg:mt-28">
+          <div className="mt-14 text-center lg:mt-28">
             <div className="inline-flex overflow-hidden rounded-2xl drop-shadow-xl">
               <Image
                 alt=""
@@ -202,7 +201,7 @@ export interface cache {
   timestamp: number
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const client = createClient({
     url: process.env.REDIS_URL,
     password: process.env.REDIS_PW,
@@ -214,7 +213,14 @@ export const getStaticProps: GetStaticProps = async () => {
   const parsed: cache = JSON.parse(data as string)
 
   return {
-    props: parsed, // will be passed to the page component as props
+    props: {
+      ...parsed,
+      ...(await serverSideTranslations(locale as string, [
+        `home`,
+        `nav`,
+        `common`,
+      ])),
+    }, // will be passed to the page component as props
     revalidate: 10,
   }
 }

@@ -9,13 +9,17 @@ import { useTheme } from 'next-themes'
 
 import { Logo } from './Logo'
 import { useTranslation } from 'next-i18next'
+import { setCookies } from 'cookies-next'
+import { useRouter } from 'next/router'
 
 const Nav = () => {
-  const { t } = useTranslation(`nav`)
+  const { t } = useTranslation([`nav`, `common`])
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const toggleMenu = () => (isOpen ? setIsOpen(false) : setIsOpen(true))
   const [mounted, setMounted] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
+
+  const router = useRouter()
 
   // A flag to know when the page has mounted so the theme can be accessed
   useEffect(() => setMounted(true), [])
@@ -30,17 +34,37 @@ const Nav = () => {
         </Link>
 
         <div className="mx-8 hidden gap-8 text-sm lg:flex lg:text-base">
-          <Link href="/features">{t(`features`)}</Link>
+          <Link href="/features">{t(`nav:features`)}</Link>
 
-          <Link href="/ecosystem">{t(`ecosystem`)}</Link>
+          <Link href="/ecosystem">{t(`nav:ecosystem`)}</Link>
 
-          <Link href="/about">{t(`about`)}</Link>
+          <Link href="/about">{t(`nav:about`)}</Link>
 
-          <Link href="/blog">{t(`blog`)}</Link>
+          <Link href="/blog">{t(`nav:blog`)}</Link>
         </div>
       </div>
 
       <div className="mr-f mx-4 ml-auto hidden items-center gap-4 sm:flex ">
+        <select
+          onChange={(e) => {
+            setCookies(`NEXT_LOCALE`, e.target.value)
+            router.push(router.asPath, undefined, {
+              locale: e.target.value,
+            })
+          }}
+          name="language"
+          className="rounded bg-white px-1 text-sm outline-none dark:bg-[#181a1b] "
+        >
+          <option selected={router.locale == `en`} value="en">
+            ENG
+          </option>
+          <option selected={router.locale == `ja`} value="ja">
+            日本
+          </option>
+          <option selected={router.locale == `ko`} value="ko">
+            한국
+          </option>
+        </select>
         <button
           className="outline-none"
           onClick={() => setTheme(resolvedTheme === `dark` ? `light` : `dark`)}
@@ -105,27 +129,27 @@ const Nav = () => {
               <ul className="space-y-6">
                 <li>
                   <Link href="/">
-                    <a>{t(`home`)}</a>
+                    <a>{t(`nav:home`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/features">
-                    <a>{t(`features`)}</a>
+                    <a>{t(`nav:features`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/ecosystem">
-                    <a>{t(`ecosystem`)}</a>
+                    <a>{t(`nav:ecosystem`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/about">
-                    <a>{t(`about`)}</a>
+                    <a>{t(`nav:about`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/blog">
-                    <a>{t(`blog`)}</a>
+                    <a>{t(`nav:blog`)}</a>
                   </Link>
                 </li>
               </ul>
@@ -149,11 +173,11 @@ const Nav = () => {
                       </div>
                       {resolvedTheme === `dark` ? (
                         <p className="ml-3 font-semibold">
-                          Change to light theme
+                          {t(`common:switch-theme-light`)}
                         </p>
                       ) : (
                         <p className="ml-3 font-semibold">
-                          Change to dark theme
+                          {t(`common:switch-theme-dark`)}
                         </p>
                       )}
                     </>
