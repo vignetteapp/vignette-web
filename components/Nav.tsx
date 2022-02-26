@@ -12,6 +12,16 @@ import { useTranslation } from 'next-i18next'
 import { setCookies } from 'cookies-next'
 import { useRouter } from 'next/router'
 
+const locales: Record<string, string> = {
+  ko: `한국`,
+  ja: `日本`,
+  en: `ENG`,
+  zh: `中国`,
+  fil: `FIL`,
+  fr: `FR`,
+  id: `IDN`,
+}
+
 const Nav = () => {
   const { t } = useTranslation([`nav`, `common`])
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -55,15 +65,15 @@ const Nav = () => {
           name="language"
           className="rounded bg-white px-1 text-sm outline-none dark:bg-[#181a1b] "
         >
-          <option selected={router.locale == `en`} value="en">
-            ENG
-          </option>
-          <option selected={router.locale == `ja`} value="ja">
-            日本
-          </option>
-          <option selected={router.locale == `ko`} value="ko">
-            한국
-          </option>
+          {Object.keys(locales).map((key) => (
+            <option
+              selected={router.locale == locales[key]}
+              key={key}
+              value={key}
+            >
+              {locales[key]}
+            </option>
+          ))}
         </select>
         <button
           className="outline-none"

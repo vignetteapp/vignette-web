@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Script from 'next/script'
+import '@fontsource/noto-sans-jp'
 
 const SEO: React.FC<{
   title?: string
@@ -21,6 +22,7 @@ const SEO: React.FC<{
           type="font/woff2"
           crossOrigin="anonymous"
         />
+
         <title>
           {title ? `${title} - Vignette` : `Vignette - Streaming Redefined`}
         </title>
