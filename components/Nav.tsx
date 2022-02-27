@@ -13,9 +13,9 @@ import { setCookies } from 'cookies-next'
 import { useRouter } from 'next/router'
 
 const locales: Record<string, string> = {
-  ko: `한국`,
-  ja: `日本`,
   en: `ENG`,
+  ja: `日本`,
+  ko: `한국`,
   zh: `中国`,
   fil: `FIL`,
   fr: `FR`,
@@ -62,15 +62,12 @@ const Nav = () => {
               locale: e.target.value,
             })
           }}
+          defaultValue={router.locale}
           name="language"
           className="rounded bg-white px-1 text-sm outline-none dark:bg-[#181a1b] "
         >
           {Object.keys(locales).map((key) => (
-            <option
-              selected={router.locale == locales[key]}
-              key={key}
-              value={key}
-            >
+            <option key={key} value={key}>
               {locales[key]}
             </option>
           ))}

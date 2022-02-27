@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Script from 'next/script'
-import '@fontsource/noto-sans-jp'
 
 const SEO: React.FC<{
   title?: string
@@ -23,6 +22,18 @@ const SEO: React.FC<{
           crossOrigin="anonymous"
         />
 
+        {/* {[`ko`, `jp`, `zh`].includes(router.locale || `en`) && (
+          <>
+           
+            <link
+              href="/fonts/noto-sans-jp/NotoSansCJKjp-Regular.woff2"
+              rel="preload"
+              as="font"
+              type="font/woff2"
+              crossOrigin="anonymous"
+            />
+          </>
+        )} */}
         <title>
           {title ? `${title} - Vignette` : `Vignette - Streaming Redefined`}
         </title>
@@ -36,14 +47,13 @@ const SEO: React.FC<{
           name="description"
           content={desc || `The Open Source Virtual Streamers' Toolkit.`}
         />
-
         <meta property="og:type" content={type || `website`} />
         <meta
           property="og:url"
           content={`https://vignetteapp.org${router.asPath}`}
         />
         <meta
-          property="og:title"
+          property="og: title"
           content={
             title ? `${title} - Vignette` : `Vignette - Streaming Redefined`
           }
@@ -56,7 +66,6 @@ const SEO: React.FC<{
           property="og:image"
           content={image || `https://vignetteapp.org/images/banner-new.jpg`}
         />
-
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"

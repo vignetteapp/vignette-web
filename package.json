@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@crowdin/cli": "3",
+    "@fontsource/noto-sans-jp": "^4.5.4",
     "@headlessui/react": "^1.4.3",
     "@octokit/graphql": "^4.8.0",
     "@octokit/rest": "^18.12.0",

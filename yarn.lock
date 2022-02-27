@@ -87,6 +87,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/noto-sans-jp@^4.5.4":
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans-jp/-/noto-sans-jp-4.5.4.tgz#31f0bf4190425c6c557cac4764a1cf79646f9977"
+  integrity sha512-kGOvRKEuNKr7cPuFM66k96n/KQjca21fojOVfVIQlt8oNIx4Ey6QHhd2lBsfdfHzdgDv6RNnt/ESrywQApasaw==
+
 "@headlessui/react@^1.4.3":
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.4.3.tgz#f77c6bb5cb4a614a5d730fb880cab502d48abf37"

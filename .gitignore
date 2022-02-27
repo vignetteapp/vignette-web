@@ -32,3 +32,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+locales/fil
+locales/fr
+locales/id
+locales/ko
+locales/zh
+locales/ja

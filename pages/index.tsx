@@ -31,7 +31,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
     <>
       <SEO />
       <Nav />
-      <Container className="z-20 overflow-hidden pt-8 md:overflow-visible lg:relative">
+      <Container className="z-20 pt-8 md:overflow-hidden lg:relative">
         <div className="mx-auto grid-cols-1  pb-8 sm:px-2 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-32 lg:pb-72 xl:grid">
           <div className="lg:max-w-3xl">
             <h1 className="gradient-primary bg-clip-text text-4xl  font-bold text-transparent xxs:text-6xl lg:text-8xl ">
@@ -68,7 +68,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
           <Container noMargin>
             <div className="flex items-center">
               <Image src={sparkle} width={64} height={64} alt="" />
-              <h2 className="ml-2 text-2xl font-bold xxs:text-3xl">
+              <h2 className="ml-2 max-w-[14rem] text-2xl font-bold xxs:text-3xl">
                 {t(`design-title-line1`)}
                 <br /> {t(`design-title-line2`)}
               </h2>
