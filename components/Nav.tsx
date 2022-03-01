@@ -19,24 +19,25 @@ import ReactCountryFlag from 'react-country-flag'
 import { BiChevronDown } from 'react-icons/bi'
 
 interface locale {
-  displayName: string
+  shortName: string
+  name: string
   flag: string
 }
 
 const locales: Record<string, locale> = {
-  en: { displayName: `ENG`, flag: `us` },
-  ja: { displayName: `日本`, flag: `jp` },
-  ko: { displayName: `한국`, flag: `kr` },
-  'zh-CN': { displayName: `中国`, flag: `cn` },
-  'zh-TW': { displayName: `台灣`, flag: `tw` },
-  id: { displayName: `IDN`, flag: `id` },
-  fil: { displayName: `FIL`, flag: `ph` },
-  th: { displayName: `TH`, flag: `th` },
-  fr: { displayName: `FR`, flag: `fr` },
-  de: { displayName: `DE`, flag: `de` },
-  it: { displayName: `IT`, flag: `it` },
-  nl: { displayName: `NL`, flag: `nl` },
-  pt: { displayName: `PT`, flag: `pt` },
+  en: { shortName: `ENG`, name: `English`, flag: `us` },
+  ja: { shortName: `日本`, name: `日本語`, flag: `jp` },
+  ko: { shortName: `한국`, name: `한국어`, flag: `kr` },
+  'zh-CN': { shortName: `中国`, name: `简体中文`, flag: `cn` },
+  'zh-TW': { shortName: `台灣`, name: `繁體中文`, flag: `tw` },
+  fr: { shortName: `FR`, name: `français`, flag: `fr` },
+  id: { shortName: `IDN`, name: `Bahasa`, flag: `id` },
+  fil: { shortName: `FIL`, name: `Filipino`, flag: `ph` },
+  de: { shortName: `DE`, name: `Deutsch`, flag: `de` },
+  it: { shortName: `IT`, name: `italiano`, flag: `it` },
+  nl: { shortName: `NL`, name: `Nederlands`, flag: `nl` },
+  pt: { shortName: `PT`, name: `português`, flag: `pt` },
+  th: { shortName: `TH`, name: `ไทย`, flag: `th` },
 }
 
 // en: `ENG`,
@@ -54,7 +55,7 @@ function MyListbox({ router }: { router: NextRouter }) {
   const [selectedLocale, setSelectedLocale] = useState(router.locale)
 
   return (
-    <div className="w-18">
+    <div>
       <Listbox
         value={selectedLocale}
         onChange={(selected) => {
@@ -65,13 +66,13 @@ function MyListbox({ router }: { router: NextRouter }) {
           })
         }}
       >
-        <Listbox.Button className="relative flex w-full cursor-default items-center rounded-lg bg-white px-1 text-left text-sm outline-none dark:bg-[#181a1b]">
+        <Listbox.Button className="relative flex w-full cursor-default items-center rounded-lg bg-white text-left text-base font-semibold outline-none dark:bg-[#181a1b] sm:font-normal md:text-sm">
           <ReactCountryFlag
             countryCode={locales[selectedLocale as string].flag}
             svg
           />
           <span className="mx-1">
-            {locales[selectedLocale as string].displayName}
+            {locales[selectedLocale as string].shortName}
           </span>
           <BiChevronDown />
         </Listbox.Button>
@@ -81,23 +82,21 @@ function MyListbox({ router }: { router: NextRouter }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="w-18 absolute z-100 mt-1 max-h-96  overflow-auto rounded-md border  bg-white  text-sm shadow-lg focus:outline-none dark:border-neutral-800 dark:bg-[#181a1b]">
+          <Listbox.Options className="w-18 absolute z-100 mt-1 max-h-96 overflow-auto rounded-md border bg-white shadow-lg focus:outline-none dark:border-neutral-700 dark:bg-[#181a1b]">
             {Object.keys(locales).map((key) => (
               /* Use the `active` state to conditionally style the active option. */
               /* Use the `selected` state to conditionally style the selected option. */
               <Listbox.Option key={key} value={key} as={Fragment}>
                 {({ active, selected }) => (
                   <li
-                    className={`flex cursor-default items-center px-1   ${
+                    className={`flex cursor-default items-center px-2 py-1 sm:px-1 lg:py-0  ${
                       active
                         ? `bg-gray-100 dark:bg-neutral-700 `
                         : `bg-white text-black dark:bg-[#181a1b] dark:text-white`
                     }`}
                   >
                     <ReactCountryFlag countryCode={locales[key].flag} svg />
-                    <span className="mx-1 text-center text-sm">
-                      {locales[key].displayName}
-                    </span>
+                    <span className="mx-1 text-sm">{locales[key].name}</span>
                     {selected && (
                       <AiOutlineCheck className="fill-black dark:fill-white" />
                     )}
@@ -172,7 +171,7 @@ const Nav = () => {
         </Link>
 
         <button className="rounded-full bg-pinkRed px-8 py-1 font-semibold text-white ">
-          Download
+          {t(`download`)}
         </button>
       </div>
       <div className="flex items-center lg:hidden">
@@ -222,11 +221,6 @@ const Nav = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/ecosystem">
-                    <a>{t(`nav:ecosystem`)}</a>
-                  </Link>
-                </li>
-                <li>
                   <Link href="/about">
                     <a>{t(`nav:about`)}</a>
                   </Link>
@@ -235,6 +229,14 @@ const Nav = () => {
                   <Link href="/blog">
                     <a>{t(`nav:blog`)}</a>
                   </Link>
+                </li>
+                <li>
+                  <Link href="/contact">
+                    <a>{t(`nav:contact`)}</a>
+                  </Link>
+                </li>
+                <li>
+                  <MyListbox router={router} />
                 </li>
               </ul>
               <div className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-200/10">

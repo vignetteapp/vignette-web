@@ -1,14 +1,10 @@
 import Container from './Container'
 import Link from 'next/link'
 import { LogoSquare } from './Logo'
-import { setCookies } from 'cookies-next'
-import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 
 const Footer = () => {
   const { t } = useTranslation(`nav`)
-  const router = useRouter()
-
   return (
     <Container
       noMargin
@@ -26,6 +22,12 @@ const Footer = () => {
             </li>
             <li>
               <Link href="/plugins">{t(`plugins`)}</Link>
+            </li>
+            <li>
+              <Link href="/blog">{t(`blog`)}</Link>
+            </li>
+            <li>
+              <Link href="/contact">{t(`contact`)}</Link>
             </li>
           </ul>
           <ul className="text-gray-600 dark:text-gray-200 xs:mb-4">
