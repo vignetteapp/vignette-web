@@ -14,7 +14,6 @@ module.exports = {
       'id',
       'fil',
       'it',
-      'ach',
       'de',
       'pt',
       'nl',
