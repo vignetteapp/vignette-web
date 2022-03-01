@@ -9,8 +9,7 @@ html {
 
 body{
 
-  @apply font-inter text-black bg-white dark:text-[#f9f9f9] dark:bg-[#181a1b] ;
-
+  @apply font-inter text-black bg-white dark:text-[#f9f9f9] dark:bg-[#181a1b];
 }
 
 :root {

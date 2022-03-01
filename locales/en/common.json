@@ -1,4 +1,7 @@
 {
     "switch-theme-light": "Switch to light theme",
-    "switch-theme-dark": "Switch to dark theme"
+    "switch-theme-dark": "Switch to dark theme",
+    "default-title": "`Vignette - Streaming Redefined`",
+    "title": "{title} - Streaming Redefined",
+    "desc": "The Open Source Virtual Streamers' Toolkit."
 }

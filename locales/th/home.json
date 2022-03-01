@@ -1,17 +1,17 @@
 {
     "title1": "สตรีมมิ่ง",
-    "title2": "นิยามใหม่",
-    "hero-p": "Bring your inner creativity with Vignette, the open source modular streaming toolkit for virtual streaming.",
+    "title2": "ในนิยามใหม่",
+    "hero-p": "ใช้ความคิดสร้างสรรค์ของคุณด้วย Vignette ซึ่งเป็นชุดเครื่องมือโอเพ่นซอร์สที่ขยายได้ สำหรับการสตรีมเสมือนจริง",
     "join-discord-long": "เข้าร่วม Discord เพื่อรับการอัปเดต",
     "join-discord-short": "เข้าร่วม Discord",
     "design-title-line1": "วิธีใหม่ในการ",
     "design-title-line2": "สตรีม",
-    "design-p": "Combining the best of thoughtful design, machine learning, and a open ecosystem, Vignette is a next-generation toolkit for streaming. And all you need is a camera.",
+    "design-p": "ผสมผสานการออกแบบที่ปราณีตที่สุด, ปัญญาประดิษฐ์และระบบนิเวศที่เปิดกว้าง, Vignette เป็นเครื่องมือวิวัฒนาการต่อไปสำหรับการสตรีมมิ่ง และคุณเพียงแค่ต้องมีเว็บแคมเพื่อเริ่มต้น!",
     "plugins-title": "ออกแบบมาให้ขยายได้",
-    "plugins-p": "Vignette is designed with extensibility in mind. Want something? There's definitely an extension for it.",
+    "plugins-p": "Vignette ถูกออกแบบมาให้ขยายได้ ต้องการคุณสมบัติเฉพาะการ? มีปลั๊กอินที่จะเติมเต็มความต้องการอย่างแน่นอน!",
     "explore-plugins-button": "สำรวจปลั๊กอิน",
-    "transparency-title-line1": "เปิดเผยและ",
+    "transparency-title-line1": "เปิดกว้างและ",
     "transparency-title-line2": "โปร่งใส",
-    "transparency-p": "Vignette is made with the community in mind. This is why Vignette is licensed and created with openness and transparency in mind.",
+    "transparency-p": "Vignette ถูกสร้างขึ้นโดยคำนึงถึงชุมชนเป็นหลัก นี่คือเหตุผลที่ Vignette จึงได้รับอนุญาตและสร้างขึ้นโดยคำนึงถึงความเปิดกว้างและความโปร่งใส",
     "partners-title": "พันธมิตรของเรา"
 }

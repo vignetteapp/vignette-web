@@ -44,7 +44,7 @@ const MenuComp = () => {
       animate={{ opacity: 1 }}
       className=""
     >
-      <div className="z-40 py-8 sm:relative  sm:mt-4 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:pt-8">
+      <div className="z-40 py-8 sm:relative sm:mt-4 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:pt-8">
         <div className=" hidden sm:block">
           <Parallax
             offset={20}

@@ -25,9 +25,6 @@ const Footer = () => {
               <Link href="/about">{t(`about`)}</Link>
             </li>
             <li>
-              <Link href="/ecosystem">{t(`ecosystem`)}</Link>
-            </li>
-            <li>
               <Link href="/plugins">{t(`plugins`)}</Link>
             </li>
           </ul>

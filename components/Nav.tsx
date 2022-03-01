@@ -4,22 +4,112 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 
 import { Dialog } from '@headlessui/react'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Fragment } from 'react'
 import { useTheme } from 'next-themes'
 
 import { Logo } from './Logo'
 import { useTranslation } from 'next-i18next'
 import { setCookies } from 'cookies-next'
-import { useRouter } from 'next/router'
+import { NextRouter, useRouter } from 'next/router'
 
-const locales: Record<string, string> = {
-  en: `ENG`,
-  ja: `日本`,
-  ko: `한국`,
-  zh: `中国`,
-  fil: `FIL`,
-  fr: `FR`,
-  id: `IDN`,
+import { Listbox, Transition } from '@headlessui/react'
+
+import { AiOutlineCheck } from 'react-icons/ai'
+import ReactCountryFlag from 'react-country-flag'
+import { BiChevronDown } from 'react-icons/bi'
+
+interface locale {
+  displayName: string
+  flag: string
+}
+
+const locales: Record<string, locale> = {
+  en: { displayName: `ENG`, flag: `us` },
+  ja: { displayName: `日本`, flag: `jp` },
+  ko: { displayName: `한국`, flag: `kr` },
+  'zh-CN': { displayName: `中国`, flag: `cn` },
+  'zh-TW': { displayName: `台灣`, flag: `tw` },
+  id: { displayName: `IDN`, flag: `id` },
+  fil: { displayName: `FIL`, flag: `ph` },
+  th: { displayName: `TH`, flag: `th` },
+  fr: { displayName: `FR`, flag: `fr` },
+  de: { displayName: `DE`, flag: `de` },
+  it: { displayName: `IT`, flag: `it` },
+  nl: { displayName: `NL`, flag: `nl` },
+  pt: { displayName: `PT`, flag: `pt` },
+}
+
+// en: `ENG`,
+// ja: `日本`,
+// ko: `한국`,
+// 'zh-CN': `中国`,
+// 'zh-TW': `中国`,
+// fil: `FIL`,
+// fr: `FR`,
+// id: `IDN`,
+// de: `DE`,
+// it: `IT`,
+// nl: `NL`,
+function MyListbox({ router }: { router: NextRouter }) {
+  const [selectedLocale, setSelectedLocale] = useState(router.locale)
+
+  return (
+    <div className="w-18">
+      <Listbox
+        value={selectedLocale}
+        onChange={(selected) => {
+          setSelectedLocale(selected)
+          setCookies(`NEXT_LOCALE`, selected)
+          router.push(router.asPath, undefined, {
+            locale: selected,
+          })
+        }}
+      >
+        <Listbox.Button className="relative flex w-full cursor-default items-center rounded-lg bg-white px-1 text-left text-sm outline-none dark:bg-[#181a1b]">
+          <ReactCountryFlag
+            countryCode={locales[selectedLocale as string].flag}
+            svg
+          />
+          <span className="mx-1">
+            {locales[selectedLocale as string].displayName}
+          </span>
+          <BiChevronDown />
+        </Listbox.Button>
+        <Transition
+          as={Fragment}
+          leave="transition ease-in duration-100"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <Listbox.Options className="w-18 absolute z-100 mt-1 max-h-96  overflow-auto rounded-md border  bg-white  text-sm shadow-lg focus:outline-none dark:border-neutral-800 dark:bg-[#181a1b]">
+            {Object.keys(locales).map((key) => (
+              /* Use the `active` state to conditionally style the active option. */
+              /* Use the `selected` state to conditionally style the selected option. */
+              <Listbox.Option key={key} value={key} as={Fragment}>
+                {({ active, selected }) => (
+                  <li
+                    className={`flex cursor-default items-center px-1   ${
+                      active
+                        ? `bg-gray-100 dark:bg-neutral-700 `
+                        : `bg-white text-black dark:bg-[#181a1b] dark:text-white`
+                    }`}
+                  >
+                    <ReactCountryFlag countryCode={locales[key].flag} svg />
+                    <span className="mx-1 text-center text-sm">
+                      {locales[key].displayName}
+                    </span>
+                    {selected && (
+                      <AiOutlineCheck className="fill-black dark:fill-white" />
+                    )}
+                  </li>
+                )}
+              </Listbox.Option>
+            ))}
+          </Listbox.Options>
+        </Transition>
+      </Listbox>
+    </div>
+  )
 }
 
 const Nav = () => {
@@ -46,42 +136,29 @@ const Nav = () => {
         <div className="mx-8 hidden gap-8 text-sm lg:flex lg:text-base">
           <Link href="/features">{t(`nav:features`)}</Link>
 
-          <Link href="/ecosystem">{t(`nav:ecosystem`)}</Link>
-
           <Link href="/about">{t(`nav:about`)}</Link>
+
+          <Link href="/plugins">{t(`nav:plugins`)}</Link>
 
           <Link href="/blog">{t(`nav:blog`)}</Link>
         </div>
       </div>
 
-      <div className="mr-f mx-4 ml-auto hidden items-center gap-4 sm:flex ">
-        <select
-          onChange={(e) => {
-            setCookies(`NEXT_LOCALE`, e.target.value)
-            router.push(router.asPath, undefined, {
-              locale: e.target.value,
-            })
-          }}
-          defaultValue={router.locale}
-          name="language"
-          className="rounded bg-white px-1 text-sm outline-none dark:bg-[#181a1b] "
-        >
-          {Object.keys(locales).map((key) => (
-            <option key={key} value={key}>
-              {locales[key]}
-            </option>
-          ))}
-        </select>
+      <div className=" mx-4 ml-auto hidden items-center gap-4 sm:flex ">
+        <MyListbox router={router} />
         <button
           className="outline-none"
           onClick={() => setTheme(resolvedTheme === `dark` ? `light` : `dark`)}
         >
-          {mounted &&
-            (resolvedTheme == `dark` ? (
+          {mounted ? (
+            resolvedTheme == `dark` ? (
               <BsSunFill size={18} />
             ) : (
               <BsMoonFill size={18} />
-            ))}
+            )
+          ) : (
+            <div className="w-[18px]" />
+          )}
         </button>
         <Link href="https://github.com/vignetteapp" passHref>
           <a className="outline-none">

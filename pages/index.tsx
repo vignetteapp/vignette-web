@@ -23,18 +23,32 @@ import section1comp from 'public/images/comp/section1-brain.png'
 import puzzle from 'public/images/icons/puzzle.png'
 import shipwheel from 'public/images/icons/shipwheel.png'
 import Partners from 'components/sections/Partners'
+import { useRouter } from 'next/router'
 
 const Home: NextPage<cache> = ({ contributors }) => {
   const { t } = useTranslation(`home`)
-
+  const { locale } = useRouter()
   return (
     <>
       <SEO />
       <Nav />
-      <Container className="z-20 pt-8 md:overflow-hidden lg:relative">
+      <Container className="z-20 overflow-hidden pt-8 lg:relative">
         <div className="mx-auto grid-cols-1  pb-8 sm:px-2 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-32 lg:pb-72 xl:grid">
           <div className="lg:max-w-3xl">
-            <h1 className="gradient-primary bg-clip-text text-4xl  font-bold text-transparent xxs:text-6xl lg:text-8xl ">
+            <h1
+              style={{
+                paddingLeft: `0.2em`,
+                marginLeft: `-0.2em`,
+                paddingBottom: `0.2em`,
+                marginBottom: `-0.2em`,
+              }}
+              className={
+                `gradient-primary bg-clip-text text-4xl font-bold text-transparent ` +
+                ([`en`, `ko`, `fil`, `de`].includes(locale as string)
+                  ? `xxs:text-6xl lg:text-8xl   `
+                  : `xxs:text-5xl lg:text-7xl `)
+              }
+            >
               {t(`title1`)}
               <br /> {t(`title2`)}
             </h1>
@@ -150,7 +164,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
             ))}
           </div>
           <Link href="/about" passHref>
-            <a className="button">About</a>
+            <a className="button">{t(`about`)}</a>
           </Link>
         </div>
       </Container>
