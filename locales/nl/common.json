@@ -2,6 +2,7 @@
     "switch-theme-light": "Schakel over naar lichte modus",
     "switch-theme-dark": "Schakel over naar donkere modus",
     "default-title": "Vignette - Streaming, Redefined.",
-    "title": "{title} - Vignette",
-    "desc": "The Open Source Virtual Streamers' Toolkit."
+    "title-template": "{{title}} - Vignette",
+    "desc": "The Open Source Virtual Streamers' Toolkit.",
+    "contact": "Contact"
 }

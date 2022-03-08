@@ -164,7 +164,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
             ))}
           </div>
           <Link href="/about" passHref>
-            <a className="button">{t(`about`)}</a>
+            <a className="button">{t(`about-button`)}</a>
           </Link>
         </div>
       </Container>

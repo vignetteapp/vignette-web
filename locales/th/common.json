@@ -1,7 +1,8 @@
 {
     "switch-theme-light": "เปลี่ยนเป็นธีมสว่าง",
     "switch-theme-dark": "เปลี่ยนเป็นธีมมืด",
-    "default-title": "Vignette - Streaming, Redefined.",
-    "title": "{title} - Vignette",
-    "desc": "The Open Source Virtual Streamers' Toolkit."
+    "default-title": "Vignette - สตรีมมิ่งในนิยามใหม่",
+    "title-template": "{{title}} - Vignette",
+    "desc": "ชุดเครื่องมือโอเพ่นซอร์สสำหรับสตรีมเมอร์",
+    "contact": "Contact"
 }

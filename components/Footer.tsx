@@ -12,7 +12,7 @@ const Footer = () => {
     >
       <div className="mx-auto max-w-3xl">
         <div className="grid grid-cols-2 text-sm xs:text-base lg:grid-cols-4">
-          <ul className="mb-4 gap-3 text-gray-600 dark:text-gray-300">
+          <ul className="mb-4 gap-3 text-gray-600 dark:text-gray-200">
             <span className="font-semibold">Vignette</span>
             <li>
               <Link href="/">{t(`home`)}</Link>

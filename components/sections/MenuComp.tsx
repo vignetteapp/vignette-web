@@ -40,7 +40,7 @@ const MenuComp = () => {
   return (
     <motion.div
       transition={{ duration: 0.2 }}
-      initial={{ opacity: 0.4 }}
+      initial={{ opacity: 0.2 }}
       animate={{ opacity: 1 }}
       className=""
     >

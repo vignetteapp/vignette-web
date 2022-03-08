@@ -2,8 +2,9 @@
     "home": "Home",
     "features": "Features",
     "about": "About",
-    "ecosystem": "Ecosystem",
     "blog": "Blog",
+    "contact": "Contact",
     "plugins": "Plugins",
-    "social": "Social"
+    "social": "Social",
+    "download": "Download"
 }

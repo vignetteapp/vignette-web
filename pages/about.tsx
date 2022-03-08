@@ -14,7 +14,7 @@ import teamMembers from 'data/members.json'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 
-interface Member {
+export interface Member {
   name: string
   avatar: string
   id: number
@@ -22,17 +22,29 @@ interface Member {
   url: string
 }
 
-const OpenSource: NextPage<cache> = ({
+interface pageProps extends cache {
+  balance: number
+  yearlyIncome: number
+}
+
+const splitAt = (xs: string, index: number) => [
+  xs.slice(0, index),
+  xs.slice(index),
+]
+
+const OpenSource: NextPage<pageProps> = ({
   contributors,
   commits,
   pullRequests,
   openIssues,
+  balance,
+  yearlyIncome,
 }) => {
   const { t } = useTranslation(`about`)
 
   return (
     <>
-      <SEO title="About" />
+      <SEO title={t(`page-title`)} />
       <Nav />
       <Container className="pt-8 lg:pt-16">
         <div className="z-20 mx-auto px-2 pb-8 lg:max-w-7xl ">
@@ -156,12 +168,29 @@ const OpenSource: NextPage<cache> = ({
           </div>
         </Container>
         <Container className="mt-12 text-center">
-          <Image src={donationImage} width={549} height={549} alt="" />
+          <Image src={donationImage} width={400} height={400} alt="" />
           <h1 className="text-3xl font-bold"> {t(`section3-title`)}</h1>
           <p className="mx-auto mt-2 mb-2 max-w-[34em]">{t(`section3-p`)}</p>
           <a className=" text-pinkRed hover:underline">
-            {t(`how-vignette-gives-back-button`)}
+            {t(`gives-back-button`)}
           </a>
+          <div className="mx-auto my-10 grid max-w-5xl grid-cols-3 text-2xl">
+            <div>
+              <h3 className="text-5xl font-bold">
+                {` `}${splitAt(balance.toString(), -2).join(`.`)}
+              </h3>
+
+              {t(`balance`)}
+            </div>
+
+            <div>
+              <h3 className="text-5xl font-bold">
+                ${splitAt(yearlyIncome.toString(), -2).join(`.`)}
+              </h3>
+              {t(`budget`)}
+            </div>
+          </div>
+          <a className="button">{t(`support-us-button`)}</a>
         </Container>
       </Container>
 
@@ -196,8 +225,13 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
   const parsed: cache = JSON.parse(data as string)
 
+  const ocData = await fetch(`https://opencollective.com/vignette.json`).then(
+    (res) => res.json(),
+  )
+
   return {
     props: {
+      ...ocData,
       ...parsed,
       ...(await serverSideTranslations(locale as string, [
         `about`,

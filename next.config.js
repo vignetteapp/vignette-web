@@ -1,6 +1,7 @@
+const { withContentlayer } = require('next-contentlayer')
 const { i18n } = require('./next-i18next.config')
 
-module.exports = {
+module.exports = withContentlayer()({
   i18n,
   reactStrictMode: true,
   images: {
@@ -8,6 +9,7 @@ module.exports = {
       'avatars.githubusercontent.com',
       'fosshost.org',
       'owo.whats-th.is',
+      'images.unsplash.com',
     ],
     formats: ['image/avif', 'image/webp'],
   },
@@ -24,4 +26,4 @@ module.exports = {
 
     return config
   },
-}
+})

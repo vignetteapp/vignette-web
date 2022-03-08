@@ -2,8 +2,9 @@
     "home": "Home",
     "features": "Merkmale",
     "about": "Über uns",
-    "ecosystem": "Ökosystem",
     "blog": "Blog",
+    "contact": "Contact",
     "plugins": "Plugins",
-    "social": "Soziale Netzwerken"
+    "social": "Soziale Netzwerken",
+    "download": "Download"
 }

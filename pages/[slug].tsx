@@ -15,7 +15,7 @@ const Custom404: NextPage = () => {
   const { t } = useTranslation(`404`)
   const { slug } = router.query
 
-  const inConstruction = [`blog`, `plugins`].includes(slug as string)
+  const inConstruction = [`features`, `plugins`].includes(slug as string)
 
   return (
     <>

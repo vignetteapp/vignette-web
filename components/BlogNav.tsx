@@ -129,20 +129,8 @@ const Nav: React.FC = () => {
     <div className="mx-auto flex w-full max-w-7xl items-center justify-between bg-transparent py-6 px-4  sm:px-8 lg:px-4 ">
       <div className="flex items-center">
         <Link href="/" passHref>
-          <a>
-            <Logo />
-          </a>
+          <a className="text-xl font-bold">Vignette Transcripts</a>
         </Link>
-
-        <div className="mx-8 hidden gap-8 text-sm lg:flex lg:text-base">
-          <Link href="/features">{t(`nav:features`)}</Link>
-
-          <Link href="/about">{t(`nav:about`)}</Link>
-
-          <Link href="/plugins">{t(`nav:plugins`)}</Link>
-
-          <Link href="/blog">{t(`nav:blog`)}</Link>
-        </div>
       </div>
 
       <div className=" mx-4 ml-auto hidden items-center gap-4 sm:flex ">

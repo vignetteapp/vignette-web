@@ -11,7 +11,7 @@ const SEO: React.FC<{
   type?: string
 }> = ({ title, date, image, desc, type }) => {
   const router = useRouter()
-  const { t } = useTranslation()
+  const { t } = useTranslation(`common`)
 
   return (
     <>
@@ -42,10 +42,12 @@ const SEO: React.FC<{
             crossOrigin="anonymous"
           />
         )}
-        <title>{title ? t(`title`, { title }) : t(`default-title`)}</title>
+        <title>
+          {title ? t(`title-template`, { title: title }) : t(`default-title`)}
+        </title>
         <meta
           name="title"
-          content={title ? t(`title`, { title }) : t(`default-title`)}
+          content={title ? t(`title-template`, { title }) : t(`default-title`)}
         />
         <meta name="description" content={desc || t(`desc`)} />
         <meta property="og:type" content={type || `website`} />
@@ -55,7 +57,7 @@ const SEO: React.FC<{
         />
         <meta
           property="og: title"
-          content={title ? t(`title`, { title }) : t(`default-title`)}
+          content={title ? t(`title-template`, { title }) : t(`default-title`)}
         />
         <meta property="og:description" content={desc || t(`desc`)} />
         <meta

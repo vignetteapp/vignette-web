@@ -4,6 +4,7 @@ import { appWithTranslation } from 'next-i18next'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps /*, AppContext */ } from 'next/app'
 import 'styles/globals.css'
+import 'styles/syntax.css'
 import 'styles/fonts.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
