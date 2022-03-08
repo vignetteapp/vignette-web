@@ -10,10 +10,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import circles from 'public/images/blog-banner.png'
 import components from 'components/MDXComponents'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { getMDXComponent } from 'mdx-bundler/client'
 
 import Image from 'next/image'
 import members from 'data/members.json'
+import { useMemo } from 'react'
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const paths: { params: { slug: string }; locale: string }[] = []
@@ -45,7 +46,10 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
 }
 
 const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
-  const Component = useMDXComponent(post.body.code)
+  const Component = useMemo(
+    () => getMDXComponent(post.body.code),
+    [post.body.code],
+  )
 
   return (
     <>
