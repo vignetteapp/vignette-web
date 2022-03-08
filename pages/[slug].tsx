@@ -93,15 +93,13 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         `nav`,
         `common`,
       ])),
-    }, // will be passed to the page component as props
-    revalidate: 10,
+    },
   }
 }
 export async function getStaticPaths() {
   return {
     paths: [
       // String variant:
-      `/blog`,
       `/features`,
       `/plugins`,
     ],

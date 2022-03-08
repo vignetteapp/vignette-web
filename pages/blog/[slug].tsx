@@ -19,11 +19,11 @@ import { useMemo } from 'react'
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const paths: { params: { slug: string }; locale: string }[] = []
 
-  allPosts.map((post) => {
-    for (const locale of locales as string[]) {
+  for (const locale of locales as string[]) {
+    allPosts.map((post) => {
       paths.push({ params: { slug: post.slug }, locale })
-    }
-  })
+    })
+  }
 
   return {
     paths,
