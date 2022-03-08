@@ -20,9 +20,10 @@
     "baseUrl": ".",
     "incremental": true,
     "paths": {
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
+      ]
     }
-
   },
   "exclude": [
     "node_modules"
