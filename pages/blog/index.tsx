@@ -28,9 +28,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
 function PostCard(post: Post) {
   return (
-    <div className="mx-auto mb-6 flex-wrap justify-center md:max-w-[22.5rem] lg:mx-0  ">
+    <div className="mb-6 w-full flex-wrap md:max-w-[22.5rem]  ">
       <Link href={post.url} passHref>
-        <a className="inline-flex h-48 overflow-hidden rounded">
+        <a className="inline-flex h-44 overflow-hidden rounded sm:h-64">
           <Image
             src={post.image}
             width="1080"
@@ -41,13 +41,13 @@ function PostCard(post: Post) {
           />
         </a>
       </Link>
-      <div className="py-4 lg:py-8">
+      <div className="w-full py-4 lg:py-8">
         <h3 className="my-1 text-xs font-bold uppercase text-pinkRed">
           {post.catagory}
         </h3>
         <Link href={post.url} passHref>
           <a>
-            <h2 className="text-2xl font-bold lg:text-4xl">{post.title}</h2>
+            <h2 className="text-2xl font-bold ">{post.title}</h2>
             <p className="mt-4">{post.summary}</p>
           </a>
         </Link>
@@ -117,10 +117,10 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
             </p>
           </div>
         </div>
-        <div className="mx-auto flex max-w-7xl flex-wrap gap-8 px-6 pt-8 md:flex-nowrap">
-          <div className="mx-auto mb-6 flex-wrap justify-center md:max-w-[22.5rem] lg:mx-0 lg:max-w-full lg:flex-nowrap  ">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6  pt-8 sm:grid-cols-2 md:grid-cols-1 ">
+          <div className="mx-0 mb-6 flex flex-wrap md:max-w-full md:flex-nowrap">
             <Link href={featuredPost.url} passHref>
-              <a className="inline-flex h-48 overflow-hidden rounded">
+              <a className="inline-flex h-44 overflow-hidden rounded sm:h-64 md:h-[24rem]">
                 <Image
                   src={featuredPost.image}
                   width="1080"
@@ -131,8 +131,8 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
                 />
               </a>
             </Link>
-            <div className="py-4 lg:py-8">
-              <h3 className="my-1 text-xs font-bold uppercase text-pinkRed">
+            <div className="py-4 md:px-8 md:py-8">
+              <h3 className="my-1  text-xs font-bold uppercase text-pinkRed">
                 {featuredPost.catagory}
               </h3>
               <Link href={featuredPost.url} passHref>
