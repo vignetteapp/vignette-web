@@ -8,7 +8,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import members from 'data/members.json'
 
-import banner from 'public/images/banner-new.jpg'
+import publicationCover from 'public/images/publication-cover.jpg'
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const posts = allPosts.sort((a, b) => {
@@ -28,37 +28,54 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
 function PostCard(post: Post) {
   return (
-    <div className="mx-auto mb-6 max-w-lg justify-center">
-      <div className="inline-flex h-48 max-w-md overflow-hidden rounded">
-        <Image
-          src={post.image}
-          width="388"
-          height="200"
-          className=" rounded object-cover object-top"
-          alt=""
-        />
-      </div>
-
-      <div className="py-4">
-        <h3 className="my-1 text-xs font-bold uppercase text-pinkRed">
-          Announcements
-        </h3>
-        <h2 className="text-2xl font-bold">
-          <Link href={post.url}>
-            <a className="">{post.title}</a>
-          </Link>
-        </h2>
-        <p className="mt-4">{post.summary}</p>
-        <div className="mt-4 flex items-center">
+    <div className="mx-auto mb-6 flex-wrap justify-center md:max-w-[22.5rem] lg:mx-0  ">
+      <Link href={post.url} passHref>
+        <a className="inline-flex h-48 overflow-hidden rounded">
           <Image
-            src={members.filter((item) => item.name == post.author)[0].avatar}
-            width={40}
-            height={40}
+            src={post.image}
+            width="1080"
+            height="810"
+            quality={100}
+            className="rounded object-cover object-center"
             alt=""
-            className="rounded-full"
           />
+        </a>
+      </Link>
+      <div className="py-4 lg:py-8">
+        <h3 className="my-1 text-xs font-bold uppercase text-pinkRed">
+          {post.catagory}
+        </h3>
+        <Link href={post.url} passHref>
+          <a>
+            <h2 className="text-2xl font-bold lg:text-4xl">{post.title}</h2>
+            <p className="mt-4">{post.summary}</p>
+          </a>
+        </Link>
+        <div className="mt-4 flex items-center">
+          <Link
+            href={members.filter((item) => item.name == post.author)[0].url}
+          >
+            <a>
+              <Image
+                src={
+                  members.filter((item) => item.name == post.author)[0].avatar
+                }
+                width={40}
+                height={40}
+                alt=""
+                className="rounded-full"
+              />
+            </a>
+          </Link>
           <div className="pl-2 text-sm">
-            <span className="font-semibold">{post.author}</span>
+            <Link
+              href={members.filter((item) => item.name == post.author)[0].url}
+            >
+              <a>
+                <span className="font-semibold">{post.author}</span>
+              </a>
+            </Link>
+
             <time
               dateTime={post.date}
               className="block text-gray-600 dark:text-gray-200"
@@ -81,57 +98,88 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
       <SEO title={t(`page-title`, `Blog`)} />
 
       <Container noMargin>
-        <div
-          style={{
-            backgroundImage: `url(https://static.ghost.org/v4.0.0/images/publication-cover.jpg)`,
-          }}
-          className="prose-invert w-full bg-cover bg-center pb-28 text-white "
-        >
+        <div className="prose-invert relative z-20 w-full overflow-hidden pb-24 text-white ">
+          <Image
+            src={publicationCover}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            priority
+            alt=""
+          />
           <BlogNav />
-          <h1 className="pt-16 pb-4 text-center text-5xl font-bold text-white">
-            The Vignette Transcripts
-          </h1>
-          <p className="pb-10 text-center text-xl ">
-            Blog posts from the developers of Vignette.
-          </p>
+          <div className="relative z-30 px-4">
+            <h1 className="pt-16 pb-4 text-center text-5xl font-bold text-white">
+              The Vignette Transcripts
+            </h1>
+            <p className="pb-10 text-center text-xl tracking-tight ">
+              Blog posts from the developers of Vignette.
+            </p>
+          </div>
         </div>
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mx-auto mb-6 flex flex-wrap justify-center pt-8 lg:flex-nowrap">
-            <div className="inline-flex h-48 overflow-hidden rounded lg:h-full">
-              <Image
-                src={featuredPost.image}
-                width="1000"
-                height="600"
-                quality={100}
-                className="rounded object-cover object-top"
-                alt=""
-              />
-            </div>
-
-            <div className="py-4 lg:w-[28rem] lg:py-8 lg:px-8">
-              <h3 className="my-1 text-xs font-bold uppercase text-pinkRed">
-                Announcements
-              </h3>
-              <h2 className="text-4xl font-bold">
-                <Link href={featuredPost.url}>
-                  <a className="">{featuredPost.title}</a>
-                </Link>
-              </h2>
-              <p className="mt-4">{featuredPost.summary}</p>
-              <div className="mt-4 flex items-center">
+        <div className="mx-auto flex max-w-7xl flex-wrap gap-8 px-6 pt-8 md:flex-nowrap">
+          <div className="mx-auto mb-6 flex-wrap justify-center md:max-w-[22.5rem] lg:mx-0 lg:max-w-full lg:flex-nowrap  ">
+            <Link href={featuredPost.url} passHref>
+              <a className="inline-flex h-48 overflow-hidden rounded">
                 <Image
-                  src={
+                  src={featuredPost.image}
+                  width="1080"
+                  height="540"
+                  quality={100}
+                  className="rounded object-cover object-center"
+                  alt=""
+                />
+              </a>
+            </Link>
+            <div className="py-4 lg:py-8">
+              <h3 className="my-1 text-xs font-bold uppercase text-pinkRed">
+                {featuredPost.catagory}
+              </h3>
+              <Link href={featuredPost.url} passHref>
+                <a>
+                  <h2 className="text-2xl font-bold lg:text-4xl">
+                    {featuredPost.title}
+                  </h2>
+                  <p className="mt-4">{featuredPost.summary}</p>
+                </a>
+              </Link>
+              <div className="mt-4 flex items-center">
+                <Link
+                  href={
                     members.filter(
                       (item) => item.name == featuredPost.author,
-                    )[0].avatar
+                    )[0].url
                   }
-                  width={40}
-                  height={40}
-                  alt=""
-                  className="rounded-full"
-                />
+                >
+                  <a>
+                    <Image
+                      src={
+                        members.filter(
+                          (item) => item.name == featuredPost.author,
+                        )[0].avatar
+                      }
+                      width={40}
+                      height={40}
+                      alt=""
+                      className="rounded-full"
+                    />
+                  </a>
+                </Link>
                 <div className="pl-2 text-sm">
-                  <span className="font-semibold">{featuredPost.author}</span>
+                  <Link
+                    href={
+                      members.filter(
+                        (item) => item.name == featuredPost.author,
+                      )[0].url
+                    }
+                  >
+                    <a>
+                      <span className="font-semibold">
+                        {featuredPost.author}
+                      </span>
+                    </a>
+                  </Link>
+
                   <time
                     dateTime={featuredPost.date}
                     className="block text-gray-600 dark:text-gray-200"
@@ -142,11 +190,9 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-3 pt-8">
-            {posts.slice(0, -1).map((post, idx) => (
-              <PostCard key={idx} {...post} />
-            ))}
-          </div>
+          {posts.slice(0, -1).map((post, idx) => (
+            <PostCard key={idx} {...post} />
+          ))}
         </div>
       </Container>
       <Footer />

@@ -126,9 +126,9 @@ const Nav: React.FC = () => {
   useEffect(() => setMounted(true), [])
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl items-center justify-between bg-transparent py-6 px-4  sm:px-8 lg:px-4 ">
+    <div className="relative z-30 mx-auto flex w-full max-w-7xl items-center justify-between bg-transparent py-6 px-4  sm:px-8 lg:px-4 ">
       <div className="flex items-center">
-        <Link href="/" passHref>
+        <Link href="/blog" passHref>
           <a className="text-xl font-bold">Vignette Transcripts</a>
         </Link>
       </div>
