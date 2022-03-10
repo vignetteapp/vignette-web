@@ -32,3 +32,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+locales/*
+!locales/
+!locales/en
+
+# Contentlayer
+.contentlayer

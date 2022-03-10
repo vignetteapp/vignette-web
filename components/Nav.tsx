@@ -4,22 +4,129 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 
 import { Dialog } from '@headlessui/react'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Fragment } from 'react'
 import { useTheme } from 'next-themes'
 
 import { Logo } from './Logo'
+import { useTranslation } from 'next-i18next'
+import { setCookies } from 'cookies-next'
+import { NextRouter, useRouter } from 'next/router'
 
-const Nav = () => {
+import { Listbox, Transition } from '@headlessui/react'
+
+import { AiOutlineCheck } from 'react-icons/ai'
+import ReactCountryFlag from 'react-country-flag'
+import { BiChevronDown } from 'react-icons/bi'
+
+interface locale {
+  shortName: string
+  name: string
+  flag: string
+}
+
+const locales: Record<string, locale> = {
+  en: { shortName: `ENG`, name: `English`, flag: `us` },
+  ja: { shortName: `日本`, name: `日本語`, flag: `jp` },
+  ko: { shortName: `한국`, name: `한국어`, flag: `kr` },
+  'zh-CN': { shortName: `中国`, name: `简体中文`, flag: `cn` },
+  'zh-TW': { shortName: `台灣`, name: `繁體中文`, flag: `tw` },
+  fr: { shortName: `FR`, name: `français`, flag: `fr` },
+  id: { shortName: `IDN`, name: `Indonesia`, flag: `id` },
+  fil: { shortName: `FIL`, name: `Filipino`, flag: `ph` },
+  de: { shortName: `DE`, name: `Deutsch`, flag: `de` },
+  it: { shortName: `IT`, name: `italiano`, flag: `it` },
+  nl: { shortName: `NL`, name: `Nederlands`, flag: `nl` },
+  pt: { shortName: `PT`, name: `português`, flag: `pt` },
+  th: { shortName: `TH`, name: `ไทย`, flag: `th` },
+}
+
+// en: `ENG`,
+// ja: `日本`,
+// ko: `한국`,
+// 'zh-CN': `中国`,
+// 'zh-TW': `中国`,
+// fil: `FIL`,
+// fr: `FR`,
+// id: `IDN`,
+// de: `DE`,
+// it: `IT`,
+// nl: `NL`,
+function MyListbox({ router }: { router: NextRouter }) {
+  const [selectedLocale, setSelectedLocale] = useState(router.locale)
+
+  return (
+    <div>
+      <Listbox
+        value={selectedLocale}
+        onChange={(selected) => {
+          setSelectedLocale(selected)
+          setCookies(`NEXT_LOCALE`, selected)
+          router.push(router.asPath, undefined, {
+            locale: selected,
+          })
+        }}
+      >
+        <Listbox.Button className="relative flex w-full cursor-default items-center rounded-lg bg-transparent pl-1 text-left text-xs font-semibold outline-none  sm:font-normal md:text-sm">
+          <ReactCountryFlag
+            countryCode={locales[selectedLocale as string].flag}
+            svg
+          />
+          <span className="mx-1">
+            {locales[selectedLocale as string].shortName}
+          </span>
+          <BiChevronDown />
+        </Listbox.Button>
+        <Transition
+          as={Fragment}
+          leave="transition ease-in duration-100"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <Listbox.Options className="w-18 absolute z-100 mt-1 max-h-96 overflow-auto rounded-md border bg-white shadow-lg focus:outline-none dark:border-neutral-700 dark:bg-[#181a1b]">
+            {Object.keys(locales).map((key) => (
+              /* Use the `active` state to conditionally style the active option. */
+              /* Use the `selected` state to conditionally style the selected option. */
+              <Listbox.Option key={key} value={key} as={Fragment}>
+                {({ active, selected }) => (
+                  <li
+                    className={`flex cursor-default items-center px-2 py-1 sm:px-1 lg:py-0  ${
+                      active
+                        ? `bg-gray-100 dark:bg-neutral-700 `
+                        : `bg-white text-black dark:bg-[#181a1b] dark:text-white`
+                    }`}
+                  >
+                    <ReactCountryFlag countryCode={locales[key].flag} svg />
+                    <span className="mx-1 text-sm text-black dark:text-white">
+                      {locales[key].name}
+                    </span>
+                    {selected && (
+                      <AiOutlineCheck className="fill-black dark:fill-white" />
+                    )}
+                  </li>
+                )}
+              </Listbox.Option>
+            ))}
+          </Listbox.Options>
+        </Transition>
+      </Listbox>
+    </div>
+  )
+}
+
+const Nav: React.FC = () => {
+  const { t } = useTranslation([`nav`, `common`])
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const toggleMenu = () => (isOpen ? setIsOpen(false) : setIsOpen(true))
   const [mounted, setMounted] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
 
+  const router = useRouter()
+
   // A flag to know when the page has mounted so the theme can be accessed
   useEffect(() => setMounted(true), [])
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl items-center justify-between bg-white py-6 px-4 dark:bg-[#181a1b] sm:px-8 lg:px-4 ">
+    <div className="mx-auto flex w-full max-w-7xl items-center justify-between bg-transparent py-6 px-4  sm:px-8 lg:px-4 ">
       <div className="flex items-center">
         <Link href="/" passHref>
           <a>
@@ -28,27 +135,31 @@ const Nav = () => {
         </Link>
 
         <div className="mx-8 hidden gap-8 text-sm lg:flex lg:text-base">
-          <Link href="/features">Features</Link>
+          <Link href="/features">{t(`nav:features`)}</Link>
 
-          <Link href="/ecosystem">Ecosystem</Link>
+          <Link href="/about">{t(`nav:about`)}</Link>
 
-          <Link href="/about">About</Link>
+          <Link href="/plugins">{t(`nav:plugins`)}</Link>
 
-          <Link href="/blog">Blog</Link>
+          <Link href="/blog">{t(`nav:blog`)}</Link>
         </div>
       </div>
 
-      <div className="mr-f mx-4 ml-auto hidden items-center gap-4 sm:flex ">
+      <div className=" mx-4 ml-auto hidden items-center gap-4 sm:flex ">
+        <MyListbox router={router} />
         <button
           className="outline-none"
           onClick={() => setTheme(resolvedTheme === `dark` ? `light` : `dark`)}
         >
-          {mounted &&
-            (resolvedTheme == `dark` ? (
+          {mounted ? (
+            resolvedTheme == `dark` ? (
               <BsSunFill size={18} />
             ) : (
               <BsMoonFill size={18} />
-            ))}
+            )
+          ) : (
+            <div className="w-[18px]" />
+          )}
         </button>
         <Link href="https://github.com/vignetteapp" passHref>
           <a className="outline-none">
@@ -62,7 +173,7 @@ const Nav = () => {
         </Link>
 
         <button className="rounded-full bg-pinkRed px-8 py-1 font-semibold text-white ">
-          Download
+          {t(`download`)}
         </button>
       </div>
       <div className="flex items-center lg:hidden">
@@ -103,28 +214,31 @@ const Nav = () => {
               <ul className="space-y-6">
                 <li>
                   <Link href="/">
-                    <a>Home</a>
+                    <a>{t(`nav:home`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/features">
-                    <a>Features</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/ecosystem">
-                    <a>Ecosystem</a>
+                    <a>{t(`nav:features`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/about">
-                    <a>About</a>
+                    <a>{t(`nav:about`)}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/blog">
-                    <a>Blog</a>
+                    <a>{t(`nav:blog`)}</a>
                   </Link>
+                </li>
+                <li>
+                  <Link href="/contact">
+                    <a>{t(`nav:contact`)}</a>
+                  </Link>
+                </li>
+                <li>
+                  <MyListbox router={router} />
                 </li>
               </ul>
               <div className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-200/10">
@@ -147,11 +261,11 @@ const Nav = () => {
                       </div>
                       {resolvedTheme === `dark` ? (
                         <p className="ml-3 font-semibold">
-                          Change to light theme
+                          {t(`common:switch-theme-light`)}
                         </p>
                       ) : (
                         <p className="ml-3 font-semibold">
-                          Change to dark theme
+                          {t(`common:switch-theme-dark`)}
                         </p>
                       )}
                     </>
