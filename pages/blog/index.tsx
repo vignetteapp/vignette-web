@@ -30,7 +30,7 @@ function PostCard(post: Post) {
   return (
     <div className="mb-6 w-full flex-wrap md:max-w-[22.5rem]  ">
       <Link href={post.url} passHref>
-        <a className="inline-flex h-44 overflow-hidden rounded sm:h-64">
+        <a className="inline-flex h-44 overflow-hidden rounded ">
           <Image
             src={post.image}
             width="1080"
@@ -41,7 +41,7 @@ function PostCard(post: Post) {
           />
         </a>
       </Link>
-      <div className="w-full py-4 lg:py-8">
+      <div className="w-full py-4 ">
         <h3 className="my-1 text-xs font-bold uppercase text-pinkRed">
           {post.catagory}
         </h3>
@@ -95,10 +95,10 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
 
   return (
     <>
-      <SEO title={t(`page-title`, `Blog`)} />
+      <SEO title={t(`title`)} desc={t(`hero-p`)} template={false} />
 
       <Container noMargin>
-        <div className="prose-invert relative z-20 w-full overflow-hidden pb-24 text-white ">
+        <div className="prose-invert relative z-20 w-full overflow-hidden pb-14 text-white md:pb-28 ">
           <Image
             src={publicationCover}
             layout="fill"
@@ -109,18 +109,16 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
           />
           <BlogNav />
           <div className="relative z-30 px-4">
-            <h1 className="pt-16 pb-4 text-center text-5xl font-bold text-white">
-              The Vignette Transcripts
+            <h1 className="pt-4 pb-4 text-center text-4xl font-bold text-white md:pt-16 lg:text-5xl">
+              {t(`hero-title`)}
             </h1>
-            <p className="pb-10 text-center text-xl tracking-tight ">
-              Blog posts from the developers of Vignette.
-            </p>
+            <p className="text-center text-lg lg:text-xl ">{t(`hero-p`)}</p>
           </div>
         </div>
         <div className="mx-auto grid max-w-7xl gap-8 px-6  pt-8 sm:grid-cols-2 md:grid-cols-1 ">
           <div className="mx-0 mb-6 flex flex-wrap md:max-w-full md:flex-nowrap">
             <Link href={featuredPost.url} passHref>
-              <a className="inline-flex h-44 overflow-hidden rounded sm:h-64 md:h-[24rem]">
+              <a className="inline-flex h-44 overflow-hidden rounded xs:h-64 md:h-[28rem]">
                 <Image
                   src={featuredPost.image}
                   width="1080"
@@ -131,7 +129,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
                 />
               </a>
             </Link>
-            <div className="py-4 md:px-8 md:py-8">
+            <div className="py-4 md:px-8 md:py-8 lg:w-[32rem]">
               <h3 className="my-1  text-xs font-bold uppercase text-pinkRed">
                 {featuredPost.catagory}
               </h3>

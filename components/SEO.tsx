@@ -9,10 +9,14 @@ const SEO: React.FC<{
   image?: string
   desc?: string
   type?: string
-}> = ({ title, date, image, desc, type }) => {
+  template?: boolean
+}> = ({ title, date, image, desc, type, template = true }) => {
   const router = useRouter()
   const { t } = useTranslation(`common`)
 
+  const templateTitle = title
+    ? t(`title-template`, { title: title })
+    : t(`default-title`)
   return (
     <>
       <Head>
@@ -42,23 +46,15 @@ const SEO: React.FC<{
             crossOrigin="anonymous"
           />
         )}
-        <title>
-          {title ? t(`title-template`, { title: title }) : t(`default-title`)}
-        </title>
-        <meta
-          name="title"
-          content={title ? t(`title-template`, { title }) : t(`default-title`)}
-        />
+        <title>{template ? templateTitle : title}</title>
+        <meta name="title" content={template ? templateTitle : title} />
         <meta name="description" content={desc || t(`desc`)} />
         <meta property="og:type" content={type || `website`} />
         <meta
           property="og:url"
           content={`https://vignetteapp.org${router.asPath}`}
         />
-        <meta
-          property="og: title"
-          content={title ? t(`title-template`, { title }) : t(`default-title`)}
-        />
+        <meta property="og: title" content={template ? templateTitle : title} />
         <meta property="og:description" content={desc || t(`desc`)} />
         <meta
           property="og:image"
@@ -71,7 +67,7 @@ const SEO: React.FC<{
         />
         <meta
           property="twitter:title"
-          content={title ? t(`title`, { title }) : t(`default-title`)}
+          content={template ? templateTitle : title}
         />
         <meta property="twitter:description" content={desc || t(`desc`)} />
         <meta

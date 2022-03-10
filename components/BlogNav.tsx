@@ -129,7 +129,7 @@ const Nav: React.FC = () => {
     <div className="relative z-30 mx-auto flex w-full max-w-7xl items-center justify-between bg-transparent py-6 px-4  sm:px-8 lg:px-4 ">
       <div className="flex items-center">
         <Link href="/blog" passHref>
-          <a className="text-xl font-bold">Vignette Transcripts</a>
+          <a className="text-lg font-bold lg:text-xl">{t(`blog:nav-title`)}</a>
         </Link>
       </div>
 
@@ -166,10 +166,7 @@ const Nav: React.FC = () => {
       </div>
       <div className="flex items-center lg:hidden">
         <button className="" onClick={toggleMenu}>
-          <GiHamburgerMenu
-            size="28"
-            className="fill-primary dark:fill-neutral-100"
-          />
+          <GiHamburgerMenu size="28" className="fill-neutral-100" />
         </button>
         {isOpen && (
           <Dialog

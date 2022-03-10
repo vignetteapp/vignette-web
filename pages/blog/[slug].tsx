@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import { allPosts, Post } from 'contentlayer/generated'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { Footer, BlogNav } from 'components'
+import { Footer, BlogNav, SEO } from 'components'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import circles from 'public/images/blog-banner.png'
@@ -15,6 +15,7 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import Image from 'next/image'
 import members from 'data/members.json'
 import { useMemo } from 'react'
+import { useTranslation } from 'next-i18next'
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const paths: { params: { slug: string }; locale: string }[] = []
@@ -50,12 +51,16 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
     () => getMDXComponent(post.body.code),
     [post.body.code],
   )
+  const { t } = useTranslation(`blog`)
 
   return (
     <>
-      <Head>
-        <title>{post.title}</title>
-      </Head>
+      <SEO
+        title={t(`blog-template`, { title: post.title })}
+        desc={post.summary}
+        template={false}
+      />
+
       <BlogNav />
 
       <article className="mx-auto py-8 lg:py-12 ">
@@ -113,9 +118,13 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
           ))}
         </div>
 
-        <Link href="/blog"> &lt;- Back to list</Link>
+        <Link href="/blog">
+          <>
+            <span className="tracking-[0]">&lt;-</span> Back to list
+          </>
+        </Link>
       </div>
-      <div className="relative left-0 h-80 w-80 lg:top-24  2xl:absolute">
+      <div className="relative left-0 h-80 w-80  lg:top-24 2xl:absolute">
         <Image src={circles} layout="fill" priority alt="" />
       </div>
       <Footer />

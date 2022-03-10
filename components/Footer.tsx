@@ -12,7 +12,7 @@ const Footer = () => {
     >
       <div className="mx-auto max-w-3xl">
         <div className="footer grid grid-cols-2 text-sm lg:grid-cols-4">
-          <ul className="mb-4 gap-3 tracking-[-.01em] text-gray-600 dark:text-gray-200">
+          <ul className="mb-4 gap-3 text-gray-600 dark:text-gray-200">
             <span className="font-semibold">Vignette</span>
             <li>
               <Link href="/">{t(`home`)}</Link>
@@ -30,7 +30,7 @@ const Footer = () => {
               <Link href="/contact">{t(`contact`)}</Link>
             </li>
           </ul>
-          <ul className="tracking-[-.01em]  text-gray-600 dark:text-gray-200 xs:mb-4">
+          <ul className="text-gray-600 dark:text-gray-200 xs:mb-4">
             <span className="font-semibold">{t(`social`)}</span>
             <li>
               <Link href="https://github.com/vignetteapp">GitHub</Link>
