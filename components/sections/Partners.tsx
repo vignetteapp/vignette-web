@@ -61,7 +61,9 @@ const Partners = () => {
           <a className="text-sm font-semibold xs:text-base lg:px-8">
             {t(`become-partner`)}
             {` `}
-            <span className="tracking-[0]">-&gt;</span>
+            <span className="tracking-[0]" style={{ fontFamily: `Inter var` }}>
+              -&gt;
+            </span>
           </a>
         </Link>
       </Container>

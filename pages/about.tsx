@@ -23,6 +23,7 @@ export interface Member {
 }
 
 interface pageProps extends cache {
+  backersCount: number
   balance: number
   yearlyIncome: number
 }
@@ -35,6 +36,7 @@ const splitAt = (xs: string, index: number) => [
 const OpenSource: NextPage<pageProps> = ({
   contributors,
   commits,
+  backersCount,
   pullRequests,
   openIssues,
   balance,
@@ -174,20 +176,25 @@ const OpenSource: NextPage<pageProps> = ({
           <a className=" text-pinkRed hover:underline">
             {t(`gives-back-button`)}
           </a>
-          <div className="mx-auto my-10 grid max-w-5xl grid-cols-3 text-2xl">
-            <div>
-              <h3 className="text-5xl font-bold">
+          <div className="flex-center mx-auto my-10 flex w-full max-w-5xl justify-center gap-16 text-2xl ">
+            <div className="w-48">
+              <h3 className="text-2xl font-bold lg:text-5xl">
                 {` `}${splitAt(balance.toString(), -2).join(`.`)}
               </h3>
 
               {t(`balance`)}
             </div>
 
-            <div>
-              <h3 className="text-5xl font-bold">
+            <div className="w-48">
+              <h3 className="text-2xl font-bold lg:text-5xl">
                 ${splitAt(yearlyIncome.toString(), -2).join(`.`)}
               </h3>
               {t(`budget`)}
+            </div>
+
+            <div className="w-48">
+              <h3 className="text-2xl font-bold lg:text-5xl">{backersCount}</h3>
+              {t(`backers`)}
             </div>
           </div>
           <a className="button">{t(`support-us-button`)}</a>
@@ -239,7 +246,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         `common`,
       ])),
     }, // will be passed to the page component as props
-    revalidate: 10,
+    revalidate: 30,
   }
 }
 

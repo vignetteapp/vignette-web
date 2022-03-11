@@ -126,6 +126,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
                   quality={100}
                   className="rounded object-cover object-center"
                   alt=""
+                  priority
                 />
               </a>
             </Link>

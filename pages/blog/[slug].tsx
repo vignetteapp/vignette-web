@@ -17,35 +17,6 @@ import members from 'data/members.json'
 import { useMemo } from 'react'
 import { useTranslation } from 'next-i18next'
 
-export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  const paths: { params: { slug: string }; locale: string }[] = []
-
-  for (const locale of locales as string[]) {
-    allPosts.map((post) => {
-      paths.push({ params: { slug: post.slug }, locale })
-    })
-  }
-
-  return {
-    paths,
-    fallback: false,
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params?.slug)
-  return {
-    props: {
-      ...(await serverSideTranslations(locale as string, [
-        `blog`,
-        `nav`,
-        `common`,
-      ])),
-      post,
-    },
-  }
-}
-
 const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
   const Component = useMemo(
     () => getMDXComponent(post.body.code),
@@ -130,6 +101,35 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
       <Footer />
     </>
   )
+}
+
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const paths: { params: { slug: string }; locale: string }[] = []
+
+  for (const locale of locales as string[]) {
+    allPosts.map((post) => {
+      paths.push({ params: { slug: post.slug }, locale })
+    })
+  }
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const post = allPosts.find((post) => post._raw.flattenedPath === params?.slug)
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string, [
+        `blog`,
+        `nav`,
+        `common`,
+      ])),
+      post,
+    },
+  }
 }
 
 export default PostLayout

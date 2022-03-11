@@ -2,9 +2,7 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import type { GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
 import Image from 'next/image'
-import Marquee from 'react-fast-marquee'
 import { cache } from './about'
 
 import { Nav, Container, SEO, Footer } from 'components'
@@ -17,7 +15,7 @@ const Home: NextPage<cache> = () => {
     <>
       <SEO title={t(`page-title`)} />
       <Nav />
-      <Container className="z-20 mx-auto max-w-7xl overflow-hidden pt-8 text-center lg:relative lg:pt-24">
+      <Container className="z-20 mx-auto max-w-7xl overflow-hidden pt-8 text-center lg:relative lg:pt-20">
         <h1 className="gradient-primary mx-auto max-w-2xl bg-clip-text text-4xl font-bold text-transparent xxs:text-5xl lg:text-7xl">
           {t(`title`)}
         </h1>
