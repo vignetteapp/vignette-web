@@ -96,7 +96,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
               src={section1comp}
               alt=""
               width={544}
-              height="270.5"
+              height={270.5}
               quality={90}
             />
           </Container>

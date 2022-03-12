@@ -89,10 +89,12 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
           ))}
         </div>
 
-        <Link href="/blog">
-          <>
-            <span className="tracking-[0]">&lt;-</span> Back to list
-          </>
+        <Link href="/blog" passHref>
+          <a>
+            <span className="tracking-[0]">&lt;-</span>
+            {` `}
+            {t(`back-to-list`)}
+          </a>
         </Link>
       </div>
       <div className="relative left-0 h-80 w-80  lg:top-24 2xl:absolute">

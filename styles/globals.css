@@ -77,7 +77,7 @@ body{
 
 
 .button-small{
-	@apply  rounded-full bg-pinkRed hover:bg-[#ff2277] px-10 duration-100 transition lg:px-12 py-2 text-sm lg:text-base font-bold text-white shadow;
+	@apply  rounded-full bg-pinkRed hover:bg-[#ff2277] px-10 duration-100 transition lg:px-12 py-2 text-xs xxs:text-sm font-bold text-white shadow;
 	
 }
 

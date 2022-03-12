@@ -1,6 +1,7 @@
 import type { NextPage, GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 
 import repoIcon from 'public/images/icons/repo.png'
 
@@ -13,6 +14,8 @@ import VignettePadding from 'public/images/logo-bg.svg'
 import teamMembers from 'data/members.json'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
 
 export interface Member {
   name: string
@@ -23,9 +26,9 @@ export interface Member {
 }
 
 interface pageProps extends cache {
-  backersCount: number
+  netReceived: number
+  totalPaid: number
   balance: number
-  yearlyIncome: number
 }
 
 const splitAt = (xs: string, index: number) => [
@@ -36,13 +39,14 @@ const splitAt = (xs: string, index: number) => [
 const OpenSource: NextPage<pageProps> = ({
   contributors,
   commits,
-  backersCount,
+  netReceived,
   pullRequests,
   openIssues,
+  totalPaid,
   balance,
-  yearlyIncome,
 }) => {
   const { t } = useTranslation(`about`)
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
@@ -152,7 +156,7 @@ const OpenSource: NextPage<pageProps> = ({
               <a
                 href={m.url}
                 key={m.name}
-                className=" my-2 text-center lg:mx-8"
+                className=" my-2 mx-2 text-center lg:mx-8"
               >
                 <div className="inline-flex overflow-hidden rounded-full ">
                   <Image
@@ -173,28 +177,92 @@ const OpenSource: NextPage<pageProps> = ({
           <Image src={donationImage} width={400} height={400} alt="" />
           <h1 className="text-3xl font-bold"> {t(`section3-title`)}</h1>
           <p className="mx-auto mt-2 mb-2 max-w-[34em]">{t(`section3-p`)}</p>
-          <a className=" text-pinkRed hover:underline">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="text-pinkRed hover:underline"
+          >
             {t(`gives-back-button`)}
-          </a>
-          <div className="flex-center mx-auto my-10 flex w-full max-w-5xl justify-center gap-16 text-2xl ">
-            <div className="w-48">
-              <h3 className="text-2xl font-bold lg:text-5xl">
-                {` `}${splitAt(balance.toString(), -2).join(`.`)}
-              </h3>
+          </button>
+          <Transition appear show={isOpen} as={Fragment}>
+            <Dialog
+              as="div"
+              className="fixed inset-0 z-10 overflow-y-auto"
+              onClose={() => setIsOpen(false)}
+            >
+              <div className="min-h-screen px-4 text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <Dialog.Overlay className="fixed inset-0" />
+                </Transition.Child>
+                <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-neutral-900/80 " />
+                {/* This element is to trick the browser into centering the modal contents. */}
+                <span
+                  className="inline-block h-screen align-middle"
+                  aria-hidden="true"
+                >
+                  &#8203;
+                </span>
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <div className="prose-md prose my-8 inline-block w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white px-6 py-4 text-left align-middle shadow-xl transition-all dark:prose-invert dark:bg-black">
+                    <Dialog.Title
+                      as="h3"
+                      className="text-lg font-medium leading-6 "
+                    >
+                      {t(`gives-back-button`)}
+                    </Dialog.Title>
+                    <div className="mt-2">
+                      <ReactMarkdown>{t(`gives-back-p`)}</ReactMarkdown>
+                    </div>
 
+                    <div className="mt-6">
+                      <button
+                        type="button"
+                        className="button-small inline-flex justify-center border border-transparent bg-pinkRed px-4 py-2 text-sm font-medium text-white hover:bg-[#ff2277] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-pinkRed"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Got it, thanks!
+                      </button>
+                    </div>
+                  </div>
+                </Transition.Child>
+              </div>
+            </Dialog>
+          </Transition>
+          <div className="mx-auto my-10 flex w-full max-w-5xl flex-wrap justify-center gap-6 text-lg lg:gap-20 lg:text-xl ">
+            <div className="w-40 md:w-52">
+              <h3 className="mb-1 text-3xl font-bold lg:text-5xl">
+                ${netReceived}
+              </h3>
+              {t(`earned`)}
+            </div>
+
+            <div className="w-40 md:w-52">
+              <h3 className="mb-1 text-3xl font-bold lg:text-5xl">
+                ${balance}
+              </h3>
               {t(`balance`)}
             </div>
 
-            <div className="w-48">
-              <h3 className="text-2xl font-bold lg:text-5xl">
-                ${splitAt(yearlyIncome.toString(), -2).join(`.`)}
+            <div className="w-52">
+              <h3 className="mb-1 text-3xl font-bold lg:text-5xl">
+                ${totalPaid}
               </h3>
-              {t(`budget`)}
-            </div>
-
-            <div className="w-48">
-              <h3 className="text-2xl font-bold lg:text-5xl">{backersCount}</h3>
-              {t(`backers`)}
+              {t(`paid`)}
             </div>
           </div>
           <a className="button">{t(`support-us-button`)}</a>
@@ -232,13 +300,66 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
   const parsed: cache = JSON.parse(data as string)
 
-  const ocData = await fetch(`https://opencollective.com/vignette.json`).then(
-    (res) => res.json(),
+  const ocData = await fetch(`https://api.opencollective.com/graphql/v2`, {
+    headers: {
+      'content-type': `application/json`,
+      'api-key': process.env.OC_KEY as string,
+    },
+    body: JSON.stringify({
+      query: `query account($slug: String) {
+        collective(slug: $slug) {
+          transactions{
+            nodes {
+              description(dynamic: true, full:true)
+
+              kind
+
+              amount{
+                value
+              }
+            }
+            
+          }
+          stats {
+            totalNetAmountReceived {
+              value
+            }
+          
+              
+            
+            balanceWithBlockedFunds {
+              value
+            }
+            
+          }
+      }
+    }`,
+      variables: { slug: `vignette` },
+    }),
+
+    method: `POST`,
+  }).then(async (res) => res.json())
+
+  const transactions = ocData.data.collective.transactions.nodes.filter(
+    (i: Record<string, string>) =>
+      i.kind == `EXPENSE` && i.description.toLowerCase().includes(`developer`),
   )
+
+  let totalPaid = 0
+
+  transactions.forEach(
+    (t: { kind: string; amount: { value: number } }) =>
+      (totalPaid -= t.amount.value),
+  )
+
+  const { totalNetAmountReceived, balanceWithBlockedFunds } =
+    ocData.data.collective.stats
 
   return {
     props: {
-      ...ocData,
+      netReceived: totalNetAmountReceived.value,
+      balance: balanceWithBlockedFunds.value,
+      totalPaid,
       ...parsed,
       ...(await serverSideTranslations(locale as string, [
         `about`,
@@ -246,7 +367,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         `common`,
       ])),
     }, // will be passed to the page component as props
-    revalidate: 30,
+    revalidate: 600,
   }
 }
 

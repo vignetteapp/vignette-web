@@ -66,7 +66,7 @@ function MyListbox({ router }: { router: NextRouter }) {
           })
         }}
       >
-        <Listbox.Button className="relative flex w-full cursor-default items-center rounded-lg bg-transparent pl-1 text-left text-xs font-semibold outline-none  sm:font-normal md:text-sm">
+        <Listbox.Button className="relative flex w-full cursor-default items-center rounded-lg bg-transparent pl-1 text-left text-sm font-semibold outline-none  sm:font-normal">
           <ReactCountryFlag
             countryCode={locales[selectedLocale as string].flag}
             svg
@@ -82,7 +82,7 @@ function MyListbox({ router }: { router: NextRouter }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="w-18 absolute z-100 mt-1 max-h-96 overflow-auto rounded-md border bg-white shadow-lg focus:outline-none dark:border-neutral-700 dark:bg-[#181a1b]">
+          <Listbox.Options className="w-18 absolute z-100 mt-1 max-h-96 overflow-auto rounded-md border bg-white text-black shadow-lg focus:outline-none dark:border-neutral-700 dark:bg-[#181a1b] dark:text-white">
             {Object.keys(locales).map((key) => (
               /* Use the `active` state to conditionally style the active option. */
               /* Use the `selected` state to conditionally style the selected option. */
@@ -92,7 +92,7 @@ function MyListbox({ router }: { router: NextRouter }) {
                     className={`flex cursor-default items-center px-2 py-1 sm:px-1 lg:py-0  ${
                       active
                         ? `bg-gray-100 dark:bg-neutral-700 `
-                        : `bg-white text-black dark:bg-[#181a1b] dark:text-white`
+                        : `bg-white  dark:bg-[#181a1b]`
                     }`}
                   >
                     <ReactCountryFlag countryCode={locales[key].flag} svg />
@@ -168,98 +168,117 @@ const Nav: React.FC = () => {
         <button className="" onClick={toggleMenu}>
           <GiHamburgerMenu size="28" className="fill-neutral-100" />
         </button>
-        {isOpen && (
+        <Transition appear show={isOpen} as={Fragment}>
           <Dialog
             open={isOpen}
             onClose={() => setIsOpen(false)}
             className="fixed inset-0 z-50 lg:hidden"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-neutral-900/80 " />
-
-            <div className="dark:highlight-white/5 fixed top-4 right-4 w-full max-w-xs rounded-lg bg-white p-6 text-base font-semibold text-gray-900 shadow-lg dark:bg-neutral-900 dark:text-gray-300">
-              <button
-                onClick={() => setIsOpen(false)}
-                className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-100"
-              >
-                <span className="sr-only">Close navigation</span>
-                <svg
-                  viewBox="0 0 10 10"
-                  className="h-2.5 w-2.5 overflow-visible"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M0 0L10 10M10 0L0 10"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  ></path>
-                </svg>
-              </button>
-              <ul className="space-y-6">
-                <li>
-                  <Link href="/">
-                    <a>{t(`nav:home`)}</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/features">
-                    <a>{t(`nav:features`)}</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about">
-                    <a>{t(`nav:about`)}</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog">
-                    <a>{t(`nav:blog`)}</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact">
-                    <a>{t(`nav:contact`)}</a>
-                  </Link>
-                </li>
-                <li>
-                  <MyListbox router={router} />
-                </li>
-              </ul>
-              <div className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-200/10">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-100"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-75"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-neutral-900/80 " />
+            </Transition.Child>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-100"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-75"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <div className="dark:highlight-white/5 fixed top-4 right-4 w-full max-w-xs rounded-lg bg-white p-6 text-base font-semibold text-gray-900 shadow-lg dark:bg-neutral-900 dark:text-gray-300">
                 <button
-                  aria-label="Toggle Dark Mode"
-                  type="button"
-                  className="general-ring-state flex w-full items-center justify-center rounded-full bg-gray-200 py-3 dark:bg-neutral-700"
-                  onClick={() =>
-                    setTheme(resolvedTheme === `dark` ? `light` : `dark`)
-                  }
+                  onClick={() => setIsOpen(false)}
+                  className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-100"
                 >
-                  {mounted && (
-                    <>
-                      <div>
-                        {resolvedTheme === `dark` ? (
-                          <BsSunFill size={18} />
-                        ) : (
-                          <BsMoonFill size={18} />
-                        )}
-                      </div>
-                      {resolvedTheme === `dark` ? (
-                        <p className="ml-3 font-semibold">
-                          {t(`common:switch-theme-light`)}
-                        </p>
-                      ) : (
-                        <p className="ml-3 font-semibold">
-                          {t(`common:switch-theme-dark`)}
-                        </p>
-                      )}
-                    </>
-                  )}
+                  <span className="sr-only">Close navigation</span>
+                  <svg
+                    viewBox="0 0 10 10"
+                    className="h-2.5 w-2.5 overflow-visible"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M0 0L10 10M10 0L0 10"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    ></path>
+                  </svg>
                 </button>
+                <ul className="space-y-6">
+                  <li>
+                    <Link href="/">
+                      <a>{t(`nav:home`)}</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/features">
+                      <a>{t(`nav:features`)}</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about">
+                      <a>{t(`nav:about`)}</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/blog">
+                      <a>{t(`nav:blog`)}</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/contact">
+                      <a>{t(`nav:contact`)}</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <MyListbox router={router} />
+                  </li>
+                </ul>
+                <div className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-200/10">
+                  <button
+                    aria-label="Toggle Dark Mode"
+                    type="button"
+                    className="general-ring-state flex w-full items-center justify-center rounded-full bg-gray-200 py-3 dark:bg-neutral-700"
+                    onClick={() =>
+                      setTheme(resolvedTheme === `dark` ? `light` : `dark`)
+                    }
+                  >
+                    {mounted && (
+                      <>
+                        <div>
+                          {resolvedTheme === `dark` ? (
+                            <BsSunFill size={18} />
+                          ) : (
+                            <BsMoonFill size={18} />
+                          )}
+                        </div>
+                        {resolvedTheme === `dark` ? (
+                          <p className="ml-3 font-semibold">
+                            {t(`common:switch-theme-light`)}
+                          </p>
+                        ) : (
+                          <p className="ml-3 font-semibold">
+                            {t(`common:switch-theme-dark`)}
+                          </p>
+                        )}
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
-            </div>
+            </Transition.Child>
           </Dialog>
-        )}
+        </Transition>
       </div>
     </div>
   )

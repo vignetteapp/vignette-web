@@ -98,7 +98,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
       <SEO title={t(`title`)} desc={t(`hero-p`)} template={false} />
 
       <Container noMargin>
-        <div className="prose-invert relative z-20 w-full overflow-hidden pb-14 text-white md:pb-28 ">
+        <div className="prose-invert relative z-20 w-full pb-14 text-white md:pb-28 ">
           <Image
             src={publicationCover}
             layout="fill"
@@ -108,7 +108,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
             alt=""
           />
           <BlogNav />
-          <div className="relative z-30 px-4">
+          <div className="relative z-20 px-4">
             <h1 className="pt-4 pb-4 text-center text-4xl font-bold text-white md:pt-16 lg:text-5xl">
               {t(`hero-title`)}
             </h1>
@@ -192,6 +192,9 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
           {posts.slice(0, -1).map((post, idx) => (
             <PostCard key={idx} {...post} />
           ))}
+          <Link href="/" passHref>
+            <a>&lt;- {t(`back-to-home`)}</a>
+          </Link>
         </div>
       </Container>
       <Footer />
