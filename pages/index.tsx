@@ -32,7 +32,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
     <>
       <SEO />
       <Nav />
-      <Container className="z-20 overflow-hidden pt-8 lg:relative">
+      <Container className="z-20 overflow-hidden pt-8 lg:relative" id="content">
         <div className="mx-auto grid-cols-1  pb-8 sm:px-2 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-32 lg:pb-72 xl:grid">
           <div className="lg:max-w-3xl">
             <h1

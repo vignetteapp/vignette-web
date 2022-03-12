@@ -15,7 +15,10 @@ const Home: NextPage<cache> = () => {
     <>
       <SEO title={t(`page-title`)} />
       <Nav />
-      <Container className="z-20 mx-auto max-w-7xl overflow-hidden pt-8 text-center lg:relative lg:pt-20">
+      <Container
+        id="content"
+        className="z-20 mx-auto max-w-7xl overflow-hidden pt-8 text-center lg:relative lg:pt-20"
+      >
         <h1 className="gradient-primary mx-auto max-w-2xl bg-clip-text text-4xl font-bold text-transparent xxs:text-5xl lg:text-7xl">
           {t(`title`)}
         </h1>

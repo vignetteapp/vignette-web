@@ -27,7 +27,7 @@ const Custom404: NextPage = () => {
         }
       />
       <Nav />
-      <Container className=" max-w-7xl ">
+      <Container className=" max-w-7xl " id="content">
         <div className="z-20 mx-auto  text-center ">
           {!inConstruction ? (
             <>

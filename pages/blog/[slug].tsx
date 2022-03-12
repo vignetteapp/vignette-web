@@ -34,7 +34,7 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
 
       <BlogNav />
 
-      <article className="mx-auto py-8 lg:py-12 ">
+      <article className="mx-auto py-8 lg:py-12 " id="content">
         <div className="mx-auto mb-6 max-w-3xl px-4">
           <Link href="/blog">
             <a className="text-sm font-semibold uppercase tracking-tight text-pinkRed">

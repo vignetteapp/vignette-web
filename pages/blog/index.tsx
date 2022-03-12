@@ -97,7 +97,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
     <>
       <SEO title={t(`title`)} desc={t(`hero-p`)} template={false} />
 
-      <Container noMargin>
+      <Container noMargin id="content">
         <div className="prose-invert relative z-20 w-full pb-14 text-white md:pb-28 ">
           <Image
             src={publicationCover}
