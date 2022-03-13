@@ -101,3 +101,8 @@ ul >li{
 		opacity: 0.4;
 	}
 }
+@media (min-width: 768px) {
+  #blog-feed > div:first-child {
+      grid-column: span 4;
+  }
+}

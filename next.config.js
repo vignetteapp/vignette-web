@@ -10,6 +10,7 @@ module.exports = withContentlayer()({
       'fosshost.org',
       'owo.whats-th.is',
       'images.unsplash.com',
+      'yuri.might-be-super.fun',
     ],
     formats: ['image/avif', 'image/webp'],
   },

@@ -28,9 +28,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
 function PostCard(post: Post) {
   return (
-    <div className="mb-6 w-full flex-wrap md:max-w-[22.5rem]  ">
+    <div className="mb-6 w-full  md:max-w-[22.5rem]  ">
       <Link href={post.url} passHref>
-        <a className="inline-flex h-44 overflow-hidden rounded ">
+        <a className="inline-flex h-44 overflow-hidden rounded xs:h-64 lg:h-48 ">
           <Image
             src={post.image}
             width="1080"
@@ -91,7 +91,7 @@ function PostCard(post: Post) {
 
 const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
   const { t } = useTranslation(`blog`)
-  const [featuredPost] = posts.slice(-1)
+  const [featuredPost] = posts.slice(0)
 
   return (
     <>
@@ -115,7 +115,10 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
             <p className="text-center text-lg lg:text-xl ">{t(`hero-p`)}</p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-7xl gap-8 px-6  pt-8 sm:grid-cols-2 md:grid-cols-1 ">
+        <div
+          className="mx-auto grid max-w-7xl gap-8 px-6  pt-8 sm:grid-cols-2 md:grid-cols-3"
+          id="blog-feed"
+        >
           <div className="mx-0 mb-6 flex flex-wrap md:max-w-full md:flex-nowrap">
             <Link href={featuredPost.url} passHref>
               <a className="inline-flex h-44 overflow-hidden rounded xs:h-64 md:h-[28rem]">
@@ -189,9 +192,11 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
               </div>
             </div>
           </div>
-          {posts.slice(0, -1).map((post, idx) => (
+          {posts.slice(1, posts.length).map((post, idx) => (
             <PostCard key={idx} {...post} />
           ))}
+        </div>
+        <div className="mx-auto mt-8 max-w-7xl px-6">
           <Link href="/" passHref>
             <a>&lt;- {t(`back-to-home`)}</a>
           </Link>
