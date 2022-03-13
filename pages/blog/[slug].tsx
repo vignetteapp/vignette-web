@@ -66,7 +66,7 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
           </div>
         </div>
 
-        <div className="prose prose-lg prose-neutral mx-auto max-w-3xl px-4 prose-a:text-pinkRed prose-img:rounded dark:prose-invert">
+        <div className="prose prose-lg prose-neutral relative mx-auto max-w-3xl px-4 prose-a:text-pinkRed prose-img:rounded dark:prose-invert">
           <Component
             components={
               {
