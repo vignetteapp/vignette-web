@@ -6,6 +6,7 @@ import {
   useSpring,
   useReducedMotion,
 } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 type ParallaxProps = {
   children?: ReactNode
@@ -33,11 +34,13 @@ const Parallax = ({
   const initial = elementTop - clientHeight
   const final = elementTop + offset
 
+  const router = useRouter()
+
   const yRange = useTransform(scrollY, [initial, final], [offset, -offset], {
-    clamp: false,
+    clamp: true,
   })
   const y = useSpring(yRange, { stiffness: 400, damping: 90 })
-
+  y.onChange((y) => console.log(y))
   useEffect(() => {
     const element = ref.current
     const onResize = () => {
@@ -53,7 +56,7 @@ const Parallax = ({
     onResize()
     window.addEventListener(`resize`, onResize)
     return () => window.removeEventListener(`resize`, onResize)
-  }, [ref])
+  }, [ref, router.pathname])
 
   // Don't parallax if the user has "reduced motion" enabled
   if (prefersReducedMotion) {
