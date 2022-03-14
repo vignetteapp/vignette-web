@@ -58,7 +58,7 @@ const SEO: React.FC<{
         <meta property="og:description" content={desc || t(`desc`)} />
         <meta
           property="og:image"
-          content={image || `https://vignetteapp.org/images/banner-new.jpg`}
+          content={image || `https://vignetteapp.org/images/banner.jpg`}
         />
         <meta property="twitter:card" content="summary_large_image" />
         <meta
@@ -72,7 +72,7 @@ const SEO: React.FC<{
         <meta property="twitter:description" content={desc || t(`desc`)} />
         <meta
           property="twitter:image"
-          content={image || `https://vignetteapp.org/images/banner-new.jpg`}
+          content={image || `https://vignetteapp.org/images/banner.jpg`}
         />
         <meta property="article:published_time" content={date} />
       </Head>
