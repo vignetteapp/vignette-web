@@ -179,7 +179,7 @@ const OpenSource: NextPage<pageProps> = ({
           <p className="mx-auto mt-2 mb-2 max-w-[34em]">{t(`section3-p`)}</p>
           <button
             onClick={() => setIsOpen(true)}
-            className="text-pinkRed hover:underline"
+            className="font-semibold text-pinkRed hover:underline"
           >
             {t(`gives-back-button`)}
           </button>
