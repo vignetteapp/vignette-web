@@ -81,7 +81,7 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
         <div className="mb-8 flex gap-2">
           {post.tags.map((tag, i) => (
             <div
-              className="max-w-min rounded bg-neutral-800 capitalize py-1 px-2 text-sm text-white "
+              className="max-w-min rounded bg-neutral-800 py-1 px-2 text-sm capitalize text-white "
               key={i}
             >
               {tag}
