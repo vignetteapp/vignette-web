@@ -19,9 +19,20 @@ const Home: NextPage<cache> = () => {
         id="content"
         className="z-20 mx-auto max-w-7xl overflow-hidden pt-8 text-center lg:relative lg:pt-20"
       >
-        <h1 className="gradient-primary mx-auto max-w-2xl bg-clip-text text-4xl font-bold text-transparent xxs:text-5xl lg:text-7xl">
-          {t(`title`)}
-        </h1>
+        <div className=" flex justify-center">
+          <h1
+            style={{
+              paddingLeft: `0.2em`,
+              marginLeft: `-0.2em`,
+              paddingBottom: `0.2em`,
+              marginBottom: `-0.2em`,
+            }}
+            className="gradient-primary max-w-2xl bg-clip-text text-4xl font-bold text-transparent xxs:text-5xl lg:text-7xl"
+          >
+            {t(`title`)}
+          </h1>
+        </div>
+
         <p className="mx-auto mt-8 max-w-md text-lg lg:mt-16">
           {t(`hero-p-1`)} {` `}
           <span className="font-bold">{t(`hero-p-2`, { members: 89 })}</span>
