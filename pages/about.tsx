@@ -235,7 +235,7 @@ const OpenSource: NextPage<pageProps> = ({
                         className="button-small inline-flex justify-center border border-transparent bg-pinkRed px-4 py-2 text-sm font-medium text-white hover:bg-[#ff2277] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-pinkRed"
                         onClick={() => setIsOpen(false)}
                       >
-                        Got it, thanks!
+                        {t(`got-it-buton`)}
                       </button>
                     </div>
                   </div>
