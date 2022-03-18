@@ -28,4 +28,17 @@ module.exports = withContentlayer()({
 
     return config
   },
+  async headers() {
+    return [
+      {
+        source: '/(.*).(woff2?|png|mp4|jpe?g|svg)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
+  },
 })

@@ -4,10 +4,6 @@
       "source": "/(.*)",
       "headers": [
         {
-          "key": "Pragma",
-          "value": "no-cache"
-        },
-        {
           "key": "Cache-Control",
           "value": "s-maxage=1, stale-while-revalidate=59"
         }
@@ -18,7 +14,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=31536000"
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     }
