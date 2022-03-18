@@ -76,12 +76,6 @@ const SEO: React.FC<{
         />
         <meta property="article:published_time" content={date} />
       </Head>
-      <Script
-        defer
-        data-domain="vignetteapp.org"
-        src="https://plausible.matterho.st/js/plausible.js"
-        strategy="afterInteractive"
-      />
     </>
   )
 }
