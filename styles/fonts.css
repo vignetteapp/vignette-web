@@ -3,7 +3,7 @@
     font-style: normal;
     font-weight: 100 900;
     font-display: swap;
-    src: url('/fonts/Inter-roman.var.woff2') format('woff2');
+    src: url('/fonts/inter-roman-var.woff2') format('woff2');
     font-named-instance: 'Regular';
     unicode-range: U+000-5FF;
 }
@@ -23,7 +23,7 @@
 	font-weight: 45 920;
 	font-style: normal;
 	font-display: swap;
-	src: local('Pretendard Variable'), url('/fonts/PretendardVariable.woff2') format('woff2-variations');
+	src: local('Pretendard Variable'), url('/fonts/pretendard-var.woff2') format('woff2-variations');
 }
 
 /* noto-sans-jp-300 - japanese */

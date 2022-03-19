@@ -13,6 +13,18 @@ module.exports = withContentlayer()({
       'yuri.might-be-super.fun',
     ],
     formats: ['image/avif', 'image/webp'],
+    headers: async () => [
+      {
+        source: '/:all*(woff2?)',
+        locale: false,
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ],
   },
   swcMinify: true,
   webpack: (config, { dev, isServer }) => {
