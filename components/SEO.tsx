@@ -39,7 +39,7 @@ const SEO: React.FC<{
         )}
         {router.locale == `ko` && (
           <link
-            href="/fonts/noto-sans-kr-v40-korean-700.woff2"
+            href="/fonts/PretendardVariable.woff2"
             rel="preload"
             as="font"
             type="font/woff2"

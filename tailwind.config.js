@@ -25,6 +25,7 @@ module.exports = {
       fontFamily: {
         inter: [
           "'Inter var'",
+          "'Pretendard Variable'",
           "'Noto Sans JP'",
           "'Noto Sans KR'",
           'Noto Sans SC',

@@ -15,7 +15,7 @@ module.exports = withContentlayer()({
     formats: ['image/avif', 'image/webp'],
     headers: [
       {
-        source: '/fonts/Inter-roman.var.woff2',
+        source: '/fonts/(.*)',
         headers: [
           {
             key: 'Cache-Control',
