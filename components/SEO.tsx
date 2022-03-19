@@ -21,7 +21,7 @@ const SEO: React.FC<{
     <>
       <Head>
         <link
-          href="/fonts/Inter-roman.var.woff2"
+          href="/fonts/inter-roman-var.woff2"
           rel="preload"
           as="font"
           type="font/woff2"
@@ -39,7 +39,7 @@ const SEO: React.FC<{
         )}
         {router.locale == `ko` && (
           <link
-            href="/fonts/PretendardVariable.woff2"
+            href="/fonts/pretendard-var.woff2"
             rel="preload"
             as="font"
             type="font/woff2"

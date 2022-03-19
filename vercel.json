@@ -1,7 +1,7 @@
 {
     "headers": [
         {
-            "source": "/fonts/Inter-roman.var.woff2",
+            "source": "/fonts/inter-roman-var.woff2",
             "headers": [
                 {
                     "key": "Cache-Control",
