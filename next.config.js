@@ -14,6 +14,7 @@ module.exports = withContentlayer()({
     ],
     formats: ['image/avif', 'image/webp'],
   },
+
   swcMinify: true,
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
