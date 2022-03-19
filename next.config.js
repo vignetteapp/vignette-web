@@ -13,19 +13,8 @@ module.exports = withContentlayer()({
       'yuri.might-be-super.fun',
     ],
     formats: ['image/avif', 'image/webp'],
-    headers: async () => [
-      {
-        source: '/:all*(woff2?)',
-        locale: false,
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ],
   },
+
   swcMinify: true,
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
@@ -39,5 +28,18 @@ module.exports = withContentlayer()({
     }
 
     return config
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*).(woff2?|png|mp4|jpe?g|svg)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
   },
 })
