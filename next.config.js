@@ -15,7 +15,8 @@ module.exports = withContentlayer()({
     formats: ['image/avif', 'image/webp'],
     headers: [
       {
-        source: '/fonts/:font*',
+        source:
+          '/(.*).(jpe?g|gif|png|ico|webp|svg|xml|webm|mp4|mpe?g|ttf|otf|woff2?)',
         headers: [
           {
             key: 'Cache-Control',
