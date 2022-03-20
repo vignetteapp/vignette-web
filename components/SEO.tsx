@@ -75,13 +75,13 @@ const SEO: React.FC<{
           content={image || `https://vignetteapp.org/images/banner.png`}
         />
         <meta property="article:published_time" content={date} />
-        <Script
-          defer
-          data-domain="vignetteapp.org"
-          src="https://stats.willit.fail/js/plausible.js"
-          strategy="afterInteractive"
-        />
       </Head>
+       <Script
+        defer
+        data-domain="vignetteapp.org"
+        src="https://stats.willit.fail/js/plausible.js"
+        strategy="afterInteractive"
+       />
     </>
   )
 }
