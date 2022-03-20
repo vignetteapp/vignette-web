@@ -76,12 +76,12 @@ const SEO: React.FC<{
         />
         <meta property="article:published_time" content={date} />
       </Head>
-       <Script
+      <Script
         defer
         data-domain="vignetteapp.org"
         src="https://stats.willit.fail/js/plausible.js"
         strategy="afterInteractive"
-       />
+      />
     </>
   )
 }
