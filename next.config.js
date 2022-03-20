@@ -31,6 +31,15 @@ module.exports = withContentlayer()({
   },
   async headers() {
     return [
+       {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'max-age=1, stale-while-revalidate=299, stale-if-error=86400',
+          },
+        ],
+      },
       {
         source: '/(.*).(woff2?|png|mp4|jpe?g|svg)',
         headers: [
