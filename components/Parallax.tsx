@@ -40,7 +40,7 @@ const Parallax = ({
     clamp: true,
   })
   const y = useSpring(yRange, { stiffness: 400, damping: 90 })
-  y.onChange((y) => console.log(y))
+
   useEffect(() => {
     const element = ref.current
     const onResize = () => {
