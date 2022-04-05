@@ -38,7 +38,7 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
         <div className="mx-auto mb-6 max-w-3xl px-4">
           <Link href="/blog">
             <a className="text-sm font-semibold uppercase tracking-tight text-pinkRed">
-              {post.catagory}
+              {post.category}
             </a>
           </Link>
 

@@ -43,7 +43,7 @@ function PostCard(post: Post) {
       </Link>
       <div className="w-full py-4 ">
         <h3 className="my-1 text-xs font-bold uppercase text-pinkRed">
-          {post.catagory}
+          {post.category}
         </h3>
         <Link href={post.url} passHref>
           <a>
@@ -135,7 +135,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
             </Link>
             <div className="py-4 md:px-8 md:py-8 lg:w-[32rem]">
               <h3 className="my-1  text-xs font-bold uppercase text-pinkRed">
-                {featuredPost.catagory}
+                {featuredPost.category}
               </h3>
               <Link href={featuredPost.url} passHref>
                 <a>
