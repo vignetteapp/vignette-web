@@ -17,9 +17,9 @@ export const Post = defineDocumentType(() => ({
       description: `The title of the post`,
       required: true,
     },
-    catagory: {
+    category: {
       type: `string`,
-      description: `The catagory of the post`,
+      description: `The category of the post`,
       required: true,
     },
     date: {
