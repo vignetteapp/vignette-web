@@ -352,7 +352,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       (totalPaid -= t.amount.value),
   )
 
-  totalPaid = Math.round(totalPaid * 100 ) / 100;
+  totalPaid = Math.round(totalPaid * 100) / 100
 
   const { totalNetAmountReceived, balanceWithBlockedFunds } =
     ocData.data.collective.stats
