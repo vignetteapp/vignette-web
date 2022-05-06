@@ -38,6 +38,8 @@ const locales: Record<string, locale> = {
   nl: { shortName: `NL`, name: `Nederlands`, flag: `nl` },
   pt: { shortName: `PT`, name: `português`, flag: `pt` },
   th: { shortName: `TH`, name: `ไทย`, flag: `th` },
+  ru: { shortName: `RU`, name: `Russian`, flag: `ru`},
+  uk: { shortName: `UK`, name: `Ukranian`, flag: `uk`},
 }
 
 // en: `ENG`,
