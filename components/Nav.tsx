@@ -39,7 +39,8 @@ const locales: Record<string, locale> = {
   pt: { shortName: `PT`, name: `português`, flag: `pt` },
   th: { shortName: `TH`, name: `ไทย`, flag: `th` },
   ru: { shortName: `RU`, name: `Russian`, flag: `ru` },
-  uk: { shortName: `UK`, name: `Ukranian`, flag: `uk` },
+  uk: { shortName: `UK`, name: `Ukranian`, flag: `ua` },
+  vi: { shortName: `VI`, name: `Vietnamese`, flag: `vn` },
 }
 
 // en: `ENG`,
@@ -53,7 +54,8 @@ const locales: Record<string, locale> = {
 // de: `DE`,
 // it: `IT`,
 // nl: `NL`,
-function MyListbox({ router }: { router: NextRouter }) {
+
+function CountrySelect({ router }: { router: NextRouter }) {
   const [selectedLocale, setSelectedLocale] = useState(router.locale)
 
   return (
@@ -84,7 +86,7 @@ function MyListbox({ router }: { router: NextRouter }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="w-18 absolute z-100 mt-1 max-h-96 overflow-auto rounded-md border bg-white text-black shadow-lg focus:outline-none dark:border-neutral-700 dark:bg-[#181a1b] dark:text-white">
+          <Listbox.Options className="w-18 absolute z-100 mt-1 max-h-96 overflow-auto rounded-md border bg-white pb-6 text-black shadow-lg focus:outline-none dark:border-neutral-700 dark:bg-[#181a1b] dark:text-white">
             {Object.keys(locales).map((key) => (
               /* Use the `active` state to conditionally style the active option. */
               /* Use the `selected` state to conditionally style the selected option. */
@@ -156,7 +158,7 @@ const Nav: React.FC = () => {
         </div>
 
         <div className=" mx-4 ml-auto hidden items-center gap-4 sm:flex ">
-          <MyListbox router={router} />
+          <CountrySelect router={router} />
           <button
             className="outline-none"
             onClick={() =>
@@ -268,7 +270,7 @@ const Nav: React.FC = () => {
                       </Link>
                     </li>
                     <li>
-                      <MyListbox router={router} />
+                      <CountrySelect router={router} />
                     </li>
                   </ul>
                   <div className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-200/10">
@@ -312,3 +314,5 @@ const Nav: React.FC = () => {
   )
 }
 export default Nav
+
+export { CountrySelect, locales }

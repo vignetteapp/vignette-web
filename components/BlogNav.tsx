@@ -2,46 +2,15 @@ import { BsSunFill, BsMoonFill } from 'react-icons/bs'
 import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
 
-import { Dialog } from '@headlessui/react'
+import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { useEffect, useState, Fragment } from 'react'
 import { useTheme } from 'next-themes'
 
-import { Logo } from './Logo'
 import { useTranslation } from 'next-i18next'
-import { setCookies } from 'cookies-next'
-import { NextRouter, useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
-import { Listbox, Transition } from '@headlessui/react'
-
-import { AiOutlineCheck } from 'react-icons/ai'
-import ReactCountryFlag from 'react-country-flag'
-import { BiChevronDown } from 'react-icons/bi'
-
-interface locale {
-  shortName: string
-  name: string
-  flag: string
-}
-
-const locales: Record<string, locale> = {
-  en: { shortName: `ENG`, name: `English`, flag: `us` },
-  ja: { shortName: `日本`, name: `日本語`, flag: `jp` },
-  ko: { shortName: `한국`, name: `한국어`, flag: `kr` },
-  'zh-CN': { shortName: `中国`, name: `简体中文`, flag: `cn` },
-  'zh-TW': { shortName: `台灣`, name: `繁體中文`, flag: `tw` },
-  fr: { shortName: `FR`, name: `français`, flag: `fr` },
-  id: { shortName: `IDN`, name: `Indonesia`, flag: `id` },
-  fil: { shortName: `FIL`, name: `Filipino`, flag: `ph` },
-  de: { shortName: `DE`, name: `Deutsch`, flag: `de` },
-  it: { shortName: `IT`, name: `italiano`, flag: `it` },
-  nl: { shortName: `NL`, name: `Nederlands`, flag: `nl` },
-  pt: { shortName: `PT`, name: `português`, flag: `pt` },
-  th: { shortName: `TH`, name: `ไทย`, flag: `th` },
-  ru: { shortName: `RU`, name: `Russian`, flag: `ru` },
-  uk: { shortName: `UK`, name: `Ukranian`, flag: `ua` },
-  vi: { shortName: `VI`, name: `Vietnamese`, flag: `vn` },
-}
+import { CountrySelect } from './Nav'
 
 // en: `ENG`,
 // ja: `日本`,
@@ -54,67 +23,6 @@ const locales: Record<string, locale> = {
 // de: `DE`,
 // it: `IT`,
 // nl: `NL`,
-function CountrySelect({ router }: { router: NextRouter }) {
-  const [selectedLocale, setSelectedLocale] = useState(router.locale)
-
-  return (
-    <div>
-      <Listbox
-        value={selectedLocale}
-        onChange={(selected) => {
-          setSelectedLocale(selected)
-          setCookies(`NEXT_LOCALE`, selected)
-          router.push(router.asPath, undefined, {
-            locale: selected,
-          })
-        }}
-      >
-        <Listbox.Button className="relative flex w-full cursor-default items-center rounded-lg bg-transparent pl-1 text-left text-sm font-semibold outline-none  sm:font-normal">
-          <ReactCountryFlag
-            countryCode={locales[selectedLocale as string].flag}
-            svg
-          />
-          <span className="mx-1">
-            {locales[selectedLocale as string].shortName}
-          </span>
-          <BiChevronDown />
-        </Listbox.Button>
-        <Transition
-          as={Fragment}
-          leave="transition ease-in duration-100"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <Listbox.Options className="w-18 absolute z-100 mt-1 max-h-96 overflow-auto rounded-md border bg-white pb-6 text-black shadow-lg focus:outline-none dark:border-neutral-700 dark:bg-[#181a1b] dark:text-white">
-            {Object.keys(locales).map((key) => (
-              /* Use the `active` state to conditionally style the active option. */
-              /* Use the `selected` state to conditionally style the selected option. */
-              <Listbox.Option key={key} value={key} as={Fragment}>
-                {({ active, selected }) => (
-                  <li
-                    className={`flex cursor-default items-center px-2 py-1 sm:px-1 lg:py-0  ${
-                      active
-                        ? `bg-gray-100 dark:bg-neutral-700 `
-                        : `bg-white  dark:bg-[#181a1b]`
-                    }`}
-                  >
-                    <ReactCountryFlag countryCode={locales[key].flag} svg />
-                    <span className="mx-1 text-sm text-black dark:text-white">
-                      {locales[key].name}
-                    </span>
-                    {selected && (
-                      <AiOutlineCheck className="fill-black dark:fill-white" />
-                    )}
-                  </li>
-                )}
-              </Listbox.Option>
-            ))}
-          </Listbox.Options>
-        </Transition>
-      </Listbox>
-    </div>
-  )
-}
 
 const Nav: React.FC = () => {
   const { t } = useTranslation([`nav`, `common`])
