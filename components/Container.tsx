@@ -32,9 +32,18 @@ const Container: React.FC<{
     <motion.div
       id={id}
       className={`${!noMargin && `mx-auto px-4 sm:px-8`} ${className}`}
-      transition={fadeIn ? { delay: 0.15, duration: 0.3 } : {}}
-      initial={fadeIn && { opacity: 0 }}
-      whileInView={fadeIn ? { opacity: 1 } : {}}
+      transition={
+        fadeIn
+          ? {
+              delay: 0.2,
+              opacity: { duration: 0.4 },
+              duration: 0.7,
+              ease: [0.22, 0.61, 0.35, 1],
+            }
+          : {}
+      }
+      initial={fadeIn && { opacity: 0, y: 32 }}
+      whileInView={fadeIn ? { opacity: 1, y: 0 } : {}}
       viewport={{ once: true }}
     >
       {children}
