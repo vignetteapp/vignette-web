@@ -2,9 +2,10 @@
   "name": "next-template",
   "private": true,
   "scripts": {
-    "dev": "crowdin download && next dev",
-    "build": "crowdin download && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
+    "crowdin:download": "crowdin download",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"./**/*.+(ts|tsx)\""
   },
