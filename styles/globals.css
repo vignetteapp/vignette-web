@@ -72,13 +72,12 @@ body{
 
 
 .button{
-	@apply  rounded-full bg-pinkRed hover:bg-[#ff2277] px-10 duration-100 transition lg:px-12 py-2 xxs:py-3 text-sm xxs:text-base lg:text-lg font-bold text-white shadow;	
+	@apply inline-block rounded-full bg-pinkRed hover:bg-[#ff2277] px-10 duration-100 transition lg:px-12 py-2 xs:py-3 text-sm xxs:text-base lg:text-lg font-bold text-white shadow;
 }
 
 
 .button-small{
-	@apply  rounded-full bg-pinkRed hover:bg-[#ff2277] px-10 duration-100 transition lg:px-12 py-2 text-xs xxs:text-sm font-bold text-white shadow;
-	
+	@apply inline-block rounded-full bg-pinkRed hover:bg-[#ff2277] px-10 duration-100 transition lg:px-12 py-2 text-xs xxs:text-sm font-bold text-white shadow;
 }
 
 
@@ -93,9 +92,9 @@ ul >li{
 
 @keyframes flicker {
 	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
-	
+
     opacity: .99;
-		
+
 	}
 	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
 		opacity: 0.4;

@@ -33,7 +33,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
       <SEO />
       <Nav />
       <Container className="z-20 overflow-hidden pt-8 lg:relative" id="content">
-        <div className="mx-auto grid-cols-1  pb-8 sm:px-2 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-32 lg:pb-72 xl:grid">
+        <div className="mx-auto grid-cols-1 pb-8 sm:px-2 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-24 lg:pb-72 xl:grid">
           <div className="lg:max-w-3xl">
             <h1
               style={{
@@ -43,16 +43,16 @@ const Home: NextPage<cache> = ({ contributors }) => {
                 marginBottom: `-0.2em`,
               }}
               className={
-                `gradient-primary bg-clip-text text-4xl font-bold text-transparent ` +
+                `gradient-primary bg-clip-text text-6xl font-bold tracking-tight text-transparent ` +
                 ([`en`, `ko`, `fil`, `de`].includes(locale as string)
-                  ? `xxs:text-6xl lg:text-8xl   `
-                  : `xxs:text-5xl lg:text-7xl `)
+                  ? `xs:text-7xl lg:text-8xl   `
+                  : `xs:text-6xl lg:text-7xl `)
               }
             >
               {t(`title1`)}
               <br /> {t(`title2`)}
             </h1>
-            <p className="my-4 mb-8 max-w-[22rem]  xxs:text-xl lg:mb-16 lg:max-w-[30rem] lg:text-2xl">
+            <p className="my-4 text-lg text-neutral-900 dark:text-neutral-300 xs:text-xl lg:mb-8 lg:max-w-[36ch] lg:text-2xl">
               {t(`hero-p`)}
             </p>
 
@@ -87,7 +87,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
                 <br /> {t(`design-title-line2`)}
               </h2>
             </div>
-            <p className="max-w-sm py-8 xxs:text-lg lg:max-w-sm">
+            <p className="max-w-sm py-4 xxs:text-lg sm:py-8 lg:max-w-sm">
               {t(`design-p`)}
             </p>
           </Container>
@@ -113,13 +113,13 @@ const Home: NextPage<cache> = ({ contributors }) => {
             {t(`plugins-title`)}
           </h2>
           <p className="mx-auto max-w-[34rem] pt-4 pb-8 xxs:text-lg lg:pb-12">
-            {t(`plugins-p`)}
+            {t(`extensions-in-development`)}
           </p>
-          <Link href="/plugins" passHref>
+          {/* <Link href="/plugins" passHref>
             <a className="button"> {t(`explore-plugins-button`)}</a>
-          </Link>
+          </Link> */}
         </Container>
-        <Container noMargin offset={10} className=" pt-16">
+        {/* <Container noMargin offset={10} className=" pt-16">
           <Marquee speed={50} gradientWidth={0}>
             {extensions.map((ext, index) => (
               <ExtensionCard key={index} name={ext.name} />
@@ -130,7 +130,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
               <ExtensionCard key={index} name={ext.name} />
             ))}
           </Marquee>
-        </Container>
+        </Container> */}
       </Container>
 
       <Container

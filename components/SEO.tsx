@@ -20,7 +20,7 @@ const SEO: React.FC<{
   return (
     <>
       <Head>
-        <link
+        {/* <link
           href="/fonts/inter-roman-var.woff2"
           rel="preload"
           as="font"
@@ -45,7 +45,7 @@ const SEO: React.FC<{
             type="font/woff2"
             crossOrigin="anonymous"
           />
-        )}
+        )} */}
         <title>{template ? templateTitle : title}</title>
         <meta name="title" content={template ? templateTitle : title} />
         <meta name="description" content={desc || t(`desc`)} />
