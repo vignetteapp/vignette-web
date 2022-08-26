@@ -24,11 +24,10 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: [
-          "'Pretendard Variable'",
-          "'Pretendard JP Variable'",
-          "'Noto Sans JP'",
-          "'Noto Sans KR'",
-          'Noto Sans SC',
+          "'Pretendard Std'",
+          "'Pretendard'",
+          "'Pretendard JP'",
+          "'Noto Sans SC'",
           'ui-sans-serif',
           'system-ui',
           '-apple-system',

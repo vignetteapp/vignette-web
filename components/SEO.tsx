@@ -20,26 +20,23 @@ const SEO: React.FC<{
   return (
     <>
       <Head>
-        {/* <link
-          href="/fonts/inter-roman-var.woff2"
+        <link
           rel="preload"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
+          as="style"
+          href="https://fonts.vignetteapp.org/pretendard-std/pretendard-std.css"
         />
-
-        {router.locale == `ja` && (
+        {/* {router.locale == `ja` && (
           <link
-            href="/fonts/noto-sans-jp-v40-japanese-700.woff2"
+            href="/fonts/PretendardJPVariable.woff2"
             rel="preload"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
           />
         )}
-        {router.locale == `ko` && (
+        {router.locale == `en` && (
           <link
-            href="/fonts/pretendard-var.woff2"
+            href="/fonts/pretendard-std/PretendardStd-Bold.woff2"
             rel="preload"
             as="font"
             type="font/woff2"

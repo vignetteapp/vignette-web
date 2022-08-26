@@ -10,7 +10,7 @@
     "lint": "eslint --ignore-path .gitignore \"./**/*.+(ts|tsx)\""
   },
   "dependencies": {
-    "@crowdin/cli": "3",
+    "@crowdin/cli": "^3.7.10",
     "@fontsource/noto-sans-jp": "^4.5.4",
     "@headlessui/react": "^1.4.3",
     "@octokit/graphql": "^4.8.0",
@@ -28,7 +28,7 @@
     "next-i18next": "^10.3.0",
     "next-seo": "^5.0.0",
     "next-themes": "^0.1.1",
-    "preact": "^10.6.5",
+    "preact": "^10.10.6",
     "react": "17.0.2",
     "react-country-flag": "^3.0.2",
     "react-dom": "17.0.2",
