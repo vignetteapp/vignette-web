@@ -80,7 +80,6 @@ body{
 	@apply rounded-full bg-pinkRed hover:bg-[#ff2277] px-10 duration-100 transition lg:px-12 py-2 text-xs xxs:text-sm font-bold text-white shadow;
 }
 
-
 ul >li{
 @apply my-2;
 }
@@ -104,4 +103,13 @@ ul >li{
   #blog-feed > div:first-child {
       grid-column: span 4;
   }
+}
+
+.fadein{
+  opacity: 0;
+  @apply transition ease-in-out duration-[500ms] will-change-transform delay-75 translate-y-4;
+}
+.fadein.inview{
+  opacity: 1;
+  @apply translate-y-0 scale-100;
 }

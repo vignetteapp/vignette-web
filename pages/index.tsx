@@ -4,19 +4,10 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import type { GetStaticProps, NextPage } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Marquee from 'react-fast-marquee'
 import { cache } from './about'
 import { createClient } from 'redis'
 
-import {
-  Nav,
-  Container,
-  ExtensionCard,
-  MenuComp,
-  SEO,
-  Footer,
-} from 'components'
-import extensions from 'data/extensions'
+import { Nav, MenuComp, SEO, Footer } from 'components'
 
 import sparkle from 'public/images/icons/sparkle.png'
 import section1comp from 'public/images/comp/section1-brain.png'
@@ -24,6 +15,8 @@ import puzzle from 'public/images/icons/puzzle.png'
 import shipwheel from 'public/images/icons/shipwheel.png'
 import Partners from 'components/sections/Partners'
 import { useRouter } from 'next/router'
+import Button from 'components/Button'
+import Fadein from 'components/FadeIn'
 
 const Home: NextPage<cache> = ({ contributors }) => {
   const { t } = useTranslation(`home`)
@@ -32,9 +25,12 @@ const Home: NextPage<cache> = ({ contributors }) => {
     <>
       <SEO />
       <Nav />
-      <Container className="z-20 overflow-hidden pt-8 lg:relative" id="content">
-        <div className="mx-auto grid-cols-1 pb-8 sm:px-2 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:px-4 lg:pt-24 lg:pb-72 xl:grid">
-          <div className="lg:max-w-3xl">
+      <div
+        className="z-20 overflow-hidden bg-gradient-to-br pt-8 lg:relative"
+        id="content"
+      >
+        <div className="mx-auto max-w-7xl grid-cols-1 px-6 pb-8 lg:max-w-7xl lg:grid-cols-2 lg:gap-24 lg:pt-24 lg:pb-72 xl:grid">
+          <div className="pb-8 lg:max-w-3xl">
             <h1
               style={{
                 paddingLeft: `0.2em`,
@@ -52,7 +48,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
               {t(`title1`)}
               <br /> {t(`title2`)}
             </h1>
-            <p className="my-4 text-lg text-neutral-900 dark:text-neutral-300 xs:text-xl lg:mb-8 lg:max-w-[36ch] lg:text-2xl">
+            <p className="my-4 text-lg text-neutral-900 dark:text-neutral-300 xs:text-xl lg:mb-8 lg:max-w-[36ch] ">
               {t(`hero-p`)}
             </p>
 
@@ -60,38 +56,34 @@ const Home: NextPage<cache> = ({ contributors }) => {
               href="https://go.vignetteapp.org/discord"
               className="button inline-block sm:hidden"
             >
-              {t(`join-discord-short`)}
+              {t(`join-discord-short`)}&rarr;
             </a>
             <a
               href="https://go.vignetteapp.org/discord"
               className="button hidden sm:inline-block"
             >
-              {t(`join-discord-long`)}
+              {t(`join-discord-long`)} &rarr;
             </a>
           </div>
         </div>
         <MenuComp />
-      </Container>
-      <Container
-        offset={10}
-        fadeIn
-        id="design"
-        className="mx-auto mt-20 max-w-6xl px-4 pt-16 lg:mt-28"
-      >
+      </div>
+
+      <Fadein id="design" className="container mx-auto mt-20 pt-16 lg:mt-28">
         <div className="flex flex-wrap justify-between ">
-          <Container noMargin>
-            <div className="flex items-center">
+          <div>
+            <div className="flex items-center gap-4">
               <Image src={sparkle} width={64} height={64} alt="" />
-              <h2 className="ml-2 max-w-[14rem] text-2xl font-bold xxs:text-3xl">
+              <h2 className="max-w-[14rem] text-2xl font-bold xxs:text-3xl">
                 {t(`design-title-line1`)}
                 <br /> {t(`design-title-line2`)}
               </h2>
             </div>
-            <p className="max-w-sm py-4 xxs:text-lg sm:py-8 lg:max-w-sm">
+            <p className="max-w-sm py-4 pb-6 xxs:text-lg sm:py-6 lg:max-w-sm">
               {t(`design-p`)}
             </p>
-          </Container>
-          <Container noMargin offset={10}>
+          </div>
+          <div>
             <Image
               src={section1comp}
               alt=""
@@ -99,13 +91,13 @@ const Home: NextPage<cache> = ({ contributors }) => {
               height={270.5}
               quality={90}
             />
-          </Container>
+          </div>
         </div>
-      </Container>
-      <Container fadeIn noMargin offset={10}>
-        <Container
+      </Fadein>
+      <Fadein>
+        <div
           id="plugins"
-          className="mt-20 max-w-6xl px-4 pt-16 text-center lg:mt-28"
+          className="container mt-20 pt-16 text-center lg:mt-28"
         >
           <Image src={puzzle} quality={95} alt="" width={60} height={60} />
 
@@ -118,8 +110,8 @@ const Home: NextPage<cache> = ({ contributors }) => {
           {/* <Link href="/plugins" passHref>
             <a className="button"> {t(`explore-plugins-button`)}</a>
           </Link> */}
-        </Container>
-        {/* <Container noMargin offset={10} className=" pt-16">
+        </div>
+        {/* <div noMargin offset={10} className=" pt-16">
           <Marquee speed={50} gradientWidth={0}>
             {extensions.map((ext, index) => (
               <ExtensionCard key={index} name={ext.name} />
@@ -130,14 +122,12 @@ const Home: NextPage<cache> = ({ contributors }) => {
               <ExtensionCard key={index} name={ext.name} />
             ))}
           </Marquee>
-        </Container> */}
-      </Container>
+        </div> */}
+      </Fadein>
 
-      <Container
-        fadeIn
-        offset={10}
+      <Fadein
         id="transparency"
-        className="mt-20 max-w-5xl  gap-8 pt-16 lg:mt-28 "
+        className="container mt-20  gap-8 pt-16 lg:mt-28 "
       >
         <div className="mx-auto mt-auto mb-6 text-center lg:mb-8">
           <Image quality={95} src={shipwheel} alt="" width={60} height={60} />
@@ -152,7 +142,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
             {contributors.map((c) => (
               <div
                 key={c.login}
-                className="relative h-11 w-11  lg:h-16 lg:w-16"
+                className="relative h-11 w-11  rounded-full bg-slate-100 dark:bg-neutral-800 lg:h-16 lg:w-16"
               >
                 <Image
                   src={c.profile}
@@ -167,10 +157,10 @@ const Home: NextPage<cache> = ({ contributors }) => {
             <a className="button">{t(`about-button`)}</a>
           </Link>
         </div>
-      </Container>
-      <Container offset={10} fadeIn>
+      </Fadein>
+      <Fadein className="container">
         <Partners />
-      </Container>
+      </Fadein>
 
       <Footer />
     </>

@@ -133,12 +133,12 @@ const Nav: React.FC = () => {
     <>
       <a
         href="#content"
-        className="text-md absolute -top-7 z-50 ml-3 -translate-y-12 transform rounded-md border border-gray-300 bg-white px-3 py-2 tracking-tight outline-none transition-transform duration-100 focus:translate-y-12 dark:border-neutral-700 dark:bg-black lg:ml-8"
+        className="text-md absolute inset-x-0 -top-7 z-50 mx-auto w-40 -translate-y-12 transform rounded-lg border border-gray-300 bg-white px-3 py-2 text-center tracking-tight outline-none transition-transform duration-100 focus:translate-y-12 dark:border-neutral-700 dark:bg-black"
       >
         Skip to content
       </a>
 
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between bg-transparent py-6 px-4  sm:px-8 lg:px-4 ">
+      <div className=" mx-auto flex w-full max-w-7xl items-center justify-between bg-transparent py-6  px-6 sm:px-8">
         <div className="flex items-center">
           <Link href="/" passHref>
             <a>
@@ -160,7 +160,7 @@ const Nav: React.FC = () => {
         <div className=" mx-4 ml-auto hidden items-center gap-4 sm:flex ">
           <CountrySelect router={router} />
           <button
-            className="outline-none"
+            className="text-neutral-700 outline-none dark:text-neutral-100"
             onClick={() =>
               setTheme(resolvedTheme === `dark` ? `light` : `dark`)
             }
@@ -177,12 +177,18 @@ const Nav: React.FC = () => {
           </button>
           <Link href="https://github.com/vignetteapp" passHref>
             <a className="outline-none">
-              <AiFillGithub size={24} />
+              <AiFillGithub
+                className="text-neutral-700 dark:text-neutral-100"
+                size={24}
+              />
             </a>
           </Link>
           <Link href="https://twitter.com/vignette_org" passHref>
             <a className="outline-none">
-              <AiOutlineTwitter size={24} />
+              <AiOutlineTwitter
+                className="text-neutral-700 dark:text-neutral-100"
+                size={24}
+              />
             </a>
           </Link>
 
@@ -223,10 +229,10 @@ const Nav: React.FC = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <div className="dark:highlight-white/5 fixed top-4 right-4 w-full max-w-xs rounded-lg bg-white p-6 text-base font-semibold text-gray-900 shadow-lg dark:bg-neutral-900 dark:text-gray-300">
+                <div className="dark:highlight-white/5 fixed top-4 right-4 w-full max-w-xs rounded-lg bg-white p-6 text-base font-semibold text-neutral-900 shadow-lg dark:bg-neutral-900 dark:text-neutral-300">
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center text-gray-500 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-100"
+                    className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center text-neutral-500 hover:text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-100"
                   >
                     <span className="sr-only">Close navigation</span>
                     <svg

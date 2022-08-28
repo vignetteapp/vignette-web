@@ -43,6 +43,15 @@ const SEO: React.FC<{
             crossOrigin="anonymous"
           />
         )} */}
+        {router.locale == `en` && (
+          <link
+            href="https://fonts.vignetteapp.org/pretendard-std/woff2/PretendardStd-Bold.woff2"
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+        )}
         <title>{template ? templateTitle : title}</title>
         <meta name="title" content={template ? templateTitle : title} />
         <meta name="description" content={desc || t(`desc`)} />

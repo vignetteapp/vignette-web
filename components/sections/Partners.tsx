@@ -1,13 +1,12 @@
-import { Container } from 'components'
 import partners from 'data/partners'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import Link from 'next/link'
 
 const Partners = () => {
   const { t } = useTranslation(`home`)
   return (
-    <Container className="mt-28 pt-16" id="partners">
+    <div className="mt-28 pt-16" id="partners">
       <h2 className="text-center text-2xl font-bold lg:text-3xl">
         {t(`partners-title`)}
       </h2>
@@ -16,46 +15,41 @@ const Partners = () => {
         {partners.map((partner, i) => (
           <a href={partner.href} key={i}>
             <div
-              className={`group col-partners.n-1 flex justify-center bg-gray-50 py-8 px-2 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:hover:grayscale-0 sm:px-8`}
+              className={`group flex h-28 justify-center bg-gray-50 py-8 px-2 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:hover:grayscale-0 sm:px-8`}
             >
-              <div
-                className={`flex h-8 items-center justify-center lg:h-12 ${
+              <Image
+                className={`max-h-12 object-scale-down ${
                   partner.darkImg && `dark:hidden`
                 }`}
-              >
-                <Image
-                  className="max-h-8"
-                  quality={90}
-                  src={partner.img}
-                  alt={partner.name}
-                  width={partner.imgWidth}
-                  height={partner.imgHeight}
-                />
-              </div>
+                quality={90}
+                src={partner.img}
+                alt={partner.name}
+                width={partner.imgWidth}
+                height={partner.imgHeight}
+              />
               {partner.darkImg && (
-                <div className={`${partner.noContrast && `brightness-90`}`}>
-                  <div
-                    className={`hidden h-8 items-center justify-center dark:block lg:h-12 ${
-                      partner.noContrast && ` brightness-0 invert`
-                    }`}
-                  >
-                    <Image
-                      className="max-h-12"
-                      quality={90}
-                      src={partner.darkImg}
-                      alt={partner.name}
-                      width={partner.imgWidth}
-                      height={partner.imgHeight}
-                    />
-                    {` `}
-                  </div>
+                <div
+                  className={`${
+                    partner.noContrast && `brightness-90`
+                  } hidden dark:block  ${
+                    partner.noContrast && ` brightness-0 invert`
+                  }`}
+                >
+                  <Image
+                    className="max-h-12 object-scale-down"
+                    quality={90}
+                    src={partner.darkImg}
+                    alt={partner.name}
+                    width={partner.imgWidth}
+                    height={partner.imgHeight}
+                  />
                 </div>
               )}
             </div>
           </a>
         ))}
       </div>
-      <Container className="max-w-7xl">
+      <div className="max-w-7xl">
         {/*Temporarilly use email until contacts page is finished*/}
         <Link href="mailto:hello@vignetteapp.org" passHref>
           <a className="text-sm font-semibold xs:text-base lg:px-8">
@@ -66,8 +60,8 @@ const Partners = () => {
             </span>
           </a>
         </Link>
-      </Container>
-    </Container>
+      </div>
+    </div>
   )
 }
 export default Partners

@@ -1,4 +1,3 @@
-import Container from './Container'
 import Link from 'next/link'
 import { LogoSquare } from './Logo'
 import { useTranslation } from 'next-i18next'
@@ -6,10 +5,7 @@ import { useTranslation } from 'next-i18next'
 const Footer = () => {
   const { t } = useTranslation(`nav`)
   return (
-    <Container
-      noMargin
-      className="mt-16 w-full bg-gray-100 px-8 py-8 text-primary dark:bg-black  lg:mt-32"
-    >
+    <div className="mt-16 w-full bg-gray-100 px-8 py-8 text-primary dark:bg-black  lg:mt-32">
       <div className="mx-auto max-w-3xl">
         <div className="footer grid grid-cols-2 text-sm lg:grid-cols-4">
           <ul className="mb-4 gap-3 text-gray-600 dark:text-gray-200">
@@ -52,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </Container>
+    </div>
   )
 }
 export default Footer

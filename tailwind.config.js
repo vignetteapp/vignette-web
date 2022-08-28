@@ -57,7 +57,19 @@ module.exports = {
           60: '#A5A6F6',
         },
         deepFuscia: '#BE58CB',
-        pinkRed: '#F10E5A',
+        pinkRed: {
+          DEFAULT: '#f10e5a',
+          50: '#fee7ef',
+          100: '#fbb7ce',
+          200: '#f887ad',
+          300: '#f43e7b',
+          400: '#f2266b',
+          500: '#f10e5a',
+          600: '#d90d51',
+          700: '#c10b48',
+          800: '#a90a3f',
+          900: '#910836',
+        },
         cornflowerBlue: '#6A99DD',
         primary: { DEFAULT: '#272727', dark: '#F8F8F8' },
         secondary: { DEFAULT: '#444444', dark: '#DADADA' },
@@ -130,5 +142,24 @@ module.exports = {
       }),
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  corePlugins: {
+    container: false,
+  },
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+    function ({ addComponents }) {
+      addComponents({
+        '.container': {
+          maxWidth: '72rem',
+          paddingRight: '1.5rem',
+          paddingLeft: '1.5rem',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+        },
+      })
+    },
+  ],
 }

@@ -1,6 +1,6 @@
 import menucomp from 'public/images/comp/menucomp.png'
-import Image from 'next/image'
-import { Container, Parallax } from 'components'
+import Image from 'next/future/image'
+import { Parallax } from 'components'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
@@ -85,36 +85,29 @@ const MenuComp = () => {
             </svg>
           </Parallax>
         </div>
-        <Container
-          parallax
-          noMargin
+        <Parallax
           offset={mobile ? 20 : 50}
           className="relative z-50 -mr-40 mt-6 px-12 pb-8 sm:mx-auto lg:mt-14"
         >
-          <div className="hidden w-full rounded-[2em] shadow-xl ring-opacity-5 lg:inline-flex lg:h-full lg:w-auto lg:max-w-none lg:shadow-2xl">
-            <Image
-              className=""
-              priority
-              src={menucomp}
-              alt=""
-              layout="fixed"
-              width={1386}
-              height={686}
-              quality={90}
-            />
-          </div>
-          <div className=" inline-flex w-full rounded-[1em] shadow-xl ring-opacity-5 lg:hidden lg:shadow-2xl">
-            <Image
-              className=""
-              priority
-              src={menucomp}
-              alt=""
-              width={1386}
-              height={686}
-              quality={90}
-            />
-          </div>
-        </Container>
+          <Image
+            className="hidden rounded-[2em] shadow-xl ring-opacity-5 lg:inline-flex lg:h-full lg:w-auto lg:max-w-none lg:shadow-2xl"
+            priority
+            src={menucomp}
+            alt=""
+            width={1386}
+            height={686}
+            quality={90}
+          />
+          <Image
+            className="rounded-[0.9rem] shadow-xl ring-opacity-5 lg:hidden lg:shadow-2xl"
+            priority
+            src={menucomp}
+            alt=""
+            width={1386}
+            height={686}
+            quality={90}
+          />
+        </Parallax>
       </div>
     </motion.div>
   )

@@ -1,4 +1,3 @@
-import Container from './Container'
 import ExtensionCard from './ExtensionCard'
 import Footer from './Footer'
 import MenuComp from './sections/MenuComp'
@@ -9,7 +8,6 @@ import Parallax, { ParallaxContainer } from './Parallax'
 import BlogNav from './BlogNav'
 
 export {
-  Container,
   ExtensionCard,
   MenuComp,
   BlogNav,
