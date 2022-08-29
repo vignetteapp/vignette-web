@@ -5,7 +5,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import { cache } from './about'
 
-import { Nav, Container, SEO, Footer } from 'components'
+import { Nav, SEO, Footer } from 'components'
 import envelope from 'public/images/envelope.png'
 
 import { SiDiscord, SiGithub, SiTwitter } from 'react-icons/si'
@@ -15,9 +15,9 @@ const Home: NextPage<cache> = () => {
     <>
       <SEO title={t(`page-title`)} />
       <Nav />
-      <Container
+      <div
         id="content"
-        className="z-20 mx-auto max-w-7xl overflow-hidden pt-8 text-center lg:relative lg:pt-20"
+        className="container z-20 mx-auto max-w-7xl overflow-hidden pt-8 text-center lg:relative lg:pt-20"
       >
         <div className=" flex justify-center">
           <h1
@@ -110,7 +110,7 @@ const Home: NextPage<cache> = () => {
             </a>
           </div>
         </div>
-      </Container>
+      </div>
 
       <Footer />
     </>

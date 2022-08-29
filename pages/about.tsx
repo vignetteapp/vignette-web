@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import repoIcon from 'public/images/icons/repo.png'
 
 import { BiGitPullRequest } from 'react-icons/bi'
-import { Nav, Container, SEO, Footer } from 'components'
+import { Nav, SEO, Footer } from 'components'
 
 import { createClient } from 'redis'
 import donationImage from 'public/images/donations.png'
@@ -16,6 +16,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
+import Fadein from 'components/FadeIn'
 
 export interface Member {
   name: string
@@ -52,7 +53,7 @@ const OpenSource: NextPage<pageProps> = ({
     <>
       <SEO title={t(`page-title`)} />
       <Nav />
-      <Container className="pt-8 lg:pt-16" id="content">
+      <div className="pt-8 lg:pt-16" id="content">
         <div className="z-20 mx-auto px-2 pb-8 lg:max-w-7xl ">
           <h1 className="lg:text-0xl bg-gradient-to-br from-[#005BEA] to-[#00C6FB] bg-clip-text text-4xl font-bold text-transparent xxs:text-5xl lg:text-9xl">
             {t(`title1`)} <br />
@@ -61,7 +62,7 @@ const OpenSource: NextPage<pageProps> = ({
           <p className="my-4 mb-8 mt-8 text-lg sm:px-2 sm:text-xl lg:mb-20 lg:text-2xl">
             {t(`hero-p`)}
           </p>
-          <Container offset={10} noMargin fadeIn>
+          <Fadein>
             <div className="mx-auto flex flex-wrap gap-8 pb-16 text-center">
               <div className="mx-auto text-xl">
                 <div className="mb-1 text-6xl font-bold">{commits}</div>
@@ -96,9 +97,9 @@ const OpenSource: NextPage<pageProps> = ({
                 {t(`visit-github-button`)}
               </a>
             </div>
-          </Container>
+          </Fadein>
         </div>
-        <Container fadeIn noMargin className="mt-32 text-center ">
+        <Fadein className="mt-32 text-center ">
           <Image src={repoIcon} alt="" quality={100} width={72} height={72} />
 
           <h2 className="mt-8 text-2xl font-bold lg:text-3xl">
@@ -133,8 +134,8 @@ const OpenSource: NextPage<pageProps> = ({
           <p className="mt-4 text-xs text-gray-800 dark:text-gray-200  ">
             {t(`updates-daily-text`)}
           </p>
-        </Container>
-        <Container>
+        </Fadein>
+        <div className="container">
           <div className="mt-14 text-center lg:mt-28">
             <div className="inline-flex overflow-hidden rounded-2xl drop-shadow-xl">
               <Image
@@ -172,8 +173,8 @@ const OpenSource: NextPage<pageProps> = ({
               </a>
             ))}
           </div>
-        </Container>
-        <Container className="mt-12 text-center">
+        </div>
+        <div className="container mt-12 text-center">
           <Image src={donationImage} width={400} height={400} alt="" />
           <h1 className="text-3xl font-bold"> {t(`section3-title`)}</h1>
           <p className="mx-auto mt-2 mb-2 max-w-[34em]">{t(`section3-p`)}</p>
@@ -266,8 +267,8 @@ const OpenSource: NextPage<pageProps> = ({
             </div>
           </div>
           <a className="button">{t(`support-us-button`)}</a>
-        </Container>
-      </Container>
+        </div>
+      </div>
 
       <Footer />
     </>

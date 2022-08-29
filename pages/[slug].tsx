@@ -6,7 +6,7 @@ import text404 from 'public/images/404text.png'
 
 import { useRouter } from 'next/router'
 
-import { Nav, Container, SEO, Footer } from 'components'
+import { Nav, SEO, Footer } from 'components'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 
@@ -27,7 +27,7 @@ const Custom404: NextPage = () => {
         }
       />
       <Nav />
-      <Container className=" max-w-7xl " id="content">
+      <div className="container " id="content">
         <div className="z-20 mx-auto  text-center ">
           {!inConstruction ? (
             <>
@@ -79,7 +79,7 @@ const Custom404: NextPage = () => {
             {t(`image-sauce`)}
           </a>
         </div>
-      </Container>
+      </div>
       <Footer />
     </>
   )

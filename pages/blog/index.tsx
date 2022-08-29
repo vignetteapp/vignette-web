@@ -3,7 +3,7 @@ import { compareDesc, format, parseISO } from 'date-fns'
 import Image from 'next/image'
 import { allPosts, Post } from 'contentlayer/generated'
 import { GetStaticProps, NextPage } from 'next'
-import { Container, Footer, BlogNav, SEO } from 'components'
+import { Footer, BlogNav, SEO } from 'components'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import members from 'data/members.json'
@@ -97,7 +97,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
     <>
       <SEO title={t(`title`)} desc={t(`hero-p`)} template={false} />
 
-      <Container noMargin id="content">
+      <div id="content">
         <div className="prose-invert relative z-20 w-full pb-14 text-white md:pb-28 ">
           <Image
             src={publicationCover}
@@ -201,7 +201,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
             <a>&lt;- {t(`back-to-home`)}</a>
           </Link>
         </div>
-      </Container>
+      </div>
       <Footer />
     </>
   )

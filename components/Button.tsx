@@ -1,4 +1,10 @@
-const Button = ({ children, href, className }) => (
+import React, { ReactNode } from 'react'
+
+const Button: React.FC<{
+  children: ReactNode
+  href: string
+  className?: string
+}> = ({ children, href, className }) => (
   <div className={`button-wrapper inline-flex rounded-full p-0.5 ` + className}>
     <a
       href={href}
