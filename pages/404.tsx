@@ -96,15 +96,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     },
   }
 }
-export async function getStaticPaths() {
-  return {
-    paths: [
-      // String variant:
-      `/features`,
-      `/plugins`,
-    ],
-    fallback: true,
-  }
-}
-
 export default Custom404
