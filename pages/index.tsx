@@ -74,12 +74,12 @@ const Home: NextPage<cache> = ({ contributors }) => {
           <div>
             <div className="flex items-center gap-4">
               <Image src={sparkle} width={64} height={64} alt="" />
-              <h2 className="max-w-[14rem] text-2xl font-bold xxs:text-3xl">
+              <h2 className="max-w-[14rem] text-2xl font-bold xxs:text-2xl">
                 {t(`design-title-line1`)}
                 <br /> {t(`design-title-line2`)}
               </h2>
             </div>
-            <p className="max-w-sm py-4 pb-6 xxs:text-lg sm:py-6 lg:max-w-sm">
+            <p className="max-w-sm py-4 pb-6 sm:py-6 sm:text-lg lg:max-w-sm">
               {t(`design-p`)}
             </p>
           </div>
@@ -101,10 +101,10 @@ const Home: NextPage<cache> = ({ contributors }) => {
         >
           <Image src={puzzle} quality={95} alt="" width={60} height={60} />
 
-          <h2 className="text-2xl font-bold xxs:text-3xl">
+          <h2 className="text-2xl font-bold xxs:text-2xl">
             {t(`plugins-title`)}
           </h2>
-          <p className="mx-auto max-w-[34rem] pt-4 pb-8 xxs:text-lg lg:pb-12">
+          <p className="mx-auto max-w-[34rem] pt-4 pb-8 sm:text-lg lg:pb-12">
             {t(`extensions-in-development`)}
           </p>
           {/* <Link href="/plugins" passHref>
@@ -131,11 +131,11 @@ const Home: NextPage<cache> = ({ contributors }) => {
       >
         <div className="mx-auto mt-auto mb-6 text-center lg:mb-8">
           <Image quality={95} src={shipwheel} alt="" width={60} height={60} />
-          <h2 className="text-3xl font-bold xxs:text-3xl">
+          <h2 className="text-3xl font-bold xxs:text-2xl">
             {t(`transparency-title-line1`)}
             <br /> {t(`transparency-title-line2`)}
           </h2>
-          <p className="mx-auto max-w-[22rem] pb-8 pt-4 xxs:text-lg">
+          <p className="mx-auto max-w-[22rem] pb-8 pt-4 sm:text-lg">
             {t(`transparency-p`)}
           </p>
           <div className="mx-auto mb-8 flex flex-wrap justify-center gap-4 sm:max-w-7xl sm:gap-8">

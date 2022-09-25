@@ -200,7 +200,7 @@ const Nav: React.FC = () => {
           <button className="" onClick={toggleMenu}>
             <GiHamburgerMenu
               size="28"
-              className="fill-primary dark:fill-neutral-100"
+              className="fill-gray-600 dark:fill-neutral-100"
             />
           </button>
           <Transition appear show={isOpen} as={Fragment}>
