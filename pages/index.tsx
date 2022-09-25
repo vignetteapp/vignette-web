@@ -58,12 +58,9 @@ const Home: NextPage<cache> = ({ contributors }) => {
             >
               {t(`join-discord-short`)}&rarr;
             </a>
-            <a
-              href="https://go.vignetteapp.org/discord"
-              className="button hidden sm:inline-block"
-            >
+            <Button href="https://go.vignetteapp.org/discord">
               {t(`join-discord-long`)} &rarr;
-            </a>
+            </Button>
           </div>
         </div>
         <MenuComp />
@@ -104,7 +101,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
           <h2 className="text-2xl font-bold xxs:text-2xl">
             {t(`plugins-title`)}
           </h2>
-          <p className="mx-auto max-w-[34rem] pt-4 pb-8 sm:text-lg lg:pb-12">
+          <p className="mx-auto max-w-[34rem] pt-4 sm:text-lg">
             {t(`extensions-in-development`)}
           </p>
           {/* <Link href="/plugins" passHref>
@@ -153,9 +150,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
               </div>
             ))}
           </div>
-          <Link href="/about" passHref>
-            <a className="button">{t(`about-button`)}</a>
-          </Link>
+          <Button href="/about">{t(`about-button`)} &rarr;</Button>
         </div>
       </Fadein>
       <Fadein className="container">

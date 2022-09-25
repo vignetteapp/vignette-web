@@ -14,6 +14,7 @@ import { NextRouter, useRouter } from 'next/router'
 
 import { Listbox, Transition } from '@headlessui/react'
 
+import Button from 'components/Button'
 import { AiOutlineCheck } from 'react-icons/ai'
 import ReactCountryFlag from 'react-country-flag'
 import { BiChevronDown } from 'react-icons/bi'
@@ -192,9 +193,13 @@ const Nav: React.FC = () => {
             </a>
           </Link>
 
-          <button className="rounded-full bg-pinkRed px-8 py-1 font-semibold text-white ">
+          <Button
+            href="#"
+            className="py-1 text-sm text-gray-200 dark:text-gray-200 dark:ring-gray-300"
+            size="small"
+          >
             {t(`download`)}
-          </button>
+          </Button>
         </div>
         <div className="flex items-center lg:hidden">
           <button className="" onClick={toggleMenu}>
