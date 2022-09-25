@@ -52,13 +52,16 @@ const Home: NextPage<cache> = ({ contributors }) => {
               {t(`hero-p`)}
             </p>
 
-            <a
+            <Button
               href="https://go.vignetteapp.org/discord"
-              className="button inline-block sm:hidden"
+              className=" inline-block sm:hidden"
             >
               {t(`join-discord-short`)}&rarr;
-            </a>
-            <Button href="https://go.vignetteapp.org/discord">
+            </Button>
+            <Button
+              href="https://go.vignetteapp.org/discord"
+              className=" hidden sm:inline-block"
+            >
               {t(`join-discord-long`)} &rarr;
             </Button>
           </div>
