@@ -195,7 +195,7 @@ const Nav: React.FC = () => {
 
           <Button
             href="#"
-            className="py-1 text-sm text-gray-200 dark:text-gray-200 dark:ring-gray-300"
+            className="py-1 text-sm text-gray-800 dark:text-gray-200 dark:ring-gray-300"
             size="small"
           >
             {t(`download`)}
