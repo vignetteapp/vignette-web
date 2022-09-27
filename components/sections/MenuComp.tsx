@@ -99,7 +99,7 @@ const MenuComp = () => {
             quality={90}
           />
           <Image
-            className="rounded-[0.9rem] shadow-xl ring-opacity-5 lg:hidden lg:shadow-2xl"
+            className="rounded-[0.7rem] shadow-xl ring-opacity-5 lg:hidden lg:shadow-2xl"
             priority
             src={menucomp}
             alt=""

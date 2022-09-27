@@ -108,7 +108,8 @@ ul >li{
 
 .fadein{
   opacity: 0;
-  @apply transition ease-in-out duration-[500ms] will-change-transform delay-75 translate-y-4;
+  @apply transition ease-[cubic-bezier(0.22,0.61,0.35,1)] duration-[500ms] delay-[50ms] will-change-transform translate-y-4;
+
 }
 .fadein.inview{
   opacity: 1;

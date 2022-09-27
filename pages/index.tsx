@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { cache } from './about'
 import { createClient } from 'redis'
 
-import { Nav, MenuComp, SEO, Footer } from 'components'
+import { Nav, MenuComp, SEO, Footer, ExtensionCard } from 'components'
 
 import sparkle from 'public/images/icons/sparkle.png'
 import section1comp from 'public/images/comp/section1-brain.png'
@@ -17,6 +17,8 @@ import Partners from 'components/sections/Partners'
 import { useRouter } from 'next/router'
 import Button from 'components/Button'
 import Fadein from 'components/FadeIn'
+import Marquee from 'react-fast-marquee'
+import extensions from 'data/extensions'
 
 const Home: NextPage<cache> = ({ contributors }) => {
   const { t } = useTranslation(`home`)
@@ -94,46 +96,37 @@ const Home: NextPage<cache> = ({ contributors }) => {
           </div>
         </div>
       </Fadein>
-      <Fadein>
-        <div
-          id="plugins"
-          className="container mt-20 pt-16 text-center lg:mt-28"
-        >
-          <Image src={puzzle} quality={95} alt="" width={60} height={60} />
+      <div className="mt-20 bg-gray-100 py-16 shadow-inner dark:bg-neutral-900">
+        <Fadein>
+          <div id="plugins" className="container  text-center ">
+            <Image src={puzzle} quality={95} alt="" width={60} height={60} />
 
-          <h2 className="text-2xl font-bold xxs:text-3xl">
-            {t(`plugins-title`)}
-          </h2>
-          <p className="mx-auto max-w-[34rem] pt-4 sm:text-lg">
-            {t(`extensions-in-development`)}
-          </p>
-          {/* <Link href="/plugins" passHref>
+            <h2 className="text-2xl font-bold xxs:text-3xl">
+              {t(`plugins-title`)}
+            </h2>
+            <p className="mx-auto max-w-[34rem] pt-4 sm:text-lg">
+              {t(`extensions-in-development`)}
+            </p>
+            {/* <Link href="/plugins" passHref>
             <a className="button"> {t(`explore-plugins-button`)}</a>
           </Link> */}
-        </div>
-        {/* <div noMargin offset={10} className=" pt-16">
-          <Marquee speed={50} gradientWidth={0}>
-            {extensions.map((ext, index) => (
-              <ExtensionCard key={index} name={ext.name} />
-            ))}
-          </Marquee>
-          <Marquee speed={40} delay={0.3} className="pb-8" gradientWidth={0}>
-            {extensions.map((ext, index) => (
-              <ExtensionCard key={index} name={ext.name} />
-            ))}
-          </Marquee>
-        </div> */}
-      </Fadein>
-
-      <Fadein
-        id="transparency"
-        className="container mt-20  gap-8 pt-16 lg:mt-28"
-      >
+          </div>
+          <div className=" mt-8" title="In development...">
+            <Marquee speed={50} gradientWidth={0}>
+              {extensions.map((ext, index) => (
+                <ExtensionCard key={index} name={ext.name} />
+              ))}
+            </Marquee>
+          </div>
+        </Fadein>
+      </div>
+      <Fadein id="transparency" className="container mt-20  gap-8  ">
         <div className="mx-auto mt-auto mb-6  text-center lg:mb-8">
           <Image quality={95} src={shipwheel} alt="" width={60} height={60} />
           <h2 className="text-2xl font-bold xxs:text-3xl">
             {t(`transparency-title-line1`)}
-            <br /> {t(`transparency-title-line2`)}
+            {` `}
+            {t(`transparency-title-line2`)}
           </h2>
           <p className="mx-auto max-w-[22rem] pb-8 pt-4 sm:text-lg">
             {t(`transparency-p`)}

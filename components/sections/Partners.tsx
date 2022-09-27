@@ -6,7 +6,7 @@ import Link from 'next/link'
 const Partners = () => {
   const { t } = useTranslation(`home`)
   return (
-    <div className="mt-28 pt-16" id="partners">
+    <div className="mt-20 pt-16" id="partners">
       <h2 className="text-center text-2xl font-bold xxs:text-3xl">
         {t(`partners-title`)}
       </h2>
@@ -27,7 +27,7 @@ const Partners = () => {
                 width={partner.imgWidth}
                 height={partner.imgHeight}
               />
-              {partner.darkImg && (
+              {partner.darkImg && (`
                 <div
                   className={`${
                     partner.noContrast && `brightness-90`
