@@ -57,9 +57,10 @@ body{
   --foreground: #f9f9f9;
 }
 
-
+/* Generated using https://www.learnui.design/tools/gradient-generator.html (pinkRed -> deepFuscia but no gray areas) */
 .gradient-primary {
-  @apply bg-gradient-to-br from-pinkRed to-deepFuscia;
+  background-image: linear-gradient(to bottom right, #f10e5a, #f1106c, #ee1b7e, #e9288f, #e235a0, #d841af, #cc4dbe, #be58cb);
+
 }
 
 .gradient-secondary {

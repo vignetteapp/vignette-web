@@ -74,7 +74,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
           <div>
             <div className="flex items-center gap-4">
               <Image src={sparkle} width={64} height={64} alt="" />
-              <h2 className="max-w-[14rem] text-2xl font-bold xxs:text-2xl">
+              <h2 className="text-2xl font-bold xxs:text-3xl">
                 {t(`design-title-line1`)}
                 <br /> {t(`design-title-line2`)}
               </h2>
@@ -101,7 +101,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
         >
           <Image src={puzzle} quality={95} alt="" width={60} height={60} />
 
-          <h2 className="text-2xl font-bold xxs:text-2xl">
+          <h2 className="text-2xl font-bold xxs:text-3xl">
             {t(`plugins-title`)}
           </h2>
           <p className="mx-auto max-w-[34rem] pt-4 sm:text-lg">
@@ -127,11 +127,11 @@ const Home: NextPage<cache> = ({ contributors }) => {
 
       <Fadein
         id="transparency"
-        className="container mt-20  gap-8 pt-16 lg:mt-28 "
+        className="container mt-20  gap-8 pt-16 lg:mt-28"
       >
-        <div className="mx-auto mt-auto mb-6 text-center lg:mb-8">
+        <div className="mx-auto mt-auto mb-6  text-center lg:mb-8">
           <Image quality={95} src={shipwheel} alt="" width={60} height={60} />
-          <h2 className="text-3xl font-bold xxs:text-2xl">
+          <h2 className="text-2xl font-bold xxs:text-3xl">
             {t(`transparency-title-line1`)}
             <br /> {t(`transparency-title-line2`)}
           </h2>
@@ -142,7 +142,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
             {contributors.map((c) => (
               <div
                 key={c.login}
-                className="relative h-11 w-11  rounded-full bg-slate-100 dark:bg-neutral-800 lg:h-16 lg:w-16"
+                className="relative h-11 w-11 rounded-full bg-slate-100 shadow dark:bg-neutral-800 lg:h-16 lg:w-16"
               >
                 <Image
                   src={c.profile}

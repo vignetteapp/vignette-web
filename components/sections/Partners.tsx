@@ -7,7 +7,7 @@ const Partners = () => {
   const { t } = useTranslation(`home`)
   return (
     <div className="mt-28 pt-16" id="partners">
-      <h2 className="text-center text-2xl font-bold lg:text-3xl">
+      <h2 className="text-center text-2xl font-bold xxs:text-3xl">
         {t(`partners-title`)}
       </h2>
 

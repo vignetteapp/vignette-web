@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className="mt-16 w-full bg-gray-100 px-8 py-8 text-primary dark:bg-black  lg:mt-32">
       <div className="mx-auto max-w-3xl">
-        <div className="footer grid grid-cols-2 text-sm lg:grid-cols-4">
+        <div className="footer grid grid-cols-2  lg:grid-cols-4">
           <ul className="mb-4 gap-3 text-gray-600 dark:text-gray-200">
             <span className="font-semibold">Vignette</span>
             <li>
