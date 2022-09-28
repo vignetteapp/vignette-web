@@ -27,7 +27,7 @@ const Partners = () => {
                 width={partner.imgWidth}
                 height={partner.imgHeight}
               />
-              {partner.darkImg && (`
+              {partner.darkImg && (
                 <div
                   className={`${
                     partner.noContrast && `brightness-90`
