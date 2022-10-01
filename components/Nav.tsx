@@ -194,7 +194,7 @@ const Nav: React.FC = () => {
           </Link>
 
           <Button
-            href="#"
+            href="https://github.com/vignetteapp/vignette/"
             className="py-1 text-sm text-gray-800 dark:text-gray-200 dark:ring-gray-300"
             size="small"
           >
