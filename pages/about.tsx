@@ -54,7 +54,7 @@ const OpenSource: NextPage<pageProps> = ({
     <>
       <SEO title={t(`page-title`)} />
       <Nav />
-      <div className="pt-8 lg:pt-16" id="content">
+      <div className="mt-[74px] pt-8 lg:pt-16" id="content">
         <div className="z-20 mx-auto px-2 pb-8 lg:max-w-7xl ">
           <h1 className="bg-gradient-to-br from-[#005BEA] to-[#00C6FB] bg-clip-text text-center text-4xl font-bold text-transparent xxs:text-5xl lg:text-8xl">
             {t(`title1`)} <br />

@@ -6,8 +6,16 @@ html {
   scroll-behavior: smooth;
 }
 
+*, ::before, ::after {
+  border-color: #e5e7eb;
+}
+
+.dark *, ::before, ::after {
+  border-color:#27272a;
+}
+
 body{
-  @apply font-inter antialiased  text-black bg-white text-base dark:text-[#f9f9f9] dark:bg-[#181a1b];
+  @apply font-inter antialiased  text-black  bg-white text-base dark:text-neutral-100 dark:bg-[#181a1b];
   font-feature-settings: "calt" on;
 }
 
@@ -57,11 +65,7 @@ body{
   --foreground: #f9f9f9;
 }
 
-/* Generated using https://www.learnui.design/tools/gradient-generator.html (pinkRed -> deepFuscia but no gray areas) */
-.gradient-primary {
-  background-image: linear-gradient(to bottom right, #f10e5a, #f1106c, #ee1b7e, #e9288f, #e235a0, #d841af, #cc4dbe, #be58cb);
 
-}
 
 .gradient-secondary {
   @apply bg-gradient-to-br from-iris-70 via-iris-80 to-fuschia-90;
@@ -72,14 +76,6 @@ body{
 }
 
 
-.button{
-	@apply rounded-full bg-pinkRed hover:bg-[#ff2277] px-10 duration-100 transition lg:px-12 py-2 xs:py-3 text-sm xxs:text-base lg:text-lg font-bold text-white shadow;
-}
-
-
-.button-small{
-	@apply rounded-full bg-pinkRed hover:bg-[#ff2277] px-10 duration-100 transition lg:px-12 py-2 text-xs xxs:text-sm font-bold text-white shadow;
-}
 
 ul >li{
 @apply my-2;

@@ -6,16 +6,16 @@ import Link from 'next/link'
 const Partners = () => {
   const { t } = useTranslation(`home`)
   return (
-    <div className="mt-20 pt-16" id="partners">
-      <h2 className="text-center text-2xl font-bold xxs:text-3xl">
+    <div className="mt-20 pt-16 " id="partners">
+      <h2 className="text-center text-2xl font-bold  xxs:text-3xl xs:text-4xl">
         {t(`partners-title`)}
       </h2>
 
-      <div className=" mx-auto grid max-w-7xl grid-cols-2 gap-0.5  px-2 py-4 sm:px-6 md:grid-cols-4 lg:py-8 lg:px-8">
+      <div className="container grid grid-cols-2 gap-0.5 py-4 md:grid-cols-4 ">
         {partners.map((partner, i) => (
           <a href={partner.href} key={i}>
             <div
-              className={`group flex h-28 justify-center bg-gray-50 py-8 px-2 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:hover:grayscale-0 sm:px-8`}
+              className={`group flex h-28 justify-center bg-gray-100 py-8 px-2 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:hover:grayscale-0 sm:px-8`}
             >
               <Image
                 className={`max-h-12 object-scale-down ${
@@ -49,14 +49,14 @@ const Partners = () => {
           </a>
         ))}
       </div>
-      <div className="max-w-7xl">
+      <div className="container">
         {/*Temporarilly use email until contacts page is finished*/}
-        <Link href="mailto:hello@vignetteapp.org" passHref>
-          <a className="text-sm font-semibold xs:text-base lg:px-8">
+        <Link href="/contact" passHref>
+          <a className="text-sm font-semibold xs:text-base">
             {t(`become-partner`)}
             {` `}
             <span className="tracking-[0]" style={{ fontFamily: `Inter var` }}>
-              -&gt;
+              &rarr;
             </span>
           </a>
         </Link>

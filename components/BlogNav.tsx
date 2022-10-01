@@ -11,6 +11,7 @@ import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 
 import { CountrySelect } from './Nav'
+import Button from './Button'
 
 // en: `ENG`,
 // ja: `日本`,
@@ -47,12 +48,19 @@ const Nav: React.FC = () => {
       </a>
       {` `}
       <div className="relative z-30 mx-auto flex w-full max-w-7xl items-center justify-between bg-transparent py-6 px-4  sm:px-8 lg:px-4 ">
-        <div className="flex items-center">
+        <div className="group flex items-center gap-2">
           <Link href="/blog" passHref>
             <a className="text-lg font-bold lg:text-xl">
               {t(`blog:nav-title`)}
             </a>
           </Link>
+          <div className="overflow-hidden">
+            <Link href="/" passHref>
+              <a className="block -translate-x-[100%] p-1 transition duration-200 group-hover:translate-x-0">
+                &larr; {t(`blog:back-to-home`)}
+              </a>
+            </Link>
+          </div>
         </div>
 
         <div className=" mx-4 ml-auto hidden items-center gap-4 sm:flex ">
@@ -84,9 +92,9 @@ const Nav: React.FC = () => {
             </a>
           </Link>
 
-          <button className="rounded-full bg-pinkRed px-8 py-1 font-semibold text-white ">
+          <Button className="rounded-full bg-pinkRed px-8 py-1 font-semibold text-white ">
             {t(`download`)}
-          </button>
+          </Button>
         </div>
         <div className="flex items-center lg:hidden">
           <button className="" onClick={toggleMenu}>

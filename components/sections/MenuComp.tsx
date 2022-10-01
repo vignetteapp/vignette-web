@@ -40,15 +40,15 @@ const MenuComp = () => {
   return (
     <motion.div
       transition={{ duration: 0.2 }}
-      initial={{ opacity: 0.2 }}
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className=""
     >
-      <div className="z-40 py-8 sm:relative sm:mt-4 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-[calc(50%-1rem)] lg:pt-8">
+      <div className="z-40 mt-8 py-8 sm:relative sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-[calc(50%-1rem)] lg:pt-8">
         <div className=" hidden sm:block">
           <Parallax
             offset={20}
-            className="absolute inset-y-0 left-1/2 z-40 mt-3 w-screen rounded-l-3xl  bg-gray-100 dark:bg-zinc-800 lg:left-80 lg:right-0 lg:w-full"
+            className="absolute inset-y-0 left-1/2 z-40 mt-3 w-screen rounded-l-3xl  bg-gray-50 dark:bg-zinc-800 lg:left-80 lg:right-0 lg:w-full"
           />
           <Parallax offset={30} className="relative z-50">
             <svg
@@ -90,16 +90,7 @@ const MenuComp = () => {
           className="relative z-50 -mr-40 mt-6 px-12 pb-8 sm:mx-auto lg:mt-14"
         >
           <Image
-            className="hidden rounded-[2em] shadow-xl ring-opacity-5 lg:inline-flex lg:h-full lg:w-auto lg:max-w-none lg:shadow-2xl"
-            priority
-            src={menucomp}
-            alt=""
-            width={1386}
-            height={686}
-            quality={90}
-          />
-          <Image
-            className="rounded-[0.7rem] shadow-xl ring-opacity-5 lg:hidden lg:shadow-2xl"
+            className="inline-flex rounded-[1.8vw] shadow-xl ring-opacity-5 lg:max-h-[40rem] lg:w-auto lg:max-w-none "
             priority
             src={menucomp}
             alt=""
