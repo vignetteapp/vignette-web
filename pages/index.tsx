@@ -69,7 +69,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
 
       <Fadein id="design" className="relative mx-auto  ">
         <div className="relative md:bg-none">
-          <div className="flex w-full items-center justify-center px-6 pt-8 ">
+          <div className="flex w-full items-center justify-center pt-8 ">
             <div className="w-full">
               <div className="container grid grid-cols-1 items-center md:grid-cols-2">
                 <div className="mb-8 md:mb-0">
@@ -96,7 +96,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
                   </div>
                 </div>
                 <div className="relative z-40 rounded-[50px] bg-gray-50 text-center dark:bg-neutral-900 sm:p-8">
-                  <div className="rounded-[25px] border bg-white p-6 text-center shadow-md dark:bg-[#181a1b] sm:p-8 sm:shadow-xl">
+                  <div className="rounded-[25px] border bg-white p-4 text-center shadow-md dark:bg-[#181a1b] sm:p-8 sm:shadow-xl">
                     <Image
                       src={section1comp}
                       alt=""
