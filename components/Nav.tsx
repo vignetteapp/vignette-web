@@ -212,7 +212,7 @@ const Nav: React.FC = () => {
               <Dialog
                 open={isOpen}
                 onClose={() => setIsOpen(false)}
-                className="fixed inset-0 z-50 lg:hidden"
+                className="fixed inset-0 z-[150] lg:hidden"
               >
                 <Transition.Child
                   as={Fragment}
