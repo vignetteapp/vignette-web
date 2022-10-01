@@ -5,12 +5,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "crowdin:download": "crowdin download",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"./**/*.+(ts|tsx)\""
   },
   "dependencies": {
-    "@crowdin/cli": "^3.7.10",
     "@headlessui/react": "^1.4.3",
     "@octokit/graphql": "^4.8.0",
     "@octokit/rest": "^18.12.0",
