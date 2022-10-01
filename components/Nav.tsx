@@ -198,7 +198,7 @@ const Nav: React.FC = () => {
               type="secondary"
               className="py-1 text-sm text-gray-800 dark:text-gray-200 dark:ring-gray-300"
             >
-              {t(`download`)}
+              {t(`star-us`)}
             </Button>
           </div>
           <div className="ml-4 flex items-center lg:hidden">
