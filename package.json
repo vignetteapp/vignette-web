@@ -6,6 +6,8 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
+    "localisation:pull": "poeditor pull",
+    "localisation:push": "poeditor push",
     "lint": "eslint --ignore-path .gitignore \"./**/*.+(ts|tsx)\""
   },
   "dependencies": {
@@ -25,6 +27,7 @@
     "next-i18next": "^12.0.0",
     "next-seo": "^5.0.0",
     "next-themes": "^0.2.0",
+    "poeditor-ci": "^1.15.0",
     "react": "^18.2.0",
     "react-country-flag": "^3.0.2",
     "react-dom": "^18.2.0",
