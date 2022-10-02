@@ -15,7 +15,7 @@ const Partners = () => {
         {partners.map((partner, i) => (
           <a href={partner.href} key={i}>
             <div
-              className={`group flex h-28 justify-center bg-gray-100 py-8 px-2 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:hover:grayscale-0 sm:px-8`}
+              className={`group flex h-28 justify-center bg-gray-50 py-8 px-2 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:hover:grayscale-0 sm:px-8`}
             >
               <Image
                 className={`max-h-12 object-scale-down ${

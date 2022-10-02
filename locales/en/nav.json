@@ -1,10 +1,10 @@
 {
-    "home": "Home",
-    "features": "Features",
-    "about": "About",
-    "blog": "Blog",
-    "contact": "Contact",
-    "plugins": "Plugins",
-    "social": "Social",
-    "download": "Download"
+  "home": "Home",
+  "features": "Features",
+  "about": "About",
+  "blog": "Blog",
+  "contact": "Contact",
+  "plugins": "Plugins",
+  "social": "Social",
+  "star-us": "Star us!"
 }

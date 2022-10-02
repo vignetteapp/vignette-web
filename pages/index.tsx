@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import type { GetStaticProps, NextPage } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import { cache } from './about'
 import { createClient } from 'redis'
 
@@ -32,7 +32,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
         className="z-20 mt-[74px] overflow-x-clip pt-8 lg:relative"
         id="content"
       >
-        <div className="mx-auto mt-8 max-w-7xl grid-cols-1 px-6 lg:grid-cols-2 lg:gap-24 lg:pt-24 lg:pb-64 xl:grid">
+        <div className="mx-auto mt-8 max-w-7xl grid-cols-1 px-6 lg:grid-cols-2 lg:gap-24 lg:pt-24 lg:pb-[14rem] xl:grid">
           <div className="pb-8 lg:max-w-4xl">
             <h1
               className={
@@ -92,7 +92,9 @@ const Home: NextPage<cache> = ({ contributors }) => {
                     </div>
                   </div>
                   <div className="flex justify-center pt-7 md:justify-start">
-                    <Button>Learn more &rarr;</Button>
+                    <Button size="small" href="/features">
+                      Learn more &rarr;
+                    </Button>
                   </div>
                 </div>
                 <div className="relative z-40 rounded-[50px] bg-gray-50 text-center dark:bg-neutral-900 sm:p-8">
@@ -119,7 +121,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
             <span className="text-sm font-semibold uppercase text-pinkRed">
               {t(`extensions-smalltitle`)}
             </span>
-            <h2 className="text-2xl font-bold tracking-[-0.04em] text-neutral-800  dark:text-neutral-100 xxs:text-3xl">
+            <h2 className="text-2xl font-bold tracking-[-0.02em] text-neutral-800 dark:text-neutral-100 xxs:text-3xl  md:leading-[40px]">
               {t(`extensions-title`)}
             </h2>
             <p className="mx-auto max-w-[34rem] pt-4 italic text-neutral-900 dark:text-neutral-300 sm:text-lg">
@@ -129,7 +131,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
             <a className="button"> {t(`explore-extensions-button`)}</a>
           </Link> */}
           </div>
-          <div className=" mt-8" title="In development...">
+          <div className=" mt-8" title="Coming soon....">
             <Marquee speed={50} gradientWidth={0}>
               {extensions.map((ext, index) => (
                 <ExtensionCard key={index} name={ext.name} />
@@ -138,22 +140,22 @@ const Home: NextPage<cache> = ({ contributors }) => {
           </div>
         </Fadein>
       </div>
-      <Fadein id="transparency" className="container mt-20  gap-8  ">
+      <Fadein id="transparency" className="container mt-20 gap-8  ">
         <div className="mx-auto mt-auto mb-6  text-center lg:mb-8">
           {/* <Image quality={95} src={shipwheel} alt="" width={60} height={60} /> */}
 
           <span className="text-sm font-semibold uppercase text-pinkRed">
             {t(`transparency-smalltitle`)}
           </span>
-          <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100  xxs:text-3xl xs:text-3xl">
+          <h2 className="text-2xl font-bold tracking-[-0.02em] text-neutral-800 dark:text-neutral-100 xxs:text-3xl xs:text-3xl md:leading-[40px]">
             {t(`transparency-title-line1`)}
             {` `}
             {t(`transparency-title-line2`)}
           </h2>
-          <p className="mx-auto max-w-[24rem] pb-8 pt-3 text-neutral-900 dark:text-neutral-300 sm:text-xl">
+          <p className="mx-auto max-w-[24rem]  pb-8 pt-3 text-base text-neutral-900 dark:text-neutral-300 sm:text-xl md:text-lg">
             {t(`transparency-p`)}
           </p>
-          <div className="mx-auto mb-8 flex flex-wrap justify-center gap-4 sm:max-w-5xl sm:gap-8">
+          <div className="mx-auto mb-8 flex flex-wrap justify-center gap-3 sm:max-w-5xl sm:gap-8">
             {contributors.map((c) => (
               <div
                 key={c.login}
@@ -161,7 +163,8 @@ const Home: NextPage<cache> = ({ contributors }) => {
               >
                 <Image
                   src={c.profile}
-                  layout="fill"
+                  width={64}
+                  height={64}
                   className="rounded-full"
                   alt=""
                 />

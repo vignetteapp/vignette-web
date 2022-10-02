@@ -1,9 +1,8 @@
-import menucomp from 'public/images/comp/menucomp.png'
 import Image from 'next/future/image'
 import { Parallax } from 'components'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-
+import menucomp from 'public/images/comp/menucomp.svg'
 // Hook
 const useWindowSize = () => {
   // Initialize state with undefined width/height so server and client renders match
@@ -44,7 +43,7 @@ const MenuComp = () => {
       animate={{ opacity: 1 }}
       className=""
     >
-      <div className="z-40 mt-8 py-8 sm:relative sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-[calc(50%-1rem)] lg:pt-8">
+      <div className="z-40 py-8 sm:relative sm:mt-8 lg:absolute lg:inset-y-0 lg:right-0 lg:w-[calc(50%-1rem)] lg:pt-8">
         <div className=" hidden sm:block">
           <Parallax
             offset={20}
@@ -87,16 +86,14 @@ const MenuComp = () => {
         </div>
         <Parallax
           offset={mobile ? 20 : 50}
-          className="relative z-50 -mr-40 mt-6 px-12 pb-8 sm:mx-auto lg:mt-14"
+          className="relative z-50 -mr-40 mt-6 h-full px-12 pb-8 sm:mx-auto lg:mt-14"
         >
           <Image
-            className="inline-flex rounded-[1.8vw] shadow-xl ring-opacity-5 lg:max-h-[40rem] lg:w-auto lg:max-w-none "
-            priority
+            className="inline-flex h-full rounded-[15px] shadow-2xl sm:rounded-[24px] lg:max-h-[40rem] lg:w-auto lg:max-w-none lg:rounded-[38px]"
             src={menucomp}
+            width={1400}
+            height={800}
             alt=""
-            width={1386}
-            height={686}
-            quality={90}
           />
         </Parallax>
       </div>

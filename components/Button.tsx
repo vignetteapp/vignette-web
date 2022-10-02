@@ -27,7 +27,7 @@ const Button: React.FC<{
         size == `large`
           ? `py-2 px-10 text-base sm:py-3 lg:px-12`
           : size == `small`
-          ? `py-1 text-sm`
+          ? `py-2 px-8 text-sm`
           : `py-2 px-10 `
       } ${
         type == `primary` &&
