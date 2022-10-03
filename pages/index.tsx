@@ -52,13 +52,13 @@ const Home: NextPage<cache> = ({ contributors }) => {
             </p>
 
             <Button
-              href="https://go.vignetteapp.org/discord"
+              href="https://discord.gg/rsPNAxwweg"
               className=" inline-block sm:hidden"
             >
               {t(`join-discord-short`)}&rarr;
             </Button>
             <Button
-              href="https://go.vignetteapp.org/discord"
+              href="https://discord.gg/rsPNAxwweg"
               className=" hidden sm:inline-block"
             >
               {t(`join-discord-long`)} &rarr;

@@ -50,7 +50,7 @@ const Home: NextPage<cache> = () => {
             </p>
             <a
               className="button-small w-full"
-              href="https://go.vignetteapp.org/discord"
+              href="https://discord.gg/rsPNAxwweg"
             >
               {t(`join-button`)}
             </a>
