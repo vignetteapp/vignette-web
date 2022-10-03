@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import { allPosts, Post } from 'contentlayer/generated'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { Footer, BlogNav, SEO } from 'components'
+import { Footer, Nav, SEO } from 'components'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import circles from 'public/images/blog-banner.png'
@@ -32,21 +32,50 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
         template={false}
       />
 
-      <BlogNav />
+      <Nav />
 
-      <article className="mx-auto py-8 lg:py-12 " id="content">
-        <div className="mx-auto mb-6 max-w-3xl px-4">
+      <article className="mx-auto mt-[74px] py-8 lg:py-12 " id="content">
+        <div className="mx-auto mb-8 max-w-5xl px-6">
+          <Link href="/blog" passHref>
+            <a>
+              <span className="tracking-[0]">&lt;-</span>
+              {` `}
+              {t(`back-to-list`)}
+            </a>
+          </Link>
+        </div>
+
+        <div className="mx-auto mb-6 max-w-5xl px-6">
           <Link href="/blog">
             <a className="text-sm font-semibold uppercase tracking-tight text-pinkRed">
               {post.category}
             </a>
           </Link>
 
-          <h1 className="mt-1 text-3xl font-bold lg:text-5xl">{post.title}</h1>
-          <p className=" prose mt-8 text-neutral-500 dark:prose-invert dark:text-neutral-400  sm:prose-lg">
+          <h1 className="mt-1 text-5xl font-bold tracking-tight lg:text-5xl">
+            {post.title}
+          </h1>
+
+          <p className=" prose mt-8 text-neutral-700 dark:prose-invert dark:text-neutral-300  sm:prose-lg">
             {post.summary}
           </p>
-          <div className="mt-8 flex items-center">
+
+          <a className="my-8 inline-flex h-[34rem] overflow-hidden rounded-md">
+            <Image
+              src={post.image}
+              width="1080"
+              height="540"
+              quality={100}
+              className="rounded-md object-cover object-center "
+              alt=""
+              priority
+            />
+          </a>
+          <div className="pb-2 text-neutral-600 dark:text-neutral-200">
+            Author
+          </div>
+
+          <div className=" flex items-center">
             <Image
               src={members.filter((item) => item.name == post.author)[0].avatar}
               width={40}
@@ -54,19 +83,23 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
               alt=""
               className="rounded-full"
             />
-            <div className="pl-2 text-sm">
+            <div className="pl-3">
               <span className="font-semibold">{post.author}</span>
+            </div>
+            <div className="ml-auto flex items-center gap-4">
+              <span className="h-6 border-l border-neutral-400 dark:border-neutral-300" />
               <time
                 dateTime={post.date}
-                className="block text-gray-600 dark:text-gray-200"
+                className=" block text-gray-600 dark:text-gray-200"
               >
                 {format(parseISO(post.date), `LLLL d, yyyy`)}
               </time>
             </div>
           </div>
+          <hr className="my-4 border-neutral-300 lg:mb-16" />
         </div>
 
-        <div className="prose prose-lg prose-neutral relative mx-auto max-w-3xl px-4 prose-a:text-pinkRed prose-img:rounded dark:prose-invert">
+        <div className="prose prose-lg prose-neutral relative mx-auto max-w-3xl px-6 prose-h2:tracking-tight prose-p:text-neutral-900 prose-a:text-pinkRed prose-img:rounded dark:prose-invert dark:prose-p:text-neutral-400 ">
           <Component
             components={
               {
@@ -76,7 +109,7 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
           />
         </div>
       </article>
-      <div className="mx-auto max-w-3xl px-4">
+      <div className="mx-auto max-w-3xl px-6">
         <h3 className="mb-1 font-semibold">Tags</h3>
         <div className="mb-8 flex gap-2">
           {post.tags.map((tag, i) => (
@@ -97,9 +130,9 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
           </a>
         </Link>
       </div>
-      <div className="relative left-0 h-80 w-80  lg:top-24 2xl:absolute">
+      {/* <div className="relative left-0 h-80 w-80  lg:top-24 2xl:absolute">
         <Image src={circles} layout="fill" priority alt="" />
-      </div>
+      </div> */}
       <Footer />
     </>
   )

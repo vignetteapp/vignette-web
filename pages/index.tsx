@@ -32,11 +32,11 @@ const Home: NextPage<cache> = ({ contributors }) => {
         className="z-20 mt-[74px] overflow-x-clip pt-8 lg:relative"
         id="content"
       >
-        <div className="mx-auto mt-8 max-w-7xl grid-cols-1 px-6 lg:grid-cols-2 lg:gap-24 lg:pt-24 lg:pb-[14rem] xl:grid">
+        <div className="mx-auto mt-8 max-w-7xl grid-cols-1 px-6 lg:grid-cols-2 lg:gap-24 lg:pt-20 lg:pb-[14rem] xl:grid">
           <div className="pb-8 lg:max-w-4xl">
             <h1
               className={
-                `gradient-primary bg-gradient-to-br bg-clip-text text-6xl font-bold tracking-tight text-transparent ` +
+                `gradient-primary bg-gradient-to-br bg-clip-text text-6xl font-bold text-transparent ` +
                 ([`en`, `ko`, `fil`, `de`].includes(locale as string)
                   ? `xs:text-7xl lg:text-8xl   `
                   : `xs:text-6xl lg:text-7xl `)
@@ -67,13 +67,13 @@ const Home: NextPage<cache> = ({ contributors }) => {
         <MenuComp />
       </div>
 
-      <Fadein id="design" className="relative mx-auto  ">
+      <Fadein id="design" className="relative mx-auto  mt-8">
         <div className="relative md:bg-none">
           <div className="flex w-full items-center justify-center pt-8 ">
             <div className="w-full">
               <div className="container grid grid-cols-1 items-center md:grid-cols-2">
                 <div className="mb-8 md:mb-0">
-                  <div className="mb-7 flex justify-center text-sm text-neutral-900 dark:text-[#ABB3BF] md:justify-start">
+                  <div className=" flex justify-center text-sm text-neutral-900 dark:text-[#ABB3BF] md:justify-start">
                     <hr className="absolute top-0 left-0 hidden w-full dark:border-neutral-700 sm:block md:top-24" />
                   </div>
                   <div className="text-center text-neutral-800 dark:text-neutral-300 md:text-left">
@@ -81,7 +81,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
                       <span className="text-sm font-semibold uppercase text-pinkRed">
                         {t(`design-smalltitle`)}
                       </span>
-                      <h2 className="text-3xl font-semibold tracking-[-0.04em] md:text-[40px] md:leading-[48px]">
+                      <h2 className="text-3xl font-semibold  md:text-[40px] md:leading-[48px]">
                         {t(`design-title-line1`)}
                         {` `}
                         {t(`design-title-line2`)}
@@ -114,14 +114,14 @@ const Home: NextPage<cache> = ({ contributors }) => {
         </div>
       </Fadein>
 
-      <div className="mt-28 border-neutral-800 bg-gray-50 py-16 shadow-inner dark:border-t dark:border-b dark:bg-neutral-900">
+      <div className="mt-28 border-neutral-800 bg-gray-50 py-16 shadow-inner transition-colors dark:border-t dark:border-b dark:bg-neutral-900">
         <Fadein>
           <div id="extensions" className="container  text-center ">
             {/* <Image src={puzzle} quality={95} alt="" width={60} height={60} /> */}
             <span className="text-sm font-semibold uppercase text-pinkRed">
               {t(`extensions-smalltitle`)}
             </span>
-            <h2 className="text-2xl font-bold tracking-[-0.02em] text-neutral-800 dark:text-neutral-100 xxs:text-3xl  md:leading-[40px]">
+            <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 xxs:text-3xl  md:leading-[40px]">
               {t(`extensions-title`)}
             </h2>
             <p className="mx-auto max-w-[34rem] pt-4 italic text-neutral-900 dark:text-neutral-300 sm:text-lg">
@@ -147,7 +147,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
           <span className="text-sm font-semibold uppercase text-pinkRed">
             {t(`transparency-smalltitle`)}
           </span>
-          <h2 className="text-2xl font-bold tracking-[-0.02em] text-neutral-800 dark:text-neutral-100 xxs:text-3xl xs:text-3xl md:leading-[40px]">
+          <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 xxs:text-3xl xs:text-3xl md:leading-[40px]">
             {t(`transparency-title-line1`)}
             {` `}
             {t(`transparency-title-line2`)}

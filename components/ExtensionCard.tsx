@@ -1,5 +1,5 @@
 const ExtensionCard: React.FC<{ name: string }> = ({ name }) => (
-  <div className=" m-2 mx-8 mb-4 cursor-not-allowed  items-center rounded-xl border border-neutral-200 p-3 text-center text-xl font-semibold shadow transition hover:shadow-lg dark:border-neutral-800 dark:bg-[#201F1E] sm:p-4 lg:text-xl">
+  <div className="m-2 mx-8 mb-4 cursor-not-allowed items-center  rounded-xl border border-neutral-200 p-3 text-center text-xl font-semibold shadow transition hover:shadow-lg dark:border-neutral-800 dark:bg-[#201F1E] sm:p-4 lg:text-xl">
     <div className="mb-4 flex h-28 items-center justify-center rounded bg-neutral-200 dark:bg-neutral-800 sm:h-32">
       <svg
         className="h-12 w-12 text-neutral-300 dark:text-neutral-700"

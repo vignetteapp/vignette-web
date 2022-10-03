@@ -4,6 +4,11 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+h1,h2 {
+  @apply tracking-[-0.04em]
 }
 
 *, ::before, ::after {
@@ -15,7 +20,7 @@ html {
 }
 
 body{
-  @apply font-inter antialiased  text-black  bg-white text-base dark:text-neutral-100 dark:bg-[#181a1b];
+  @apply font-inter antialiased  text-black transition-colors bg-white text-base dark:text-neutral-100 dark:bg-[#181a1b];
   font-feature-settings: "calt" on;
 }
 
@@ -42,11 +47,12 @@ body{
 }
 
 .prose a {
-  @apply transition-all;
+  @apply transition-all pt-[74px] -mt-[74px] ;
+
 }
 
 .prose .anchor:after {
-  @apply text-gray-300 dark:text-gray-700;
+  @apply text-neutral-400 dark:text-neutral-700;
   content: '#';
 }
 

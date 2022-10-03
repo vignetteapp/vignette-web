@@ -138,7 +138,7 @@ const Nav: React.FC = () => {
       >
         Skip to content
       </a>
-      <nav className="fixed left-0 top-0 right-0 z-[150] flex h-[74px] items-center border-b bg-white/80 backdrop-blur-[14px] dark:bg-primary/10">
+      <nav className="fixed left-0 top-0 right-0 z-[150] flex h-[74px] items-center border-b bg-white/80 backdrop-blur-[14px] transition dark:bg-primary/10">
         <div className=" mx-auto my-auto flex w-full max-w-7xl items-center justify-between  px-6">
           <div className="flex items-center">
             <Link href="/" passHref>
@@ -168,9 +168,9 @@ const Nav: React.FC = () => {
             >
               {mounted ? (
                 resolvedTheme == `dark` ? (
-                  <BsSunFill size={18} />
+                  <BsSunFill size={16} />
                 ) : (
-                  <BsMoonFill size={18} />
+                  <BsMoonFill size={16} />
                 )
               ) : (
                 <div className="w-[18px]" />
@@ -180,7 +180,7 @@ const Nav: React.FC = () => {
               <a className="outline-none">
                 <AiFillGithub
                   className="text-neutral-700 dark:text-neutral-100"
-                  size={24}
+                  size={20}
                 />
               </a>
             </Link>
@@ -188,14 +188,13 @@ const Nav: React.FC = () => {
               <a className="outline-none">
                 <AiOutlineTwitter
                   className="text-neutral-700 dark:text-neutral-100"
-                  size={24}
+                  size={20}
                 />
               </a>
             </Link>
 
             <Button
               href="#"
-              type="secondary"
               className="py-1 text-sm text-gray-800 dark:text-gray-200 dark:ring-gray-300"
             >
               {t(`star-us`)}
