@@ -100,7 +100,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
       <div id="content" className="relative mt-[74px]">
         <Nav />
         <div className="container relative mt-[74px] py-4 ">
-          <div className="relative z-20 mt-24 max-w-2xl  rounded-xl border bg-white lg:p-12 p-6 text-left shadow dark:bg-[#181a1b]">
+          <div className="relative z-20 mt-24 max-w-2xl  rounded-xl border bg-white p-6 text-left shadow dark:bg-[#181a1b] lg:p-12">
             <h1 className="gradient-primary bg-gradient-to-r bg-clip-text pb-4 text-4xl font-bold  text-transparent lg:text-5xl">
               {t(`hero-title`)}
             </h1>
