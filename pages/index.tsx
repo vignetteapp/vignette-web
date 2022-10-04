@@ -2,17 +2,13 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import type { GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
 import Image from 'next/future/image'
 import { cache } from './about'
 import { createClient } from 'redis'
 
 import { Nav, MenuComp, SEO, Footer, ExtensionCard } from 'components'
 
-import sparkle from 'public/images/icons/sparkle.png'
 import section1comp from 'public/images/comp/section1-brain.png'
-import puzzle from 'public/images/icons/puzzle.png'
-import shipwheel from 'public/images/icons/shipwheel.png'
 import Partners from 'components/sections/Partners'
 
 import { useRouter } from 'next/router'
