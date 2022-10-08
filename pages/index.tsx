@@ -41,7 +41,7 @@ const Home: NextPage<cache> = ({ contributors }) => {
               {t(`title1`)}
               <br /> {t(`title2`)}
             </h1>
-            <p className="my-4 text-lg text-neutral-900 dark:text-neutral-300 xs:text-xl lg:mb-8 lg:max-w-[36ch] ">
+            <p className="my-4 text-lg text-black dark:text-neutral-200 xs:text-xl lg:mb-8 lg:max-w-[36ch] ">
               {t(`hero-p`)}
             </p>
 
@@ -69,10 +69,10 @@ const Home: NextPage<cache> = ({ contributors }) => {
             <div className="w-full">
               <div className="container grid grid-cols-1 items-center md:grid-cols-2">
                 <div className="mb-8 md:mb-0">
-                  <div className=" flex justify-center text-sm text-neutral-900 dark:text-[#ABB3BF] md:justify-start">
+                  <div className=" flex justify-center text-sm text-black dark:text-[#ABB3BF] md:justify-start">
                     <hr className="absolute top-0 left-0 hidden w-full dark:border-neutral-700 sm:block md:top-24" />
                   </div>
-                  <div className="text-center text-neutral-800 dark:text-neutral-300 md:text-left">
+                  <div className="text-center text-neutral-900 dark:text-neutral-200 md:text-left">
                     <div className="flex flex-col items-center pt-4 md:items-start">
                       <span className="text-sm font-semibold uppercase text-pinkRed">
                         {t(`design-smalltitle`)}
@@ -117,10 +117,10 @@ const Home: NextPage<cache> = ({ contributors }) => {
             <span className="text-sm font-semibold uppercase text-pinkRed">
               {t(`extensions-smalltitle`)}
             </span>
-            <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 xxs:text-3xl  md:leading-[40px]">
+            <h2 className="text-2xl font-bold text-black dark:text-neutral-100 xxs:text-3xl  md:leading-[40px]">
               {t(`extensions-title`)}
             </h2>
-            <p className="mx-auto max-w-[34rem] pt-4 italic text-neutral-900 dark:text-neutral-300 sm:text-lg">
+            <p className="mx-auto max-w-[34rem] pt-4 italic text-neutral-900 dark:text-neutral-200 sm:text-lg">
               {t(`extensions-in-development`)}
             </p>
             {/* <Link href="/extensions" passHref>
@@ -143,12 +143,12 @@ const Home: NextPage<cache> = ({ contributors }) => {
           <span className="text-sm font-semibold uppercase text-pinkRed">
             {t(`transparency-smalltitle`)}
           </span>
-          <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 xxs:text-3xl xs:text-3xl md:leading-[40px]">
+          <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 xxs:text-3xl xs:text-3xl md:leading-[40px]">
             {t(`transparency-title-line1`)}
             {` `}
             {t(`transparency-title-line2`)}
           </h2>
-          <p className="mx-auto max-w-[24rem]  pb-8 pt-3 text-base text-neutral-900 dark:text-neutral-300 sm:text-xl md:text-lg">
+          <p className="mx-auto max-w-[24rem]  pb-8 pt-3 text-base text-black dark:text-neutral-200 sm:text-xl md:text-lg">
             {t(`transparency-p`)}
           </p>
           <div className="mx-auto mb-8 flex flex-wrap justify-center gap-3 sm:max-w-5xl sm:gap-8">

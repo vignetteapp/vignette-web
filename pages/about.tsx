@@ -56,7 +56,7 @@ const OpenSource: NextPage<pageProps> = ({
       <Nav />
       <div className="mt-[74px] pt-8 lg:pt-16" id="content">
         <div className="z-20 mx-auto px-2 pb-8 lg:max-w-7xl ">
-          <h1 className="bg-gradient-to-br from-[#005BEA] to-[#00C6FB] bg-clip-text text-center text-4xl font-bold text-transparent xxs:text-5xl lg:text-8xl">
+          <h1 className="bg-gradient-to-br from-[#005BEA] to-[#00C6FB] bg-clip-text text-center text-4xl font-bold text-transparent xxs:text-6xl lg:text-8xl">
             {t(`title1`)} <br />
             {t(`title2`)}
           </h1>
@@ -65,24 +65,24 @@ const OpenSource: NextPage<pageProps> = ({
           </p>
           <Fadein>
             <div className="mx-auto flex flex-wrap gap-8 pb-16 text-center">
-              <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">{commits}</div>
+              <div className="mx-auto">
+                <div className="mb-1 text-4xl sm:text-6xl font-bold">{commits}</div>
                 {t(`commits`)}
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
                   size={40}
                 />
               </div>
-              <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">{pullRequests}</div>
+              <div className="mx-auto">
+                <div className="mb-1 text-4xl sm:text-6xl font-bold">{pullRequests}</div>
                 {t(`pull-requests`)}
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
                   size={40}
                 />
               </div>
-              <div className="mx-auto text-xl">
-                <div className="mb-1 text-6xl font-bold">{openIssues}</div>
+              <div className="mx-auto">
+                <div className="mb-1 text-4xl sm:text-6xl font-bold">{openIssues}</div>
                 {t(`open-issues`)}
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
@@ -128,11 +128,11 @@ const OpenSource: NextPage<pageProps> = ({
             ))}
           </div>
 
-          <p className="mx-auto mt-8 text-xs leading-snug  text-gray-700 dark:text-gray-300 sm:max-w-md sm:text-sm">
+          <p className="mx-auto mt-8 text-xs leading-snug  text-neutral-800 dark:text-neutral-300 sm:max-w-md sm:text-sm">
             {t(`section1-p`)}
           </p>
 
-          <p className="mt-4 text-xs text-gray-800 dark:text-gray-200  ">
+          <p className="mt-4 text-xs text-neutral-800 dark:text-neutral-200  ">
             {t(`updates-daily-text`)}
           </p>
         </Fadein>
