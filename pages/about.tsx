@@ -66,7 +66,9 @@ const OpenSource: NextPage<pageProps> = ({
           <Fadein>
             <div className="mx-auto flex flex-wrap gap-8 pb-16 text-center">
               <div className="mx-auto">
-                <div className="mb-1 text-4xl sm:text-6xl font-bold">{commits}</div>
+                <div className="mb-1 text-4xl font-bold sm:text-6xl">
+                  {commits}
+                </div>
                 {t(`commits`)}
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
@@ -74,7 +76,9 @@ const OpenSource: NextPage<pageProps> = ({
                 />
               </div>
               <div className="mx-auto">
-                <div className="mb-1 text-4xl sm:text-6xl font-bold">{pullRequests}</div>
+                <div className="mb-1 text-4xl font-bold sm:text-6xl">
+                  {pullRequests}
+                </div>
                 {t(`pull-requests`)}
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
@@ -82,7 +86,9 @@ const OpenSource: NextPage<pageProps> = ({
                 />
               </div>
               <div className="mx-auto">
-                <div className="mb-1 text-4xl sm:text-6xl font-bold">{openIssues}</div>
+                <div className="mb-1 text-4xl font-bold sm:text-6xl">
+                  {openIssues}
+                </div>
                 {t(`open-issues`)}
                 <BiGitPullRequest
                   className="mx-auto mt-2 fill-pinkRed"
