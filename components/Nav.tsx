@@ -138,7 +138,7 @@ const Nav: React.FC = () => {
       >
         Skip to content
       </a>
-      <nav className="fixed left-0 top-0 right-0 z-[150] flex h-[74px] items-center border-b bg-white/80 backdrop-blur-[14px] transition dark:bg-primary/10">
+      <nav className="fixed left-0 top-0 right-0 z-[150] flex h-[74px] items-center border-b bg-white/80 backdrop-blur-[14px] transition dark:bg-primary/60">
         <div className=" mx-auto my-auto flex w-full max-w-7xl items-center justify-between  px-6">
           <div className="flex items-center">
             <Link href="/" passHref>
