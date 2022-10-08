@@ -5,38 +5,47 @@ import logoDark from 'public/images/logo-dark.png'
 import logosquare from 'public/images/logo-square.png'
 import logosquareDark from 'public/images/logo-square-dark.png'
 
-const Logo = ({ forceLight }: { forceLight?: boolean }) => (
+const Logo = ({
+  className,
+  forceLight,
+  width = 141,
+  height = 33,
+}: {
+  className?: string
+  width?: number
+  height?: number
+  forceLight?: boolean
+}) => (
   <>
     {forceLight ? (
-      <div className="flex dark:hidden">
+      <div className={`${className} flex dark:hidden`}>
         <Image
           src={logoDark}
           priority
-          width={141}
-          height={33}
+          width={width}
+          height={height}
           layout="fixed"
           alt=""
         />
       </div>
     ) : (
       <>
-        {` `}
-        <div className="flex dark:hidden">
+        <div className={`${className} flex dark:hidden`}>
           <Image
             src={logo}
             priority
-            width={141}
-            height={33}
+            width={width}
+            height={height}
             layout="fixed"
             alt=""
           />
         </div>
-        <div className="hidden dark:flex">
+        <div className={`${className} hidden dark:flex`}>
           <Image
             src={logoDark}
             priority
-            width={141}
-            height={32}
+            width={width}
+            height={height}
             layout="fixed"
             alt=""
           />

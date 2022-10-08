@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 const round = (num) =>
@@ -153,11 +154,19 @@ module.exports = {
     function ({ addComponents }) {
       addComponents({
         '.container': {
-          maxWidth: '72rem',
+          maxWidth: '80rem',
           paddingRight: '1.5rem',
           paddingLeft: '1.5rem',
           marginLeft: 'auto',
           marginRight: 'auto',
+        },
+        '.gradient-primary': {
+          '--tw-gradient-stops':
+            '#f10e5a,#f1106c,#ee1b7e,#e9288f,#e235a0,#d841af,#cc4dbe,#be58cb',
+        },
+        '.gradient-secondary': {
+          '--tw-gradient-stops':
+            '#6a99dd,#6f93e0,#788ce2,#8484e2,#927ce0,#a071db,#af66d4,#be58cb',
         },
       })
     },

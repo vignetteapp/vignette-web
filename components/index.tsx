@@ -5,12 +5,10 @@ import Nav from './Nav'
 import Profile from './Profile'
 import SEO from './SEO'
 import Parallax, { ParallaxContainer } from './Parallax'
-import BlogNav from './BlogNav'
 
 export {
   ExtensionCard,
   MenuComp,
-  BlogNav,
   Nav,
   Profile,
   Footer,
