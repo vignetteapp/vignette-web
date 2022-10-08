@@ -49,7 +49,7 @@ const Home: NextPage<cache> = () => {
             <p className="mx-auto mt-2 mb-10 max-w-[16rem] text-center text-sm">
               {t(`discord-p`)}
             </p>
-            <Button size="small" href="https://go.vignetteapp.org/discord">
+            <Button size="small" href="https://discord.gg/rsPNAxwweg">
               {t(`join-button`)} &rarr;
             </Button>
           </div>

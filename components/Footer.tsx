@@ -39,7 +39,7 @@ const Footer = () => {
               <Link href="https://github.com/vignetteapp">GitHub</Link>
             </li>
             <li>
-              <Link href="https://go.vignetteapp.org/discord">Discord</Link>
+              <Link href="https://discord.gg/rsPNAxwweg">Discord</Link>
             </li>
             <li>
               <Link href="https://twitter.com/vignette_org">Twitter</Link>
