@@ -253,21 +253,19 @@ const OpenSource: NextPage<pageProps> = ({
           <div className="mx-auto my-10 flex w-full max-w-5xl flex-wrap justify-center gap-6 text-lg lg:gap-20 lg:text-xl ">
             <div className="w-40 md:w-52">
               <h3 className="mb-1 text-3xl font-bold lg:text-5xl">
-                ${netReceived}
+                {netReceived}
               </h3>
               {t(`earned`)}
             </div>
 
             <div className="w-40 md:w-52">
-              <h3 className="mb-1 text-3xl font-bold lg:text-5xl">
-                ${balance}
-              </h3>
+              <h3 className="mb-1 text-3xl font-bold lg:text-5xl">{balance}</h3>
               {t(`balance`)}
             </div>
 
             <div className="w-52">
               <h3 className="mb-1 text-3xl font-bold lg:text-5xl">
-                ${totalPaid}
+                {totalPaid}
               </h3>
               {t(`paid`)}
             </div>
@@ -349,6 +347,11 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     method: `POST`,
   }).then(async (res) => res.json())
 
+  const currencyFormatter = new Intl.NumberFormat(`en-US`, {
+    style: `currency`,
+    currency: `USD`,
+  })
+
   const transactions = ocData.data?.collective.transactions.nodes.filter(
     (i: Record<string, string>) =>
       i.kind == `EXPENSE` && i.description.toLowerCase().includes(`developer`),
@@ -361,8 +364,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       (totalPaid -= t.amount.value),
   )
 
-  totalPaid = Math.round(totalPaid * 100) / 100
-
   const { totalNetAmountReceived, balanceWithBlockedFunds } = ocData.data
     ?.collective.stats
     ? ocData.data?.collective.stats
@@ -373,9 +374,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
   return {
     props: {
-      netReceived: totalNetAmountReceived.value,
-      balance: balanceWithBlockedFunds.value,
-      totalPaid,
+      netReceived: currencyFormatter.format(totalNetAmountReceived.value),
+      balance: currencyFormatter.format(balanceWithBlockedFunds.value),
+      totalPaid: currencyFormatter.format(totalPaid),
       ...parsed,
       ...(await serverSideTranslations(locale as string, [
         `about`,
