@@ -238,13 +238,12 @@ const OpenSource: NextPage<pageProps> = ({
                     </div>
 
                     <div className="mt-6">
-                      <button
-                        type="button"
+                      <Button
                         className="button-small inline-flex justify-center border border-transparent bg-pinkRed px-4 py-2 text-sm font-medium text-white hover:bg-[#ff2277] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-pinkRed"
                         onClick={() => setIsOpen(false)}
                       >
                         {t(`got-it-button`)}
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </Transition.Child>
@@ -350,22 +349,27 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     method: `POST`,
   }).then(async (res) => res.json())
 
-  const transactions = ocData.data.collective.transactions.nodes.filter(
+  const transactions = ocData.data?.collective.transactions.nodes.filter(
     (i: Record<string, string>) =>
       i.kind == `EXPENSE` && i.description.toLowerCase().includes(`developer`),
   )
 
   let totalPaid = 0
 
-  transactions.forEach(
+  transactions?.forEach(
     (t: { kind: string; amount: { value: number } }) =>
       (totalPaid -= t.amount.value),
   )
 
   totalPaid = Math.round(totalPaid * 100) / 100
 
-  const { totalNetAmountReceived, balanceWithBlockedFunds } =
-    ocData.data.collective.stats
+  const { totalNetAmountReceived, balanceWithBlockedFunds } = ocData.data
+    ?.collective.stats
+    ? ocData.data?.collective.stats
+    : {
+        totalNetAmountReceived: { value: 0 },
+        balanceWithBlockedFunds: { value: 0 },
+      }
 
   return {
     props: {
