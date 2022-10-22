@@ -30,7 +30,7 @@ function PostCard(post: Post) {
   return (
     <div className="mb-6 w-full  md:max-w-[22.5rem]  ">
       <Link href={post.url} passHref>
-        <a className="inline-flex h-44 overflow-hidden rounded-md  xs:h-64 lg:h-48 ">
+        <a className="inline-flex h-44 overflow-hidden rounded-md  xs:h-48  ">
           <Image
             src={post.image}
             width="1080"
@@ -42,9 +42,16 @@ function PostCard(post: Post) {
         </a>
       </Link>
       <div className="w-full py-4 ">
-        <h3 className="my-1 text-xs font-bold uppercase text-pinkRed">
-          {post.category}
-        </h3>
+        <Link
+          href={
+            `/blog/category/` + post.category.toLowerCase().split(` `).join(`-`)
+          }
+          passHref
+        >
+          <a className="my-1 text-xs font-bold uppercase text-pinkRed">
+            {post.category}
+          </a>
+        </Link>
         <Link href={post.url} passHref>
           <a>
             <h2 className="text-2xl font-bold tracking-tight">{post.title}</h2>
@@ -100,7 +107,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
       <div id="content" className="relative mt-[74px]">
         <Nav />
         <div className="container relative mt-[74px] py-4 ">
-          <div className="relative z-20 mt-24 max-w-2xl  rounded-xl border bg-white p-6 text-left shadow dark:bg-[#181a1b] lg:p-12">
+          <div className="relative z-20 mt-20 max-w-2xl   rounded-xl border bg-white p-6 text-left shadow dark:bg-[#181a1b] lg:p-12">
             <h1 className="gradient-primary bg-gradient-to-r bg-clip-text pb-4 text-4xl font-bold  text-transparent lg:text-5xl">
               {t(`hero-title`)}
             </h1>
@@ -145,7 +152,7 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
         >
           <div className="mx-0 mb-6 flex flex-wrap md:max-w-full md:flex-nowrap">
             <Link href={featuredPost.url} passHref>
-              <a className="inline-flex h-44 overflow-hidden rounded-md  xs:h-64 md:h-[28rem]">
+              <a className="inline-flex overflow-hidden rounded-md  xs:h-48 md:h-[28rem]">
                 <Image
                   src={featuredPost.image}
                   width="1080"
@@ -158,9 +165,17 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
               </a>
             </Link>
             <div className="py-4 md:px-8 md:py-8 lg:w-[32rem]">
-              <h3 className="my-1  text-xs font-bold uppercase text-pinkRed">
-                {featuredPost.category}
-              </h3>
+              <Link
+                href={
+                  `/blog/category/` +
+                  featuredPost.category.toLowerCase().split(` `).join(`-`)
+                }
+                passHref
+              >
+                <a className="my-1 text-xs font-bold uppercase text-pinkRed">
+                  {featuredPost.category}
+                </a>
+              </Link>
               <Link href={featuredPost.url} passHref>
                 <a>
                   <h2 className="text-2xl font-bold lg:text-4xl">

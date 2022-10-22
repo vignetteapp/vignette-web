@@ -35,16 +35,6 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
       <Nav />
 
       <article className="mx-auto mt-[74px] py-8 lg:py-12 " id="content">
-        <div className="mx-auto mb-8 max-w-5xl px-6">
-          <Link href="/blog" passHref>
-            <a>
-              <span className="tracking-[0]">&lt;-</span>
-              {` `}
-              {t(`back-to-list`)}
-            </a>
-          </Link>
-        </div>
-
         <div className="mx-auto mb-6 max-w-5xl px-6">
           <Link href="/blog">
             <a className="text-sm font-semibold uppercase tracking-tight text-pinkRed">
@@ -71,11 +61,8 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
               priority
             />
           </a>
-          <div className="pb-2 text-neutral-600 dark:text-neutral-200">
-            Author
-          </div>
 
-          <div className=" flex items-center">
+          <div className="flex items-center">
             <Image
               src={members.filter((item) => item.name == post.author)[0].avatar}
               width={40}
@@ -87,7 +74,7 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
               <span className="font-semibold">{post.author}</span>
             </div>
             <div className="ml-auto flex items-center gap-4">
-              <span className="h-6 border-l border-neutral-400 dark:border-neutral-300" />
+              <span className="h-6 border-l border-neutral-400 dark:border-neutral-400" />
               <time
                 dateTime={post.date}
                 className=" block text-gray-600 dark:text-gray-200"
@@ -96,7 +83,7 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
               </time>
             </div>
           </div>
-          <hr className="my-4 border-neutral-300 lg:mb-16" />
+          <hr className="my-4 border-neutral-300 dark:border-neutral-600 lg:mb-16" />
         </div>
 
         <div className="prose prose-lg prose-neutral relative mx-auto max-w-3xl px-6 prose-h2:tracking-tight prose-p:text-neutral-900 prose-a:text-pinkRed prose-img:rounded dark:prose-invert dark:prose-p:text-neutral-400 ">
