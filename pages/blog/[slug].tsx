@@ -36,7 +36,12 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
 
       <article className="mx-auto mt-[74px] py-8 lg:py-12 " id="content">
         <div className="mx-auto mb-6 max-w-5xl px-6">
-          <Link href="/blog">
+          <Link
+            href={
+              `/blog/category/` +
+              post.category.toLowerCase().split(` `).join(`-`)
+            }
+          >
             <a className="text-sm font-semibold uppercase tracking-tight text-pinkRed">
               {post.category}
             </a>
