@@ -142,45 +142,6 @@ const OpenSource: NextPage<pageProps> = ({
             {t(`updates-daily-text`)}
           </p>
         </Fadein>
-        <div className="container">
-          <div className="mt-14 text-center lg:mt-28">
-            <div className="inline-flex overflow-hidden rounded-2xl drop-shadow-xl">
-              <Image
-                alt=""
-                src={VignettePadding}
-                width={64}
-                height={64}
-                quality={100}
-              />
-            </div>
-
-            <h2 className="mt-3 text-2xl font-semibold">
-              {t(`section2-title`)}
-            </h2>
-            <p className="mx-auto mt-2 max-w-md">{t(`section2-p`)}</p>
-          </div>
-          <div className="mx-auto mt-10 flex flex-wrap justify-center gap-4 lg:max-w-5xl ">
-            {teamMembers.map((m: Member) => (
-              <a
-                href={m.url}
-                key={m.name}
-                className=" my-2 mx-2 text-center lg:mx-8"
-              >
-                <div className="inline-flex overflow-hidden rounded-full ">
-                  <Image
-                    alt=""
-                    className=""
-                    src={m.avatar}
-                    width={64}
-                    height={64}
-                  />
-                </div>
-                <h4 className=" my-1 font-medium capitalize">{m.name}</h4>
-                <p className="max-w-[9em] text-xs">{m.role}</p>
-              </a>
-            ))}
-          </div>
-        </div>
         <div className="container mt-12 text-center">
           <Image src={donationImage} width={400} height={400} alt="" />
           <h1 className="text-3xl font-bold"> {t(`section3-title`)}</h1>
