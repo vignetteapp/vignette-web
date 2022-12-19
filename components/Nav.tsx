@@ -151,7 +151,7 @@ const Nav: React.FC = () => {
               {/* <Link href="/features">{t(`nav:features`)}</Link> */}
 
               <Link href="/about">{t(`nav:about`)}</Link>
-{/* 
+              {/*
               <Link href="/plugins">{t(`nav:plugins`)}</Link> */}
 
               <Link href="/blog">{t(`nav:blog`)}</Link>
