@@ -1,0 +1,71 @@
+---
+title: 'Development Catch-Up: December 2022'
+date: 2022-12-20
+summary: |
+  Development Catch-Up: December 2022
+author: Nitrous
+category: Announcements
+tags: ['development', 'catch-up']
+image: https://images.unsplash.com/photo-1514428631868-a400b561ff44
+---
+
+# Development Catch-up: December 2022
+
+It's been a long while since we've done our last blog post and as the holidays pass by I'd like to take advantage of the opportunity I have to send out updates on what the team has been up to for the last couple of months.
+
+Hopefully this may be a monthly thing starting the new year next month. While we are active on sending out updates to our repository, it's still best to make posts in a digestible format such as this for those unaware or less tech-savvy.
+
+It might get long with this first post as this is mostly a catch-up with so much that has happened with little to no information what changed. With that out of the way, here are notable things that has happened in the past few months:
+
+## Sekai
+
+### What happened?
+
+Time and time again we'd announce that we're using a new game engine and it is understandable that people would grow tired of us changing decisions so frequent. It also eliminates past work as it basically is redoing the project from the ground up.
+
+Our requirements are very unique. We wanted a platform where we can render a model whether it be 2D or 3D that can be manipulated by motion tracking software. Sounds basic enough. However, we felt like most of our prerequisites won't be met by any off-the-shelf solutions out there. Here is the list of the things we look for in Vignette:
+
+- **Be written in C# and use the .NET runtime.**
+    - Our main development team mostly writes on C# basically.
+    - Another thing is we want to use .NET to the fullest - we want to be able to upgrade to the next .NET version with almost no friction whatsoever.
+- **Have the core framework free and open source.**
+    - We'd love to contribute to the open source community and make our work as transparent as we could at a reasonable pace.
+- **Be able to be extendable through plugins without requiring to build the app from scratch.**
+    - This is what makes our application unique. We see this as an opportunity to stand out in the environment dominated by one or two similar apps.
+- **Have scripting systems similar to a game engine for familiarity for plugin development.**
+    - We don't want to alienate people from making plugins by being complicated.
+- **Have UI that makes use of web technologies.**
+    - We'd love to make our interfaces as user-friendly as possible whilst making use of existing technologies.
+    - We also want creation of user experiences accessible and consistent for everyone; this meant people can use the same bits as we do.
+
+It can be considered as "feature-creep" but we've had this all sorted out from the beginning. We've been through many options from game engines to game frameworks and here are our thoughts on each:
+
+- **[osu!framework](https://github.com/ppy/osu-framework)**
+    - Our first release - Debut, in fact, started here. However, a lot of constraints it has is its just a glorified UI framework which the developers have main priority is over [osu!](https://github.com/ppy/osu) meaning we usually resort to hacks resulting in unwanted behavior to accomplish a basic task.
+- **[Godot](https://godotengine.org)**
+    - At the time we decided to write our new rendering framework, Godot still relied on an old .NET Core/Mono runtime and while we could've waited on their port on .NET 6.0, we didn't have the luxury to do so.
+- **[Unity](https://unity.com)**
+    - Pretty much considered as the de-facto choice for games written in C#. However, it doesn't meet our requirements of having the core open source and not to mention the looming royalties and licensing nightmare we'd experience down the line.
+- **[Evergine](https://evergine.com)**
+    - Was pretty much the closest option because of its straightforward APIs. However, development is pretty much tight-lipped and free users pretty much don't have support.
+- **[Stride](https://stride3d.net)**
+    - A solid game engine written in C#. However, we didn't like its bulk considering its pretty overkill to deal with. Not to mention a lot of its build tools rely on Windows that it pretty much kills our inux or Mac developers (which we have).
+
+We admit that this is our fault for not reviewing our requirements properly and have reflected upon that. However, what we learned in our previous attempts were not in vain. We learned from these mistakes and went on which leads to writing our own rendering engine from the ground up.
+
+
+### What is Sekai?
+
+[Sekai](https://github.com/vignetteapp/sekai) is the new base for Vignette and we've been hard at work with this for most of the time. It has been written from the ground up using .NET 7.0 (at the time of this writing) and it is modeled after [LÖVE](https://love2d.org/), a 2D game framework written in C++ and has a lua-based scripting system and osu!framework which was previously mentioned in the previous section.
+
+It has recently reached a state where we can now start on developing client application itself!
+
+## Live2D™️
+
+If you have been on our Discord server, we have previously announced that we are now officially partnered with Live2D™️. For those unaware, Live2D™️ states in their page that it is a "software technology that allows you to create dynamic expressions that breathe life into an original 2D illustration". You can read more what it is all about [here](https://www.live2d.com/en/about/).
+
+While it is painfully obvious that this goes against one of our goals being open-source, we do not consider this as part of the core framework. Additionally, the majority of the VTuber ecosystem makes use of Live2D™️ which is a good ice-breaker for those having an existing workspace.
+
+## The Future
+
+All the underlying technologies required by Vignette are ready and we have now started development on the client itself. We'll keep everyone updated through these blog posts of our progress in a monthly basis.
