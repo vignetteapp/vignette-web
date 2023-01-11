@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import type { NextPage, GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -187,7 +188,7 @@ const OpenSource: NextPage<pageProps> = ({
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <div className="prose-md prose my-8 inline-block w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white px-6 py-4 text-left align-middle shadow-xl transition-all dark:prose-invert dark:bg-black">
+                  <div className="prose-md prose my-8 inline-block w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white px-6 py-4 text-left align-middle shadow-xl transition-all  dark:prose-invert dark:bg-black ">
                     <Dialog.Title
                       as="h3"
                       className="text-lg font-medium leading-6 "
