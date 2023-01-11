@@ -10,7 +10,7 @@
     "lint": "eslint --ignore-path .gitignore \"./**/*.+(ts|tsx)\""
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
