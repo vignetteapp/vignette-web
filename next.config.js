@@ -12,6 +12,7 @@ module.exports = withContentlayer()({
       'owo.whats-th.is',
       'images.unsplash.com',
       'yuri.might-be-super.fun',
+      'chito.ge'
     ],
     formats: ['image/avif', 'image/webp'],
   },
