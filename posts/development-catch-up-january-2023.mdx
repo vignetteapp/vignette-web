@@ -1,0 +1,48 @@
+---
+title: 'Development Catch-Up: January 2023'
+date: 2023-01-31
+summary: |
+  Development Catch-Up: January 2023
+author: Nitrous
+category: Announcements
+tags: ['development', 'catch-up']
+image: https://images.unsplash.com/photo-1514428631868-a400b561ff44
+---
+
+# Development Catch-Up: January 2023
+
+Another new year has passed and here's to another catch-up with our development progress. A lot of things has happened under the curtain, and we're very excited to show off what we have done in this month.
+
+## Sekai
+Sekai is now in a usable state. Although its features are far cry from traditional game engines like Unity and Unreal, we have deemed it suitable enough for our use case for Vignette. As a matter of fact, we have now started development on Vignette itself!
+
+Check out Sekai in [its GitHub repository](https://github.com/vignetteapp/sekai) if you're interested in helping out such as finding issues and making pull requests.
+
+## Vignette
+We have started bootstrapping Vignette as preparation for changes later in the coming weeks. The biggest priority we need to face is the extension system which is the bread and butter of Vignette as it ties together multiple subsystems that work together in the client.
+
+### User Interface
+Through the use of existing web technologies such as HTML5 and CSS3, we plan on writing our user interface using those underlying technologies. This is to seamlessly integrate our website components into our client for no loss of immersion as well as familiarity and consistency.
+
+Here are preview images of the new design:
+
+![Welcome Page](https://media.discordapp.net/attachments/1039463751541330001/1069433776259731506/image.png)
+
+- Everything done in Vignette is saved as "sessions". A session is basically where you store all your assets, scenes, and configurations allowing it to be portable. The design for this page is wholly inspired by Figma as its clean and simple interface was enough for us to adopt.
+
+![Scene Page](https://media.discordapp.net/attachments/1039463751541330001/1069433707427012729/image.png)
+
+- The scene page is still reminiscent of our previous iteration sans the "floating window" design. We made it look similar to game engine editors like those found in Godot and Unity as those have robust yet simple to understand enough interfaces for scene editing.
+
+As you may have noticed, there's a search bar at the top of the screen which is and will be present at all times. This will be the "omni-box" which allows performing commands or searches allowing you to traverse the entire app much like a developer console found in video games.
+
+### Extension System
+Inspired by how Visual Studio Code extends its feature set, we also intend on extending Vignette through extensions. This allows Vignette to be extendable without the need to rebuild the client from source code.
+
+Scripts are written in JavaScript so no additional setup is required. We have decided to use JavaScript specifically as we find that language to be the more accessible languages to develop with. JavaScript libraries should also be supported as long as you can package them inside the application (Webpack or Rollup works if you fancy that) and they don't require NodeJS or Browser specific features.
+
+Vignette's extensions has been designed with the concept of least-privilege: no extensions will ever have access to the main Vignette window, all APIs are designed with one purpose in mind, and they are isolated from one another and from the host - they can never access host resources.
+
+## Remarks
+
+That should be it for our January catch-up! We'll be seeing more exciting features down the road as we go deeper in Vignette's development now in full swing.
