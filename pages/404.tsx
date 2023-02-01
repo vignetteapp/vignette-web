@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Link from 'next/link'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Blahaj from 'public/images/blahaj.jpg'
 import text404 from 'public/images/404text.png'
 
