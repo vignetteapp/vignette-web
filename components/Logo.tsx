@@ -33,7 +33,6 @@ const Logo = ({
         <div className={`${className} flex dark:hidden`}>
           <Image
             src={logo}
-            priority
             width={width}
             height={height}
             layout="fixed"
@@ -43,7 +42,6 @@ const Logo = ({
         <div className={`${className} hidden dark:flex`}>
           <Image
             src={logoDark}
-            priority
             width={width}
             height={height}
             layout="fixed"

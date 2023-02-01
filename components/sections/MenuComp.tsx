@@ -91,6 +91,7 @@ const MenuComp = () => {
           <Image
             className="inline-flex h-full rounded-[0.7rem] shadow-lg sm:rounded-[1.2rem] lg:max-h-[40rem] lg:w-auto lg:max-w-none lg:rounded-[2rem] lg:shadow-2xl"
             src={menucomp}
+            priority
             width={1400}
             height={800}
             alt=""
