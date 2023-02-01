@@ -6,7 +6,7 @@ module.exports = withContentlayer()({
   reactStrictMode: true,
 
   images: {
-    loader: 'custom',
+    loader: process.env.NODE_ENV == 'production' && 'custom',
     loaderFile: 'image-loader.js',
     formats: ['image/avif', 'image/webp'],
   },
