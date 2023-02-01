@@ -1,8 +1,8 @@
-import Image, { StaticImageData } from 'next/future/image'
+import Image, { StaticImageData } from 'next/image'
 
 const Profile: React.FC<{
-  size: number | string
-  src: StaticImageData | string
+  size: number
+  src: StaticImageData
   className?: string
 }> = ({ size, src, className }) => (
   <Image

@@ -1,4 +1,4 @@
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { Parallax } from 'components'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'

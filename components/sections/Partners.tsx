@@ -1,6 +1,6 @@
 import partners from 'data/partners'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const Partners = () => {

@@ -6,18 +6,11 @@ module.exports = withContentlayer()({
   reactStrictMode: true,
 
   images: {
-    domains: [
-      'avatars.githubusercontent.com',
-      'fosshost.org',
-      'owo.whats-th.is',
-      'images.unsplash.com',
-      'yuri.might-be-super.fun',
-      'chito.ge'
-    ],
+    loader: 'custom',
+    loaderFile: 'image-loader.js',
     formats: ['image/avif', 'image/webp'],
   },
   experimental: {
-    images: { allowFutureImage: true },
     legacyBrowsers: false,
     browsersListForSwc: true,
   },
