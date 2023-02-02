@@ -6,13 +6,9 @@ module.exports = withContentlayer()({
   reactStrictMode: true,
 
   images: {
-    loader: process.env.NODE_ENV == 'production' && 'custom',
+    loader: process.env.NODE_ENV == 'production' ? 'custom' : 'default',
     loaderFile: 'image-loader.js',
     formats: ['image/avif', 'image/webp'],
-  },
-  experimental: {
-    legacyBrowsers: false,
-    browsersListForSwc: true,
   },
   swcMinify: true,
   async headers() {
