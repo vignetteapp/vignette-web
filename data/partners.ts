@@ -9,12 +9,12 @@ interface Partner {
 }
 const partners: Partner[] = [
   {
-    name: `Fosshost`,
-    img: `/images/fosshost-color.svg`,
-    darkImg: `/images/fosshost.svg`,
-    href: `https://fosshost.org`,
-    imgWidth: 271,
-    imgHeight: 64,
+    name: `Cloudflare`,
+    img: `/images/cloudflare.png`,
+    darkImg: `/images/cloudflare.png`,
+    href: `https://cloudflare.com`,
+    imgWidth: 320,
+    imgHeight: 108,
   },
   {
     name: `JetBrains`,
