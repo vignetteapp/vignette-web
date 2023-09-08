@@ -47,7 +47,7 @@ const fetchData = async () => {
 
   for (const repo of repos) {
     if (!repo.fork) {
-      const { repository } = await graphqlWithAuth(
+      const { repository }: any = await graphqlWithAuth(
         `
         query repo($owner: String!, $name: String!) {
           repository(owner: $owner, name: $name) {
@@ -162,7 +162,7 @@ const asdf = async () => {
 
     setData(client, newData)
   } else {
-    const parsed: cache = JSON.parse(data)
+    const parsed: cache = JSON.parse(data.toString())
 
     if (Date.now() - parsed.timestamp > 3600000) {
       const newData = await fetchData()
