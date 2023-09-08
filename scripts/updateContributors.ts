@@ -151,8 +151,7 @@ const setData = async (
 
 const asdf = async () => {
   const client = createClient({
-    url: process.env.REDIS_URL,
-    password: process.env.REDIS_PW,
+    url: process.env.REDIS_URL
   })
 
   await client.connect()
