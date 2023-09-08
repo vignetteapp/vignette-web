@@ -155,7 +155,7 @@ const asdf = async () => {
     token: process.env.KV_REST_API_TOKEN as string
   })
 
-  const data = await client.get(`contribs`)
+  const data: any = await client.get(`contribs`)
 
   if (data == null) {
     const newData = await fetchData()
