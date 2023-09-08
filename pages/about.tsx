@@ -9,7 +9,7 @@ import repoIcon from 'public/images/icons/repo.png'
 import { BiGitPullRequest } from 'react-icons/bi'
 import { Nav, SEO, Footer } from 'components'
 
-import { createClient } from 'redis'
+import { createClient } from '@vercel/kv'
 import donationImage from 'public/images/donations.png'
 import VignettePadding from 'public/images/logo-bg.svg'
 import teamMembers from 'data/members.json'
@@ -260,10 +260,10 @@ export interface cache {
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const client = createClient({
-    url: process.env.REDIS_URL
+    url: process.env.KV_URL as string,
+    token: process.env.KV_REST_API_TOKEN as string
   })
 
-  await client.connect()
   const data = await client.get(`contribs`)
 
   const parsed: cache = JSON.parse(data as string)

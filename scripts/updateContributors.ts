@@ -5,7 +5,7 @@ import { Endpoints } from '@octokit/types'
 type getUserResponse = Endpoints['GET /users/{username}']['response']['data']
 
 import { graphql } from '@octokit/graphql'
-import { createClient } from 'redis'
+import { createClient } from '@vercel/kv'
 
 type contributor = {
   login: string
@@ -151,10 +151,10 @@ const setData = async (
 
 const asdf = async () => {
   const client = createClient({
-    url: process.env.REDIS_URL
+    url: process.env.KV_URL as string,
+    token: process.env.KV_REST_API_TOKEN as string
   })
 
-  await client.connect()
   const data = await client.get(`contribs`)
 
   if (data == null) {

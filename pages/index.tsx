@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import { cache } from './about'
-import { createClient } from 'redis'
+import { createClient } from '@vercel/kv'
 
 import { Nav, MenuComp, SEO, Footer, ExtensionCard } from 'components'
 
@@ -181,11 +181,10 @@ const Home: NextPage<cache> = ({ contributors }) => {
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const client = createClient({
-    url: process.env.REDIS_URL,
-    password: process.env.REDIS_PW,
+    url: process.env.KV_URL as string,
+    token: process.env.KV_REST_API_TOKEN as string,
   })
 
-  await client.connect()
   const data = await client.get(`contribs`)
 
   const parsed: cache = JSON.parse(data as string)
