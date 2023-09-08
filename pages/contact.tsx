@@ -94,7 +94,7 @@ const Home: NextPage<cache> = () => {
                 {t(`email-p`)}
               </p>
             </div>
-            <Button size="small" href="mailto:hello@vignetteapp.org">
+            <Button size="small" href="mailto:hello@vignette.jp.eu.org">
               {t(`email-us-button`)} &rarr;
             </Button>
           </div>

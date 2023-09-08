@@ -23,7 +23,7 @@ const SEO: React.FC<{
         <link
           rel="preload"
           as="style"
-          href="https://fonts.vignetteapp.org/pretendard-std/pretendard-std.css"
+          href="https://fonts.vignette.jp.eu.org/pretendard-std/pretendard-std.css"
         />
         {/* {router.locale == `ja` && (
           <link
@@ -45,7 +45,7 @@ const SEO: React.FC<{
         )} */}
         {router.locale == `en` && (
           <link
-            href="https://fonts.vignetteapp.org/pretendard-std/woff2/PretendardStd-Bold.woff2"
+            href="https://fonts.vignette.jp.eu.org/pretendard-std/woff2/PretendardStd-Bold.woff2"
             rel="preload"
             as="font"
             type="font/woff2"
@@ -58,18 +58,18 @@ const SEO: React.FC<{
         <meta property="og:type" content={type || `website`} />
         <meta
           property="og:url"
-          content={`https://vignetteapp.org${router.asPath}`}
+          content={`https://vignette.jp.eu.org${router.asPath}`}
         />
         <meta property="og: title" content={template ? templateTitle : title} />
         <meta property="og:description" content={desc || t(`desc`)} />
         <meta
           property="og:image"
-          content={image || `https://vignetteapp.org/images/banner.png`}
+          content={image || `https://vignette.jp.eu.org/images/banner.png`}
         />
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"
-          content={`https://vignetteapp.org${router.asPath}`}
+          content={`https://vignette.jp.eu.org${router.asPath}`}
         />
         <meta
           property="twitter:title"
@@ -78,13 +78,13 @@ const SEO: React.FC<{
         <meta property="twitter:description" content={desc || t(`desc`)} />
         <meta
           property="twitter:image"
-          content={image || `https://vignetteapp.org/images/banner.png`}
+          content={image || `https://vignette.jp.eu.org/images/banner.png`}
         />
         <meta property="article:published_time" content={date} />
       </Head>
       <Script
         defer
-        data-domain="vignetteapp.org"
+        data-domain="vignette.jp.eu.org"
         src="https://stats.willit.fail/js/plausible.js"
         strategy="afterInteractive"
       />

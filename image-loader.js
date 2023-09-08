@@ -9,7 +9,7 @@ const cloudflareLoader = ({ src, width, quality }) => {
   }
   
   const paramsString = params.join(',')
-  return `https://vignetteapp.org/cdn-cgi/image/${paramsString}/${normalizeSrc(
+  return `https://vignette.jp.eu.org/cdn-cgi/image/${paramsString}/${normalizeSrc(
     src,
   )}`
 }
