@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "hydrate-contribs" : "npx bun scripts/updateContributors.ts",
+    "hydrate-contribs" : "npx --yes bun scripts/updateContributors.ts",
     "localisation:pull": "crowdin download",
     "lint": "eslint --ignore-path .gitignore \"./**/*.+(ts|tsx)\""
   },
