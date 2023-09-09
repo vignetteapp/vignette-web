@@ -162,7 +162,7 @@ const asdf = async () => {
 
     setData(client, newData)
   } else {
-    const parsed: cache = JSON.parse(data.toString())
+    const parsed: cache = JSON.parse(data)
 
     if (Date.now() - parsed.timestamp > 3600000) {
       const newData = await fetchData()
