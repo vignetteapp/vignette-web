@@ -1,6 +1,6 @@
 import partners from 'data/partners'
 import { useTranslation } from 'next-i18next'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import Link from 'next/link'
 
 const Partners = () => {
@@ -26,7 +26,10 @@ const Partners = () => {
                 alt={partner.name}
                 width={partner.imgWidth}
                 height={partner.imgHeight}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               {partner.darkImg && (
                 <div
                   className={`${
@@ -42,7 +45,10 @@ const Partners = () => {
                     alt={partner.name}
                     width={partner.imgWidth}
                     height={partner.imgHeight}
-                  />
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
                 </div>
               )}
             </div>
@@ -64,6 +70,6 @@ const Partners = () => {
         </Link>
       </div>
     </div>
-  )
+  );
 }
 export default Partners

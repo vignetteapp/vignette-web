@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/legacy/image"
+import Image, { StaticImageData } from "next/image"
 
 const Profile: React.FC<{
   size: number
@@ -11,7 +11,10 @@ const Profile: React.FC<{
     width={size}
     height={size}
     alt=""
-  />
+    style={{
+      maxWidth: "100%",
+      height: "auto"
+    }} />
 )
 
 export default Profile

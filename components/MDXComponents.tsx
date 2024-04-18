@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image, { ImageProps } from "next/legacy/image"
+import Image, { ImageProps } from "next/image"
 import { ReactNode } from 'react'
 
 interface Props {
@@ -19,7 +19,14 @@ const CustomLink = (props: Props) => {
 }
 
 const RoundedImage = (props: ImageProps) => {
-  return <Image {...props} />
+  return (
+    <Image
+      {...props}
+      style={{
+        maxWidth: "100%",
+        height: "auto"
+      }} />
+  );
 }
 
 const MDXComponents = {

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { compareDesc, format, parseISO } from 'date-fns'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import { allPosts, Post } from 'contentlayer/generated'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Footer, Nav, SEO } from 'components'
@@ -67,7 +67,10 @@ function PostCard(post: Post) {
           quality={100}
           className="rounded-md object-cover object-center transition duration-300 hover:scale-105"
           alt=""
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </Link>
       <div className="w-full py-4 ">
         <h3 className="my-1 text-xs font-bold uppercase text-pinkRed">
@@ -87,7 +90,10 @@ function PostCard(post: Post) {
               height={40}
               alt=""
               className="rounded-full"
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </Link>
           <div className="pl-2 text-sm">
             <Link
@@ -106,7 +112,7 @@ function PostCard(post: Post) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 const CategoryPage: NextPage<{ posts: Post[]; category: string }> = ({
