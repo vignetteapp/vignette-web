@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from 'next/image'
 import { Parallax } from 'components'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
@@ -96,13 +96,14 @@ const MenuComp = () => {
             height={800}
             alt=""
             style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+              maxWidth: `100%`,
+              height: `auto`,
+            }}
+          />
         </motion.div>
       </Parallax>
     </div>
-  );
+  )
 }
 
 export default MenuComp

@@ -115,8 +115,8 @@ const OpenSource: NextPage<pageProps> = ({
           height={72}
           className="inline-block"
           style={{
-            maxWidth: "100%",
-            height: "auto"
+            maxWidth: `100%`,
+            height: `auto`
           }} />
 
         <h2 className="mt-8 text-2xl font-bold lg:text-3xl">
@@ -138,8 +138,8 @@ const OpenSource: NextPage<pageProps> = ({
                   src={user.profile}
                   alt=""
                   style={{
-                    maxWidth: "100%",
-                    height: "auto"
+                    maxWidth: `100%`,
+                    height: `auto`
                   }} />
               </div>
 
@@ -163,8 +163,8 @@ const OpenSource: NextPage<pageProps> = ({
           height={400}
           alt=""
           style={{
-            maxWidth: "100%",
-            height: "auto"
+            maxWidth: `100%`,
+            height: `auto`
           }} />
         <h1 className="text-3xl font-bold"> {t(`section3-title`)}</h1>
         <p className="mx-auto mt-2 mb-2 max-w-[34em]">{t(`section3-p`)}</p>

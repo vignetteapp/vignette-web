@@ -1,5 +1,5 @@
 import logo from 'public/images/logo.png'
-import Image from "next/image"
+import Image from 'next/image'
 import logoDark from 'public/images/logo-dark.png'
 
 import logosquare from 'public/images/logo-square.png'
