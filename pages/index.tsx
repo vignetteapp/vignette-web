@@ -187,7 +187,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
   const data = await client.get(`contribs`)
 
-  const parsed: cache = JSON.parse(data as string)
+  const parsed: cache = JSON.parse(JSON.stringify(data));
 
   return {
     props: {
