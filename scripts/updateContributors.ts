@@ -162,7 +162,6 @@ const asdf = async () => {
 
     setData(client, newData)
   } else {
-
     if (Date.now() - JSON.parse(JSON.stringify(data)).timestamp > 3600000) {
       const newData = await fetchData()
       setData(client, newData)
@@ -172,7 +171,7 @@ const asdf = async () => {
 
 try {
   await asdf()
-  console.log("Successfully hydrated contributors.")
+  console.log(`Successfully hydrated contributors.`)
 } catch (e: any) {
   throw new Error(`Unable to hydrate contributors: ${e}\n${e.stack}`)
 }
