@@ -16,7 +16,7 @@ const CustomLink = (props: Props) => {
       <Link href={href} {...props}>
         {props.children}
       </Link>
-    );
+    )
   }
 
   return <a target="_blank" rel="noopener noreferrer" {...props} />
