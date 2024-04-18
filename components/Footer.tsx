@@ -16,19 +16,19 @@ const Footer = () => {
               Vignette
             </span>
             <li>
-              <Link href="/">{t(`home`)}</Link>
+              <Link href="/" legacyBehavior>{t(`home`)}</Link>
             </li>
             <li>
-              <Link href="/about">{t(`about`)}</Link>
+              <Link href="/about" legacyBehavior>{t(`about`)}</Link>
             </li>
             <li>
-              <Link href="/plugins">{t(`plugins`)}</Link>
+              <Link href="/plugins" legacyBehavior>{t(`plugins`)}</Link>
             </li>
             <li>
-              <Link href="/blog">{t(`blog`)}</Link>
+              <Link href="/blog" legacyBehavior>{t(`blog`)}</Link>
             </li>
             <li>
-              <Link href="/contact">{t(`contact`)}</Link>
+              <Link href="/contact" legacyBehavior>{t(`contact`)}</Link>
             </li>
           </ul>
           <ul className="text-neutral-600 dark:text-gray-400 xs:mb-4">
@@ -59,6 +59,6 @@ const Footer = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 export default Footer

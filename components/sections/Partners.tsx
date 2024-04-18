@@ -51,17 +51,17 @@ const Partners = () => {
       </div>
       <div className="container">
         {/*Temporarilly use email until contacts page is finished*/}
-        <Link href="/contact" passHref>
-          <a className="text-sm font-semibold xs:text-base">
-            {t(`become-partner`)}
-            {` `}
-            <span className="tracking-[0]" style={{ fontFamily: `Inter var` }}>
-              &rarr;
-            </span>
-          </a>
+        <Link href="/contact" passHref className="text-sm font-semibold xs:text-base">
+
+          {t(`become-partner`)}
+          {` `}
+          <span className="tracking-[0]" style={{ fontFamily: `Inter var` }}>
+            &rarr;
+          </span>
+
         </Link>
       </div>
     </div>
-  )
+  );
 }
 export default Partners
