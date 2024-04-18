@@ -162,12 +162,17 @@ const asdf = async () => {
 
     setData(client, newData)
   } else {
-    const parsed: cache = JSON.parse(data)
 
-    if (Date.now() - parsed.timestamp > 3600000) {
+    if (Date.now() - JSON.parse(JSON.stringify(data)).timestamp > 3600000) {
       const newData = await fetchData()
       setData(client, newData)
     }
   }
 }
-asdf()
+
+try {
+  await asdf()
+  console.log("Successfully hydrated contributors.")
+} catch (e: any) {
+  throw new Error(`Unable to hydrate contributors: ${e}\n${e.stack}`)
+}
