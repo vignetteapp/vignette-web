@@ -32,8 +32,8 @@ function PostCard(post: Post) {
       <Link
         href={post.url}
         passHref
-        className="inline-flex h-44 overflow-hidden rounded-md  xs:h-48  ">
-
+        className="inline-flex h-44 overflow-hidden rounded-md  xs:h-48  "
+      >
         <Image
           src={post.image}
           width="1080"
@@ -42,7 +42,6 @@ function PostCard(post: Post) {
           className="rounded-md object-cover object-center transition duration-300 hover:scale-105"
           alt=""
         />
-
       </Link>
       <div className="w-full py-4 ">
         <Link
@@ -50,40 +49,31 @@ function PostCard(post: Post) {
             `/blog/category/` + post.category.toLowerCase().split(` `).join(`-`)
           }
           passHref
-          className="my-1 text-xs font-bold uppercase text-pinkRed">
-
+          className="my-1 text-xs font-bold uppercase text-pinkRed"
+        >
           {post.category}
-
         </Link>
         <Link href={post.url} passHref>
-
           <h2 className="text-2xl font-bold tracking-tight">{post.title}</h2>
           <p className="mt-4">{post.summary}</p>
-
         </Link>
         <div className="mt-4 flex items-center">
           <Link
             href={members.filter((item) => item.name == post.author)[0].url}
           >
-
             <Image
-              src={
-                members.filter((item) => item.name == post.author)[0].avatar
-              }
+              src={members.filter((item) => item.name == post.author)[0].avatar}
               width={40}
               height={40}
               alt=""
               className="rounded-full"
             />
-
           </Link>
           <div className="pl-2 text-sm">
             <Link
               href={members.filter((item) => item.name == post.author)[0].url}
             >
-
               <span className="font-semibold">{post.author}</span>
-
             </Link>
 
             <time
@@ -96,122 +86,97 @@ function PostCard(post: Post) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
   const { t } = useTranslation(`blog`)
   const [featuredPost] = posts.slice(0)
 
-  return <>
-    <SEO title={t(`title`)} desc={t(`hero-p`)} template={false} />
+  return (
+    <>
+      <SEO title={t(`title`)} desc={t(`hero-p`)} template={false} />
 
-    <div id="content" className="relative mt-[74px]">
-      <Nav />
-      <div className="container relative mt-[74px] py-4 ">
-        <div className="relative z-20 mt-20 max-w-2xl   rounded-xl border bg-white p-6 text-left shadow dark:bg-[#181a1b] lg:p-12">
-          <h1 className="gradient-primary bg-gradient-to-r bg-clip-text pb-4 text-4xl font-bold  text-transparent lg:text-5xl">
-            {t(`hero-title`)}
-          </h1>
-          <p className="text-lg lg:text-xl ">{t(`hero-p`)}</p>
-        </div>
-        <svg
-          className="absolute left-0 top-8 z-0"
-          width="404"
-          height="392"
-          fill="none"
-          viewBox="0 0 404 392"
-        >
-          <defs>
-            <pattern
-              id="837c3e70-6c3a-44e6-8854-cc48c737b659"
-              x="0"
-              y="0"
-              width="20"
-              height="20"
-              patternUnits="userSpaceOnUse"
-            >
-              <rect
-                x="0"
-                y="0"
-                width="4"
-                height="4"
-                className="text-gray-200 transition dark:text-neutral-600"
-                fill="currentColor"
-              ></rect>
-            </pattern>
-          </defs>
-          <rect
+      <div id="content" className="relative mt-[74px]">
+        <Nav />
+        <div className="container relative mt-[74px] py-4 ">
+          <div className="relative z-20 mt-20 max-w-2xl   rounded-xl border bg-white p-6 text-left shadow dark:bg-[#181a1b] lg:p-12">
+            <h1 className="gradient-primary bg-gradient-to-r bg-clip-text pb-4 text-4xl font-bold  text-transparent lg:text-5xl">
+              {t(`hero-title`)}
+            </h1>
+            <p className="text-lg lg:text-xl ">{t(`hero-p`)}</p>
+          </div>
+          <svg
+            className="absolute left-0 top-8 z-0"
             width="404"
             height="392"
-            fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)"
-          ></rect>
-        </svg>
-      </div>
-      <div
-        className="relative z-30 mx-auto grid max-w-7xl gap-8 px-6  pt-8 sm:grid-cols-2 md:grid-cols-3"
-        id="blog-feed"
-      >
-        <div className="mx-0 mb-6 flex flex-wrap md:max-w-full md:flex-nowrap">
-          <Link
-            href={featuredPost.url}
-            passHref
-            className="inline-flex overflow-hidden rounded-md  xs:h-48 md:h-[28rem]">
-
-            <Image
-              src={featuredPost.image}
-              width="1080"
-              height="540"
-              quality={100}
-              className="rounded-md object-cover object-center transition duration-300 hover:scale-105"
-              alt=""
-              priority
-            />
-
-          </Link>
-          <div className="py-4 md:px-8 md:py-8 lg:w-[32rem]">
+            fill="none"
+            viewBox="0 0 404 392"
+          >
+            <defs>
+              <pattern
+                id="837c3e70-6c3a-44e6-8854-cc48c737b659"
+                x="0"
+                y="0"
+                width="20"
+                height="20"
+                patternUnits="userSpaceOnUse"
+              >
+                <rect
+                  x="0"
+                  y="0"
+                  width="4"
+                  height="4"
+                  className="text-gray-200 transition dark:text-neutral-600"
+                  fill="currentColor"
+                ></rect>
+              </pattern>
+            </defs>
+            <rect
+              width="404"
+              height="392"
+              fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)"
+            ></rect>
+          </svg>
+        </div>
+        <div
+          className="relative z-30 mx-auto grid max-w-7xl gap-8 px-6  pt-8 sm:grid-cols-2 md:grid-cols-3"
+          id="blog-feed"
+        >
+          <div className="mx-0 mb-6 flex flex-wrap md:max-w-full md:flex-nowrap">
             <Link
-              href={
-                `/blog/category/` +
-                featuredPost.category.toLowerCase().split(` `).join(`-`)
-              }
+              href={featuredPost.url}
               passHref
-              className="my-1 text-xs font-bold uppercase text-pinkRed">
-
-              {featuredPost.category}
-
+              className="inline-flex overflow-hidden rounded-md  xs:h-48 md:h-[28rem]"
+            >
+              <Image
+                src={featuredPost.image}
+                width="1080"
+                height="540"
+                quality={100}
+                className="rounded-md object-cover object-center transition duration-300 hover:scale-105"
+                alt=""
+                priority
+              />
             </Link>
-            <Link href={featuredPost.url} passHref>
-
-              <h2 className="text-2xl font-bold lg:text-4xl">
-                {featuredPost.title}
-              </h2>
-              <p className="mt-4">{featuredPost.summary}</p>
-
-            </Link>
-            <div className="mt-4 flex items-center">
+            <div className="py-4 md:px-8 md:py-8 lg:w-[32rem]">
               <Link
                 href={
-                  members.filter(
-                    (item) => item.name == featuredPost.author,
-                  )[0].url
+                  `/blog/category/` +
+                  featuredPost.category.toLowerCase().split(` `).join(`-`)
                 }
+                passHref
+                className="my-1 text-xs font-bold uppercase text-pinkRed"
               >
-
-                <Image
-                  src={
-                    members.filter(
-                      (item) => item.name == featuredPost.author,
-                    )[0].avatar
-                  }
-                  width={40}
-                  height={40}
-                  alt=""
-                  className="rounded-full"
-                />
-
+                {featuredPost.category}
               </Link>
-              <div className="pl-2 text-sm">
+              <Link href={featuredPost.url} passHref>
+                <h2 className="text-2xl font-bold lg:text-4xl">
+                  {featuredPost.title}
+                </h2>
+                <p className="mt-4">{featuredPost.summary}</p>
+              </Link>
+              <div className="mt-4 flex items-center">
                 <Link
                   href={
                     members.filter(
@@ -219,34 +184,51 @@ const Blog: NextPage<{ posts: Post[] }> = ({ posts }) => {
                     )[0].url
                   }
                 >
-
-                  <span className="font-semibold">
-                    {featuredPost.author}
-                  </span>
-
+                  <Image
+                    src={
+                      members.filter(
+                        (item) => item.name == featuredPost.author,
+                      )[0].avatar
+                    }
+                    width={40}
+                    height={40}
+                    alt=""
+                    className="rounded-full"
+                  />
                 </Link>
+                <div className="pl-2 text-sm">
+                  <Link
+                    href={
+                      members.filter(
+                        (item) => item.name == featuredPost.author,
+                      )[0].url
+                    }
+                  >
+                    <span className="font-semibold">{featuredPost.author}</span>
+                  </Link>
 
-                <time
-                  dateTime={featuredPost.date}
-                  className="block text-gray-600 dark:text-gray-200"
-                >
-                  {format(parseISO(featuredPost.date), `LLLL d, yyyy`)}
-                </time>
+                  <time
+                    dateTime={featuredPost.date}
+                    className="block text-gray-600 dark:text-gray-200"
+                  >
+                    {format(parseISO(featuredPost.date), `LLLL d, yyyy`)}
+                  </time>
+                </div>
               </div>
             </div>
           </div>
+          {posts.slice(1, posts.length).map((post, idx) => (
+            <PostCard key={idx} {...post} />
+          ))}
         </div>
-        {posts.slice(1, posts.length).map((post, idx) => (
-          <PostCard key={idx} {...post} />
-        ))}
+        <div className="mx-auto mt-8 max-w-7xl px-6">
+          <Link href="/" passHref>
+            {t(`back-to-home`)}
+          </Link>
+        </div>
       </div>
-      <div className="mx-auto mt-8 max-w-7xl px-6">
-        <Link href="/" passHref>
-          <-{t(`back-to-home`)}
-        </Link>
-      </div>
-    </div>
-    <Footer />
-  </>;
+      <Footer />
+    </>
+  )
 }
 export default Blog
