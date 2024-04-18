@@ -1,7 +1,6 @@
 {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true,
-    "eslint.format.enable": true,
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },

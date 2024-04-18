@@ -6,8 +6,14 @@ module.exports = withContentlayer()({
   reactStrictMode: true,
 
   images: {
-    loader: process.env.NODE_ENV == 'production' ? 'custom' : 'default',
-    loaderFile: 'image-loader.js',
+    domains: [
+      'avatars.githubusercontent.com',
+      'fosshost.org',
+      'owo.whats-th.is',
+      'images.unsplash.com',
+      'yuri.might-be-super.fun',
+      'chito.ge'
+    ],
     formats: ['image/avif', 'image/webp'],
   },
   swcMinify: true,
