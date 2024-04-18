@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image, { ImageProps } from 'next/image'
+import Image, { ImageProps } from "next/legacy/image"
 import { ReactNode } from 'react'
 
 interface Props {

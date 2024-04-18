@@ -12,7 +12,7 @@ import circles from 'public/images/blog-banner.png'
 import components from 'components/MDXComponents'
 import { getMDXComponent } from 'mdx-bundler/client'
 
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import members from 'data/members.json'
 import { useMemo } from 'react'
 import { useTranslation } from 'next-i18next'

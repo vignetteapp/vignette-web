@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { compareDesc, format, parseISO } from 'date-fns'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { allPosts, Post } from 'contentlayer/generated'
 import { GetStaticProps, NextPage } from 'next'
 import { Footer, Nav, SEO } from 'components'

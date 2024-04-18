@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import type { NextPage, GetStaticProps } from 'next'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 
