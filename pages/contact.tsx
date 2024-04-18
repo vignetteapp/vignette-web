@@ -87,7 +87,16 @@ const Home: NextPage<cache> = () => {
           <div className="flex h-96 w-[16rem] flex-col justify-between rounded-2xl border p-8 px-10 text-center shadow dark:border-neutral-700">
             <div>
               <div className="item-center mx-auto flex h-24 w-24 items-center justify-center rounded-full border bg-pinkRed dark:border-none dark:border-neutral-700">
-                <Image src={envelope} width={48} height={48} alt="" />
+                <Image
+                  src={envelope}
+                  width={48}
+                  height={48}
+                  alt=""
+                  style={{
+                    maxWidth: `100%`,
+                    height: `auto`,
+                  }}
+                />
               </div>
               <h3 className=" mt-4 text-xl font-bold">{t(`anything-else`)}</h3>
               <p className="mx-auto mt-2 max-w-[18rem] text-center text-sm">

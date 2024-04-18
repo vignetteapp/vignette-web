@@ -63,6 +63,10 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
               className="rounded-md object-cover object-center "
               alt=""
               priority
+              style={{
+                maxWidth: `100%`,
+                height: `auto`,
+              }}
             />
           </a>
 
@@ -73,6 +77,10 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
               height={40}
               alt=""
               className="rounded-full"
+              style={{
+                maxWidth: `100%`,
+                height: `auto`,
+              }}
             />
             <div className="pl-3">
               <span className="font-semibold">{post.author}</span>
@@ -120,8 +128,8 @@ const PostLayout: NextPage<{ post: Post }> = ({ post }) => {
         </Link>
       </div>
       {/* <div className="relative left-0 h-80 w-80  lg:top-24 2xl:absolute">
-      <Image src={circles} layout="fill" priority alt="" />
-    </div> */}
+    <Image src={circles} layout="fill" priority alt="" />
+  </div> */}
       <Footer />
     </>
   )

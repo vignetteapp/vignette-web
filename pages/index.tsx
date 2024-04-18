@@ -101,6 +101,10 @@ const Home: NextPage<cache> = ({ contributors }) => {
                       width={1280}
                       height={720}
                       quality={90}
+                      style={{
+                        maxWidth: `100%`,
+                        height: `auto`,
+                      }}
                     />
                   </div>
                 </div>
@@ -124,8 +128,8 @@ const Home: NextPage<cache> = ({ contributors }) => {
               {t(`extensions-in-development`)}
             </p>
             {/* <Link href="/extensions" passHref>
-            <a className="button"> {t(`explore-extensions-button`)}</a>
-          </Link> */}
+          <a className="button"> {t(`explore-extensions-button`)}</a>
+        </Link> */}
           </div>
           <div className=" mt-8" title="Coming soon....">
             <Marquee speed={50} gradientWidth={0}>
@@ -163,6 +167,10 @@ const Home: NextPage<cache> = ({ contributors }) => {
                   height={64}
                   className="rounded-full"
                   alt=""
+                  style={{
+                    maxWidth: `100%`,
+                    height: `auto`,
+                  }}
                 />
               </div>
             ))}

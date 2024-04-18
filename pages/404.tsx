@@ -39,6 +39,10 @@ const Custom404: NextPage = () => {
                   width={207}
                   height={45}
                   className="mx-auto"
+                  style={{
+                    maxWidth: `100%`,
+                    height: `auto`,
+                  }}
                 />
               </div>
 
@@ -63,6 +67,10 @@ const Custom404: NextPage = () => {
             src={Blahaj}
             alt=""
             className=" my-2 mx-auto max-h-[26rem] w-auto rounded-xl border"
+            style={{
+              maxWidth: `100%`,
+              height: `auto`,
+            }}
           />
 
           <div className="mx-auto mt-8 mb-8 flex flex-wrap justify-center gap-4">

@@ -11,6 +11,10 @@ const Profile: React.FC<{
     width={size}
     height={size}
     alt=""
+    style={{
+      maxWidth: `100%`,
+      height: `auto`,
+    }}
   />
 )
 

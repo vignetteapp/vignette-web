@@ -19,7 +19,15 @@ const CustomLink = (props: Props) => {
 }
 
 const RoundedImage = (props: ImageProps) => {
-  return <Image {...props} />
+  return (
+    <Image
+      {...props}
+      style={{
+        maxWidth: `100%`,
+        height: `auto`,
+      }}
+    />
+  )
 }
 
 const MDXComponents = {

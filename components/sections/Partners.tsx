@@ -26,6 +26,10 @@ const Partners = () => {
                 alt={partner.name}
                 width={partner.imgWidth}
                 height={partner.imgHeight}
+                style={{
+                  maxWidth: `100%`,
+                  height: `auto`,
+                }}
               />
               {partner.darkImg && (
                 <div
@@ -42,6 +46,10 @@ const Partners = () => {
                     alt={partner.name}
                     width={partner.imgWidth}
                     height={partner.imgHeight}
+                    style={{
+                      maxWidth: `100%`,
+                      height: `auto`,
+                    }}
                   />
                 </div>
               )}

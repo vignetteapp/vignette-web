@@ -67,6 +67,10 @@ function PostCard(post: Post) {
           quality={100}
           className="rounded-md object-cover object-center transition duration-300 hover:scale-105"
           alt=""
+          style={{
+            maxWidth: `100%`,
+            height: `auto`,
+          }}
         />
       </Link>
       <div className="w-full py-4 ">
@@ -87,6 +91,10 @@ function PostCard(post: Post) {
               height={40}
               alt=""
               className="rounded-full"
+              style={{
+                maxWidth: `100%`,
+                height: `auto`,
+              }}
             />
           </Link>
           <div className="pl-2 text-sm">

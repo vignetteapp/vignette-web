@@ -19,34 +19,15 @@ const Logo = ({
   <>
     {forceLight ? (
       <div className={`${className} flex dark:hidden`}>
-        <Image
-          src={logoDark}
-          priority
-          width={width}
-          height={height}
-          layout="fixed"
-          alt=""
-        />
+        <Image src={logoDark} priority width={width} height={height} alt="" />
       </div>
     ) : (
       <>
         <div className={`${className} flex dark:hidden`}>
-          <Image
-            src={logo}
-            width={width}
-            height={height}
-            layout="fixed"
-            alt=""
-          />
+          <Image src={logo} width={width} height={height} alt="" />
         </div>
         <div className={`${className} hidden dark:flex`}>
-          <Image
-            src={logoDark}
-            width={width}
-            height={height}
-            layout="fixed"
-            alt=""
-          />
+          <Image src={logoDark} width={width} height={height} alt="" />
         </div>
       </>
     )}
@@ -55,22 +36,10 @@ const Logo = ({
 const LogoSquare: React.FC<{ size: number }> = ({ size }) => (
   <>
     <div className="flex dark:hidden">
-      <Image
-        src={logosquare}
-        width={size}
-        height={size}
-        layout="fixed"
-        alt=""
-      />
+      <Image src={logosquare} width={size} height={size} alt="" />
     </div>
     <div className="hidden dark:flex">
-      <Image
-        src={logosquareDark}
-        width={size}
-        height={size}
-        layout="fixed"
-        alt=""
-      />
+      <Image src={logosquareDark} width={size} height={size} alt="" />
     </div>
   </>
 )

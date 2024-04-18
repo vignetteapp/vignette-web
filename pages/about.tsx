@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import type { NextPage, GetStaticProps } from 'next'
-import Image from 'next/image'
+import Image from "next/image"
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 
@@ -107,7 +107,17 @@ const OpenSource: NextPage<pageProps> = ({
         </Fadein>
       </div>
       <Fadein className="mt-32 text-center ">
-        <Image src={repoIcon} alt="" quality={100} width={72} height={72} className="inline-block" />
+        <Image
+          src={repoIcon}
+          alt=""
+          quality={100}
+          width={72}
+          height={72}
+          className="inline-block"
+          style={{
+            maxWidth: `100%`,
+            height: `auto`
+          }} />
 
         <h2 className="mt-8 text-2xl font-bold lg:text-3xl">
           {t(`section1-title`)}
@@ -127,7 +137,10 @@ const OpenSource: NextPage<pageProps> = ({
                   className="rounded-full"
                   src={user.profile}
                   alt=""
-                />
+                  style={{
+                    maxWidth: `100%`,
+                    height: `auto`
+                  }} />
               </div>
 
             </Link>)
@@ -143,7 +156,16 @@ const OpenSource: NextPage<pageProps> = ({
         </p>
       </Fadein>
       <div className="container mt-12 text-center">
-        <Image src={donationImage}  className="inline-block" width={400} height={400} alt="" />
+        <Image
+          src={donationImage}
+          className="inline-block"
+          width={400}
+          height={400}
+          alt=""
+          style={{
+            maxWidth: `100%`,
+            height: `auto`
+          }} />
         <h1 className="text-3xl font-bold"> {t(`section3-title`)}</h1>
         <p className="mx-auto mt-2 mb-2 max-w-[34em]">{t(`section3-p`)}</p>
         <button
