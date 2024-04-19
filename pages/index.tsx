@@ -46,17 +46,17 @@ const Home: NextPage<cache> = ({ contributors }) => {
             </p>
 
             <Button
-              href="https://discord.gg/rsPNAxwweg"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfqaFTQsKdWxQINWxMgMp_eSy3b37GyiPJhUfKfH-B1Q90dug/viewform"
               className=" inline-block sm:hidden"
             >
-              {t(`join-discord-short`)}&rarr;
+              {t(`join-survey`)}&rarr;
             </Button>
             <Button
               size="large"
-              href="https://discord.gg/rsPNAxwweg"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfqaFTQsKdWxQINWxMgMp_eSy3b37GyiPJhUfKfH-B1Q90dug/viewform"
               className=" hidden sm:inline-block"
             >
-              {t(`join-discord-long`)} &rarr;
+              {t(`join-survey`)} &rarr;
             </Button>
           </div>
         </div>
