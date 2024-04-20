@@ -45,18 +45,32 @@ const Home: NextPage<cache> = ({ contributors }) => {
               {t(`hero-p`)}
             </p>
 
+              
+            <p className="my-4 text-lg text-black dark:text-neutral-200 xs:text-xl lg:mb-8 lg:max-w-[36ch] ">
+              {t(`survey-invite`)}
+            </p>
+
             <Button
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfqaFTQsKdWxQINWxMgMp_eSy3b37GyiPJhUfKfH-B1Q90dug/viewform"
+            //small-button
+            onClick={() => {
+              window.open("https://docs.google.com/forms/d/e/1FAIpQLSfqaFTQsKdWxQINWxMgMp_eSy3b37GyiPJhUfKfH-B1Q90dug/viewform", "_blank");
+              window.location.href="/discord"
+             }}
               className=" inline-block sm:hidden"
+              
             >
-              {t(`join-survey`)}&rarr;
+              {t(`join-survey-short`)}&rarr;
             </Button>
             <Button
               size="large"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfqaFTQsKdWxQINWxMgMp_eSy3b37GyiPJhUfKfH-B1Q90dug/viewform"
+             onClick={() => {
+              window.open("https://docs.google.com/forms/d/e/1FAIpQLSfqaFTQsKdWxQINWxMgMp_eSy3b37GyiPJhUfKfH-B1Q90dug/viewform", "_blank");
+              window.location.href="/discord"
+             }}
+             
               className=" hidden sm:inline-block"
             >
-              {t(`join-survey`)} &rarr;
+              {t(`join-survey-long`)} &rarr;
             </Button>
           </div>
         </div>
