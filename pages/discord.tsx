@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
 
 import { useRouter } from 'next/router'
 
@@ -8,20 +7,19 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import Button from 'components/Button'
 
-const discord: NextPage = () => {
+const Discord: NextPage = () => {
   const { t } = useTranslation(`discord`)
   const { locale } = useRouter()
 
-
   return (
     <>
-      <SEO title={`WE HAVE DISCORD!!`}/>
+      <SEO title={`WE HAVE DISCORD!!`} />
       <Nav />
       <div
         className="z-20 mt-[74px] overflow-x-clip pt-8 lg:relative"
         id="content"
       >
-      <div className="mx-auto mt-8 max-w-7xl grid-cols-1 px-6 lg:grid-cols-2 lg:gap-24 lg:pt-20 lg:pb-[14rem] xl:grid">
+        <div className="mx-auto mt-8 max-w-7xl grid-cols-1 px-6 lg:grid-cols-2 lg:gap-24 lg:pt-20 lg:pb-[14rem] xl:grid">
           <div className="pb-8 lg:max-w-4xl">
             <h1
               className={
@@ -32,21 +30,20 @@ const discord: NextPage = () => {
               }
             >
               {t(`title1`)}
-              <br /> 
+              <br />
             </h1>
 
             <p className="my-4 text-lg text-black dark:text-neutral-200 xs:text-xl lg:mb-8 lg:max-w-[36ch] ">
               {t(`hero-p`)}
             </p>
-              <p className="my-4 text-lg text-black dark:text-neutral-200 xs:text-xl lg:mb-8 lg:max-w-[36ch] ">
+            <p className="my-4 text-lg text-black dark:text-neutral-200 xs:text-xl lg:mb-8 lg:max-w-[36ch] ">
               {t(`discord-invite`)}
             </p>
 
             <Button
-            //small-button
+              //small-button
               href="https://discord.gg/rsPNAxwweg"
               className=" inline-block sm:hidden"
-              
             >
               {t(`join-discord-short`)}&rarr;
             </Button>
@@ -59,7 +56,7 @@ const discord: NextPage = () => {
             </Button>
           </div>
         </div>
-        </div>
+      </div>
       <Footer />
     </>
   )
@@ -77,4 +74,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     revalidate: 10,
   }
 }
-export default discord
+export default Discord
