@@ -45,18 +45,35 @@ const Home: NextPage<cache> = ({ contributors }) => {
               {t(`hero-p`)}
             </p>
 
+            <p className="my-4 text-lg text-black dark:text-neutral-200 xs:text-xl lg:mb-8 lg:max-w-[36ch] ">
+              {t(`survey-invite`)}
+            </p>
+
             <Button
-              href="https://discord.gg/rsPNAxwweg"
+              //small-button
+              onClick={() => {
+                window.open(
+                  `https://docs.google.com/forms/d/e/1FAIpQLSfqaFTQsKdWxQINWxMgMp_eSy3b37GyiPJhUfKfH-B1Q90dug/viewform`,
+                  `_blank`,
+                )
+                window.location.href = `/discord`
+              }}
               className=" inline-block sm:hidden"
             >
-              {t(`join-discord-short`)}&rarr;
+              {t(`join-survey-short`)}&rarr;
             </Button>
             <Button
               size="large"
-              href="https://discord.gg/rsPNAxwweg"
+              onClick={() => {
+                window.open(
+                  `https://docs.google.com/forms/d/e/1FAIpQLSfqaFTQsKdWxQINWxMgMp_eSy3b37GyiPJhUfKfH-B1Q90dug/viewform`,
+                  `_blank`,
+                )
+                window.location.href = `/discord`
+              }}
               className=" hidden sm:inline-block"
             >
-              {t(`join-discord-long`)} &rarr;
+              {t(`join-survey-long`)} &rarr;
             </Button>
           </div>
         </div>
