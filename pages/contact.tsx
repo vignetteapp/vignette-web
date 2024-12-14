@@ -8,7 +8,7 @@ import { cache } from './about'
 import { Nav, SEO, Footer } from 'components'
 import envelope from 'public/images/envelope.png'
 
-import { SiDiscord, SiGithub, SiTwitter } from 'react-icons/si'
+import { SiDiscord, SiGithub, SiGoogleforms, SiTwitter } from 'react-icons/si'
 import Button from 'components/Button'
 const Home: NextPage<cache> = () => {
   const { t } = useTranslation(`contact`)
@@ -18,9 +18,9 @@ const Home: NextPage<cache> = () => {
       <Nav />
       <div
         id="content"
-        className="container z-20 mx-auto mt-[74px] max-w-7xl overflow-hidden pt-8 text-center lg:relative lg:pt-20"
+        className="container z-20 mx-auto mt-[74px] max-w-full overflow-hidden pt-8 text-center lg:relative lg:pt-20"
       >
-        <div className=" flex justify-center">
+        <div className="flex justify-center">
           <h1
             style={{
               paddingLeft: `0.2em`,
@@ -40,8 +40,10 @@ const Home: NextPage<cache> = () => {
           {` `}
           {t(`hero-p-3`)}
         </p>
-        <div className="mx-auto mt-10 flex  flex-wrap justify-center gap-8 p-4 ">
-          <div className="flex h-96 w-full max-w-[16rem] flex-col justify-between rounded-2xl border p-8 px-10 text-center shadow dark:border-neutral-700">
+
+        {/* Adjusted card container */}
+        <div className="mx-auto mt-10 flex flex-wrap justify-center gap-4 p-4">
+          <div className="flex h-96 w-[16rem] flex-col justify-between rounded-2xl border p-8 px-10 text-center shadow dark:border-neutral-700">
             <div className="item-center dark:border-none-neutral-700 mx-auto flex h-24 w-24 items-center justify-center rounded-full border bg-[#5865F2] dark:border dark:border-none ">
               <SiDiscord size={48} color="white" className=" " />
             </div>
@@ -107,9 +109,23 @@ const Home: NextPage<cache> = () => {
               {t(`email-us-button`)} &rarr;
             </Button>
           </div>
+
+          <div className="flex h-96 w-[16rem] flex-col justify-between rounded-2xl border p-8 px-10 text-center shadow dark:border-neutral-700">
+            <div>
+              <div className="item-center mx-auto flex h-24 w-24 items-center justify-center rounded-full border bg-white dark:border-none dark:border-neutral-700">
+                <SiGoogleforms size={48} className="fill-[#59adff] " />
+              </div>
+              <h3 className=" mt-4 text-xl font-bold">{t(`survey`)}</h3>
+              <p className="mx-auto mt-2 max-w-[18rem] text-center text-sm">
+                {t(`survey-p`)}
+              </p>
+            </div>
+            <Button size="small" href="/survey">
+              {t(`share-your-feedback`)} &rarr;
+            </Button>
+          </div>
         </div>
       </div>
-
       <Footer />
     </>
   )

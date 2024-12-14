@@ -49,32 +49,40 @@ const Home: NextPage<cache> = ({ contributors }) => {
               {t(`survey-invite`)}
             </p>
 
-            <Button
-              //small-button
-              onClick={() => {
-                window.open(
-                  `https://docs.google.com/forms/d/e/1FAIpQLSfqaFTQsKdWxQINWxMgMp_eSy3b37GyiPJhUfKfH-B1Q90dug/viewform`,
-                  `_blank`,
-                )
-                window.location.href = `/discord`
-              }}
-              className=" inline-block sm:hidden"
-            >
-              {t(`join-survey-short`)}&rarr;
-            </Button>
-            <Button
-              size="large"
-              onClick={() => {
-                window.open(
-                  `https://docs.google.com/forms/d/e/1FAIpQLSfqaFTQsKdWxQINWxMgMp_eSy3b37GyiPJhUfKfH-B1Q90dug/viewform`,
-                  `_blank`,
-                )
-                window.location.href = `/discord`
-              }}
-              className=" hidden sm:inline-block"
-            >
-              {t(`join-survey-long`)} &rarr;
-            </Button>
+            <div className="flex flex-col items-start space-y-4">
+              <Button
+                onClick={() => {
+                  window.location.href = `/survey`
+                }}
+                className="inline-block sm:hidden"
+              >
+                {t(`join-survey-short`)} &rarr;
+              </Button>
+
+              <Button
+                size="large"
+                onClick={() => {
+                  window.location.href = `/survey`
+                }}
+                className="hidden sm:inline-block"
+              >
+                {t(`join-survey-long`)} &rarr;
+              </Button>
+
+              <div className="w-full lg:w-auto flex justify-center lg:justify-end">
+                <Button
+                  size="large"
+                  onClick={() => {
+                    window.open(`/404`, `_blank`)
+                  }}
+                  className="w-full lg:w-[35rem] text-xl py-16 px-26 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                >
+                  <span className="font-regular">
+                    {t(`download-p`)} &#8595;
+                  </span>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
         <MenuComp />
